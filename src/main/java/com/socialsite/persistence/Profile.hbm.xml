@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.socialsite.persistence">
+  <class name="Profile">
+  
+  <!-- id  -->
+  
+  <id name="id" type="long" column="user_id">
+  <generator class="foreign">
+  <param name="property">user</param>
+  </generator>
+  </id>
+  
+  <!-- property -->
+  <property name="firstName" type="string" />
+  <property name="lastName" type="string" />
+  <property name="email" type="string" />
+  <property name="image" type="binary" length="10000000"/>
+  <property name="thumb" type="binary" length="100000"/>
+  
+  
+  <!-- Relations -->
+  <one-to-one name="user"  class="com.socialsite.persistence.User"  constrained="true" foreign-key="fk_Profile_user_id_User_id" />
+  
+  </class>
+</hibernate-mapping>

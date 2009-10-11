@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd"
+	xml:lang="en" lang="en">
+<body>
+<div>
+<form wicket:id="signupform" action="#">
+<table>
+	<tbody>
+		<tr><td>Username</td><td><input wicket:id="username" type="text" /></td></tr>
+		<tr><td>Password</td><td><input wicket:id="password" type="password" /></td></tr>
+		<tr><td>Email</td><td><input wicket:id="email" type="text" /></td></tr>
+		<tr><td>Image</td><td><input wicket:id="image" type="file" /></td></tr>
+		<tr><td>&nbsp;</td><td><a wicket:id="signup" href="#">submit</a></td></tr>
+	</tbody>
+</table>
+</form>
+<div wicket:id="feedback"></div>
+</div>
+</body>
+</html>
+

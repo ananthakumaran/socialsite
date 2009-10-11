@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="true">
+
+	<!--  Hibernate template  -->
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+
+
+	<!-- setup hibernate session factory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+		lazy-init="true">
+		<property name="dataSource" ref="dataSource" />
+
+		<property name="mappingResources">
+			<list>
+			<value>com/socialsite/persistence/User.hbm.xml</value>
+			<value>com/socialsite/persistence/Profile.hbm.xml</value>
+			<value>com/socialsite/persistence/FriendRequest.hbm.xml</value>
+			<value>com/socialsite/persistence/Scrap.hbm.xml</value>
+			</list>
+		</property>
+
+		<property name="schemaUpdate" value="true" />
+
+		<property name="hibernateProperties">
+			<props>
+
+				<!-- show sql for debugging -->
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="format_sql">true</prop>
+				<prop key="use_sql_comments">true</prop>
+
+				<!-- hibernate dialect settings -->
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+
+				<!-- uncomment to  allow caching -->
+				<!--
+					<prop key="hibernate.connection.pool_size">5</prop> <prop
+					key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+					<prop key="hibernate.hibernate.cache.use_query_cache">true</prop>
+				-->
+			</props>
+		</property>
+	</bean>
+
+	
+
+	<!-- setup transaction manager	-->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		lazy-init="true">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+</beans>

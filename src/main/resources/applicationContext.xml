@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="true">
+	<!-- beans can't come before imports so have have these in an import -->
+	<import resource="classpath:common.xml" />
+
+
+	<import resource="classpath:persistence.hibernate.xml" />
+
+
+	<!-- import the wicket application specific settiongs -->
+	<import resource="classpath:SpringHibernate.xml" />
+
+</beans>

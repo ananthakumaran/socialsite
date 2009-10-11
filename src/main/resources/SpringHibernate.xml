@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="true">
+
+	<!-- setup wicket application -->
+
+	<bean id="wicketApplication" class="com.socialsite.SocialSiteApplication">
+	</bean>
+
+	<!--
+		Abstract for TransactionProxyFactoryBean Defines the transaction
+		property for methods
+	-->
+
+	<bean id="transactionProxyTemplate"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save">PROPAGATION_REQUIRED</prop>
+				<prop key="delete">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- setup All the Dao -->
+
+	<!-- UserDao -->
+	<bean id="userDaoTarget" class="com.socialsite.dao.hibernate.UserDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="userDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="userDaoTarget" />
+	</bean>
+
+	<!-- ProfileDao -->
+	<bean id="profileDaoTarget" class="com.socialsite.dao.hibernate.ProfileDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="profileDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="profileDaoTarget" />
+	</bean>
+
+	<!-- FriendRequestDao -->
+	<bean id="friendRequestDaoTarget" class="com.socialsite.dao.hibernate.FriendRequestDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="friendRequestDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="friendRequestDaoTarget" />
+	</bean>
+	
+	<!-- ScrapDao -->
+	<bean id="scrapDaoTarget" class="com.socialsite.dao.hibernate.ScrapDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="scrapDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="scrapDaoTarget" />
+	</bean>
+
+</beans>

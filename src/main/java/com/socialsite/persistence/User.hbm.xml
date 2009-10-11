@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.socialsite.persistence">
+	<class name="User">
+		<!-- id -->
+		<id name="id" type="long">
+			<generator class="identity"></generator>
+		</id>
+
+		<!-- property -->
+		<property name="userName" type="string" unique="true" not-null="true"/>
+		<property name="password" type="string" not-null="true"/>
+
+		<!-- Relations -->
+
+		<set name="friends" table="friend_reference" >
+			<key column="friend_id" foreign-key="fk_Friend_Reference_friend_id_User_id" not-null="true" ></key>
+			<many-to-many class="com.socialsite.persistence.User"
+				column="user_id" foreign-key="fk_Friend_Reference_user_id_User_id"  />
+		</set>
+
+		<set name="friendRequests" >
+			<key column="friend_id" />
+			<one-to-many class="com.socialsite.persistence.FriendRequest" />
+		</set>
+		
+		<set name="scraps">
+		<key column="receiver_id"  />
+		<one-to-many class="com.socialsite.persistence.Scrap" />
+		</set>
+		
+		<set name="scrapsSend">
+		<key column="author_id"  />
+		<one-to-many class="com.socialsite.persistence.Scrap" />
+		</set>
+	</class>
+</hibernate-mapping>

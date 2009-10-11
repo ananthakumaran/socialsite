@@ -1,0 +1,63 @@
+@CHARSET "ISO-8859-1";
+
+/******* standard elements *******/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: white;
+	font-family: 'Helvetica', 'Lucida Sans', 'Sans-serif', 'sans';
+}
+
+li {
+	list-style: none;
+	display: inline;
+}
+
+/** structure elements **/
+#container {
+	
+}
+
+#header {
+	height: 200px;
+}
+
+#header div.navigation {
+	float: left;
+}
+
+#header div.info {
+	float: right;
+}
+
+#header div.info li {
+	list-style: none;
+	display: inline;
+}
+
+div.navigation li {
+	list-style: none;
+	display: inline;
+}
+
+#leftsidebar {
+	float: left;
+	width: 20%;
+}
+
+#rightsidebar {
+	float: right;
+	width: 35%;
+}
+
+#content {
+	float: left;
+	width: 43%;
+}
+
+#footer {
+	
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.socialsite.persistence">
+	<class name="Scrap">
+		<id name="id" type="long">
+			<generator class="identity"></generator>
+		</id>
+
+		<!--  properties -->
+		<property name="message" type="text" not-null="true"/>
+		<property name="time" type="timestamp"  not-null="true"/>
+
+
+		<!--  relations -->
+
+		<many-to-one name="author" class="com.socialsite.persistence.User"
+			column="author_id" foreign-key="fk_Scrap_author_id_User_id" not-null="true" />
+		<many-to-one name="receiver" class="com.socialsite.persistence.User"
+			column="receiver_id" foreign-key="fk_Scrap_receiver_id_User_id"
+			not-null="true" />
+
+	</class>
+</hibernate-mapping>
