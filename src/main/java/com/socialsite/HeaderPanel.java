@@ -4,10 +4,13 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.PropertyModel;
 
 import com.socialsite.authentication.LogoutPage;
 import com.socialsite.entitymodel.StringWrapper;
+import com.socialsite.home.HomePage;
+import com.socialsite.scrap.ScrapPage;
 import com.socialsite.search.SearchPage;
 
 /**
@@ -15,23 +18,51 @@ import com.socialsite.search.SearchPage;
  * 
  * @author Ananth
  */
-public class HeaderPanel extends BasePanel
-{
+public class HeaderPanel extends BasePanel {
 
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** Model for search text box */
-	public StringWrapper		filter;
+	public StringWrapper filter;
 
 	/*
 	 * construct
 	 */
-	public HeaderPanel(String id)
-	{
+	public HeaderPanel(String id) {
 		super(id);
+
+		add(new Link<Object>("home") {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick() {
+				setUserId(SocialSiteSession.get().getSessionUser().getId());
+				setResponsePage(HomePage.class);
+			}
+
+		});
+
+		add(new Link<Object>("scrap") {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick() {
+				setUserId(SocialSiteSession.get().getSessionUser().getId());
+				setResponsePage(ScrapPage.class);
+			}
+
+		});
 
 		add(new BookmarkablePageLink<Object>("logout", LogoutPage.class));
 
@@ -42,17 +73,15 @@ public class HeaderPanel extends BasePanel
 
 		// search box
 		searchForm.add(new TextField<String>("searchtextbox",
-			new PropertyModel<String>(this, "filter.model")));
-		searchForm.add(search = new SubmitLink("search")
-		{
+				new PropertyModel<String>(this, "filter.model")));
+		searchForm.add(search = new SubmitLink("search") {
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
-			public void onSubmit()
-			{
+			public void onSubmit() {
 				setResponsePage(new SearchPage(filter));
 			}
 		});

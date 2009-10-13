@@ -3,6 +3,9 @@ package com.socialsite;
 import org.apache.wicket.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+
+import com.socialsite.dao.UserDao;
 
 /**
  * BasePage for the JQMS Application
@@ -11,17 +14,19 @@ import org.apache.wicket.model.IModel;
  * 
  */
 @AuthorizeInstantiation( { "USER", "FRIEND", "OWNER" })
-public class BasePage extends WebPage
-{
-	private static final long	serialVersionUID	= 1L;
+public class BasePage extends WebPage {
+	private static final long serialVersionUID = 1L;
 
-	protected HeaderPanel		headerPanel;
+	/** spring dao to access the user object */
+	@SpringBean(name = "userDao")
+	private UserDao userDao;
+
+	protected HeaderPanel headerPanel;
 
 	/**
 	 * Constructor
 	 */
-	public BasePage()
-	{
+	public BasePage() {
 		this(null);
 	}
 
@@ -30,9 +35,24 @@ public class BasePage extends WebPage
 	 * 
 	 * @param model
 	 */
-	public BasePage(IModel<?> model)
-	{
+	public BasePage(IModel<?> model) {
 		super(model);
 		add(headerPanel = new HeaderPanel("header"));
+	}
+
+	/**
+	 * set the user id in the session and also sets the roles in the session
+	 * 
+	 * @param userId
+	 *            user id
+	 */
+	public void setUserId(long userId) {
+		SocialSiteSession session = SocialSiteSession.get();
+		// set the user id
+		session.setUserId(userId);
+		// set the roles
+		session.getSessionUser().setRoles(
+				userDao.getUsersRelation(userId, session.getSessionUser()
+						.getId()));
 	}
 }

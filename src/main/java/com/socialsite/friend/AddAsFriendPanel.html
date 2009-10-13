@@ -1,10 +1,13 @@
 <html xmlns:wicket>
+<wicket:head>
+
+</wicket:head>
 <wicket:panel>
-	<div><a href="#">Add as Friend</a>
-	<div>
+	<div><a class="addAsFriend" href="#">Add as Friend</a>
+	<div class="addAsFriendContainer">
 	<form wicket:id="addasfriendform" action="#"><input
 		wicket:id="message" type="text" /> <a wicket:id="send" href="#">send</a>
-	<a href="#">cancel</a></form>
+	<a class="cancel" href="#">cancel</a></form>
 	</div>
 	<div wicket:id="feedback"></div>
 	</div>

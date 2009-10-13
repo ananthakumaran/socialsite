@@ -7,6 +7,8 @@ import com.socialsite.SocialSiteSession;
 
 /**
  * 
+ * authorizer for the socialsite application 
+ * 
  * @author Ananth
  * 
  */
@@ -23,7 +25,13 @@ public class UserRolesAuthorizer implements IRoleCheckingStrategy {
 	 * @see org.apache.wicket.authorization.strategies.role.IRoleCheckingStrategy#hasAnyRole(SocialSiteRoles)
 	 */
 	public boolean hasAnyRole(Roles roles) {
-		return SocialSiteSession.get().getSessionUser().hasAnyRole(roles);
+		SessionUser sessionUser = SocialSiteSession.get().getSessionUser();
+		if (sessionUser != null) {
+			// check whether he has the role
+			return sessionUser.hasAnyRole(roles);
+		}
+		// not logged in
+		return false;
 	}
 
 }

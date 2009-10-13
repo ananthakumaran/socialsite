@@ -76,6 +76,9 @@ public class AddAsFriendPanel extends BasePanel
 				// TODO add javascript to hide the form after sending the friend
 				// request
 				target.addComponent(feedback);
+				
+				// remove the form
+				target.appendJavascript(" SocialSite.Home.AddAsFriend.removeAll();");
 			}
 		});
 		addAsFriendForm.setDefaultButton(send);
