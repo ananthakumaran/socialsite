@@ -1,2 +1,27 @@
 @CHARSET "ISO-8859-1";
 
+/*------------- user info ------------------*/
+.userInfo li {
+	background: #EEE;
+	border-top: 1px solid #FFF;
+	padding: 0 10px;
+}
+
+.userInfo input[type="text"] {
+	width: 125px;
+}
+
+li.feedbackPanelINFO {
+	background: #FFE5F4;
+	border: 1px solid #FBC2C4;
+	color: #8A1F11;
+	margin: 0 0 0 -10px;
+	border-top: 0;
+}
+
+div.friend {
+	background : #EEE;
+	width: 101px;
+	padding: 2px;
+	float : left;
+}
