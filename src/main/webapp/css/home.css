@@ -25,3 +25,8 @@ div.friend {
 	padding: 2px;
 	float : left;
 }
+
+/*-------------- friend requests -------------------*/
+.friendRequestContainer {
+	margin : 1% 0 0 0;
+}

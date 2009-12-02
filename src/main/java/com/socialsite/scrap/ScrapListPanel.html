@@ -1,13 +1,15 @@
 <html xmlns:wicket>
 <wicket:panel>
-  <div wicket:id="container">
-  <div wicket:id="scrap">
-  <a wicket:id="user"><span wicket:id="name">[name]</span></a>
-  <div wicket:id="message">[message]</div>
-  <div wicket:id="reply">[reply form]</div>
-  <a wicket:id="delete">delete</a>
-  </div>
-  </div>
+	<div class="scrapContainer" wicket:id="container">
+	<div class="box" wicket:id="scrap"><img wicket:id="userthumb" />
+	<div class="scrap"><a wicket:id="user"><span wicket:id="name">[name]</span></a><span
+		class="time" wicket:id="time"></span>
+	<div wicket:id="message">[message]</div>
+	<div class="clear"></div>
+	<div class="replyBox" wicket:id="reply">[reply form]</div>
+	<a class="delete" wicket:id="delete">delete</a></div>
+	<div class="clear"></div>
+	</div>
+	</div>
 </wicket:panel>
 </html>
-  

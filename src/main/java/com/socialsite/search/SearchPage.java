@@ -19,7 +19,7 @@ public class SearchPage extends BasePage
 {
 
 	/** search filter **/
-	private StringWrapper	filter;
+	private final StringWrapper	filter;
 
 	/**
 	 * constructor
@@ -27,7 +27,7 @@ public class SearchPage extends BasePage
 	 * @param searchText
 	 *            search text
 	 */
-	public SearchPage(StringWrapper filter)
+	public SearchPage(final StringWrapper filter)
 	{
 		// intialize the filter
 		this.filter = filter;
@@ -35,9 +35,10 @@ public class SearchPage extends BasePage
 		// add the user info panel
 		add(new UserInfoPanel("userinfo"));
 
-		SearchDataProvider searchDataProvider = new SearchDataProvider(this.filter);
+		final SearchDataProvider searchDataProvider = new SearchDataProvider(
+			this.filter);
 
-		DataView<User> searchList = new DataView<User>("searchlist",
+		final DataView<User> searchList = new DataView<User>("searchlist",
 			searchDataProvider, 10)
 		{
 
@@ -47,7 +48,7 @@ public class SearchPage extends BasePage
 			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			protected void populateItem(Item<User> item)
+			protected void populateItem(final Item<User> item)
 			{
 				item
 					.add(new SearchUserInfoPanel("userdetails", item.getModel()));

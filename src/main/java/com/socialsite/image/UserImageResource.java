@@ -33,12 +33,12 @@ public class UserImageResource extends DynamicWebResource
 	{
 		// inject the spring dao
 		InjectorHolder.getInjector().inject(this);
-		
+
 		// parameters
-		ValueMap params = getParameters();
-		
+		final ValueMap params = getParameters();
+
 		// load the image from the database
-		ImageResourceState imageResourceState = new ImageResourceState();
+		final ImageResourceState imageResourceState = new ImageResourceState();
 		try
 		{
 			imageResourceState.setContentType("image/jpeg");
@@ -52,19 +52,19 @@ public class UserImageResource extends DynamicWebResource
 					.getAsLong("id")));
 			}
 
-		} catch (Exception e)
+		} catch (final Exception e)
 		{
 			return new ResourceState()
 			{
 
 				@Override
-				public byte[] getData()
+				public String getContentType()
 				{
 					return null;
 				}
 
 				@Override
-				public String getContentType()
+				public byte[] getData()
 				{
 					return null;
 				}

@@ -32,15 +32,15 @@ public class FriendRequestDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testCreate()
 	{
-		User ananth = new User("ananth", "pass");
+		final User ananth = new User("ananth", "pass");
 		userDao.save(ananth);
 
-		User anantha = new User("anantha", "pass");
+		final User anantha = new User("anantha", "pass");
 		userDao.save(anantha);
 
 		// ananth is sending friend request to anantha
 
-		FriendRequest friendRequest = new FriendRequest();
+		final FriendRequest friendRequest = new FriendRequest();
 		friendRequest.setFriend(anantha);
 		friendRequest.setUser(ananth);
 
@@ -48,7 +48,7 @@ public class FriendRequestDaoTest extends AbstractDaoTest
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		int count = simpleJdbcTemplate
+		final int count = simpleJdbcTemplate
 			.queryForInt("select count(*) from friendrequest");
 
 		assertEquals("new row should be inserted in the friendrequest table",
@@ -60,29 +60,31 @@ public class FriendRequestDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testHasFriendRequest()
 	{
-		User ananth = new User("ananth", "pass");
+		final User ananth = new User("ananth", "pass");
 		userDao.save(ananth);
 
-		User anantha = new User("anantha", "pass");
+		final User anantha = new User("anantha", "pass");
 		userDao.save(anantha);
 
-		User unknown = new User ("unknown" , "pass");
+		final User unknown = new User("unknown", "pass");
 		userDao.save(unknown);
-		
+
 		// ananth is sending friend request to anantha
 
-		FriendRequest friendRequest = new FriendRequest();
+		final FriendRequest friendRequest = new FriendRequest();
 		friendRequest.setFriend(anantha);
 		friendRequest.setUser(ananth);
 
 		friendRequestDao.save(friendRequest);
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
-		
-		
-		assertEquals("ananth  sent a friend request to anantha",true, friendRequestDao.hasFriendRequest(ananth.getId(), anantha.getId()));
-		assertEquals("no friend request",false, friendRequestDao.hasFriendRequest(anantha.getId(), ananth.getId()));
-		assertEquals("no friend request",false, friendRequestDao.hasFriendRequest(unknown.getId(), ananth.getId()));
+
+		assertEquals("ananth  sent a friend request to anantha", true,
+			friendRequestDao.hasFriendRequest(ananth.getId(), anantha.getId()));
+		assertEquals("this stop anantha from sending a friendrequest ", true,
+			friendRequestDao.hasFriendRequest(anantha.getId(), ananth.getId()));
+		assertEquals("no friend request", false, friendRequestDao
+			.hasFriendRequest(unknown.getId(), ananth.getId()));
 
 	}
 

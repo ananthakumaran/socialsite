@@ -44,7 +44,8 @@ import com.socialsite.scripts.SchemaCreator;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-abstract public class AbstractDaoTest extends AbstractTransactionalJUnit4SpringContextTests
+abstract public class AbstractDaoTest extends
+		AbstractTransactionalJUnit4SpringContextTests
 {
 	/**
 	 * cleans the database before the execution of the test

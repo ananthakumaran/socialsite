@@ -7,6 +7,8 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 
@@ -34,10 +36,10 @@ public class ImageService
 	 *            size to be scaled
 	 * @return resized imagedata in bytes
 	 */
-	public byte[] resize(byte[] imageData, int maxSize)
+	public byte[] resize(final byte[] imageData, final int maxSize)
 	{
 		// Get the image from a file.
-		Image inImage = new ImageIcon(imageData).getImage();
+		final Image inImage = new ImageIcon(imageData).getImage();
 		// Determine the scale.
 		double scale = (double) maxSize / (double) inImage.getHeight(null);
 		if (inImage.getWidth(null) > inImage.getHeight(null))
@@ -47,15 +49,15 @@ public class ImageService
 
 		// Determine size of new image.
 		// One of the dimensions should equal maxSize.
-		int scaledW = (int) (scale * inImage.getWidth(null));
-		int scaledH = (int) (scale * inImage.getHeight(null));
+		final int scaledW = (int) (scale * inImage.getWidth(null));
+		final int scaledH = (int) (scale * inImage.getHeight(null));
 
 		// Create an image buffer in which to paint on.
-		BufferedImage outImage = new BufferedImage(scaledW, scaledH,
+		final BufferedImage outImage = new BufferedImage(scaledW, scaledH,
 			BufferedImage.TYPE_INT_RGB);
 
 		// Set the scale.
-		AffineTransform tx = new AffineTransform();
+		final AffineTransform tx = new AffineTransform();
 
 		// If the image is smaller than the desired image size,
 		// don't bother scaling.
@@ -65,7 +67,7 @@ public class ImageService
 		}
 
 		// Paint image.
-		Graphics2D g2d = outImage.createGraphics();
+		final Graphics2D g2d = outImage.createGraphics();
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 			RenderingHints.VALUE_ANTIALIAS_ON);
 		g2d.drawImage(inImage, tx, null);
@@ -73,18 +75,20 @@ public class ImageService
 
 		// JPEG-encode the image
 		// and write to file.
-		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
+		final ByteArrayOutputStream os = new ByteArrayOutputStream();
+		final JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
 		try
 		{
 			encoder.encode(outImage);
 			os.close();
-		} catch (ImageFormatException e)
+		} catch (final ImageFormatException e)
 		{
-			e.printStackTrace();
-		} catch (IOException e)
+			Logger.getLogger(ImageService.class.getName()).log(Level.SEVERE,
+				null, e);
+		} catch (final IOException e)
 		{
-			e.printStackTrace();
+			Logger.getLogger(ImageService.class.getName()).log(Level.SEVERE,
+				null, e);
 		}
 
 		return os.toByteArray();

@@ -120,10 +120,12 @@ public class SignUpPage extends WebPage
 
 						profileDao.save(userProfile);
 						System.out.println(userName + password);
-						User se = userDao.checkUserStatus(userName, password);
+						final User se = userDao.checkUserStatus(userName,
+							password);
 						if (se != null)
 						{
-							SocialSiteSession session = SocialSiteSession.get();
+							final SocialSiteSession session = SocialSiteSession
+								.get();
 							session.setSessionUser(new SessionUser(
 								user.getId(), SocialSiteRoles.ownerRole));
 							session.setUserId(user.getId());
@@ -148,7 +150,7 @@ public class SignUpPage extends WebPage
 		add(feedback);
 	}
 
-	private boolean checkContentType(String contentType)
+	private boolean checkContentType(final String contentType)
 	{
 		if (contentType.equalsIgnoreCase("image/gif")
 				|| contentType.equalsIgnoreCase("image/jpeg")

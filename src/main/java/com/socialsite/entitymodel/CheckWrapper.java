@@ -50,7 +50,7 @@ public class CheckWrapper<T> implements Serializable
 	 * @param wrapped
 	 *            object to be wrapped
 	 */
-	public CheckWrapper(T wrapped)
+	public CheckWrapper(final T wrapped)
 	{
 		this.name = wrapped;
 	}
@@ -81,7 +81,7 @@ public class CheckWrapper<T> implements Serializable
 	 * @param wrapped
 	 *            name to be wrapped in the object
 	 */
-	public void setName(T wrapped)
+	public void setName(final T wrapped)
 	{
 		this.name = wrapped;
 	}
@@ -92,7 +92,7 @@ public class CheckWrapper<T> implements Serializable
 	 * @param selected
 	 *            checkbox value
 	 */
-	public void setSelected(Boolean selected)
+	public void setSelected(final Boolean selected)
 	{
 		this.selected = selected;
 	}

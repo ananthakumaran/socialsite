@@ -22,29 +22,14 @@ public class FriendRequest implements AbstractDomain
 	/** message send during friend request */
 	private String				message;
 
-	public long getId()
-	{
-		return id;
-	}
-
-	public User getUser()
-	{
-		return user;
-	}
-
-	public void setUser(User user)
-	{
-		this.user = user;
-	}
-
 	public User getFriend()
 	{
 		return friend;
 	}
 
-	public void setFriend(User friend)
+	public long getId()
 	{
-		this.friend = friend;
+		return id;
 	}
 
 	public String getMessage()
@@ -52,14 +37,29 @@ public class FriendRequest implements AbstractDomain
 		return message;
 	}
 
-	public void setMessage(String message)
+	public User getUser()
+	{
+		return user;
+	}
+
+	public void setFriend(final User friend)
+	{
+		this.friend = friend;
+	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setMessage(final String message)
 	{
 		this.message = message;
 	}
 
-	public void setId(long id)
+	public void setUser(final User user)
 	{
-		this.id = id;
+		this.user = user;
 	}
 
 }

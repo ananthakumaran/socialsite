@@ -9,6 +9,7 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
@@ -18,6 +19,7 @@ import com.socialsite.dao.UserDao;
 import com.socialsite.dataprovider.FriendRequestsDataProvider;
 import com.socialsite.persistence.FriendRequest;
 import com.socialsite.persistence.User;
+import com.socialsite.user.UserLink;
 
 /**
  * shows all the friend requests
@@ -42,7 +44,7 @@ public class FriendRequestsPanel extends BasePanel
 	@SpringBean(name = "friendRequestDao")
 	private FriendRequestDao	friendRequestDao;
 
-	public FriendRequestsPanel(String id)
+	public FriendRequestsPanel(final String id)
 	{
 		super(id);
 		// inject all the spring beans
@@ -52,10 +54,10 @@ public class FriendRequestsPanel extends BasePanel
 		add(friendRequestContainer = new WebMarkupContainer("container"));
 		friendRequestContainer.setOutputMarkupId(true);
 
-		FriendRequestsDataProvider friendRequestDataProvider = new FriendRequestsDataProvider(
+		final FriendRequestsDataProvider friendRequestDataProvider = new FriendRequestsDataProvider(
 			SocialSiteSession.get().getUserId());
 
-		DataView<FriendRequest> friendRequestDataView = new DataView<FriendRequest>(
+		final DataView<FriendRequest> friendRequestDataView = new DataView<FriendRequest>(
 			"friendrequest", friendRequestDataProvider)
 		{
 
@@ -65,11 +67,15 @@ public class FriendRequestsPanel extends BasePanel
 			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			protected void populateItem(Item<FriendRequest> item)
+			protected void populateItem(final Item<FriendRequest> item)
 			{
 
 				final FriendRequest friendRequest = item.getModelObject();
-				item.add(new Label("name", friendRequest.getUser()
+
+				UserLink user;
+				item.add(user = new UserLink("user", new Model<User>(
+					friendRequest.getUser())));
+				user.add(new Label("name", friendRequest.getUser()
 					.getUserName()));
 				item.add(new Label("message", friendRequest.getMessage()));
 				item.add(new AjaxLink<FriendRequest>("yes", item.getModel())
@@ -81,7 +87,7 @@ public class FriendRequestsPanel extends BasePanel
 					private static final long	serialVersionUID	= 1L;
 
 					@Override
-					public void onClick(AjaxRequestTarget target)
+					public void onClick(final AjaxRequestTarget target)
 					{
 						final FriendRequest friendRequest = getModelObject();
 
@@ -108,7 +114,7 @@ public class FriendRequestsPanel extends BasePanel
 					private static final long	serialVersionUID	= 1L;
 
 					@Override
-					public void onClick(AjaxRequestTarget target)
+					public void onClick(final AjaxRequestTarget target)
 					{
 						// remove the friend request
 						friendRequestDao.delete(getModelObject());

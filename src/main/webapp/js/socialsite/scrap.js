@@ -7,7 +7,7 @@ SocialSite.Scrap.Reply = {
 	// attach all the event handler and hide all the event
 	init : function() {
 		$("a.reply").click(this.ReplyLinkHandler);
-		$('a.cancel').click(this.CancelLinkHandler);
+		$('a.replyCancel').click(this.CancelLinkHandler);
 	},
 	
 	// show the form when the reply link is clicked

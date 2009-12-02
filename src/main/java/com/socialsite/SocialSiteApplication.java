@@ -18,20 +18,37 @@ import com.socialsite.image.UserImageResource;
  * 
  * @author Ananth
  */
-public class SocialSiteApplication extends WebApplication {
-	private static final long serialVersionUID = 1L;
+public class SocialSiteApplication extends WebApplication
+{
+	private static final long	serialVersionUID	= 1L;
+
+	public static SocialSiteApplication get()
+	{
+		return (SocialSiteApplication) Application.get();
+	}
 
 	/**
 	 * Constructor
 	 */
-	public SocialSiteApplication() {
+	public SocialSiteApplication()
+	{
+	}
+
+	/**
+	 * @see org.apache.wicket.Application#getHomePage()
+	 */
+	@Override
+	public Class<LoginPage> getHomePage()
+	{
+		return LoginPage.class;
 	}
 
 	/*
 	 * overide the init method to initialize the springDAo
 	 */
 	@Override
-	protected void init() {
+	protected void init()
+	{
 
 		super.init();
 
@@ -55,38 +72,29 @@ public class SocialSiteApplication extends WebApplication {
 	 * initializes all the security settings
 	 * 
 	 */
-	public void initSecurity() {
+	public void initSecurity()
+	{
 		// set the authorization Strategy
 		getSecuritySettings().setAuthorizationStrategy(
-				new RoleAuthorizationStrategy(new UserRolesAuthorizer()));
-//		MetaDataRoleAuthorizationStrategy.authorize(HomePage.class, "ADMIN");
-//		getSecuritySettings().setUnauthorizedComponentInstantiationListener(
-//				new SocialSiteUnauthorizedComponentInstantiationListener());
-//
-//		// Register the component instatiation listener to check the
-//		// authorization of each page
-//		addComponentInstantiationListener(new IComponentInstantiationListener() {
-//
-//			public void onInstantiation(Component component) {
-//				if (!getSecuritySettings().getAuthorizationStrategy()
-//						.isInstantiationAuthorized(component.getClass())) {
-//					getSecuritySettings()
-//							.getUnauthorizedComponentInstantiationListener()
-//							.onUnauthorizedInstantiation(component);
-//				}
-//			}
-//		});
-	}
-
-	/**
-	 * @see org.apache.wicket.Application#getHomePage()
-	 */
-	public Class<LoginPage> getHomePage() {
-		return LoginPage.class;
-	}
-
-	public static SocialSiteApplication get() {
-		return (SocialSiteApplication) Application.get();
+			new RoleAuthorizationStrategy(new UserRolesAuthorizer()));
+		// MetaDataRoleAuthorizationStrategy.authorize(HomePage.class, "ADMIN");
+		// getSecuritySettings().setUnauthorizedComponentInstantiationListener(
+		// new SocialSiteUnauthorizedComponentInstantiationListener());
+		//
+		// // Register the component instatiation listener to check the
+		// // authorization of each page
+		// addComponentInstantiationListener(new
+		// IComponentInstantiationListener() {
+		//
+		// public void onInstantiation(Component component) {
+		// if (!getSecuritySettings().getAuthorizationStrategy()
+		// .isInstantiationAuthorized(component.getClass())) {
+		// getSecuritySettings()
+		// .getUnauthorizedComponentInstantiationListener()
+		// .onUnauthorizedInstantiation(component);
+		// }
+		// }
+		// });
 	}
 
 	/**
@@ -96,7 +104,8 @@ public class SocialSiteApplication extends WebApplication {
 	 * @return custom session object
 	 */
 	@Override
-	public Session newSession(Request request, Response response) {
+	public Session newSession(final Request request, final Response response)
+	{
 		return new SocialSiteSession(request);
 	}
 

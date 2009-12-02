@@ -35,11 +35,12 @@ import com.socialsite.persistence.AbstractDomain;
  * @author Ananth
  */
 public class EntityModel<T extends AbstractDomain> extends
-		AbstractEntityModel<T> {
+		AbstractEntityModel<T>
+{
 
-	private static final long serialVersionUID = 1L;
+	private static final long		serialVersionUID	= 1L;
 	/** DAO to load the domanin object */
-	private final AbstractDao<T> dao;
+	private final AbstractDao<T>	dao;
 
 	/**
 	 * creates a detachable Domain object
@@ -49,7 +50,8 @@ public class EntityModel<T extends AbstractDomain> extends
 	 * @param dao
 	 *            Dao to acces the Domain object
 	 */
-	public EntityModel(T domain, AbstractDao<T> dao) {
+	public EntityModel(final T domain, final AbstractDao<T> dao)
+	{
 		super(domain);
 		this.dao = dao;
 	}
@@ -60,8 +62,10 @@ public class EntityModel<T extends AbstractDomain> extends
 	 * @return Domain
 	 */
 	@Override
-	protected T load() {
-		if (domain == null) {
+	protected T load()
+	{
+		if (domain == null)
+		{
 			domain = dao.load(id);
 		}
 		return domain;

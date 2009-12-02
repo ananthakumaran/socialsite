@@ -31,7 +31,7 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao
 	/**
 	 * @see com.socialsite.dao.UserDao#checkUserStatus(String, String)
 	 */
-	public User checkUserStatus(String userName, String password)
+	public User checkUserStatus(final String userName, final String password)
 	{
 		final Criteria criteria = getSession().createCriteria(User.class);
 		criteria.add(Restrictions.eq("userName", userName));
@@ -45,42 +45,15 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao
 	}
 
 	/**
-	 * @see com.socialsite.dao.UserDao#getFriends(User)
+	 * @see com.socialsite.dao.UserDao#countAll(String)
 	 */
-	@SuppressWarnings("unchecked")
-	public List<User> getFriends(User user)
+	public int countAll(String filter)
 	{
-		return (List<User>) getSession()
-			.createSQLQuery(
-				" select {u.*} from user {u} where u.id in  (select user_id from friend_reference "
-						+ " where friend_id = :id) or u.id in ( select friend_id from friend_reference where user_id = :id)  ")
-			.addEntity("u", User.class).setParameter("id", user.getId()).list();
-	}
+		filter = filter == null ? "" : filter;
 
-	/**
-	 * @see com.socialsite.dao.UserDao#getFriends(User, int, int)
-	 */
-	@SuppressWarnings("unchecked")
-	public List<User> getFriends(User user, int first, int count)
-	{
-
-		return (List<User>) getSession()
-			.createSQLQuery(
-				" select {u.*} from user {u} where u.id in  (select user_id from friend_reference "
-						+ " where friend_id = :id) or u.id in ( select friend_id from friend_reference where user_id = :id)  ")
-			.addEntity("u", User.class).setParameter("id", user.getId())
-			.setFirstResult(first).setMaxResults(count).list();
-	}
-
-	/**
-	 * @see com.socialsite.dao.UserDao#getFriendsCount()
-	 */
-	public int getFriendsCount(User user)
-	{
-		final BigInteger count = (BigInteger) getSession()
-			.createSQLQuery(
-				" select count(*) from friend_reference where user_id=:id or friend_id= :id ")
-			.setParameter("id", user.getId()).uniqueResult();
+		final Long count = (Long) getSession().createQuery(
+			"select count(u) from User u where " + " u.userName like :filter ")
+			.setParameter("filter", "%" + filter + "%").uniqueResult();
 
 		return count.intValue();
 	}
@@ -89,8 +62,8 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao
 	 * @see com.socialsite.dao.UserDao#findAll(String, int, int, SortParam)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<User> findAll(String filter, int first, int count,
-			SortParam sortParam)
+	public List<User> findAll(String filter, final int first, final int count,
+			final SortParam sortParam)
 	{
 
 		filter = filter == null ? "" : filter;
@@ -110,15 +83,43 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao
 	}
 
 	/**
-	 * @see com.socialsite.dao.UserDao#countAll(String)
+	 * @see com.socialsite.dao.UserDao#getFriends(User)
 	 */
-	public int countAll(String filter)
+	@SuppressWarnings("unchecked")
+	public List<User> getFriends(final User user)
 	{
-		filter = filter == null ? "" : filter;
+		return getSession()
+			.createSQLQuery(
+				" select {u.*} from user {u} where u.id in  (select user_id from friend_reference "
+						+ " where friend_id = :id) or u.id in ( select friend_id from friend_reference where user_id = :id)  ")
+			.addEntity("u", User.class).setParameter("id", user.getId()).list();
+	}
 
-		final Long count = (Long) getSession().createQuery(
-			"select count(u) from User u where " + " u.userName like :filter ")
-			.setParameter("filter", "%" + filter + "%").uniqueResult();
+	/**
+	 * @see com.socialsite.dao.UserDao#getFriends(User, int, int)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<User> getFriends(final User user, final int first,
+			final int count)
+	{
+
+		return getSession()
+			.createSQLQuery(
+				" select {u.*} from user {u} where u.id in  (select user_id from friend_reference "
+						+ " where friend_id = :id) or u.id in ( select friend_id from friend_reference where user_id = :id)  ")
+			.addEntity("u", User.class).setParameter("id", user.getId())
+			.setFirstResult(first).setMaxResults(count).list();
+	}
+
+	/**
+	 * @see com.socialsite.dao.UserDao#getFriendsCount()
+	 */
+	public int getFriendsCount(final User user)
+	{
+		final BigInteger count = (BigInteger) getSession()
+			.createSQLQuery(
+				" select count(*) from friend_reference where user_id=:id or friend_id= :id ")
+			.setParameter("id", user.getId()).uniqueResult();
 
 		return count.intValue();
 	}
@@ -126,7 +127,7 @@ public class UserDaoImpl extends AbstractDaoImpl<User> implements UserDao
 	/**
 	 * @see com.socialsite.dao.UserDao#getUsersRelation(long, long)
 	 */
-	public Roles getUsersRelation(long id1, long id2)
+	public Roles getUsersRelation(final long id1, final long id2)
 	{
 		// owner
 		if (id1 == id2)

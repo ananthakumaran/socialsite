@@ -31,7 +31,7 @@ public class SearchDataProvider extends SortableDataProvider<User>
 	@SpringBean(name = "userDao")
 	private UserDao				userDao;
 
-	public SearchDataProvider(StringWrapper filter)
+	public SearchDataProvider(final StringWrapper filter)
 	{
 		this.filter = filter;
 		// intializes spring DAO
@@ -40,13 +40,13 @@ public class SearchDataProvider extends SortableDataProvider<User>
 		setSort("userName", true);
 	}
 
-	public Iterator<User> iterator(int first, int count)
+	public Iterator<User> iterator(final int first, final int count)
 	{
 		return userDao.findAll(filter.toString(), first, count, getSort())
 			.iterator();
 	}
 
-	public IModel<User> model(User domain)
+	public IModel<User> model(final User domain)
 	{
 		return new EntityModel<User>(domain, userDao);
 	}

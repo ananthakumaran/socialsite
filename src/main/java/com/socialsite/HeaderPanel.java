@@ -10,54 +10,83 @@ import org.apache.wicket.model.PropertyModel;
 import com.socialsite.authentication.LogoutPage;
 import com.socialsite.entitymodel.StringWrapper;
 import com.socialsite.home.HomePage;
+import com.socialsite.profile.ProfilePage;
 import com.socialsite.scrap.ScrapPage;
 import com.socialsite.search.SearchPage;
+import com.socialsite.util.BusyIndicatorPanel;
 
 /**
  * Header panel of the application
  * 
  * @author Ananth
  */
-public class HeaderPanel extends BasePanel {
+public class HeaderPanel extends BasePanel
+{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	/** Model for search text box */
-	public StringWrapper filter;
+	public StringWrapper		filter;
 
 	/*
 	 * construct
 	 */
-	public HeaderPanel(String id) {
+	public HeaderPanel(final String id)
+	{
 		super(id);
 
-		add(new Link<Object>("home") {
+		// busy indicator
+		add(new BusyIndicatorPanel("busy"));
+
+		add(new Link<Object>("home")
+		{
 
 			/**
 			 * 
 			 */
-			private static final long serialVersionUID = 1L;
+			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			public void onClick() {
+			public void onClick()
+			{
 				setUserId(SocialSiteSession.get().getSessionUser().getId());
 				setResponsePage(HomePage.class);
 			}
 
 		});
 
-		add(new Link<Object>("scrap") {
+		add(new Link<Object>("profile")
+		{
 
 			/**
 			 * 
 			 */
-			private static final long serialVersionUID = 1L;
+			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			public void onClick() {
+			public void onClick()
+			{
+				setUserId(SocialSiteSession.get().getSessionUser().getId());
+				setResponsePage(ProfilePage.class);
+
+			}
+
+		});
+
+		add(new Link<Object>("scrap")
+		{
+
+			/**
+			 * 
+			 */
+			private static final long	serialVersionUID	= 1L;
+
+			@Override
+			public void onClick()
+			{
 				setUserId(SocialSiteSession.get().getSessionUser().getId());
 				setResponsePage(ScrapPage.class);
 			}
@@ -68,20 +97,22 @@ public class HeaderPanel extends BasePanel {
 
 		filter = new StringWrapper();
 		SubmitLink search;
-		Form<Object> searchForm = new Form<Object>("searchform");
+		final Form<Object> searchForm = new Form<Object>("searchform");
 		add(searchForm);
 
 		// search box
 		searchForm.add(new TextField<String>("searchtextbox",
-				new PropertyModel<String>(this, "filter.model")));
-		searchForm.add(search = new SubmitLink("search") {
+			new PropertyModel<String>(this, "filter.model")));
+		searchForm.add(search = new SubmitLink("search")
+		{
 			/**
 			 * 
 			 */
-			private static final long serialVersionUID = 1L;
+			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			public void onSubmit() {
+			public void onSubmit()
+			{
 				setResponsePage(new SearchPage(filter));
 			}
 		});

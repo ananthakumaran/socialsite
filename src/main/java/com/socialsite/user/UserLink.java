@@ -35,7 +35,7 @@ public class UserLink extends Link<User>
 	 * @param model
 	 *            user model object
 	 */
-	public UserLink(String id, IModel<User> model)
+	public UserLink(final String id, final IModel<User> model)
 	{
 		super(id, model);
 		InjectorHolder.getInjector().inject(this);
@@ -44,7 +44,7 @@ public class UserLink extends Link<User>
 	@Override
 	public void onClick()
 	{
-		SocialSiteSession session = SocialSiteSession.get();
+		final SocialSiteSession session = SocialSiteSession.get();
 		// set the user id
 		session.setUserId(getModelObject().getId());
 		// set the rules

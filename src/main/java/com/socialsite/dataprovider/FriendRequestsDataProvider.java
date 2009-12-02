@@ -19,7 +19,7 @@ import com.socialsite.persistence.FriendRequest;
  * Data provider for friend request
  * 
  * @author Ananth
- *
+ * 
  */
 public class FriendRequestsDataProvider implements IDataProvider<FriendRequest>
 {
@@ -28,50 +28,51 @@ public class FriendRequestsDataProvider implements IDataProvider<FriendRequest>
 	 */
 	private static final long	serialVersionUID	= 1L;
 	/** filter text */
-	
+
 	/** user id */
-	private long id;
+	private final long			id;
 	/** spring doa to handle user object */
-	@SpringBean(name="userDao")
-	private UserDao userDao;
+	@SpringBean(name = "userDao")
+	private UserDao				userDao;
 	/** spring doa to handle friendrequest object */
-	@SpringBean(name="friendRequestDao")
-	private FriendRequestDao friendRequestDao;
-	
+	@SpringBean(name = "friendRequestDao")
+	private FriendRequestDao	friendRequestDao;
+
 	/**
 	 * constructor
 	 * 
-	 * @param id user id
+	 * @param id
+	 *            user id
 	 */
-	public FriendRequestsDataProvider(long id)
+	public FriendRequestsDataProvider(final long id)
 	{
 		this.id = id;
 		// intializes spring DAO
 		InjectorHolder.getInjector().inject(this);
 
 	}
-	
-	public Iterator<FriendRequest> iterator(int first, int count)
+
+	public void detach()
+	{
+
+	}
+
+	public Iterator<FriendRequest> iterator(final int first, final int count)
 	{
 		// TODO add implementation for the count
 		return userDao.load(id).getFriendRequests().iterator();
 	}
 
-	public IModel<FriendRequest> model(FriendRequest friendRequest)
+	public IModel<FriendRequest> model(final FriendRequest friendRequest)
 	{
 		return new EntityModel<FriendRequest>(friendRequest, friendRequestDao);
 	}
 
 	public int size()
 	{
-		// TODO write seperate method to calculate the 
+		// TODO write seperate method to calculate the
 		// size in the dao
 		return userDao.load(id).getFriendRequests().size();
 	}
 
-	public void detach()
-	{
-		
-	}
-	
 }

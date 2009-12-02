@@ -23,13 +23,14 @@ public class FriendRequestDaoImpl extends AbstractDaoImpl<FriendRequest>
 	/**
 	 * @see com.socialsite.dao.FriendRequestDao#hasFriendRequest(long, long)
 	 */
-	public boolean hasFriendRequest(long userId, long friendId)
+	public boolean hasFriendRequest(final long userId, final long friendId)
 	{
-		FriendRequest friendRequest = (FriendRequest) getSession()
+		final FriendRequest friendRequest = (FriendRequest) getSession()
 			.createQuery(
-				" from FriendRequest f where f.user.id = :userId and f.friend.id = :friendId ")
+				" from FriendRequest f where (f.user.id = :userId and f.friend.id = :friendId)"
+						+ " or (f.user.id = :friendId and f.friend.id = :userId) ")
 			.setParameter("userId", userId).setParameter("friendId", friendId)
 			.uniqueResult();
-		return (friendRequest != null);
+		return friendRequest != null;
 	}
 }

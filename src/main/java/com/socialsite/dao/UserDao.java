@@ -27,6 +27,36 @@ public interface UserDao extends AbstractDao<User>
 	public User checkUserStatus(String userName, String password);
 
 	/**
+	 * find the number of unique rows in the User (table) that matched the
+	 * search text (filter)
+	 * 
+	 * @param filter
+	 *            search text
+	 * @return no of unique rows in the User (table) that matched the search
+	 *         text (filter)
+	 */
+	public int countAll(String filter);
+
+	/**
+	 * find the list of all user according to the search text(filter) and orders
+	 * the list according to the sortParam
+	 * 
+	 * @param filter
+	 *            filter for username
+	 *            <p>
+	 *            if filter is null all the users will be added to the list
+	 * @param first
+	 *            first item no of the user List
+	 * @param count
+	 *            no of items needed in the user List
+	 * @param sortParam
+	 *            used to sort the user List
+	 * @return List containing the {@link User} matched the search criteriaF
+	 */
+	public List<User> findAll(String filter, int first, int count,
+			SortParam sortParam);
+
+	/**
 	 * get the friend list of the given user
 	 * 
 	 * XXX Don't use the getter in the user object (use this instead)
@@ -61,36 +91,6 @@ public interface UserDao extends AbstractDao<User>
 	 * @return count of friends
 	 */
 	public int getFriendsCount(User user);
-
-	/**
-	 * find the list of all user according to the search text(filter) and orders
-	 * the list according to the sortParam
-	 * 
-	 * @param filter
-	 *            filter for username
-	 *            <p>
-	 *            if filter is null all the users will be added to the list
-	 * @param first
-	 *            first item no of the user List
-	 * @param count
-	 *            no of items needed in the user List
-	 * @param sortParam
-	 *            used to sort the user List
-	 * @return List containing the {@link User} matched the search criteriaF
-	 */
-	public List<User> findAll(String filter, int first, int count,
-			SortParam sortParam);
-
-	/**
-	 * find the number of unique rows in the User (table) that matched the
-	 * search text (filter)
-	 * 
-	 * @param filter
-	 *            search text
-	 * @return no of unique rows in the User (table) that matched the search
-	 *         text (filter)
-	 */
-	public int countAll(String filter);
 
 	/**
 	 * find the relationship between two users

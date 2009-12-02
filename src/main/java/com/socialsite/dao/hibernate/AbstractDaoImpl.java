@@ -28,7 +28,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	 * @param domainClass
 	 *            domainClass
 	 */
-	public AbstractDaoImpl(Class<T> domainClass)
+	public AbstractDaoImpl(final Class<T> domainClass)
 	{
 		this.domainClass = domainClass;
 	}
@@ -51,7 +51,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	 * @param object
 	 *            object to be deleted
 	 */
-	public void delete(T object)
+	public void delete(final T object)
 	{
 		getSession().delete(object);
 	}
@@ -96,7 +96,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	 * @return entity object or null if the id doesn't match
 	 */
 	@SuppressWarnings("unchecked")
-	public T load(long id)
+	public T load(final long id)
 	{
 		return (T) getSession().get(domainClass, id);
 	}
@@ -108,7 +108,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	 *            object to be merged
 	 */
 	@SuppressWarnings("unchecked")
-	public T merge(T object)
+	public T merge(final T object)
 	{
 		return (T) getSession().merge(object);
 	}
@@ -119,7 +119,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	 * @param object
 	 *            object to be saved
 	 */
-	public void save(T object)
+	public void save(final T object)
 	{
 		getSession().saveOrUpdate(object);
 	}
@@ -130,7 +130,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	 * @param sessionFactory
 	 *            Hibernate sessionFactory
 	 */
-	public void setSessionFactory(SessionFactory sessionFactory)
+	public void setSessionFactory(final SessionFactory sessionFactory)
 	{
 		this.sessionFactory = sessionFactory;
 	}

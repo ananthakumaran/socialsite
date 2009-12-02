@@ -11,24 +11,23 @@ import com.socialsite.dao.UserDao;
  * 
  * @author Ananth
  */
-public class BasePanel extends Panel {
+public class BasePanel extends Panel
+{
 
-	
-	
-	
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	/** spring dao to access the user object */
-	@SpringBean(name="userDao")
-	private UserDao userDao;
-	
+	@SpringBean(name = "userDao")
+	private UserDao				userDao;
+
 	/**
 	 * constructor
 	 * 
 	 * @param id
 	 *            id
 	 */
-	public BasePanel(String id) {
+	public BasePanel(final String id)
+	{
 		super(id);
 	}
 
@@ -40,7 +39,8 @@ public class BasePanel extends Panel {
 	 * @param model
 	 *            model
 	 */
-	public BasePanel(String id, IModel<?> model) {
+	public BasePanel(final String id, final IModel<?> model)
+	{
 		super(id, model);
 	}
 
@@ -50,13 +50,13 @@ public class BasePanel extends Panel {
 	 * @param userId
 	 *            user id
 	 */
-	public void setUserId(long userId) {
-		SocialSiteSession session = SocialSiteSession.get();
+	public void setUserId(final long userId)
+	{
+		final SocialSiteSession session = SocialSiteSession.get();
 		// set the user id
 		session.setUserId(userId);
 		// set the roles
 		session.getSessionUser().setRoles(
-				userDao.getUsersRelation(userId, session
-						.getSessionUser().getId()));
+			userDao.getUsersRelation(userId, session.getSessionUser().getId()));
 	}
 }

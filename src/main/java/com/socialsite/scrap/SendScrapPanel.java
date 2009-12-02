@@ -1,6 +1,5 @@
 package com.socialsite.scrap;
 
-
 import java.util.Date;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -49,11 +48,12 @@ public class SendScrapPanel extends BasePanel
 	 * @param scrapListContainer
 	 *            container to be updated when the scrap is send
 	 */
-	public SendScrapPanel(String id, final WebMarkupContainer scrapListContainer)
+	public SendScrapPanel(final String id,
+			final WebMarkupContainer scrapListContainer)
 	{
 		super(id);
 
-		Form<Object> scrapForm = new Form<Object>("scrapform");
+		final Form<Object> scrapForm = new Form<Object>("scrapform");
 		add(scrapForm);
 
 		scrapForm.add(new TextArea<String>("message",
@@ -68,15 +68,17 @@ public class SendScrapPanel extends BasePanel
 			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			protected void onSubmit(AjaxRequestTarget target, Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target,
+					final Form<?> form)
 			{
-				SocialSiteSession session = SocialSiteSession.get();
+				final SocialSiteSession session = SocialSiteSession.get();
 
-				User author = userDao.load(session.getSessionUser().getId());
-				User receiver = userDao.load(session.getUserId());
+				final User author = userDao.load(session.getSessionUser()
+					.getId());
+				final User receiver = userDao.load(session.getUserId());
 
 				// save the scrap
-				Scrap scrap = new Scrap();
+				final Scrap scrap = new Scrap();
 				scrap.setAuthor(author);
 				scrap.setReceiver(receiver);
 				scrap.setMessage(message);

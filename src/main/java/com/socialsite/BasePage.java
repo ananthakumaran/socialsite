@@ -14,19 +14,21 @@ import com.socialsite.dao.UserDao;
  * 
  */
 @AuthorizeInstantiation( { "USER", "FRIEND", "OWNER" })
-public class BasePage extends WebPage {
-	private static final long serialVersionUID = 1L;
+public class BasePage extends WebPage
+{
+	private static final long	serialVersionUID	= 1L;
 
 	/** spring dao to access the user object */
 	@SpringBean(name = "userDao")
-	private UserDao userDao;
+	private UserDao				userDao;
 
-	protected HeaderPanel headerPanel;
+	protected HeaderPanel		headerPanel;
 
 	/**
 	 * Constructor
 	 */
-	public BasePage() {
+	public BasePage()
+	{
 		this(null);
 	}
 
@@ -35,9 +37,12 @@ public class BasePage extends WebPage {
 	 * 
 	 * @param model
 	 */
-	public BasePage(IModel<?> model) {
+	public BasePage(final IModel<?> model)
+	{
 		super(model);
+		// header panel
 		add(headerPanel = new HeaderPanel("header"));
+
 	}
 
 	/**
@@ -46,13 +51,13 @@ public class BasePage extends WebPage {
 	 * @param userId
 	 *            user id
 	 */
-	public void setUserId(long userId) {
-		SocialSiteSession session = SocialSiteSession.get();
+	public void setUserId(final long userId)
+	{
+		final SocialSiteSession session = SocialSiteSession.get();
 		// set the user id
 		session.setUserId(userId);
 		// set the roles
 		session.getSessionUser().setRoles(
-				userDao.getUsersRelation(userId, session.getSessionUser()
-						.getId()));
+			userDao.getUsersRelation(userId, session.getSessionUser().getId()));
 	}
 }

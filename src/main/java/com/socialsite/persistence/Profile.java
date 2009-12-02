@@ -23,6 +23,16 @@ public class Profile implements AbstractDomain
 	 * TODO add other fields link address , birthday etc;
 	 */
 
+	public String getEmail()
+	{
+		return email;
+	}
+
+	public String getFirstName()
+	{
+		return firstName;
+	}
+
 	/***** accessor methods ****/
 	/*
 	 * (non-Javadoc)
@@ -34,24 +44,9 @@ public class Profile implements AbstractDomain
 		return id;
 	}
 
-	public User getUser()
+	public byte[] getImage()
 	{
-		return user;
-	}
-
-	public void setUser(User user)
-	{
-		this.user = user;
-	}
-
-	public String getFirstName()
-	{
-		return firstName;
-	}
-
-	public void setFirstName(String firstName)
-	{
-		this.firstName = firstName;
+		return image;
 	}
 
 	public String getLastName()
@@ -59,43 +54,48 @@ public class Profile implements AbstractDomain
 		return lastName;
 	}
 
-	public void setLastName(String lastName)
-	{
-		this.lastName = lastName;
-	}
-
-	public String getEmail()
-	{
-		return email;
-	}
-
-	public void setEmail(String email)
-	{
-		this.email = email;
-	}
-
-	public void setId(long id)
-	{
-		this.id = id;
-	}
-
-	public byte[] getImage()
-	{
-		return image;
-	}
-
-	public void setImage(byte[] image)
-	{
-		this.image = image;
-	}
-
 	public byte[] getThumb()
 	{
 		return thumb;
 	}
 
-	public void setThumb(byte[] thumb)
+	public User getUser()
+	{
+		return user;
+	}
+
+	public void setEmail(final String email)
+	{
+		this.email = email;
+	}
+
+	public void setFirstName(final String firstName)
+	{
+		this.firstName = firstName;
+	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setImage(final byte[] image)
+	{
+		this.image = image;
+	}
+
+	public void setLastName(final String lastName)
+	{
+		this.lastName = lastName;
+	}
+
+	public void setThumb(final byte[] thumb)
 	{
 		this.thumb = thumb;
+	}
+
+	public void setUser(final User user)
+	{
+		this.user = user;
 	}
 }

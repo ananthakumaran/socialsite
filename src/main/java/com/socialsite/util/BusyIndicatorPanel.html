@@ -1,0 +1,85 @@
+<html xmlns:wicket>
+<wicket:head>
+	<style type="text/css">
+#bysy_indicator {
+	display: none;
+	position: fixed;
+	right: 50%;
+	background: #DDD;
+	color : #333;
+	padding : 2px ;
+	margin: 0 auto;
+	z-index: 1000;
+	width: 200;
+	font-weight: bold;
+	text-align: center;
+	font-size: 1em;
+}
+</style>
+
+	<script type="text/javascript">
+
+// found in apache wiki
+	
+ window.onload = setupFunc;
+
+ function setupFunc() {
+   document.getElementsByTagName('body')[0].onclick = clickFunc;
+   hideBusysign();
+         Wicket.Ajax.registerPreCallHandler(showBusysign);
+         Wicket.Ajax.registerPostCallHandler(hideBusysign);
+         Wicket.Ajax.registerFailureHandler(hideBusysign);
+ }
+
+ function hideBusysign() {
+   document.getElementById('bysy_indicator').style.display ='none';
+ }
+
+ function showBusysign() {
+   document.getElementById('bysy_indicator').style.display ='inline';
+ }
+
+ function clickFunc(eventData) {
+   var clickedElement = (window.event) ? event.srcElement : eventData.target;
+   if ((clickedElement.tagName.toUpperCase() == 'A' 
+       && ((clickedElement.target == null) || (clickedElement.target.length <= 0))
+       && (clickedElement.href.lastIndexOf('#') != (clickedElement.href.length-1))
+       && (!('nobusy' in clickedElement))
+       && (clickedElement.href.indexOf('skype') < 0)
+       && (clickedElement.href.indexOf('mailto') < 0)
+       && (clickedElement.href.indexOf('WicketAjaxDebug') < 0)
+       && (clickedElement.href.lastIndexOf('.doc') != (clickedElement.href.length-4))
+       && (clickedElement.href.lastIndexOf('.csv') != (clickedElement.href.length-4))
+       && (clickedElement.href.lastIndexOf('.xls') != (clickedElement.href.length-4))
+       && ((clickedElement.onclick == null) || (clickedElement.onclick.toString().indexOf('window.open') <= 0))
+       ) 
+   || (clickedElement.parentNode.tagName.toUpperCase() == 'A' 
+       && ((clickedElement.parentNode.target == null) || (clickedElement.parentNode.target.length <= 0))
+       && (clickedElement.parentNode.href.indexOf('skype') < 0)
+       && (clickedElement.parentNode.href.indexOf('mailto') < 0)
+       && (clickedElement.parentNode.href.lastIndexOf('#') != (clickedElement.parentNode.href.length-1))
+       && (clickedElement.parentNode.href.lastIndexOf('.doc') != (clickedElement.parentNode.href.length-4))
+       && (clickedElement.parentNode.href.lastIndexOf('.csv') != (clickedElement.parentNode.href.length-4))
+       && (clickedElement.parentNode.href.lastIndexOf('.xls') != (clickedElement.parentNode.href.length-4))
+       && ((clickedElement.parentNode.onclick == null) || (clickedElement.parentNode.onclick.toString().indexOf('window.open') <= 0))
+       ) 
+   || (
+      ((clickedElement.onclick == null) 
+        || 
+        ((clickedElement.onclick.toString().indexOf('confirm') <= 0)
+         && (clickedElement.onclick.toString().indexOf('alert') <= 0) 
+         && (clickedElement.onclick.toString().indexOf('Wicket.Palette') <= 0)))
+      && (clickedElement.tagName.toUpperCase() == 'INPUT' && (clickedElement.type.toUpperCase() == 'BUTTON' 
+           || clickedElement.type.toUpperCase() == 'SUBMIT' || clickedElement.type.toUpperCase() == 'IMAGE'))
+      )
+   ) {
+   showBusysign();
+ }
+ }
+</script>
+
+</wicket:head>
+<wicket:panel>
+	<div id="bysy_indicator">Loading ...</div>
+</wicket:panel>
+</html>

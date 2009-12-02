@@ -42,10 +42,10 @@ public class AddAsFriendPanel extends BasePanel
 	/**
 	 * constructor
 	 */
-	public AddAsFriendPanel(String id)
+	public AddAsFriendPanel(final String id)
 	{
 		super(id);
-		Form<Object> addAsFriendForm = new Form<Object>("addasfriendform");
+		final Form<Object> addAsFriendForm = new Form<Object>("addasfriendform");
 		add(addAsFriendForm);
 		addAsFriendForm.add(new RequiredTextField<String>("message",
 			new PropertyModel<String>(this, "message")));
@@ -59,14 +59,16 @@ public class AddAsFriendPanel extends BasePanel
 			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			protected void onSubmit(AjaxRequestTarget target, Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target,
+					final Form<?> form)
 			{
 				// load the users
-				User user = userDao.load(SocialSiteSession.get()
+				final User user = userDao.load(SocialSiteSession.get()
 					.getSessionUser().getId());
-				User friend = userDao.load(SocialSiteSession.get().getUserId());
+				final User friend = userDao.load(SocialSiteSession.get()
+					.getUserId());
 				// create a new friend request
-				FriendRequest friendRequest = new FriendRequest();
+				final FriendRequest friendRequest = new FriendRequest();
 				friendRequest.setFriend(friend);
 				friendRequest.setUser(user);
 				friendRequest.setMessage(message);
@@ -76,9 +78,10 @@ public class AddAsFriendPanel extends BasePanel
 				// TODO add javascript to hide the form after sending the friend
 				// request
 				target.addComponent(feedback);
-				
+
 				// remove the form
-				target.appendJavascript(" SocialSite.Home.AddAsFriend.removeAll();");
+				target
+					.appendJavascript(" SocialSite.Home.AddAsFriend.removeAll();");
 			}
 		});
 		addAsFriendForm.setDefaultButton(send);

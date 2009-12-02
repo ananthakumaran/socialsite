@@ -13,14 +13,14 @@ public class ScrapPage extends BasePage
 
 	public ScrapPage()
 	{
-		
-		//user info
+
+		// user info
 		add(new UserInfoPanel("userinfo"));
-		
+
 		// scrap list panel
 		ScrapListPanel scrapListPanel;
 		add(scrapListPanel = new ScrapListPanel("scraps"));
-		
+
 		// scrap form
 		add(new SendScrapPanel("send", scrapListPanel.scrapListContainer));
 	}

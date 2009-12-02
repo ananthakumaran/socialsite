@@ -1,6 +1,7 @@
 package com.socialsite.dao.hibernate;
 
-import static junit.framework.Assert.*;
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 
 import javax.annotation.Resource;
 
@@ -12,10 +13,11 @@ import com.socialsite.dao.AbstractDaoTest;
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.User;
+
 /**
  * 
  * @author Ananth
- *
+ * 
  */
 public class ProfileDaoTest extends AbstractDaoTest
 {
@@ -26,8 +28,8 @@ public class ProfileDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testCreate()
 	{
-		User ananth = new User("ananth", "pass");
-		Profile ananthProfile = new Profile();
+		final User ananth = new User("ananth", "pass");
+		final Profile ananthProfile = new Profile();
 		ananthProfile.setUser(ananth);
 		ananthProfile.setEmail("ananth@gmail.com");
 		ananthProfile.setFirstName("ananth");
@@ -38,18 +40,18 @@ public class ProfileDaoTest extends AbstractDaoTest
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		int userResult = simpleJdbcTemplate
+		final int userResult = simpleJdbcTemplate
 			.queryForInt("select count(*) from user");
 		assertEquals("user table should contain one entry ", userResult, 1);
 
-		int profileResult = simpleJdbcTemplate
+		final int profileResult = simpleJdbcTemplate
 			.queryForInt("select count(*) from profile");
 		assertEquals("profile table should contain one entry ", profileResult,
 			1);
 
-		Long user_id = simpleJdbcTemplate
+		final Long user_id = simpleJdbcTemplate
 			.queryForLong("select id from user where username='ananth' ");
-		Long profile_user_id = simpleJdbcTemplate
+		final Long profile_user_id = simpleJdbcTemplate
 			.queryForLong("select user_id from profile where firstname='ananth' ");
 
 		assertEquals("Both the user_id and profile_user_id should be equal",
@@ -61,32 +63,32 @@ public class ProfileDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testGetUserImage()
 	{
-		User ananth = new User("ananth", "pass");
-		Profile ananthProfile = new Profile();
+		final User ananth = new User("ananth", "pass");
+		final Profile ananthProfile = new Profile();
 		ananthProfile.setUser(ananth);
 		// set some dummy data for image
 		ananthProfile.setImage("dummy data".getBytes());
 		profileDao.save(ananthProfile);
 
-		byte[] image = profileDao.getUserImage(ananth.getId());
+		final byte[] image = profileDao.getUserImage(ananth.getId());
 		assertNotNull("should return the data", image);
 		assertEquals("image data should be equal to  'dummy data' ",
 			new String(image), "dummy data");
 
 	}
-	
+
 	@Test
 	@Transactional
 	public void testGetUserThumb()
 	{
-		User ananth = new User("ananth", "pass");
-		Profile ananthProfile = new Profile();
+		final User ananth = new User("ananth", "pass");
+		final Profile ananthProfile = new Profile();
 		ananthProfile.setUser(ananth);
 		// set some dummy data for image
 		ananthProfile.setThumb("dummy data".getBytes());
 		profileDao.save(ananthProfile);
 
-		byte[] image = profileDao.getUserThumb(ananth.getId());
+		final byte[] image = profileDao.getUserThumb(ananth.getId());
 		assertNotNull("should return the data", image);
 		assertEquals("image data should be equal to  'dummy data' ",
 			new String(image), "dummy data");

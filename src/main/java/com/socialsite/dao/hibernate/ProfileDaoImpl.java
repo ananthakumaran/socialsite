@@ -1,7 +1,6 @@
 package com.socialsite.dao.hibernate;
 
 import com.socialsite.dao.ProfileDao;
-import com.socialsite.dao.hibernate.AbstractDaoImpl;
 import com.socialsite.persistence.Profile;
 
 /**
@@ -24,20 +23,20 @@ public class ProfileDaoImpl extends AbstractDaoImpl<Profile> implements
 	/**
 	 * @see com.socialsite.dao.ProfileDao#getUserImage(Long)
 	 */
-	public byte[] getUserImage(Long userId)
+	public byte[] getUserImage(final Long userId)
 	{
-		return (byte[]) (getSession().createQuery(
+		return (byte[]) getSession().createQuery(
 			"select image from Profile where user.id = :userid ").setParameter(
-			"userid", userId).uniqueResult());
+			"userid", userId).uniqueResult();
 	}
 
 	/**
 	 * @see com.socialsite.dao.ProfileDao#getUserThumb(Long)
 	 */
-	public byte[] getUserThumb(Long userId)
+	public byte[] getUserThumb(final Long userId)
 	{
-		return (byte[]) (getSession().createQuery(
+		return (byte[]) getSession().createQuery(
 			"select thumb from Profile where user.id = :userid ").setParameter(
-			"userid", userId).uniqueResult());
+			"userid", userId).uniqueResult();
 	}
 }

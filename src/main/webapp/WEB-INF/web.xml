@@ -34,10 +34,6 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-
-
-
-
 	<!--
 		wicket filter settings the application is initialized by spring as a
 		bean

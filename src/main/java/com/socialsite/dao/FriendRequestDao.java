@@ -23,6 +23,6 @@ public interface FriendRequestDao extends AbstractDao<FriendRequest>
 	 *            friend id
 	 * @return returns true if there is a friendrequest else false
 	 */
-	public boolean hasFriendRequest(long userId , long friendId);
-	
+	public boolean hasFriendRequest(long userId, long friendId);
+
 }

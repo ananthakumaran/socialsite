@@ -26,25 +26,25 @@ public class FriendsDataProvider extends SortableDataProvider<User>
 	private static final long	serialVersionUID	= 1L;
 
 	/** user id */
-	private long				id;
+	private final long			id;
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
 	private UserDao				userDao;
 
-	public FriendsDataProvider(long id)
+	public FriendsDataProvider(final long id)
 	{
 		this.id = id;
 		// intializes spring DAO
 		InjectorHolder.getInjector().inject(this);
 	}
 
-	public Iterator<User> iterator(int first, int count)
+	public Iterator<User> iterator(final int first, final int count)
 	{
 		return userDao.getFriends(userDao.load(id), first, count).iterator();
 	}
 
-	public IModel<User> model(User user)
+	public IModel<User> model(final User user)
 	{
 		return new EntityModel<User>(user, userDao);
 	}

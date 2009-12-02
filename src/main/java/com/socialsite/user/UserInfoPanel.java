@@ -17,34 +17,38 @@ import com.socialsite.scrap.ScrapPage;
 /**
  * @author Ananth
  */
-public class UserInfoPanel extends Panel {
+public class UserInfoPanel extends Panel
+{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao userDao;
+	private UserDao				userDao;
 
-	public UserInfoPanel(String id) {
+	public UserInfoPanel(final String id)
+	{
 		super(id);
 
-		User user = userDao.load(SocialSiteSession.get().getUserId());
-		ResourceReference imageResource = new ResourceReference(
-				"userImageResource");
+		final User user = userDao.load(SocialSiteSession.get().getUserId());
+		final ResourceReference imageResource = new ResourceReference(
+			"userImageResource");
 		add(new Image("userimage", imageResource, new ValueMap("id="
 				+ user.getId())));
 		add(new Label("username", user.getUserName()));
-		add(new Link<Object>("scrap") {
+		add(new Link<Object>("scrap")
+		{
 
 			/**
 			 * 
 			 */
-			private static final long serialVersionUID = 1L;
+			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			public void onClick() {
+			public void onClick()
+			{
 				setResponsePage(ScrapPage.class);
 			}
 

@@ -55,13 +55,13 @@ public class LoginPage extends WebPage
 			@Override
 			public void onSubmit()
 			{
-				User user = userDao.checkUserStatus(userName, password);
+				final User user = userDao.checkUserStatus(userName, password);
 				if (user == null)
 				{
 					error("Invalid username or password");
 					return;
 				}
-				SocialSiteSession session = SocialSiteSession.get();
+				final SocialSiteSession session = SocialSiteSession.get();
 				session.setSessionUser(new SessionUser(user.getId(),
 					SocialSiteRoles.ownerRole));
 				session.setUserId(user.getId());

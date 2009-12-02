@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+
+/*------ Layout -------------*/ /* content increase the width */
+#content_2 {
+	margin: 1%;
+	width: 78%;
+}
+
+/*------------ send scrap box -----------*/
+fieldset.scrapBox {
+	width: 59%
+}
+
+.scrapContainer img , div.replyBox{
+	float: left;
+}
+
+.scrapContainer span.time {
+	padding : 0 10px 0 0;
+	float :right;
+}
+
+div.scrap {
+	background: #E9E9E9;
+	padding : 0 0 0 110px;
+}
+
+div.replyBox a {
+	padding : 0 10px;
+}
+
+div.scrap a.delete {
+	float : right;
+}
+
+.replyInfo {
+	background: #FFE5F4;
+	border: 1px solid #FBC2C4;
+	color: #8A1F11;
+}
+
+
+/*------------ scraps -------------------*/
+	/*------------ pagination ---------------*/

@@ -9,29 +9,31 @@ import org.apache.wicket.authorization.strategies.role.Roles;
  * @author Ananth
  * 
  */
-public class SessionUser implements IClusterable {
+public class SessionUser implements IClusterable
+{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
-	private final long id;
-	private Roles roles;
+	private final long			id;
+	private Roles				roles;
 
-	public SessionUser(long id, Roles roles) {
+	public SessionUser(final long id, final Roles roles)
+	{
 		this.id = id;
 		this.roles = roles;
 	}
 
-	/**
-	 * Whether this user has the given role.
-	 * 
-	 * @param role
-	 * @return whether this user has the given role
-	 */
-	public boolean hasRole(String role) {
-		return this.roles.hasRole(role);
+	public long getId()
+	{
+		return id;
+	}
+
+	public Roles getRoles()
+	{
+		return roles;
 	}
 
 	/**
@@ -41,20 +43,25 @@ public class SessionUser implements IClusterable {
 	 *            set of roles
 	 * @return whether this user has any of the given roles
 	 */
-	public boolean hasAnyRole(Roles roles) {
+	public boolean hasAnyRole(final Roles roles)
+	{
 		return this.roles.hasAnyRole(roles);
 	}
 
-	public Roles getRoles() {
-		return roles;
+	/**
+	 * Whether this user has the given role.
+	 * 
+	 * @param role
+	 * @return whether this user has the given role
+	 */
+	public boolean hasRole(final String role)
+	{
+		return roles.hasRole(role);
 	}
 
-	public void setRoles(Roles roles) {
+	public void setRoles(final Roles roles)
+	{
 		this.roles = roles;
-	}
-
-	public long getId() {
-		return id;
 	}
 
 }

@@ -35,7 +35,7 @@ public class SchemaCreator
 	 * and run the populate.sql to populate the database
 	 * 
 	 */
-	public static void main(String[] args)
+	public static void main(final String[] args)
 	{
 		SchemaCreator.create();
 	}

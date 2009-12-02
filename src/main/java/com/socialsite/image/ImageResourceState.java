@@ -7,14 +7,18 @@ class ImageResourceState extends ResourceState
 {
 	// CONSTRUCTORS
 
+	private String	contentType;
+
+	// MEMBERS
+
+	private byte[]	data;
+
+	private Time	lastModified;
+
 	ImageResourceState()
 	{
 		super();
 	}
-
-	// MEMBERS
-
-	private String	contentType;
 
 	@Override
 	public String getContentType()
@@ -22,22 +26,10 @@ class ImageResourceState extends ResourceState
 		return contentType;
 	}
 
-	void setContentType(String contentType)
-	{
-		this.contentType = contentType;
-	}
-
-	private byte[]	data;
-
 	@Override
 	public byte[] getData()
 	{
 		return data;
-	}
-
-	void setData(byte[] data)
-	{
-		this.data = data;
 	}
 
 	@Override
@@ -46,12 +38,20 @@ class ImageResourceState extends ResourceState
 		return data.length;
 	}
 
-	private Time	lastModified;
-
 	@Override
 	public Time lastModifiedTime()
 	{
 		return lastModified;
+	}
+
+	void setContentType(final String contentType)
+	{
+		this.contentType = contentType;
+	}
+
+	void setData(final byte[] data)
+	{
+		this.data = data;
 	}
 
 	// METHODS

@@ -28,16 +28,16 @@ public class SearchUserInfoPanel extends BasePanel
 	@SpringBean(name = "userDao")
 	private UserDao				userDao;
 
-	public SearchUserInfoPanel(String id, IModel<User> model)
+	public SearchUserInfoPanel(final String id, final IModel<User> model)
 	{
 		super(id, model);
-		User user = model.getObject();
-		ResourceReference imageResource = new ResourceReference(
+		final User user = model.getObject();
+		final ResourceReference imageResource = new ResourceReference(
 			"userImageResource");
 		add(new Image("userimage", imageResource, new ValueMap("id="
 				+ user.getId())));
 		// link to the home page
-		Link<User> home = new Link<User>("home", model)
+		final Link<User> home = new Link<User>("home", model)
 		{
 
 			/**
@@ -48,9 +48,9 @@ public class SearchUserInfoPanel extends BasePanel
 			@Override
 			public void onClick()
 			{
-				User user = getModelObject();
+				final User user = getModelObject();
 				SocialSiteSession.get().setUserId(user.getId());
-				SessionUser sessionUser = SocialSiteSession.get()
+				final SessionUser sessionUser = SocialSiteSession.get()
 					.getSessionUser();
 				sessionUser.setRoles(userDao.getUsersRelation(user.getId(),
 					sessionUser.getId()));

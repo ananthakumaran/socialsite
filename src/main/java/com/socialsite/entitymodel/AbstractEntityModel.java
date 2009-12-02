@@ -10,13 +10,14 @@ import com.socialsite.persistence.AbstractDomain;
  * @author Ananth
  */
 public abstract class AbstractEntityModel<T extends AbstractDomain> extends
-		LoadableDetachableModel<T> {
+		LoadableDetachableModel<T>
+{
 
-	private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 	/** id of the domain object */
-	protected long id;
+	protected long				id;
 	/** domain object */
-	protected T domain;
+	protected T					domain;
 
 	/**
 	 * creates a detachable Domain object
@@ -24,7 +25,8 @@ public abstract class AbstractEntityModel<T extends AbstractDomain> extends
 	 * @param domain
 	 *            detachableDomainobject
 	 */
-	public AbstractEntityModel(T domain) {
+	public AbstractEntityModel(final T domain)
+	{
 		super();
 		this.domain = domain;
 		this.id = domain.getId();
@@ -34,7 +36,8 @@ public abstract class AbstractEntityModel<T extends AbstractDomain> extends
 	 * Clear the reference to the Domain when the model is detatched.
 	 */
 	@Override
-	protected void onDetach() {
+	protected void onDetach()
+	{
 		domain = null;
 	}
 }

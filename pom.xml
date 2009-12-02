@@ -4,14 +4,15 @@
 
 	<!-- Project Information -->
 	<name>SocialSite</name>
-	<description>A socialsite application </description>
+	<description>A Social Networking site for the Students. The projects is
+		in the early stage of development</description>
 	<url>http://socialsite.kenai.com</url>
 	<licenses>
 		<license>
-			<name>GPL</name>
-			<url>http://www.gnu.org/licenses/gpl-2.0.txt</url>
+			<name>GNU GENERAL PUBLIC LICENSE</name>
+			<url>http://www.gnu.org/licenses/gpl.txt</url>
 			<distribution>repo</distribution>
-			<comments>v2 or higher</comments>
+			<comments>v3 or higher</comments>
 		</license>
 	</licenses>
 	<inceptionYear>2009</inceptionYear>
@@ -23,10 +24,77 @@
 			<url>http://ananthakumaran.wordpress.com</url>
 			<timezone>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</timezone>
 			<roles>
-				<role>developer</role>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>valli</id>
+			<name>Valliapan</name>
+			<email>urfriendvalli@gmail.com</email>
+			<timezone>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</timezone>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>jeethu</id>
+			<name>Jeetander Jain</name>
+			<email>jeetu.jain89@gmail.com</email>
+			<timezone>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</timezone>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+		<developer>
+			<id>jerry</id>
+			<name>Jerry David</name>
+			<timezone>(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</timezone>
+			<roles>
+				<role>Developer</role>
 			</roles>
 		</developer>
 	</developers>
+
+	<!--  Mailing lists -->
+	<mailingLists>
+		<mailingList>
+			<name>commits</name>
+			<archive>http://kenai.com/projects/socialsite/lists/commits/archive
+			</archive>
+			<subscribe>sympa@socialsite.kenai.com</subscribe>
+			<unsubscribe>sympa@socialsite.kenai.com</unsubscribe>
+		</mailingList>
+		<mailingList>
+			<name>dev-mailing-list</name>
+			<archive>http://kenai.com/projects/socialsite/lists/dev-mailing-list/archive
+			</archive>
+			<subscribe>sympa@socialsite.kenai.com</subscribe>
+			<unsubscribe>sympa@socialsite.kenai.com</unsubscribe>
+		</mailingList>
+		<mailingList>
+			<name>issue</name>
+			<archive>http://kenai.com/projects/socialsite/lists/issues/archive
+			</archive>
+			<subscribe>sympa@socialsite.kenai.com</subscribe>
+			<unsubscribe>sympa@socialsite.kenai.com</unsubscribe>
+		</mailingList>
+	</mailingLists>
+
+	<!--  Issue management system -->
+
+	<issueManagement>
+		<system>jira</system>
+		<url>http://kenai.com/jira/browse/SOCIALSITE</url>
+	</issueManagement>
+
+	<scm>
+		<connection>scm:svn:https://svn.kenai.com/svn/socialsite~socialsite-maven-repo
+		</connection>
+		<developerConnection>scm:svn:https://svn.kenai.com/svn/socialsite~socialsite-maven-repo
+		</developerConnection>
+		<url>http://kenai.com/projects/socialsite/sources/socialsite-maven-repo/show
+		</url>
+	</scm>
 
 	<!-- POM Relationships -->
 	<groupId>com.socialsite</groupId>
@@ -49,7 +117,7 @@
 		<dependency>
 			<groupId>org.wicketstuff</groupId>
 			<artifactId>tinymce</artifactId>
-			<version>${wicket.version}</version>
+			<version>1.4-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
@@ -163,7 +231,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.6</version>
+			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -244,9 +312,55 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- Reporting  -->
+	<reporting>
+		<plugins>
+			<!--  java docs -->
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jxr-maven-plugin</artifactId>
+			</plugin>
+			<!--  unit test report -->
+			<plugin>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+			</plugin>
+			<!-- Test coverage report -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+			</plugin>
+			<!-- code analysis -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<format>xml</format>
+					<linkXref>true</linkXref>
+					<minimumTokens>50</minimumTokens>
+					<targetJdk>1.5</targetJdk>
+				</configuration>
+			</plugin>
+			<!-- source code change tracker -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>changelog-maven-plugin</artifactId>
+			</plugin>
+			<!-- TODO list -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+	
+	<!-- properties -->
 	<properties>
-		<wicket.version>1.4.1</wicket.version>
-		<jetty.version>6.1.4</jetty.version>
+		<wicket.version>1.4.3</wicket.version>
+		<jetty.version>6.1.6</jetty.version>
 	</properties>
 
 	<!-- Maven Environment -->

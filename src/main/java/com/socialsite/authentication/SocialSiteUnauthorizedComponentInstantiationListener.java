@@ -11,14 +11,16 @@ import org.apache.wicket.authorization.IUnauthorizedComponentInstantiationListen
  * 
  */
 public class SocialSiteUnauthorizedComponentInstantiationListener implements
-		IUnauthorizedComponentInstantiationListener {
+		IUnauthorizedComponentInstantiationListener
+{
 	/**
 	 * Redirects to the LogingPage if the user is not authorized
 	 * 
 	 * @param component
 	 *            component which failed the authorization check
 	 */
-	public void onUnauthorizedInstantiation(Component component) {
+	public void onUnauthorizedInstantiation(final Component component)
+	{
 		throw new RestartResponseAtInterceptPageException(LoginPage.class);
 
 	}

@@ -24,14 +24,14 @@ public class FriendsPanel extends BasePanel
 	 */
 	private static final long	serialVersionUID	= 1L;
 
-	public FriendsPanel(String id)
+	public FriendsPanel(final String id)
 	{
 		super(id);
 		// friends data provider
-		FriendsDataProvider friendsDataProvider = new FriendsDataProvider(
+		final FriendsDataProvider friendsDataProvider = new FriendsDataProvider(
 			SocialSiteSession.get().getUserId());
 
-		DataView<User> friendList = new DataView<User>("friends",
+		final DataView<User> friendList = new DataView<User>("friends",
 			friendsDataProvider)
 		{
 			/**
@@ -40,11 +40,11 @@ public class FriendsPanel extends BasePanel
 			private static final long	serialVersionUID	= 1L;
 
 			@Override
-			protected void populateItem(Item<User> item)
+			protected void populateItem(final Item<User> item)
 			{
 				final User user = item.getModelObject();
 
-				ResourceReference imageResource = new ResourceReference(
+				final ResourceReference imageResource = new ResourceReference(
 					"userImageResource");
 				item.add(new Image("userthumb", imageResource, new ValueMap(
 					"id=" + user.getId() + ",thumb=true")));

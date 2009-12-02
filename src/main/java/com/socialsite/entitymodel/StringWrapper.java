@@ -55,7 +55,7 @@ public class StringWrapper implements Serializable
 	 * @param model
 	 *            string model
 	 */
-	public StringWrapper(String model)
+	public StringWrapper(final String model)
 	{
 		this.model = model;
 	}
@@ -76,7 +76,7 @@ public class StringWrapper implements Serializable
 	 * @param model
 	 *            string model
 	 */
-	public void setModel(String model)
+	public void setModel(final String model)
 	{
 		this.model = model;
 	}

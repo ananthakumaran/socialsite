@@ -25,32 +25,32 @@ public class ScrapDataProvider extends SortableDataProvider<Scrap>
 	 * 
 	 */
 	private static final long	serialVersionUID	= 1L;
-	
-	/** user id */
-	private long id;
-	
-	/** spring dao to handle scrap object */
-	@SpringBean(name="scrapDao")
-	private ScrapDao scrapDao;
-	
-	/** spring dao to handle user object */
-	@SpringBean(name="userDao")
-	private UserDao userDao;
 
-	public ScrapDataProvider(long id)
+	/** user id */
+	private final long			id;
+
+	/** spring dao to handle scrap object */
+	@SpringBean(name = "scrapDao")
+	private ScrapDao			scrapDao;
+
+	/** spring dao to handle user object */
+	@SpringBean(name = "userDao")
+	private UserDao				userDao;
+
+	public ScrapDataProvider(final long id)
 	{
 		this.id = id;
 		InjectorHolder.getInjector().inject(this);
 	}
-	
-	public Iterator<Scrap> iterator(int first, int count)
+
+	public Iterator<Scrap> iterator(final int first, final int count)
 	{
 		return scrapDao.getScraps(userDao.load(id), first, count).iterator();
 	}
 
-	public IModel<Scrap> model(Scrap scrap)
+	public IModel<Scrap> model(final Scrap scrap)
 	{
-		return new EntityModel<Scrap>(scrap,scrapDao);
+		return new EntityModel<Scrap>(scrap, scrapDao);
 	}
 
 	public int size()

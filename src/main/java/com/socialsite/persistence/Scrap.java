@@ -2,7 +2,6 @@ package com.socialsite.persistence;
 
 import java.util.Date;
 
-
 /**
  * Scrap Details .This is the business object that we persist to the Database
  * 
@@ -23,39 +22,14 @@ public class Scrap implements AbstractDomain
 	private Date				time;
 	private String				message;
 
-	public long getId()
-	{
-		return id;
-	}
-
 	public User getAuthor()
 	{
 		return author;
 	}
 
-	public void setAuthor(User author)
+	public long getId()
 	{
-		this.author = author;
-	}
-
-	public User getReceiver()
-	{
-		return receiver;
-	}
-
-	public void setReceiver(User receiver)
-	{
-		this.receiver = receiver;
-	}
-
-	public Date getTime()
-	{
-		return time;
-	}
-
-	public void setTime(Date time)
-	{
-		this.time = time;
+		return id;
 	}
 
 	public String getMessage()
@@ -63,14 +37,39 @@ public class Scrap implements AbstractDomain
 		return message;
 	}
 
-	public void setMessage(String message)
+	public User getReceiver()
+	{
+		return receiver;
+	}
+
+	public Date getTime()
+	{
+		return time;
+	}
+
+	public void setAuthor(final User author)
+	{
+		this.author = author;
+	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setMessage(final String message)
 	{
 		this.message = message;
 	}
 
-	public void setId(long id)
+	public void setReceiver(final User receiver)
 	{
-		this.id = id;
+		this.receiver = receiver;
+	}
+
+	public void setTime(final Date time)
+	{
+		this.time = time;
 	}
 
 }

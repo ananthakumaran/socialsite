@@ -2,11 +2,11 @@
 <wicket:panel>
 	<a href="#" class="reply">reply</a>
 	<div class="replyContainer" style="display:none ">
-	<form wicket:id="replyform" action="#"><textarea
-		wicket:id="message" rows="2" cols="70"></textarea> <a wicket:id="send">
+	<form wicket:id="replyform" action="#"><div><textarea
+		wicket:id="message" rows="3" cols="50"></textarea></div> <a wicket:id="send">
 	send</a><a class="replyCancel" href="#">cancel</a></form>
 	</div>
-	<div wicket:id="sent">Your message send successfully <a
+	<div class="replyInfo" wicket:id="sent">Your message send successfully <a
 		wicket:id="sentscrap" href="#">click here</a> to see the scrap</div>
 </wicket:panel>
 </html>

@@ -20,25 +20,6 @@ public class SocialSiteSession extends WebSession
 	 */
 	private static final long	serialVersionUID	= 1L;
 
-	/** logged in user */
-	private SessionUser			sessionUser;
-
-	/**
-	 * id of the user that the logged in user is visiting
-	 */
-	private long				userId;
-
-	/**
-	 * constructor
-	 * 
-	 * @param request
-	 *            request object
-	 */
-	protected SocialSiteSession(Request request)
-	{
-		super(request);
-	}
-
 	/**
 	 * static getter for {@link SocialSiteSession}
 	 * 
@@ -49,14 +30,28 @@ public class SocialSiteSession extends WebSession
 		return (SocialSiteSession) Session.get();
 	}
 
+	/** logged in user */
+	private SessionUser	sessionUser;
+
+	/**
+	 * id of the user that the logged in user is visiting
+	 */
+	private long		userId;
+
+	/**
+	 * constructor
+	 * 
+	 * @param request
+	 *            request object
+	 */
+	protected SocialSiteSession(final Request request)
+	{
+		super(request);
+	}
+
 	public SessionUser getSessionUser()
 	{
 		return sessionUser;
-	}
-
-	public void setSessionUser(SessionUser user)
-	{
-		this.sessionUser = user;
 	}
 
 	public long getUserId()
@@ -64,7 +59,12 @@ public class SocialSiteSession extends WebSession
 		return userId;
 	}
 
-	public void setUserId(long userId)
+	public void setSessionUser(final SessionUser user)
+	{
+		sessionUser = user;
+	}
+
+	public void setUserId(final long userId)
 	{
 		this.userId = userId;
 	}

@@ -1,8 +1,14 @@
 <html xmlns:wicket>
 <wicket:panel>
-	<div>
-	<form wicket:id="scrapform" action="#"><textarea
-		wicket:id="message" rows="2" cols="70"></textarea> <a wicket:id="send">
+	<div class="box">
+	<form wicket:id="scrapform" action="#">
+	<fieldset class="scrapBox">
+	<legend>Scrap</legend>
+	<textarea
+		wicket:id="message" rows="4" cols="50"></textarea>
+		</fieldset>
+		 <a wicket:id="send">
+		 
 	send</a></form>
 	</div>
 </wicket:panel>
