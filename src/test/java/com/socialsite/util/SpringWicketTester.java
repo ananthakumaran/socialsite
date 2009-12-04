@@ -8,6 +8,8 @@ import org.apache.wicket.util.tester.WicketTester;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
+import com.socialsite.SocialSiteApplication;
+
 /**
  * Spring enabled WicketTester allows a user to test applications that have been
  * wired using the SpringComponentInjector. This subclass of the WicketTester
@@ -22,26 +24,14 @@ public class SpringWicketTester extends WicketTester
 	private XmlWebApplicationContext	spring;
 
 	/**
-	 * Instantiate the WicketTester with your application and a set of URLs to
-	 * find the Spring XML configuration files. Ex:
-	 * 
-	 * <pre>
-	 * new SpringWicketTester(new MyApp(), &quot;classpath:application.xml&quot;,
-	 * 
-	 * &quot;classpath:application-test.xml&quot;);
-	 * </pre>
-	 * 
-	 * @param app
-	 *            Your Wicket web application
-	 * @param springConfigURLs
-	 *            The set of URLs for the configuration files.
+	 * constructor
 	 */
-	public SpringWicketTester(final WebApplication app,
-			final String... springConfigURLs)
+	public SpringWicketTester()
 	{
-		this(app, null, springConfigURLs);
+		this(new SocialSiteApplication(), null, "classpath:applicationContext.xml");
+		
 	}
-
+	
 	/**
 	 * Instantiate the WicketTester with your application and a set of URLs to
 	 * find the Spring XML configuration files. Ex:

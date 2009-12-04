@@ -30,12 +30,48 @@
 	<!-- UserDao -->
 	<bean id="userDaoTarget" class="com.socialsite.dao.hibernate.UserDaoImpl"
 		lazy-init="true">
+		<constructor-arg index="0">
+			<value type="java.lang.Class">com.socialsite.persistence.User</value>
+		</constructor-arg>
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 	<bean id="userDao" parent="transactionProxyTemplate" lazy-init="true">
 		<property name="target" ref="userDaoTarget" />
 	</bean>
+
+
+	<!-- StaffDao -->
+	<bean id="staffDaoTarget" class="com.socialsite.dao.hibernate.StaffDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="staffDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="staffDaoTarget" />
+	</bean>
+
+	<!-- AdminDao -->
+	<bean id="adminDaoTarget" class="com.socialsite.dao.hibernate.AdminDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="adminDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="adminDaoTarget" />
+	</bean>
+
+	<!-- StudentDao -->
+	<bean id="studentDaoTarget" class="com.socialsite.dao.hibernate.StudentDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="studentDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="studentDaoTarget" />
+	</bean>
+
+
 
 	<!-- ProfileDao -->
 	<bean id="profileDaoTarget" class="com.socialsite.dao.hibernate.ProfileDaoImpl"
@@ -47,26 +83,42 @@
 		<property name="target" ref="profileDaoTarget" />
 	</bean>
 
-	<!-- FriendRequestDao -->
-	<bean id="friendRequestDaoTarget" class="com.socialsite.dao.hibernate.FriendRequestDaoImpl"
-		lazy-init="true">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
 
-	<bean id="friendRequestDao" parent="transactionProxyTemplate"
-		lazy-init="true">
-		<property name="target" ref="friendRequestDaoTarget" />
-	</bean>
-	
 	<!-- ScrapDao -->
 	<bean id="scrapDaoTarget" class="com.socialsite.dao.hibernate.ScrapDaoImpl"
 		lazy-init="true">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="scrapDao" parent="transactionProxyTemplate"
-		lazy-init="true">
+	<bean id="scrapDao" parent="transactionProxyTemplate" lazy-init="true">
 		<property name="target" ref="scrapDaoTarget" />
 	</bean>
+	
+	
+	<!-- MessageDao -->
+	<bean id="messageDaoTarget" class="com.socialsite.dao.hibernate.MessageDaoImpl"
+		lazy-init="true">
+		<constructor-arg index="0">
+			<value type="java.lang.Class">com.socialsite.persistence.Message</value>
+		</constructor-arg>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="messageDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="messageDaoTarget" />
+	</bean>
+
+	<!-- FriendRequestMsgDao -->
+	<bean id="friendRequestMsgDaoTarget" class="com.socialsite.dao.hibernate.FriendRequestMsgDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="friendRequestMsgDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="friendRequestMsgDaoTarget" />
+	</bean>
+
+	
+	
 
 </beans>

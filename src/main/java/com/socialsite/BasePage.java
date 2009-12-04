@@ -8,7 +8,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import com.socialsite.dao.UserDao;
 
 /**
- * BasePage for the JQMS Application
+ * BasePage for the socialsite Application
  * 
  * @author Ananth
  * 

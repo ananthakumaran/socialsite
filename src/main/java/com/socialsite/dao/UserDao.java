@@ -11,8 +11,9 @@ import com.socialsite.persistence.User;
  * DAO for the User object
  * 
  * @author Ananth
+ * @param <T>
  */
-public interface UserDao extends AbstractDao<User>
+public interface UserDao<T extends User> extends AbstractDao<T>
 {
 	/**
 	 * compare the user details in the database and find the user
@@ -24,7 +25,7 @@ public interface UserDao extends AbstractDao<User>
 	 * @return User object or null if the user with the given details doesn't
 	 *         exists
 	 */
-	public User checkUserStatus(String userName, String password);
+	public T checkUserStatus(String userName, String password);
 
 	/**
 	 * find the number of unique rows in the User (table) that matched the
@@ -53,7 +54,7 @@ public interface UserDao extends AbstractDao<User>
 	 *            used to sort the user List
 	 * @return List containing the {@link User} matched the search criteriaF
 	 */
-	public List<User> findAll(String filter, int first, int count,
+	public List<T> findAll(String filter, int first, int count,
 			SortParam sortParam);
 
 	/**
@@ -61,11 +62,11 @@ public interface UserDao extends AbstractDao<User>
 	 * 
 	 * XXX Don't use the getter in the user object (use this instead)
 	 * 
-	 * @param user
+	 * @param T
 	 *            user object
 	 * @return List containig all the friends
 	 */
-	public List<User> getFriends(User user);
+	public List<T> getFriends(T user);
 
 	/**
 	 * get the friend list of the given user
@@ -80,17 +81,17 @@ public interface UserDao extends AbstractDao<User>
 	 *            no of items needed in the user List
 	 * @return List containig all the friends
 	 */
-	public List<User> getFriends(User user, int first, int count);
+	public List<T> getFriends(User user, int first, int count);
 
 	/**
 	 * find the count of friends
 	 * 
-	 * @param user
+	 * @param T
 	 *            user object
 	 * 
 	 * @return count of friends
 	 */
-	public int getFriendsCount(User user);
+	public int getFriendsCount(T user);
 
 	/**
 	 * find the relationship between two users

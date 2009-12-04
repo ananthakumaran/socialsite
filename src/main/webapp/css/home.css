@@ -1,14 +1,35 @@
 @CHARSET "ISO-8859-1";
 
 /*------------- user info ------------------*/
-.userInfo li {
-	background: #EEE;
-	border-top: 1px solid #FFF;
-	padding: 0 10px;
+.userInfo {
+	background: url("../img/userinfo-background.png");
+	padding: 1px;
 }
 
-.userInfo input[type="text"] {
-	width: 125px;
+.userInfo .wrap {
+	width: 962px;
+}
+
+.userInfo .box {
+	position: relative;
+	margin-top: 15px;
+	background: url("../img/userinfo-box.png");
+	padding: 10px;
+}
+
+.userInfo .boxBottom {
+	background: url("../img/userinfo-box-bottom.png");
+	height: 6px;
+	margin-bottom: 5px;
+}
+
+.userInfo img {
+	float: left;
+	margin-right: 10px;
+}
+
+.userInfo .info {
+	float: left;
 }
 
 li.feedbackPanelINFO {
@@ -20,13 +41,73 @@ li.feedbackPanelINFO {
 }
 
 div.friend {
-	background : #EEE;
+	background: #EEE;
 	width: 101px;
 	padding: 2px;
-	float : left;
+	float: left;
 }
 
-/*-------------- friend requests -------------------*/
-.friendRequestContainer {
-	margin : 1% 0 0 0;
+/*-------------- messages-------------------*/
+#content .wrap {
+	margin-top: 10px;
+}
+
+.messageContainer {
+	margin-top: 10px;
+}
+
+#main .message {
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+#main .message .image {
+	border: 1px solid black;
+	float: left;
+	width: 75px;
+	height: 75px;
+}
+
+.message .messageContent {
+	border: 1px solid #DDDDDD;
+	padding: 10px 12px 0;
+	float: right;
+	width: 450px;
+}
+
+.messageContent .intro {
+	
+}
+
+.messageContent .confirm {
+	color: #323F50;
+	font-size: 14px;
+	text-shadow: 0 1px 0 #E8F2FE;
+}
+
+.messageContent a {
+	text-shadow:0 1px 0 #E8F2FE;
+	font-family: "Lucida Grande";
+	color: #034B9D;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.messageContent a:hover {
+	color: #0B3063;
+	text-decoration: underline;
+}
+
+.messageContent .time {
+	font-size: 12px;
+	font-family: "Lucida Grande";
+	color: #032C64;
+	text-shadow: 0 1px 0 #E8F2FE;
+	margin: 3px 0;
+}
+
+#main {
+	float: left;
+	border: 1px solid black;
+	width: 585px;
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.socialsite.persistence">
+    <class name="Message" table="MESSAGE" abstract="true">
+        <!-- id -->
+		<id name="id" type="long" column="id">
+			<generator class="identity"></generator>
+		</id>
+
+		<many-to-one name="user" column="user_id" class="User" foreign-key="fk_Message_user_id_User_id" />
+		
+		<property name="time" type="date" />
+		
+		<joined-subclass name="FriendRequestMsg" table="FRIEND_REQUEST_MSG">
+		 <key column="id"></key>
+		
+		<property name="message"  type="string" />
+		<many-to-one name="Sender"  column="sender_id" class="User" foreign-key="fk_FRIEND_REQUEST_MSG_sender_id_User_id" />
+				 
+		</joined-subclass>
+		
+    </class>
+</hibernate-mapping>

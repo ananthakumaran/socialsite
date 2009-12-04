@@ -7,6 +7,4 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
-	<classpathentry including="src/main/webapp/js/" kind="src" path=""/>
-	<classpathentry kind="output" path=""/>
 </classpath>

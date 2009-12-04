@@ -11,6 +11,7 @@ import com.socialsite.dao.ScrapDao;
 import com.socialsite.dao.UserDao;
 import com.socialsite.entitymodel.EntityModel;
 import com.socialsite.persistence.Scrap;
+import com.socialsite.persistence.User;
 
 /**
  * data provider for scrap list
@@ -35,7 +36,7 @@ public class ScrapDataProvider extends SortableDataProvider<Scrap>
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao				userDao;
+	private UserDao<User>				userDao;
 
 	public ScrapDataProvider(final long id)
 	{

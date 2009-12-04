@@ -20,6 +20,7 @@ import com.socialsite.dao.UserDao;
 import com.socialsite.home.HomePage;
 import com.socialsite.image.ImageService;
 import com.socialsite.persistence.Profile;
+import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
 
 /**
@@ -50,7 +51,7 @@ public class SignUpPage extends WebPage
 
 	/** Spring Dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao				userDao;
+	private UserDao<User>				userDao;
 
 	public SignUpPage()
 	{
@@ -83,7 +84,7 @@ public class SignUpPage extends WebPage
 				// creates a user
 				try
 				{
-					final User user = new User(userName, password);
+					final User user = new Student(userName, password);
 					userDao.save(user);
 					// The FileUpload object that will be provided by wicket
 					// that holds info about

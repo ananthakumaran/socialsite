@@ -18,7 +18,7 @@
   <property name="lastName" type="string" />
   <property name="email" type="string" />
   <property name="image" type="binary" length="10000000"/>
-  <property name="thumb" type="binary" length="100000"/>
+  <property name="thumb" type="binary"  length="100000"/>
   
   
   <!-- Relations -->

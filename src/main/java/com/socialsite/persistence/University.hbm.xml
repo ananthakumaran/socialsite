@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.socialsite.persistence">
+	<class name="University" table="UNIVERSITY">
+		<!-- id -->
+		<id name="id" type="long">
+			<generator class="identity">
+			</generator>
+
+		</id>
+
+		<!--  relations -->
+		<many-to-one name="admin" class="Admin" column="admin_id" foreign-key="fk_University_admin_id_Admin_id"/>
+
+		<set name="staffs" table="STAFF">
+			<key column="university_id" />
+			<one-to-many class="Staff" />
+		</set>
+		<set name="courses" table="COURSE">
+			<key column="university_id" />
+			<one-to-many class="com.socialsite.persistence.Course" />
+		</set>
+	</class>
+</hibernate-mapping>

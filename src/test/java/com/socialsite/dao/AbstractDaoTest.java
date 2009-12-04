@@ -53,7 +53,7 @@ abstract public class AbstractDaoTest extends
 	@BeforeClass
 	public static void setUpDatabase()
 	{
-		SchemaCreator.create();
+		//SchemaCreator.create();
 	}
 
 	@Autowired

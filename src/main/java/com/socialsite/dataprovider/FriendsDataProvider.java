@@ -30,7 +30,7 @@ public class FriendsDataProvider extends SortableDataProvider<User>
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao				userDao;
+	private UserDao<User>				userDao;
 
 	public FriendsDataProvider(final long id)
 	{

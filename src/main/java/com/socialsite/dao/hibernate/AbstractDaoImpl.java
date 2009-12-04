@@ -18,7 +18,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 {
 
 	/** class of the domain */
-	private final Class<T>	domainClass;
+	protected final Class<T>	domainClass;
 	/** Hibernate sessionFactory to access the database */
 	private SessionFactory	sessionFactory;
 

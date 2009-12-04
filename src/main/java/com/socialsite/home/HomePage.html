@@ -9,21 +9,25 @@
 <script type="text/javascript" src="js/socialsite/home.js"></script>
 </head>
 <body>
-<div id="container">
 <div id="header">
 <div wicket:id="header">[header panel]</div>
 </div>
-<div id="leftsidebar">
-<div wicket:id="userinfo">[user info panel ]</div>
+<div class="userInfo">
+<div wicket:id="userinfo" class="wrap">[user info panel ]</div>
+</div>
+<div id="content">
+<div class="wrap">
+<div id="main">
+<div wicket:id="message">[ Friend Request ]</div>
 </div>
 <div id="rightsidebar">
 <div wicket:id="friends"></div>
 </div>
-<div id="content">
-<div wicket:id="friendrequest">[ Friend Request ]</div>
 </div>
 <div class="clear"></div>
 </div>
+
+<div class="clear"></div>
 </body>
 </html>
 

@@ -3,6 +3,7 @@ package com.socialsite.dao.hibernate;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
+import static junit.framework.Assert.fail;
 
 import javax.annotation.Resource;
 
@@ -16,19 +17,20 @@ import org.springframework.transaction.annotation.Transactional;
 import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.dao.AbstractDaoTest;
 import com.socialsite.dao.UserDao;
+import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
 
 public class UserDaoTest extends AbstractDaoTest
 {
 
 	@Resource(name = "userDao")
-	private UserDao	userDao;
+	private UserDao<User>	userDao;
 
 	@Test
 	@Transactional
 	public void testCheckUserStatus()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		userDao.save(ananth);
 		assertNotNull("correct username and password", userDao.checkUserStatus(
 			"ananth", "pass"));
@@ -40,7 +42,7 @@ public class UserDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testCreate()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		userDao.save(ananth);
 
 		// flush the session so we can get the record using JDBC template
@@ -57,10 +59,10 @@ public class UserDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testFriendRelation()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		userDao.save(ananth);
 
-		final User anantha = new User("anantha", "pass");
+		final User anantha = new Student("anantha", "pass");
 		userDao.save(anantha);
 
 		ananth.addFriend(anantha);
@@ -70,19 +72,19 @@ public class UserDaoTest extends AbstractDaoTest
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		assertEquals("friend_reference count should be on ", 1,
+		assertEquals("friend_reference count should be on ", 2,
 			simpleJdbcTemplate
 				.queryForInt("select count(*) from friend_reference"));
 
 		assertEquals("size of the friend list of ananth should be one ", 1,
 			userDao.getFriends(ananth).size());
-
-		assertEquals("size of the friend list of anantha should be one ", 1,
-			userDao.getFriends(anantha).size());
-		assertEquals(" ananth should have a friend with name anantha ",
-			"anantha", userDao.getFriends(ananth).get(0).getUserName());
-		assertEquals("anantha should have a friend with name ananth ",
-			"ananth", userDao.getFriends(anantha).get(0).getUserName());
+		
+		 assertEquals("size of the friend list of anantha should be one ", 1,
+		 userDao.getFriends(anantha).size());
+		 assertEquals(" ananth should have a friend with name anantha ",
+		 "anantha", userDao.getFriends(ananth).get(0).getUserName());
+		 assertEquals("anantha should have a friend with name ananth ",
+		 "ananth", userDao.getFriends(anantha).get(0).getUserName());
 
 	}
 
@@ -90,17 +92,17 @@ public class UserDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testGetUsersRelation()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		userDao.save(ananth);
 
-		final User anantha = new User("anantha", "pass");
+		final User anantha = new Student("anantha", "pass");
 		userDao.save(anantha);
 
 		ananth.addFriend(anantha);
 
 		userDao.save(ananth);
 
-		final User unknown = new User("unknown", "pass");
+		final User unknown = new Student("unknown", "pass");
 		userDao.save(unknown);
 
 		// flush the session so we can get the record using JDBC template
@@ -118,19 +120,21 @@ public class UserDaoTest extends AbstractDaoTest
 				unknown.getId()));
 	}
 
-	@Ignore
 	@Test
 	@Transactional
-	@ExpectedException(ConstraintViolationException.class)
 	public void testUniqueUserName()
 	{
-		final User ananth = new User("ananth", "pass");
-		userDao.save(ananth);
-		final User anantha = new User("ananth", "pass");
-		userDao.save(anantha);
+		try
+		{
+			final User ananth = new Student("ananth", "pass");
+			userDao.save(ananth);
+			final User anantha = new Student("ananth", "pass");
+			userDao.save(anantha);
+			fail("should throw a exception");
+		} catch (ConstraintViolationException ex)
+		{
 
-		// flush the session so we can get the record using JDBC template
-		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+		}
 
 	}
 

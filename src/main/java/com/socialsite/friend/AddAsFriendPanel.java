@@ -1,5 +1,7 @@
 package com.socialsite.friend;
 
+import java.util.Date;
+
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.authorization.Action;
@@ -12,9 +14,9 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
 import com.socialsite.SocialSiteSession;
-import com.socialsite.dao.FriendRequestDao;
+import com.socialsite.dao.FriendRequestMsgDao;
 import com.socialsite.dao.UserDao;
-import com.socialsite.persistence.FriendRequest;
+import com.socialsite.persistence.FriendRequestMsg;
 import com.socialsite.persistence.User;
 
 /**
@@ -32,10 +34,10 @@ public class AddAsFriendPanel extends BasePanel
 
 	/** Spring Dao to access the user object */
 	@SpringBean(name = "userDao")
-	private UserDao				userDao;
+	private UserDao<User>		userDao;
 	/** Spring Dao to access the friendrequest object */
-	@SpringBean(name = "friendRequestDao")
-	private FriendRequestDao	friendRequestDao;
+	@SpringBean(name = "friendRequestMsgDao")
+	private FriendRequestMsgDao	friendRequestMsgDao;
 	/** feedback panel */
 	private FeedbackPanel		feedback;
 
@@ -68,11 +70,12 @@ public class AddAsFriendPanel extends BasePanel
 				final User friend = userDao.load(SocialSiteSession.get()
 					.getUserId());
 				// create a new friend request
-				final FriendRequest friendRequest = new FriendRequest();
-				friendRequest.setFriend(friend);
-				friendRequest.setUser(user);
+				final FriendRequestMsg friendRequest = new FriendRequestMsg();
+				friendRequest.setSender(user);
+				friendRequest.setUser(friend);
 				friendRequest.setMessage(message);
-				friendRequestDao.save(friendRequest);
+				friendRequest.setTime(new Date());
+				friendRequestMsgDao.save(friendRequest);
 				// show feedback
 				info("friend request sent");
 				// TODO add javascript to hide the form after sending the friend
@@ -92,7 +95,10 @@ public class AddAsFriendPanel extends BasePanel
 	@Override
 	public boolean isVisible()
 	{
-		return !friendRequestDao.hasFriendRequest(SocialSiteSession.get()
-			.getSessionUser().getId(), SocialSiteSession.get().getUserId());
+		// return !friendRequestDao.hasFriendRequest(SocialSiteSession.get()
+		// .getSessionUser().getId(), SocialSiteSession.get().getUserId());
+
+		return true;
+
 	}
 }

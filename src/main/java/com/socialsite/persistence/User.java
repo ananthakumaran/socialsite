@@ -10,7 +10,7 @@ import org.jasypt.util.password.StrongPasswordEncryptor;
  * 
  * @author Ananth
  */
-public class User implements AbstractDomain
+public abstract class User implements AbstractDomain
 {
 	private static final long	serialVersionUID	= 1L;
 
@@ -37,7 +37,6 @@ public class User implements AbstractDomain
 
 	private Set<User>			friends			= new HashSet<User>();
 
-	private Set<FriendRequest>	friendRequests	= new HashSet<FriendRequest>();
 
 	private Set<Scrap>			scraps			= new HashSet<Scrap>();
 
@@ -74,14 +73,14 @@ public class User implements AbstractDomain
 	public void addFriend(final User friend)
 	{
 		getFriends().add(friend);
+		friend.getFriends().add(this);
+		
 	}
+	
+	
 
-	public Set<FriendRequest> getFriendRequests()
-	{
-		return friendRequests;
-	}
 
-	private Set<User> getFriends()
+	public Set<User> getFriends()
 	{
 		return friends;
 	}
@@ -125,10 +124,9 @@ public class User implements AbstractDomain
 		return passwordEncryptor.checkPassword(password, getPassword());
 	}
 
-	public void setFriendRequests(final Set<FriendRequest> friendRequests)
-	{
-		this.friendRequests = friendRequests;
-	}
+	
+   
+	
 
 	public void setFriends(final Set<User> friends)
 	{

@@ -15,6 +15,7 @@ import com.socialsite.dao.AbstractDaoTest;
 import com.socialsite.dao.ScrapDao;
 import com.socialsite.dao.UserDao;
 import com.socialsite.persistence.Scrap;
+import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
 
 /**
@@ -24,7 +25,7 @@ import com.socialsite.persistence.User;
 public class ScrapDaoTest extends AbstractDaoTest
 {
 	@Resource(name = "userDao")
-	private UserDao		userDao;
+	private UserDao<User>		userDao;
 
 	@Resource(name = "scrapDao")
 	private ScrapDao	scrapDao;
@@ -33,10 +34,10 @@ public class ScrapDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testCreate()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		userDao.save(ananth);
 
-		final User anantha = new User("anantha", "pass");
+		final User anantha = new Student("anantha", "pass");
 		userDao.save(anantha);
 
 		final Scrap scrap = new Scrap();
@@ -60,10 +61,10 @@ public class ScrapDaoTest extends AbstractDaoTest
 	@Test
 	public void testGetScraps()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		userDao.save(ananth);
 
-		final User anantha = new User("anantha", "pass");
+		final User anantha = new Student("anantha", "pass");
 		userDao.save(anantha);
 
 		final Scrap scrap = new Scrap();

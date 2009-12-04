@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.socialsite.dao.AbstractDaoTest;
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.persistence.Profile;
+import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
 
 /**
@@ -28,7 +29,7 @@ public class ProfileDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testCreate()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		final Profile ananthProfile = new Profile();
 		ananthProfile.setUser(ananth);
 		ananthProfile.setEmail("ananth@gmail.com");
@@ -63,7 +64,7 @@ public class ProfileDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testGetUserImage()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		final Profile ananthProfile = new Profile();
 		ananthProfile.setUser(ananth);
 		// set some dummy data for image
@@ -81,7 +82,7 @@ public class ProfileDaoTest extends AbstractDaoTest
 	@Transactional
 	public void testGetUserThumb()
 	{
-		final User ananth = new User("ananth", "pass");
+		final User ananth = new Student("ananth", "pass");
 		final Profile ananthProfile = new Profile();
 		ananthProfile.setUser(ananth);
 		// set some dummy data for image

@@ -1,15 +1,51 @@
 
-    alter table FriendRequest 
+    alter table ADMIN 
         drop 
-        foreign key fk_FriendRequest_user_id_User_id;
+        foreign key FK3B40B2FE8BA0282;
 
-    alter table FriendRequest 
+    alter table COURSE 
         drop 
-        foreign key fk_FriendRequest_friend_id_User_id;
+        foreign key fk_Course_staff_id_Staff_id;
+
+    alter table COURSE 
+        drop 
+        foreign key fk_Course_university_id_University_id;
+
+    alter table FRIEND_REQUEST_MSG 
+        drop 
+        foreign key FKED4A6970E1E64E06;
+
+    alter table FRIEND_REQUEST_MSG 
+        drop 
+        foreign key fk_FRIEND_REQUEST_MSG_sender_id_User_id;
+
+    alter table MESSAGE 
+        drop 
+        foreign key fk_Message_user_id_User_id;
 
     alter table Profile 
         drop 
         foreign key fk_Profile_user_id_User_id;
+
+    alter table STAFF 
+        drop 
+        foreign key FK4B8CAC0E8BA0282;
+
+    alter table STAFF 
+        drop 
+        foreign key fk_Staff_university_id_University_id;
+
+    alter table STUDENT 
+        drop 
+        foreign key FKBACA0E1BE8BA0282;
+
+    alter table STUDENT_COURSE 
+        drop 
+        foreign key fk_STUDENT_COURSE_student_id_Student_id;
+
+    alter table STUDENT_COURSE 
+        drop 
+        foreign key fk_STUDENT_COURSE_course_id_Course_id;
 
     alter table Scrap 
         drop 
@@ -19,6 +55,10 @@
         drop 
         foreign key fk_Scrap_author_id_User_id;
 
+    alter table UNIVERSITY 
+        drop 
+        foreign key fk_University_admin_id_Admin_id;
+
     alter table friend_reference 
         drop 
         foreign key fk_Friend_Reference_user_id_User_id;
@@ -27,21 +67,53 @@
         drop 
         foreign key fk_Friend_Reference_friend_id_User_id;
 
-    drop table if exists FriendRequest;
+    drop table if exists ADMIN;
+
+    drop table if exists COURSE;
+
+    drop table if exists FRIEND_REQUEST_MSG;
+
+    drop table if exists MESSAGE;
 
     drop table if exists Profile;
 
+    drop table if exists STAFF;
+
+    drop table if exists STUDENT;
+
+    drop table if exists STUDENT_COURSE;
+
     drop table if exists Scrap;
+
+    drop table if exists UNIVERSITY;
 
     drop table if exists User;
 
     drop table if exists friend_reference;
 
-    create table FriendRequest (
+    create table ADMIN (
+        id bigint not null,
+        primary key (id)
+    );
+
+    create table COURSE (
         id bigint not null auto_increment,
-        message text,
-        friend_id bigint not null,
-        user_id bigint not null,
+        university_id bigint,
+        staff_id bigint,
+        primary key (id)
+    );
+
+    create table FRIEND_REQUEST_MSG (
+        id bigint not null,
+        message varchar(255),
+        sender_id bigint,
+        primary key (id)
+    );
+
+    create table MESSAGE (
+        id bigint not null auto_increment,
+        user_id bigint,
+        time date,
         primary key (id)
     );
 
@@ -55,12 +127,35 @@
         primary key (user_id)
     );
 
+    create table STAFF (
+        id bigint not null,
+        university_id bigint,
+        primary key (id)
+    );
+
+    create table STUDENT (
+        id bigint not null,
+        primary key (id)
+    );
+
+    create table STUDENT_COURSE (
+        student_id bigint not null,
+        course_id bigint not null,
+        primary key (course_id, student_id)
+    );
+
     create table Scrap (
         id bigint not null auto_increment,
         message text not null,
         time datetime not null,
         author_id bigint not null,
         receiver_id bigint not null,
+        primary key (id)
+    );
+
+    create table UNIVERSITY (
+        id bigint not null auto_increment,
+        admin_id bigint,
         primary key (id)
     );
 
@@ -77,16 +172,40 @@
         primary key (friend_id, user_id)
     );
 
-    alter table FriendRequest 
-        add index fk_FriendRequest_user_id_User_id (user_id), 
-        add constraint fk_FriendRequest_user_id_User_id 
-        foreign key (user_id) 
+    alter table ADMIN 
+        add index FK3B40B2FE8BA0282 (id), 
+        add constraint FK3B40B2FE8BA0282 
+        foreign key (id) 
         references User (id);
 
-    alter table FriendRequest 
-        add index fk_FriendRequest_friend_id_User_id (friend_id), 
-        add constraint fk_FriendRequest_friend_id_User_id 
-        foreign key (friend_id) 
+    alter table COURSE 
+        add index fk_Course_staff_id_Staff_id (staff_id), 
+        add constraint fk_Course_staff_id_Staff_id 
+        foreign key (staff_id) 
+        references STAFF (id);
+
+    alter table COURSE 
+        add index fk_Course_university_id_University_id (university_id), 
+        add constraint fk_Course_university_id_University_id 
+        foreign key (university_id) 
+        references UNIVERSITY (id);
+
+    alter table FRIEND_REQUEST_MSG 
+        add index FKED4A6970E1E64E06 (id), 
+        add constraint FKED4A6970E1E64E06 
+        foreign key (id) 
+        references MESSAGE (id);
+
+    alter table FRIEND_REQUEST_MSG 
+        add index fk_FRIEND_REQUEST_MSG_sender_id_User_id (sender_id), 
+        add constraint fk_FRIEND_REQUEST_MSG_sender_id_User_id 
+        foreign key (sender_id) 
+        references User (id);
+
+    alter table MESSAGE 
+        add index fk_Message_user_id_User_id (user_id), 
+        add constraint fk_Message_user_id_User_id 
+        foreign key (user_id) 
         references User (id);
 
     alter table Profile 
@@ -94,6 +213,36 @@
         add constraint fk_Profile_user_id_User_id 
         foreign key (user_id) 
         references User (id);
+
+    alter table STAFF 
+        add index FK4B8CAC0E8BA0282 (id), 
+        add constraint FK4B8CAC0E8BA0282 
+        foreign key (id) 
+        references User (id);
+
+    alter table STAFF 
+        add index fk_Staff_university_id_University_id (university_id), 
+        add constraint fk_Staff_university_id_University_id 
+        foreign key (university_id) 
+        references UNIVERSITY (id);
+
+    alter table STUDENT 
+        add index FKBACA0E1BE8BA0282 (id), 
+        add constraint FKBACA0E1BE8BA0282 
+        foreign key (id) 
+        references User (id);
+
+    alter table STUDENT_COURSE 
+        add index fk_STUDENT_COURSE_student_id_Student_id (student_id), 
+        add constraint fk_STUDENT_COURSE_student_id_Student_id 
+        foreign key (student_id) 
+        references STUDENT (id);
+
+    alter table STUDENT_COURSE 
+        add index fk_STUDENT_COURSE_course_id_Course_id (course_id), 
+        add constraint fk_STUDENT_COURSE_course_id_Course_id 
+        foreign key (course_id) 
+        references COURSE (id);
 
     alter table Scrap 
         add index fk_Scrap_receiver_id_User_id (receiver_id), 
@@ -106,6 +255,12 @@
         add constraint fk_Scrap_author_id_User_id 
         foreign key (author_id) 
         references User (id);
+
+    alter table UNIVERSITY 
+        add index fk_University_admin_id_Admin_id (admin_id), 
+        add constraint fk_University_admin_id_Admin_id 
+        foreign key (admin_id) 
+        references ADMIN (id);
 
     alter table friend_reference 
         add index fk_Friend_Reference_user_id_User_id (user_id), 
