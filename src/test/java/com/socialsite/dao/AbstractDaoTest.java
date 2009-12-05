@@ -34,8 +34,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.socialsite.scripts.SchemaCreator;
-
 /**
  * Abstract test class for all the Dao test
  * 
@@ -53,7 +51,7 @@ abstract public class AbstractDaoTest extends
 	@BeforeClass
 	public static void setUpDatabase()
 	{
-		//SchemaCreator.create();
+		// SchemaCreator.create();
 	}
 
 	@Autowired

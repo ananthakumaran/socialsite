@@ -5,6 +5,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.dao.UserDao;
+import com.socialsite.persistence.User;
 
 /**
  * BasePanel for the socialsite
@@ -18,7 +19,7 @@ public class BasePanel extends Panel
 
 	/** spring dao to access the user object */
 	@SpringBean(name = "userDao")
-	private UserDao				userDao;
+	private UserDao<User>		userDao;
 
 	/**
 	 * constructor

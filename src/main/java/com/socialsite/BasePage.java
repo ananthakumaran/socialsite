@@ -6,6 +6,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.dao.UserDao;
+import com.socialsite.persistence.User;
 
 /**
  * BasePage for the socialsite Application
@@ -18,11 +19,10 @@ public class BasePage extends WebPage
 {
 	private static final long	serialVersionUID	= 1L;
 
-	/** spring dao to access the user object */
-	@SpringBean(name = "userDao")
-	private UserDao				userDao;
-
 	protected HeaderPanel		headerPanel;
+
+	@SpringBean(name = "userDao")
+	private UserDao<User>		userDao;
 
 	/**
 	 * Constructor

@@ -7,32 +7,46 @@ import org.junit.Test;
 
 import com.socialsite.util.SpringWicketTester;
 
-public class LoginPageTest 
+public class LoginPageTest
 {
 
-//	@Resource(name = "userDao")
-//	private UserDao		userDao;
+	// @Resource(name = "userDao")
+	// private UserDao userDao;
 
 	SpringWicketTester	tester;
 
-	@Before
-	public void setup()
-	{
-		tester = new SpringWicketTester();
-		tester.startPage(LoginPage.class);
-	}
-
 	@Test
-	public void loginRenderTest()
+	@Ignore
+	public void loginFormTest()
 	{
-		tester.assertNoErrorMessage();
-		tester.assertRenderedPage(LoginPage.class);
+
+		// User user = new User("aaa", "aaa");
+		// userDao.save(user);
+		// // flush the session so we can get the record using JDBC template
+		// SessionFactoryUtils.getSession(sessionFactory, false).flush();
+		//		
+		// assertNotNull("correct username and password",
+		// userDao.checkUserStatus(
+		// "aaa", "aaa"));
+		// //
+		// FormTester form = tester.newFormTester("loginform");
+		//
+		// form.setValue("username", "aaa");
+		// form.setValue("password", "aaa");
+		//
+		// // TODO find the reason for the two submits
+		// form.submit();
+		// tester.clickLink("loginform:login");
+		//		
+		// tester.assertNoErrorMessage();
+		// tester.assertRenderedPage(HomePage.class);
+
 	}
 
 	@Test
 	public void loginFormWrongAuthenticationTest()
 	{
-		FormTester form = tester.newFormTester("loginform");
+		final FormTester form = tester.newFormTester("loginform");
 
 		form.setValue("username", "ananth");
 		form.setValue("password", "path");
@@ -47,30 +61,17 @@ public class LoginPageTest
 	}
 
 	@Test
-	@Ignore
-	public void loginFormTest()
+	public void loginRenderTest()
 	{
+		tester.assertNoErrorMessage();
+		tester.assertRenderedPage(LoginPage.class);
+	}
 
-//		User user = new User("aaa", "aaa");
-//		userDao.save(user);
-//		// flush the session so we can get the record using JDBC template
-//		SessionFactoryUtils.getSession(sessionFactory, false).flush();
-//		
-//		assertNotNull("correct username and password", userDao.checkUserStatus(
-//			"aaa", "aaa"));
-////		
-//		FormTester form = tester.newFormTester("loginform");
-//
-//		form.setValue("username", "aaa");
-//		form.setValue("password", "aaa");
-//
-//		// TODO find the reason for the two submits
-//		form.submit();
-//		tester.clickLink("loginform:login");
-//		
-//		tester.assertNoErrorMessage();
-//		tester.assertRenderedPage(HomePage.class);
-		
+	@Before
+	public void setup()
+	{
+		tester = new SpringWicketTester();
+		tester.startPage(LoginPage.class);
 	}
 
 }

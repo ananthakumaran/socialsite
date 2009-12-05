@@ -49,11 +49,11 @@ public class ImageService
 
 		// Determine size of new image.
 		// One of the dimensions should equal maxSize.
-		final int scaledW = (int) (scale * inImage.getWidth(null));
-		final int scaledH = (int) (scale * inImage.getHeight(null));
+		// final int scaledW = (int) (scale * inImage.getWidth(null));
+		// final int scaledH = (int) (scale * inImage.getHeight(null));
 
 		// Create an image buffer in which to paint on.
-		final BufferedImage outImage = new BufferedImage(scaledW, scaledH,
+		final BufferedImage outImage = new BufferedImage(maxSize, maxSize,
 			BufferedImage.TYPE_INT_RGB);
 
 		// Set the scale.

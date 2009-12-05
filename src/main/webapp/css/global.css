@@ -1,39 +1,36 @@
 @CHARSET "ISO-8859-1";
 
 @IMPORT url("reset.css");
-
-@IMPORT url("typography.css");
+@IMPORT url("round.css");
 
 /*------------------------ Typography -----------------------*/
 body {
-	
 	font-size: 16px;
-	font-family: "Helvetica Neue (TT)","Helvetica Neue","Helvetica","Arial",sans-serif;
+	font-family: "Helvetica Neue (TT)", "Helvetica Neue", "Helvetica",
+		"Arial", sans-serif;
 	line-height: 1.5;
 	color: #333;
 	background: #E7F1FD;
 	min-width: 960px;
 }
 
-
 /*------------------------Layout ---------------------------*/
-
-/*** header ***/
+	/*** header ***/
 #header {
-	background :url("../img/header-background.png");
-	height: 60px;	
+	background: url("../img/header-background.png");
+	height: 60px;
 }
 
 #header div.navigation {
-	margin : 0 auto;
+	margin: 0 auto;
 	width: 960px;
 }
 
 #header div.navigation a {
-	color:#003269;
-	margin-right : 8px;
-	font-size : 18px;
-	text-shadow:0 1px 0 #D7E8FE;
+	color: #003269;
+	margin-right: 8px;
+	font-size: 18px;
+	text-shadow: 0 1px 0 #D7E8FE;
 }
 
 #header div.navLeft {
@@ -52,43 +49,27 @@ body {
 }
 
 #content {
-	padding : 1px 0 0 0;
+	padding: 1px 0 0 0;
 	background: url("../img/content-background.png");
 }
 
-
-
 #rightsidebar {
-	border : 1px solid black;
-	height:100px;
+	height: 100px;
 	margin: 3px;
 	float: right;
 	width: 360px;
 }
 
 
-#content_2 {
+.content {
 	float: left;
-	margin: 1%;
-	width: 78%;
+	width: 576px
 }
-
-
-#footer {
-	
-}
-
-.content{
-	float : left;
-	width : 576px
-}
-
 
 .wrap {
 	margin: 0 auto;
 	width: 960px;
 }
-
 
 .clear {
 	border: 0 none;

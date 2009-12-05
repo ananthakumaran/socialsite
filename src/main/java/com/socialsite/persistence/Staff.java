@@ -11,26 +11,27 @@ public class Staff extends User
 	 */
 	private static final long	serialVersionUID	= 1L;
 
-	private University university;
-	
-	private Set<Course> courses = new HashSet<Course>();
-	
-	
-	public void setUniversity(University university)
+	private University			university;
+
+	private Set<Course>			courses				= new HashSet<Course>();
+
+	public Set<Course> getCourses()
 	{
-		this.university = university;
+		return courses;
 	}
-	
+
 	public University getUniversity()
 	{
 		return university;
 	}
-	public void setCourses(Set<Course> courses)
+
+	public void setCourses(final Set<Course> courses)
 	{
 		this.courses = courses;
 	}
-	public Set<Course> getCourses()
+
+	public void setUniversity(final University university)
 	{
-		return courses;
+		this.university = university;
 	}
 }

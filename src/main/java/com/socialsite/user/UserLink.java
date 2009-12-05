@@ -25,7 +25,7 @@ public class UserLink extends Link<User>
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao				userDao;
+	private UserDao<User>		userDao;
 
 	/**
 	 * constructor

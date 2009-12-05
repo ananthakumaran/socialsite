@@ -38,14 +38,14 @@ public class MessageDataProvider extends SortableDataProvider<Message>
 	 * @param id
 	 *            user id
 	 */
-	public MessageDataProvider(long id)
+	public MessageDataProvider(final long id)
 	{
 		this.id = id;
 		// intializes spring DAO
 		InjectorHolder.getInjector().inject(this);
 	}
 
-	public Iterator<? extends Message> iterator(int first, int count)
+	public Iterator<? extends Message> iterator(final int first, final int count)
 	{
 		return messageDao.getMessage(userDao.load(id), first, count).iterator();
 	}
@@ -57,9 +57,10 @@ public class MessageDataProvider extends SortableDataProvider<Message>
 
 	public int size()
 	{
-		System.out.println("size"+messageDao.getMessageCount(userDao.load(id)));
+		System.out.println("size"
+				+ messageDao.getMessageCount(userDao.load(id)));
 		return messageDao.getMessageCount(userDao.load(id));
-		
+
 	}
 
 }

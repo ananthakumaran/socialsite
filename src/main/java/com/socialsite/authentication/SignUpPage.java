@@ -1,16 +1,20 @@
 package com.socialsite.authentication;
 
-import org.apache.wicket.injection.web.InjectorHolder;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.apache.wicket.markup.html.PackageResource;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.SubmitLink;
-import org.apache.wicket.markup.html.form.upload.FileUpload;
-import org.apache.wicket.markup.html.form.upload.FileUploadField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.util.io.IOUtils;
+import org.apache.wicket.util.resource.ResourceStreamNotFoundException;
 import org.apache.wicket.validation.validator.EmailAddressValidator;
 import org.hibernate.exception.ConstraintViolationException;
 
@@ -18,10 +22,10 @@ import com.socialsite.SocialSiteSession;
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.dao.UserDao;
 import com.socialsite.home.HomePage;
-import com.socialsite.image.ImageService;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
+import com.socialsite.user.UserCreator;
 
 /**
  * 
@@ -37,13 +41,13 @@ public class SignUpPage extends WebPage
 	private String				userName;
 	/** Model object for password */
 	private String				password;
+	/** Model object for password */
+	private String				rePassword;
+
 	/** Model object for email */
 	private String				email;
 	/** Feedback panel */
 	private final FeedbackPanel	feedback;
-
-	// file upload
-	private FileUploadField		fileUploadField;
 
 	/** Spring Dao to handle profile object */
 	@SpringBean(name = "profileDao")
@@ -51,12 +55,11 @@ public class SignUpPage extends WebPage
 
 	/** Spring Dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>				userDao;
+	private UserDao<User>		userDao;
 
 	public SignUpPage()
 	{
-		// inject the spring resources
-		InjectorHolder.getInjector().inject(this);
+
 		// sign up form
 		final Form<Object> form = new Form<Object>("signupform");
 		add(form);
@@ -67,7 +70,10 @@ public class SignUpPage extends WebPage
 			.getInstance()));
 		form.add(new PasswordTextField("password", new PropertyModel<String>(
 			this, "password")));
-		form.add(fileUploadField = new FileUploadField("image"));
+
+		form.add(new PasswordTextField("re-password",
+			new PropertyModel<String>(this, "rePassword")));
+
 		SubmitLink signUp;
 		form.add(signUp = new SubmitLink("signup")
 		{
@@ -81,58 +87,51 @@ public class SignUpPage extends WebPage
 			public void onSubmit()
 			{
 
+				if (!password.equals(rePassword))
+				{
+					error("passwords should be same");
+					return;
+				}
+
 				// creates a user
 				try
 				{
 					final User user = new Student(userName, password);
 					userDao.save(user);
-					// The FileUpload object that will be provided by wicket
-					// that holds info about
-					// the file uploaded to the webapp
-					final FileUpload fupload = fileUploadField.getFileUpload();
-					if (fupload == null)
-					{
-						// No image was provided
-						error("Please upload an image.");
-						return;
-					} else if (fupload.getSize() == 0)
-					{
-						error("The image you attempted to upload is empty.");
-						return;
-					} else if (!checkContentType(fupload.getContentType()))
-					{
-						getForm()
-							.error(
-								"Only images of types png, jpg, and gif are allowed.");
-						return;
-					} else
-					{
-						final ImageService imageService = new ImageService();
 
-						// create a profile for the user
-						final Profile userProfile = new Profile();
-						userProfile.setUser(user);
-						userProfile.setEmail(email);
-						// set the image
-						userProfile.setImage(imageService.resize(fupload
-							.getBytes(), ImageService.IMAGE_SIZE));
-						userProfile.setThumb(imageService.resize(fupload
-							.getBytes(), ImageService.THUMB_SIZE));
+					final Profile p = new Profile();
+					p.setUser(user);
 
-						profileDao.save(userProfile);
-						System.out.println(userName + password);
-						final User se = userDao.checkUserStatus(userName,
-							password);
-						if (se != null)
-						{
-							final SocialSiteSession session = SocialSiteSession
-								.get();
-							session.setSessionUser(new SessionUser(
-								user.getId(), SocialSiteRoles.ownerRole));
-							session.setUserId(user.getId());
-							setResponsePage(new HomePage());
-						}
+					p.setEmail(email);
+
+					final PackageResource imageRef = PackageResource.get(
+						UserCreator.class, "user-150.png");
+					final PackageResource iconRef = PackageResource.get(
+						UserCreator.class, "user-100.png");
+					try
+					{
+						p.setImage(IOUtils.toByteArray(imageRef
+							.getResourceStream().getInputStream()));
+						p.setThumb(IOUtils.toByteArray(iconRef
+							.getResourceStream().getInputStream()));
+					} catch (final IOException e)
+					{
+						Logger.getLogger(getClass().getName()).log(
+							Level.SEVERE, null, e);
+					} catch (final ResourceStreamNotFoundException e)
+					{
+						Logger.getLogger(getClass().getName()).log(
+							Level.SEVERE, null, e);
 					}
+
+					profileDao.save(p);
+
+					final SocialSiteSession session = SocialSiteSession.get();
+					session.setSessionUser(new SessionUser(user.getId(),
+						SocialSiteRoles.ownerRole));
+					session.setUserId(user.getId());
+					setResponsePage(new HomePage());
+
 				} catch (final ConstraintViolationException ex)
 				{
 					// updates the feedback panel
@@ -149,17 +148,6 @@ public class SignUpPage extends WebPage
 		feedback = new FeedbackPanel("feedback");
 		feedback.setOutputMarkupId(true);
 		add(feedback);
-	}
-
-	private boolean checkContentType(final String contentType)
-	{
-		if (contentType.equalsIgnoreCase("image/gif")
-				|| contentType.equalsIgnoreCase("image/jpeg")
-				|| contentType.equalsIgnoreCase("image/png"))
-		{
-			return true;
-		}
-		return false;
 	}
 
 }

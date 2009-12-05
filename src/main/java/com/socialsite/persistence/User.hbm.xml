@@ -16,6 +16,8 @@
 
 		<!-- Relations -->
 
+		<one-to-one name="profile" class="Profile"  />
+
 		<set name="friends" table="friend_reference">
 			<key column="friend_id" foreign-key="fk_Friend_Reference_friend_id_User_id"
 				not-null="true"></key>

@@ -11,30 +11,25 @@ public class Student extends User
 	 */
 	private static final long	serialVersionUID	= 1L;
 
-	
-	
+	private Set<Course>			courses				= new HashSet<Course>();
+
 	public Student()
 	{
-	}	
-	public Student(String userName, String password)
+	}
+
+	public Student(final String userName, final String password)
 	{
 		super(userName, password);
 	}
 
-
-
-
-	private Set<Course> courses = new HashSet<Course>();
-	
-	public void setCourses(Set<Course> courses)
-	{
-		this.courses = courses;
-	}
-	
 	public Set<Course> getCourses()
 	{
 		return courses;
 	}
-	
-	
+
+	public void setCourses(final Set<Course> courses)
+	{
+		this.courses = courses;
+	}
+
 }

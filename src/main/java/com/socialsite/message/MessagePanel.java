@@ -1,23 +1,14 @@
 package com.socialsite.message;
 
-import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
-import org.apache.wicket.model.Model;
-import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.SocialSiteSession;
-import com.socialsite.dao.MessageDao;
-import com.socialsite.dao.UserDao;
 import com.socialsite.dataprovider.MessageDataProvider;
 import com.socialsite.persistence.FriendRequestMsg;
 import com.socialsite.persistence.Message;
-import com.socialsite.persistence.User;
-import com.socialsite.user.UserLink;
 
 /**
  * list all the message for the user
@@ -36,17 +27,13 @@ public class MessagePanel extends Panel
 	/** container for the messages */
 	WebMarkupContainer			messageContainer;
 
-	
-
-	
-
 	/**
 	 * constructor
 	 * 
 	 * @param id
 	 *            id
 	 */
-	public MessagePanel(String id)
+	public MessagePanel(final String id)
 	{
 		super(id);
 
@@ -71,11 +58,12 @@ public class MessagePanel extends Panel
 			{
 
 				final Message message = item.getModelObject();
-				if(message instanceof FriendRequestMsg)
+				if (message instanceof FriendRequestMsg)
 				{
-					item.add(new FriendRequestMsgPanel("message" , (FriendRequestMsg)message , messageContainer));
+					item.add(new FriendRequestMsgPanel("message",
+						(FriendRequestMsg) message, messageContainer));
 				}
-				
+
 			}
 		};
 

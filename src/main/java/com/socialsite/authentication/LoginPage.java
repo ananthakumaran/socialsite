@@ -23,12 +23,12 @@ import com.socialsite.persistence.User;
 public class LoginPage extends WebPage
 {
 	/** Model for the username */
-	private String	userName;
+	private String			userName;
 	/** Model for the password */
-	private String	password;
+	private String			password;
 	/** Spring Dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao	userDao;
+	private UserDao<User>	userDao;
 
 	public LoginPage()
 	{

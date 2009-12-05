@@ -32,6 +32,7 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 	/**
 	 * @see com.socialsite.dao.UserDao#checkUserStatus(String, String)
 	 */
+	@SuppressWarnings("unchecked")
 	public T checkUserStatus(final String userName, final String password)
 	{
 		final Criteria criteria = getSession().createCriteria(domainClass);
@@ -107,15 +108,16 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 	public List<T> getFriends(final User user, final int first, final int count)
 	{
 
-//		return getSession()
-//			.createSQLQuery(
-//				" select {u.*} from user {u} where u.id in  (select user_id from friend_reference "
-//						+ " where friend_id = :id) or u.id in ( select friend_id from friend_reference where user_id = :id)  ")
-//			.addEntity("u", User.class).setParameter("id", user.getId())
-//			.setFirstResult(first).setMaxResults(count).list();
-		
-		
-		return (List<T>) new ArrayList<User>(user.getFriends()).subList(first, first+count);
+		// return getSession()
+		// .createSQLQuery(
+		// " select {u.*} from user {u} where u.id in  (select user_id from friend_reference "
+		// +
+		// " where friend_id = :id) or u.id in ( select friend_id from friend_reference where user_id = :id)  ")
+		// .addEntity("u", User.class).setParameter("id", user.getId())
+		// .setFirstResult(first).setMaxResults(count).list();
+
+		return (List<T>) new ArrayList<User>(user.getFriends()).subList(first,
+			first + count);
 	}
 
 	/**

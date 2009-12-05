@@ -12,22 +12,24 @@ public class FriendRequestMsg extends Message
 	private User				Sender;
 	/** message send during friend request */
 	private String				message;
-	
-	
-	public User getSender()
-	{
-		return Sender;
-	}
-	public void setSender(User user)
-	{
-		this.Sender = user;
-	}
+
 	public String getMessage()
 	{
 		return message;
 	}
-	public void setMessage(String message)
+
+	public User getSender()
+	{
+		return Sender;
+	}
+
+	public void setMessage(final String message)
 	{
 		this.message = message;
+	}
+
+	public void setSender(final User user)
+	{
+		Sender = user;
 	}
 }

@@ -19,22 +19,18 @@ import com.socialsite.scripts.SchemaCreator;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses( {
-	
-	LoginPageTest.class,
-	ScrapDaoTest.class,
-	UserDaoTest.class,
-	ProfileDaoTest.class ,
-	FriendRequestMsgDaoTest.class
-	
-	})
+
+LoginPageTest.class, ScrapDaoTest.class, UserDaoTest.class,
+		ProfileDaoTest.class, FriendRequestMsgDaoTest.class
+
+})
 public class AllTests
 {
-	
-	
+
 	@BeforeClass
 	public static void setup()
 	{
-		
+
 		SchemaCreator.create();
 	}
 	// run thisclass to run all the test

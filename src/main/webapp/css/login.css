@@ -8,15 +8,36 @@
 	margin-top: 30%;
 }
 
+fieldset.login {
+	border: 1px solid #8E9AA7;
+	padding: 9px 0;
+	background: #F0F6FE;
+	max-width:500px;
+}
+
+.signup {
+	padding: 10px;
+	color: #0350A6;
+	font-size: 15px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #FFFFFF;
+	text-align: justify;
+}
+
 fieldset.login p {
 	margin-bottom: 1em;
 }
 
 fieldset.login p label {
+	color: #0350A6;
+	font-size: 15px;
+	font-weight: bold;
+	text-shadow: 0 1px 0 #FFFFFF;
 	float: left;
 	text-align: right;
 	width: 30%;
 	margin-right: 3%;
+	padding: 8px 0 0 0;
 }
 
 fieldset.login p input {
@@ -28,9 +49,13 @@ fieldset.login p a.submit {
 	float: right;
 }
 
+.box {
+	margin: 15px 0;
+}
+
 /*--------------- feedback --------------------------*/
 .feedbackPanel {
-	background: #FBE3E4 ;
+	background: #FBE3E4;
 	margin-bottom: 20px;
 	padding: 10px 10px 1px;
 }
@@ -40,5 +65,5 @@ li.feedbackPanelERROR {
 	border: 1px solid #FBC2C4;
 	color: #8A1F11;
 	margin-bottom: 5px;
-	padding:2px 5px 2px 16px;
+	padding: 2px 5px 2px 16px;
 }

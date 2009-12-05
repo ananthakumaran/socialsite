@@ -25,10 +25,10 @@ import com.socialsite.persistence.User;
 public class ScrapDaoTest extends AbstractDaoTest
 {
 	@Resource(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User>	userDao;
 
 	@Resource(name = "scrapDao")
-	private ScrapDao	scrapDao;
+	private ScrapDao		scrapDao;
 
 	@Test
 	@Transactional

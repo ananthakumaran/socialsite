@@ -26,7 +26,7 @@ public class SearchUserInfoPanel extends BasePanel
 	private static final long	serialVersionUID	= 1L;
 
 	@SpringBean(name = "userDao")
-	private UserDao				userDao;
+	private UserDao<User>		userDao;
 
 	public SearchUserInfoPanel(final String id, final IModel<User> model)
 	{

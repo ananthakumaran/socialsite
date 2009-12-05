@@ -36,7 +36,7 @@ public class ScrapDataProvider extends SortableDataProvider<Scrap>
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>				userDao;
+	private UserDao<User>		userDao;
 
 	public ScrapDataProvider(final long id)
 	{

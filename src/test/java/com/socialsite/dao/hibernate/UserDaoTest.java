@@ -8,10 +8,8 @@ import static junit.framework.Assert.fail;
 import javax.annotation.Resource;
 
 import org.hibernate.exception.ConstraintViolationException;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
-import org.springframework.test.annotation.ExpectedException;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.socialsite.authentication.SocialSiteRoles;
@@ -78,13 +76,13 @@ public class UserDaoTest extends AbstractDaoTest
 
 		assertEquals("size of the friend list of ananth should be one ", 1,
 			userDao.getFriends(ananth).size());
-		
-		 assertEquals("size of the friend list of anantha should be one ", 1,
-		 userDao.getFriends(anantha).size());
-		 assertEquals(" ananth should have a friend with name anantha ",
-		 "anantha", userDao.getFriends(ananth).get(0).getUserName());
-		 assertEquals("anantha should have a friend with name ananth ",
-		 "ananth", userDao.getFriends(anantha).get(0).getUserName());
+
+		assertEquals("size of the friend list of anantha should be one ", 1,
+			userDao.getFriends(anantha).size());
+		assertEquals(" ananth should have a friend with name anantha ",
+			"anantha", userDao.getFriends(ananth).get(0).getUserName());
+		assertEquals("anantha should have a friend with name ananth ",
+			"ananth", userDao.getFriends(anantha).get(0).getUserName());
 
 	}
 
@@ -131,7 +129,7 @@ public class UserDaoTest extends AbstractDaoTest
 			final User anantha = new Student("ananth", "pass");
 			userDao.save(anantha);
 			fail("should throw a exception");
-		} catch (ConstraintViolationException ex)
+		} catch (final ConstraintViolationException ex)
 		{
 
 		}

@@ -347,6 +347,10 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>changelog-maven-plugin</artifactId>
+				<configuration>
+					<type>range</type>
+					<range>30</range>
+				</configuration>
 			</plugin>
 			<!-- TODO list -->
 			<plugin>

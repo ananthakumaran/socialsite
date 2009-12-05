@@ -12,7 +12,7 @@
 <div id="rightsidebar">
 <div class="loginbox">
 <div class="box">
-<fieldset class="login"><legend>Login</legend>
+<fieldset class="login round-border">
 <form wicket:id="loginform" action="#">
 
 <p><label for="username">Username:</label> <input type="text"
@@ -21,17 +21,17 @@
 	wicket:id="password" id="password" /></p>
 
 
-<p><a href="#" wicket:id="login" class="submit">Login</a></p>
+<p><a href="#" wicket:id="login" class="submit round">Login »</a></p>
 </form>
 </fieldset>
 </div>
 <div wicket:id="feedback"></div>
 <div class="box">
-<fieldset class="login"><legend>Sign Up</legend>
-<p>If you do not already have an account, please create a new
-account to register.</p>
+<fieldset class="login round-border">
+<p class="signup">If you do not already have an account, please create a new
+account.</p>
 <wicket:link>
-	<p><a href="SignUpPage.html" class="submit">signUp</a></p>
+	<p><a href="SignUpPage.html" class="submit round ">signUp »</a></p>
 </wicket:link></fieldset>
 </div>
 </div>

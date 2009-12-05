@@ -30,17 +30,18 @@ public abstract class User implements AbstractDomain
 
 	}
 
-	private long				id;
-	private String				userName;
+	private long		id;
+	private String		userName;
 
-	private String				password;
+	private String		password;
 
-	private Set<User>			friends			= new HashSet<User>();
+	private Profile		profile;
 
+	private Set<User>	friends		= new HashSet<User>();
 
-	private Set<Scrap>			scraps			= new HashSet<Scrap>();
+	private Set<Scrap>	scraps		= new HashSet<Scrap>();
 
-	private Set<Scrap>			scrapsSend		= new HashSet<Scrap>();
+	private Set<Scrap>	scrapsSend	= new HashSet<Scrap>();
 
 	/**
 	 * constructor
@@ -49,8 +50,6 @@ public abstract class User implements AbstractDomain
 	{
 
 	}
-
-	/*** friends **/
 
 	/**
 	 * constructor
@@ -74,11 +73,10 @@ public abstract class User implements AbstractDomain
 	{
 		getFriends().add(friend);
 		friend.getFriends().add(this);
-		
-	}
-	
-	
 
+	}
+
+	/*** friends **/
 
 	public Set<User> getFriends()
 	{
@@ -94,6 +92,11 @@ public abstract class User implements AbstractDomain
 	public String getPassword()
 	{
 		return password;
+	}
+
+	public Profile getProfile()
+	{
+		return profile;
 	}
 
 	public Set<Scrap> getScraps()
@@ -124,10 +127,6 @@ public abstract class User implements AbstractDomain
 		return passwordEncryptor.checkPassword(password, getPassword());
 	}
 
-	
-   
-	
-
 	public void setFriends(final Set<User> friends)
 	{
 		this.friends = friends;
@@ -141,6 +140,11 @@ public abstract class User implements AbstractDomain
 	public void setPassword(final String password)
 	{
 		this.password = password;
+	}
+
+	public void setProfile(final Profile profile)
+	{
+		this.profile = profile;
 	}
 
 	public void setScraps(final Set<Scrap> scraps)

@@ -28,10 +28,11 @@ public class SpringWicketTester extends WicketTester
 	 */
 	public SpringWicketTester()
 	{
-		this(new SocialSiteApplication(), null, "classpath:applicationContext.xml");
-		
+		this(new SocialSiteApplication(), null,
+			"classpath:applicationContext.xml");
+
 	}
-	
+
 	/**
 	 * Instantiate the WicketTester with your application and a set of URLs to
 	 * find the Spring XML configuration files. Ex:

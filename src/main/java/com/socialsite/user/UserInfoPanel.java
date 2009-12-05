@@ -26,7 +26,7 @@ public class UserInfoPanel extends Panel
 	private static final long	serialVersionUID	= 1L;
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>				userDao;
+	private UserDao<User>		userDao;
 
 	public UserInfoPanel(final String id)
 	{

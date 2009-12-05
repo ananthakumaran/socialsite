@@ -85,18 +85,8 @@ div.friend {
 	text-shadow: 0 1px 0 #E8F2FE;
 }
 
-.messageContent a {
-	text-shadow:0 1px 0 #E8F2FE;
-	font-family: "Lucida Grande";
-	color: #034B9D;
-	font-weight: bold;
-	text-decoration: none;
-}
 
-.messageContent a:hover {
-	color: #0B3063;
-	text-decoration: underline;
-}
+
 
 .messageContent .time {
 	font-size: 12px;

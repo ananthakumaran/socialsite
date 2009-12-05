@@ -23,13 +23,6 @@ public class Start
 		bb.setServer(server);
 		bb.setContextPath("/");
 		bb.setWar("src/main/webapp");
-
-		// START JMX SERVER
-		// MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
-		// MBeanContainer mBeanContainer = new MBeanContainer(mBeanServer);
-		// server.getContainer().addEventListener(mBeanContainer);
-		// mBeanContainer.start();
-
 		server.addHandler(bb);
 
 		try

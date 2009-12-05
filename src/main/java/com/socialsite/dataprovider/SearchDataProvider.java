@@ -29,7 +29,7 @@ public class SearchDataProvider extends SortableDataProvider<User>
 	private final StringWrapper	filter;
 	/** DAO to access the group details */
 	@SpringBean(name = "userDao")
-	private UserDao				userDao;
+	private UserDao<User>		userDao;
 
 	public SearchDataProvider(final StringWrapper filter)
 	{

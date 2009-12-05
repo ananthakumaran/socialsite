@@ -34,7 +34,7 @@ public class SendScrapPanel extends BasePanel
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>				userDao;
+	private UserDao<User>		userDao;
 
 	/** spring dao to handle scrap object */
 	@SpringBean(name = "scrapDao")

@@ -38,7 +38,8 @@ public class FriendRequestMsgPanel extends Panel
 	@SpringBean(name = "messageDao")
 	private MessageDao<Message>	messageDao;
 
-	public FriendRequestMsgPanel(String id, FriendRequestMsg friendRequestMsg,
+	public FriendRequestMsgPanel(final String id,
+			final FriendRequestMsg friendRequestMsg,
 			final WebMarkupContainer container)
 	{
 		super(id);
@@ -60,10 +61,11 @@ public class FriendRequestMsgPanel extends Panel
 			public void onClick(final AjaxRequestTarget target)
 			{
 
-				 FriendRequestMsg friendRequestMsg = getModelObject();
+				FriendRequestMsg friendRequestMsg = getModelObject();
 
-				friendRequestMsg = (FriendRequestMsg)messageDao.load(friendRequestMsg.getId());
-				
+				friendRequestMsg = (FriendRequestMsg) messageDao
+					.load(friendRequestMsg.getId());
+
 				// add him as the friend
 				final User user = friendRequestMsg.getSender();
 
@@ -98,10 +100,11 @@ public class FriendRequestMsgPanel extends Panel
 				target.addComponent(container);
 			}
 		});
-		
-		DateFormat format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT);
-		
-		add(new Label("time" , format.format(friendRequestMsg.getTime())));
+
+		final DateFormat format = DateFormat.getDateTimeInstance(
+			DateFormat.LONG, DateFormat.SHORT);
+
+		add(new Label("time", format.format(friendRequestMsg.getTime())));
 
 	}
 

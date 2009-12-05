@@ -38,7 +38,7 @@ public class FriendRequestMsgDaoTest extends AbstractDaoTest
 		final User anantha = new Student("anantha", "pass");
 		userDao.save(anantha);
 
-		FriendRequestMsg m = new FriendRequestMsg();
+		final FriendRequestMsg m = new FriendRequestMsg();
 		m.setMessage("hello");
 		m.setSender(ananth);
 		m.setUser(anantha);

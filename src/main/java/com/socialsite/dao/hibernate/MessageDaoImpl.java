@@ -22,7 +22,7 @@ public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T>
 	 * @see com.socialsite.dao.MessageDao#getMessage(User, int, int)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<T> getMessage(User user, int first, int count)
+	public List<T> getMessage(final User user, final int first, final int count)
 	{
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		criteria.add(Restrictions.eq("user", user));
@@ -34,13 +34,13 @@ public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T>
 	/**
 	 * @see com.socialsite.dao.MessageDao#getMessageCount(User)
 	 */
-	public int getMessageCount(User user)
+	public int getMessageCount(final User user)
 	{
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		criteria.add(Restrictions.eq("user", user));
 		criteria.setProjection(Projections.rowCount());
-		
-		return (Integer)criteria.uniqueResult();
+
+		return (Integer) criteria.uniqueResult();
 	}
 
 }

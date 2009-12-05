@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+
+.round, .round-border , fieldset input,fieldset textarea  , input[type="text"]{
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+fieldset input,fieldset textarea , input[type="text"] {
+	border: 1px solid #DDDDDD;
+	margin: 5px 0;
+	padding: 5px;
+}
+
+/**--------------- round cornered links ----------------*/
+.round {
+	background: #222 url(/images/alert-overlay.png) repeat-x;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 01px 3px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	position: relative;
+	cursor: pointer;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	background-color: #2daebf;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px #999;
+	-webkit-box-shadow: 0 1px 3px #999;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	font-size: 13px;
+}
+
+.round:hover {
+	background-color: #007D9A;
+}
