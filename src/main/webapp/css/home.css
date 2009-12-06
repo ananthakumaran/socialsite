@@ -2,7 +2,6 @@
 
 /*------------- user info ------------------*/
 .userInfo {
-	background: url("../img/userinfo-background.png");
 	padding: 1px;
 }
 
@@ -45,6 +44,12 @@ div.friend {
 	width: 101px;
 	padding: 2px;
 	float: left;
+	overflow: hidden;
+	text-align:center;
+}
+
+.friend img {
+	margin : 11px 0 0 0; 
 }
 
 /*-------------- messages-------------------*/
@@ -99,5 +104,5 @@ div.friend {
 #main {
 	float: left;
 	border: 1px solid black;
-	width: 585px;
+	width: 620px;
 }

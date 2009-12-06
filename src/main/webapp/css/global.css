@@ -10,7 +10,6 @@ body {
 		"Arial", sans-serif;
 	line-height: 1.5;
 	color: #333;
-	background: #E7F1FD;
 	min-width: 960px;
 }
 
@@ -50,14 +49,13 @@ body {
 
 #content {
 	padding: 1px 0 0 0;
-	background: url("../img/content-background.png");
 }
 
 #rightsidebar {
 	height: 100px;
 	margin: 3px;
 	float: right;
-	width: 360px;
+	width: 320px;
 }
 
 

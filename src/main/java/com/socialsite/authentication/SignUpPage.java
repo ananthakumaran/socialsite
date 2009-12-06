@@ -1,3 +1,20 @@
+/**
+ *     Copyright SocialSite (C) 2009
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.socialsite.authentication;
 
 import java.io.IOException;
@@ -8,15 +25,18 @@ import org.apache.wicket.markup.html.PackageResource;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
-import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.SubmitLink;
+import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.util.io.IOUtils;
 import org.apache.wicket.util.resource.ResourceStreamNotFoundException;
-import org.apache.wicket.validation.validator.EmailAddressValidator;
 import org.hibernate.exception.ConstraintViolationException;
+import org.wicketstuff.validation.client.ClientAndServerLengthBetweenValidatingBehavior;
+import org.wicketstuff.validation.client.ClientAndServerMaximumLengthValidatingBehavior;
+import org.wicketstuff.validation.client.ClientAndServerRequiredValidatingBehavior;
+import org.wicketstuff.validation.client.ClientAndServerValidatingFeedbackBehavior;
 
 import com.socialsite.SocialSiteSession;
 import com.socialsite.dao.ProfileDao;
@@ -46,6 +66,7 @@ public class SignUpPage extends WebPage
 
 	/** Model object for email */
 	private String				email;
+
 	/** Feedback panel */
 	private final FeedbackPanel	feedback;
 
@@ -63,16 +84,33 @@ public class SignUpPage extends WebPage
 		// sign up form
 		final Form<Object> form = new Form<Object>("signupform");
 		add(form);
-		form.add(new RequiredTextField<String>("username",
-			new PropertyModel<String>(this, "userName")));
-		form.add(new RequiredTextField<String>("email",
-			new PropertyModel<String>(this, "email")).add(EmailAddressValidator
-			.getInstance()));
-		form.add(new PasswordTextField("password", new PropertyModel<String>(
-			this, "password")));
+		
+		
+		TextField<String> username =new TextField<String>("username",
+				new PropertyModel<String>(this, "userName"));
+		username.add(new ClientAndServerRequiredValidatingBehavior(form));
+		username.add(new ClientAndServerMaximumLengthValidatingBehavior(form, 16));
+		
+		
+		form.add(username);
+		
+		TextField<String> emailTextField = new TextField<String>("email",new PropertyModel<String>(this, "email"));
+		emailTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
+	//	emailTextField.add(new ClientAndServerEmailAddressValidator(form));
+		
+		form.add(emailTextField);
+		
+		PasswordTextField passwordTextField = new PasswordTextField("password",new PropertyModel<String>(this, "password"));
+		passwordTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
+		passwordTextField.add(new ClientAndServerLengthBetweenValidatingBehavior(form,6,16));
+		
+		form.add(passwordTextField);
+		
+		PasswordTextField rePasswordTextField = new PasswordTextField("re-password",new PropertyModel<String>(this, "rePassword"));
+		rePasswordTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
+		rePasswordTextField.add(new ClientAndServerLengthBetweenValidatingBehavior(form,6,16));
 
-		form.add(new PasswordTextField("re-password",
-			new PropertyModel<String>(this, "rePassword")));
+		form.add(rePasswordTextField);
 
 		SubmitLink signUp;
 		form.add(signUp = new SubmitLink("signup")
@@ -105,9 +143,9 @@ public class SignUpPage extends WebPage
 					p.setEmail(email);
 
 					final PackageResource imageRef = PackageResource.get(
-						UserCreator.class, "user-150.png");
+						UserCreator.class, "user-125.png");
 					final PackageResource iconRef = PackageResource.get(
-						UserCreator.class, "user-100.png");
+						UserCreator.class, "user-75.png");
 					try
 					{
 						p.setImage(IOUtils.toByteArray(imageRef
@@ -146,8 +184,8 @@ public class SignUpPage extends WebPage
 
 		// feedback panel
 		feedback = new FeedbackPanel("feedback");
+		feedback.add(new ClientAndServerValidatingFeedbackBehavior(form));
 		feedback.setOutputMarkupId(true);
 		add(feedback);
 	}
-
 }

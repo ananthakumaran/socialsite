@@ -13,7 +13,7 @@ fieldset input,fieldset textarea , input[type="text"] {
 
 /**--------------- round cornered links ----------------*/
 .round {
-	background: #222 url(/images/alert-overlay.png) repeat-x;
+	background: #222 url(../img/alert-overlay.png) repeat-x;
 	display: inline-block;
 	padding: 5px 10px 6px;
 	color: #fff;
