@@ -20,11 +20,9 @@ package com.socialsite.dao.hibernate;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
-import static junit.framework.Assert.fail;
 
 import javax.annotation.Resource;
 
-import org.hibernate.exception.ConstraintViolationException;
 import org.junit.Test;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.transaction.annotation.Transactional;
@@ -135,22 +133,6 @@ public class UserDaoTest extends AbstractDaoTest
 				unknown.getId()));
 	}
 
-	@Test
-	@Transactional
-	public void testUniqueUserName()
-	{
-		try
-		{
-			final User ananth = new Student("ananth", "pass");
-			userDao.save(ananth);
-			final User anantha = new Student("ananth", "pass");
-			userDao.save(anantha);
-			fail("should throw a exception");
-		} catch (final ConstraintViolationException ex)
-		{
-
-		}
-
-	}
+	
 
 }

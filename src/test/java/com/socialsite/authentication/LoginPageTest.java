@@ -17,60 +17,70 @@
 
 package com.socialsite.authentication;
 
+import static org.junit.Assert.assertNotNull;
+
+import javax.annotation.Resource;
+
 import org.apache.wicket.util.tester.FormTester;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.orm.hibernate3.SessionFactoryUtils;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.socialsite.dao.AbstractDaoTest;
+import com.socialsite.dao.UserDao;
+import com.socialsite.home.HomePage;
+import com.socialsite.persistence.Student;
+import com.socialsite.persistence.User;
 import com.socialsite.util.SpringWicketTester;
 
-public class LoginPageTest
+public class LoginPageTest extends AbstractDaoTest
 {
 
-	// @Resource(name = "userDao")
-	// private UserDao userDao;
+	 @Resource(name = "userDao")
+	 private UserDao<User> userDao;
 
 	SpringWicketTester	tester;
 
 	@Test
+	@Transactional
 	@Ignore
 	public void loginFormTest()
 	{
 
-		// User user = new User("aaa", "aaa");
-		// userDao.save(user);
-		// // flush the session so we can get the record using JDBC template
-		// SessionFactoryUtils.getSession(sessionFactory, false).flush();
-		//		
-		// assertNotNull("correct username and password",
-		// userDao.checkUserStatus(
-		// "aaa", "aaa"));
-		// //
-		// FormTester form = tester.newFormTester("loginform");
-		//
-		// form.setValue("username", "aaa");
-		// form.setValue("password", "aaa");
-		//
-		// // TODO find the reason for the two submits
-		// form.submit();
-		// tester.clickLink("loginform:login");
-		//		
-		// tester.assertNoErrorMessage();
-		// tester.assertRenderedPage(HomePage.class);
+		 User user = new Student("student", "password");
+		 userDao.save(user);
+		 // flush the session so we can get the record using JDBC template
+		 SessionFactoryUtils.getSession(sessionFactory, false).flush();
+				
+		 assertNotNull("correct username and password",
+		 userDao.checkUserStatus(
+		 "student", "password"));
+		 //
+		 FormTester form = tester.newFormTester("loginform");
+		
+		 form.setValue("username", "student");
+		 form.setValue("password", "password");
+		
+		 form.submit("login");
+				
+		 tester.assertNoErrorMessage();
+		 tester.assertRenderedPage(HomePage.class);
 
 	}
 
 	@Test
+	@Transactional
 	public void loginFormWrongAuthenticationTest()
 	{
 		final FormTester form = tester.newFormTester("loginform");
 
-		form.setValue("username", "ananth");
-		form.setValue("password", "path");
+		form.setValue("username", "ananthas");
+		form.setValue("password", "pathasfdasf");
 
 		// TODO find the reason for the two submits
-		form.submit();
-		tester.clickLink("loginform:login");
+		form.submit("login");
 
 		tester
 			.assertErrorMessages(new String[] { "Invalid username or password" });
@@ -78,6 +88,7 @@ public class LoginPageTest
 	}
 
 	@Test
+	@Transactional
 	public void loginRenderTest()
 	{
 		tester.assertNoErrorMessage();

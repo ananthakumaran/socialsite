@@ -24,6 +24,7 @@ import java.util.Date;
 import javax.annotation.Resource;
 
 import org.junit.Test;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.socialsite.dao.AbstractDaoTest;
 import com.socialsite.dao.FriendRequestMsgDao;
@@ -47,6 +48,7 @@ public class FriendRequestMsgDaoTest extends AbstractDaoTest
 	FriendRequestMsgDao		friendRequestMsgDao;
 
 	@Test
+	@Transactional
 	public void friendRequestMessageTest()
 	{
 		final User ananth = new Student("ananth", "pass");

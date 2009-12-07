@@ -29,7 +29,7 @@ import com.socialsite.dao.hibernate.UserDaoTest;
 import com.socialsite.scripts.SchemaCreator;
 
 /**
- * Test suite for all the Dao tests
+ * Test suite for all the  tests
  * 
  * @author Ananth
  * 

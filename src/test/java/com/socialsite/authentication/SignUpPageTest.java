@@ -22,8 +22,8 @@ package com.socialsite.authentication;
 
 import org.apache.wicket.util.tester.FormTester;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.socialsite.util.SpringWicketTester;
 
@@ -37,18 +37,17 @@ public class SignUpPageTest
 	SpringWicketTester	tester;
 
 	@Test
-	@Ignore
+	@Transactional
 	public void different_Password_Test()
 	{
 		final FormTester form = tester.newFormTester("signupform");
 		form.setValue("username", "ananth");
-		form.setValue("password", "pass");
-		form.setValue("re-password", "sdfas");
+		form.setValue("password", "password");
+		form.setValue("re-password", "sdfasasdfas");
 		form.setValue("email", "anatha@gmail.com");
 
-		form.submit();
+		form.submit("signup");
 
-		// form.submitLink("signup", false);
 		tester.assertErrorMessages(new String[] { "passwords should be same" });
 	}
 
@@ -61,17 +60,18 @@ public class SignUpPageTest
 	}
 
 	@Test
+	@Transactional
 	public void signUpTest()
 	{
 		tester.assertNoErrorMessage();
 
 		final FormTester form = tester.newFormTester("signupform");
 		form.setValue("username", "ananth");
-		form.setValue("password", "pass");
-		form.setValue("re-password", "pass");
+		form.setValue("password", "password");
+		form.setValue("re-password", "password");
 		form.setValue("email", "anatha@gmail.com");
 
-		form.submit();
+		form.submit("signup");
 		tester.assertNoErrorMessage();
 
 	}
