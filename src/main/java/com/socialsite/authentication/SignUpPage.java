@@ -17,11 +17,6 @@
 
 package com.socialsite.authentication;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import org.apache.wicket.markup.html.PackageResource;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
@@ -30,8 +25,6 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.apache.wicket.util.io.IOUtils;
-import org.apache.wicket.util.resource.ResourceStreamNotFoundException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.wicketstuff.validation.client.ClientAndServerLengthBetweenValidatingBehavior;
 import org.wicketstuff.validation.client.ClientAndServerMaximumLengthValidatingBehavior;
@@ -42,10 +35,10 @@ import com.socialsite.SocialSiteSession;
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.dao.UserDao;
 import com.socialsite.home.HomePage;
+import com.socialsite.image.DefaultImage;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
-import com.socialsite.user.UserCreator;
 
 /**
  * 
@@ -84,31 +77,37 @@ public class SignUpPage extends WebPage
 		// sign up form
 		final Form<Object> form = new Form<Object>("signupform");
 		add(form);
-		
-		
-		TextField<String> username =new TextField<String>("username",
-				new PropertyModel<String>(this, "userName"));
+
+		TextField<String> username = new TextField<String>("username",
+			new PropertyModel<String>(this, "userName"));
 		username.add(new ClientAndServerRequiredValidatingBehavior(form));
-		username.add(new ClientAndServerMaximumLengthValidatingBehavior(form, 16));
-		
-		
+		username.add(new ClientAndServerMaximumLengthValidatingBehavior(form,
+			16));
+
 		form.add(username);
-		
-		TextField<String> emailTextField = new TextField<String>("email",new PropertyModel<String>(this, "email"));
+
+		TextField<String> emailTextField = new TextField<String>("email",
+			new PropertyModel<String>(this, "email"));
 		emailTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
-	//	emailTextField.add(new ClientAndServerEmailAddressValidator(form));
-		
+		// emailTextField.add(new ClientAndServerEmailAddressValidator(form));
+
 		form.add(emailTextField);
-		
-		PasswordTextField passwordTextField = new PasswordTextField("password",new PropertyModel<String>(this, "password"));
-		passwordTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
-		passwordTextField.add(new ClientAndServerLengthBetweenValidatingBehavior(form,6,16));
-		
+
+		PasswordTextField passwordTextField = new PasswordTextField("password",
+			new PropertyModel<String>(this, "password"));
+		passwordTextField.add(new ClientAndServerRequiredValidatingBehavior(
+			form));
+		passwordTextField
+			.add(new ClientAndServerLengthBetweenValidatingBehavior(form, 6, 16));
+
 		form.add(passwordTextField);
-		
-		PasswordTextField rePasswordTextField = new PasswordTextField("re-password",new PropertyModel<String>(this, "rePassword"));
-		rePasswordTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
-		rePasswordTextField.add(new ClientAndServerLengthBetweenValidatingBehavior(form,6,16));
+
+		PasswordTextField rePasswordTextField = new PasswordTextField(
+			"re-password", new PropertyModel<String>(this, "rePassword"));
+		rePasswordTextField.add(new ClientAndServerRequiredValidatingBehavior(
+			form));
+		rePasswordTextField
+			.add(new ClientAndServerLengthBetweenValidatingBehavior(form, 6, 16));
 
 		form.add(rePasswordTextField);
 
@@ -141,27 +140,8 @@ public class SignUpPage extends WebPage
 					p.setUser(user);
 
 					p.setEmail(email);
-
-					final PackageResource imageRef = PackageResource.get(
-						UserCreator.class, "user-125.png");
-					final PackageResource iconRef = PackageResource.get(
-						UserCreator.class, "user-75.png");
-					try
-					{
-						p.setImage(IOUtils.toByteArray(imageRef
-							.getResourceStream().getInputStream()));
-						p.setThumb(IOUtils.toByteArray(iconRef
-							.getResourceStream().getInputStream()));
-					} catch (final IOException e)
-					{
-						Logger.getLogger(getClass().getName()).log(
-							Level.SEVERE, null, e);
-					} catch (final ResourceStreamNotFoundException e)
-					{
-						Logger.getLogger(getClass().getName()).log(
-							Level.SEVERE, null, e);
-					}
-
+					// set the default image for the profile
+					new DefaultImage(p);
 					profileDao.save(p);
 
 					final SocialSiteSession session = SocialSiteSession.get();

@@ -81,7 +81,6 @@ public class LoginPageTest extends AbstractDaoTest
 
 		// TODO find the reason for the two submits
 		form.submit("login");
-
 		tester
 			.assertErrorMessages(new String[] { "Invalid username or password" });
 		tester.assertRenderedPage(LoginPage.class);
