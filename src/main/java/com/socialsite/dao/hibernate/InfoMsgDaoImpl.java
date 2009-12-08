@@ -17,19 +17,23 @@
 
 package com.socialsite.dao.hibernate;
 
-import com.socialsite.dao.StaffDao;
-import com.socialsite.persistence.Staff;
+import com.socialsite.dao.InfoMsgDao;
+import com.socialsite.persistence.InfoMsg;
 
 /**
  * 
  * @author Ananth
  * 
  */
-public class StaffDaoImpl extends UserDaoImpl<Staff> implements StaffDao
+public class InfoMsgDaoImpl extends MessageDaoImpl<InfoMsg> implements
+		InfoMsgDao
 {
-	public StaffDaoImpl()
-	{
-		super(Staff.class);
-	}
 
+	/**
+	 * constructor
+	 */
+	public InfoMsgDaoImpl()
+	{
+		super(InfoMsg.class);
+	}
 }

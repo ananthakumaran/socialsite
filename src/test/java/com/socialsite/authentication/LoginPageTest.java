@@ -38,10 +38,10 @@ import com.socialsite.util.SpringWicketTester;
 public class LoginPageTest extends AbstractDaoTest
 {
 
-	 @Resource(name = "userDao")
-	 private UserDao<User> userDao;
+	@Resource(name = "userDao")
+	private UserDao<User>	userDao;
 
-	SpringWicketTester	tester;
+	SpringWicketTester		tester;
 
 	@Test
 	@Transactional
@@ -49,24 +49,23 @@ public class LoginPageTest extends AbstractDaoTest
 	public void loginFormTest()
 	{
 
-		 User user = new Student("student", "password");
-		 userDao.save(user);
-		 // flush the session so we can get the record using JDBC template
-		 SessionFactoryUtils.getSession(sessionFactory, false).flush();
-				
-		 assertNotNull("correct username and password",
-		 userDao.checkUserStatus(
-		 "student", "password"));
-		 //
-		 FormTester form = tester.newFormTester("loginform");
-		
-		 form.setValue("username", "student");
-		 form.setValue("password", "password");
-		
-		 form.submit("login");
-				
-		 tester.assertNoErrorMessage();
-		 tester.assertRenderedPage(HomePage.class);
+		final User user = new Student("student", "password");
+		userDao.save(user);
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+
+		assertNotNull("correct username and password", userDao.checkUserStatus(
+			"student", "password"));
+		//
+		final FormTester form = tester.newFormTester("loginform");
+
+		form.setValue("username", "student");
+		form.setValue("password", "password");
+
+		form.submit("login");
+
+		tester.assertNoErrorMessage();
+		tester.assertRenderedPage(HomePage.class);
 
 	}
 

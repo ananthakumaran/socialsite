@@ -117,7 +117,7 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 	@SuppressWarnings("unchecked")
 	public List<T> getFriends(final User user, final int first, final int count)
 	{
-		Query q = getSession().createQuery(
+		final Query q = getSession().createQuery(
 			"select u.friends from User u where u.id = :id");
 		q.setFirstResult(first);
 		q.setMaxResults(count);

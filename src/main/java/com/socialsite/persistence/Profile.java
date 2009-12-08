@@ -40,6 +40,10 @@ public class Profile implements AbstractDomain
 	 * TODO add other fields link address , birthday etc;
 	 */
 
+	public Profile()
+	{
+	}
+
 	public String getEmail()
 	{
 		return email;

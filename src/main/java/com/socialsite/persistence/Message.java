@@ -35,6 +35,8 @@ public abstract class Message implements AbstractDomain
 
 	public Message()
 	{
+		// set the time
+		setTime(new Date());
 	}
 
 	public long getId()

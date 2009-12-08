@@ -15,21 +15,16 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.dao.hibernate;
-
-import com.socialsite.dao.StaffDao;
-import com.socialsite.persistence.Staff;
+package com.socialsite.user;
 
 /**
+ * Types of user
  * 
  * @author Ananth
  * 
  */
-public class StaffDaoImpl extends UserDaoImpl<Staff> implements StaffDao
+public enum UserType
 {
-	public StaffDaoImpl()
-	{
-		super(Staff.class);
-	}
+	STUDENT, STAFF, ADMIN
 
 }

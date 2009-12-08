@@ -35,6 +35,10 @@ public class University implements AbstractDomain
 
 	private Set<Course>			courses				= new HashSet<Course>();
 
+	public University()
+	{
+	}
+
 	public Admin getAdmin()
 	{
 		return admin;

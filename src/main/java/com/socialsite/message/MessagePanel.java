@@ -25,6 +25,7 @@ import org.apache.wicket.markup.repeater.data.DataView;
 import com.socialsite.SocialSiteSession;
 import com.socialsite.dataprovider.MessageDataProvider;
 import com.socialsite.persistence.FriendRequestMsg;
+import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Message;
 
 /**
@@ -79,6 +80,9 @@ public class MessagePanel extends Panel
 				{
 					item.add(new FriendRequestMsgPanel("message",
 						(FriendRequestMsg) message, messageContainer));
+				} else if (message instanceof InfoMsg)
+				{
+					item.add(new InfoMsgPanel("message", (InfoMsg) message));
 				}
 
 			}

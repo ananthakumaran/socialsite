@@ -41,7 +41,7 @@ public class DefaultImage
 	 * 
 	 * @param profile
 	 */
-	public DefaultImage(Profile profile)
+	public DefaultImage(final Profile profile)
 	{
 		final PackageResource imageRef = PackageResource.get(getClass(),
 			"user-125.png");

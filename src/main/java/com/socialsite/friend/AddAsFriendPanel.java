@@ -112,10 +112,10 @@ public class AddAsFriendPanel extends BasePanel
 	@Override
 	public boolean isVisible()
 	{
-		 return !friendRequestMsgDao.hasFriendRequest(SocialSiteSession.get()
-		 .getSessionUser().getId(), SocialSiteSession.get().getUserId());
+		return !friendRequestMsgDao.hasFriendRequest(SocialSiteSession.get()
+			.getSessionUser().getId(), SocialSiteSession.get().getUserId());
 
-		//return true;
+		// return true;
 
 	}
 }

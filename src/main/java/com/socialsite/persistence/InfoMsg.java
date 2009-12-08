@@ -15,21 +15,42 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.dao.hibernate;
+package com.socialsite.persistence;
 
-import com.socialsite.dao.StaffDao;
-import com.socialsite.persistence.Staff;
-
-/**
- * 
- * @author Ananth
- * 
- */
-public class StaffDaoImpl extends UserDaoImpl<Staff> implements StaffDao
+public class InfoMsg extends Message
 {
-	public StaffDaoImpl()
+
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+
+	private String				message;
+	/** The sender who sends the friend request */
+	private User				Sender;
+
+	public InfoMsg()
 	{
-		super(Staff.class);
+	}
+
+	public String getMessage()
+	{
+		return message;
+	}
+
+	public User getSender()
+	{
+		return Sender;
+	}
+
+	public void setMessage(final String message)
+	{
+		this.message = message;
+	}
+
+	public void setSender(final User sender)
+	{
+		Sender = sender;
 	}
 
 }

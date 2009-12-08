@@ -22,6 +22,11 @@ import org.hibernate.Query;
 import com.socialsite.dao.FriendRequestMsgDao;
 import com.socialsite.persistence.FriendRequestMsg;
 
+/**
+ * 
+ * @author Ananth
+ * 
+ */
 public class FriendRequestMsgDaoImpl extends MessageDaoImpl<FriendRequestMsg>
 		implements FriendRequestMsgDao
 {
@@ -31,15 +36,16 @@ public class FriendRequestMsgDaoImpl extends MessageDaoImpl<FriendRequestMsg>
 		super(FriendRequestMsg.class);
 	}
 
-	public boolean hasFriendRequest(long userid, long guestid)
+	public boolean hasFriendRequest(final long userid, final long guestid)
 	{
-		Query q = getSession().createQuery(
-			" select count(*) from FriendRequestMsg m where (m.sender.id = :guestid "
-					+ " and m.user.id = :userid) or (m.sender.id = :userid and m.user.id = :guestid) ");
+		final Query q = getSession()
+			.createQuery(
+				" select count(*) from FriendRequestMsg m where (m.sender.id = :guestid "
+						+ " and m.user.id = :userid) or (m.sender.id = :userid and m.user.id = :guestid) ");
 		q.setParameter("userid", userid);
 		q.setParameter("guestid", guestid);
 
-		long result = (Long) q.uniqueResult();
+		final long result = (Long) q.uniqueResult();
 
 		return result == 0 ? false : true;
 

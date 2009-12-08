@@ -27,6 +27,15 @@ public class Admin extends User
 
 	private University			university;
 
+	public Admin()
+	{
+	}
+
+	public Admin(final String userName, final String password)
+	{
+		super(userName, password);
+	}
+
 	public University getUniversity()
 	{
 		return university;

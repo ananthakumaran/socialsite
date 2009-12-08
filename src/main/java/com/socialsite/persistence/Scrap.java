@@ -39,6 +39,10 @@ public class Scrap implements AbstractDomain
 	private Date				time;
 	private String				message;
 
+	public Scrap()
+	{
+	}
+
 	public User getAuthor()
 	{
 		return author;

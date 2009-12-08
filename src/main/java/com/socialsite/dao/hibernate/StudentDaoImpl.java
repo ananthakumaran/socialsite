@@ -20,9 +20,17 @@ package com.socialsite.dao.hibernate;
 import com.socialsite.dao.StudentDao;
 import com.socialsite.persistence.Student;
 
+/**
+ * 
+ * @author Ananth
+ * 
+ */
 public class StudentDaoImpl extends UserDaoImpl<Student> implements StudentDao
 {
 
+	/**
+	 * constructor
+	 */
 	public StudentDaoImpl()
 	{
 		super(Student.class);

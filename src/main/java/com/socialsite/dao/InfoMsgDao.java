@@ -15,21 +15,11 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.dao.hibernate;
+package com.socialsite.dao;
 
-import com.socialsite.dao.StaffDao;
-import com.socialsite.persistence.Staff;
+import com.socialsite.persistence.InfoMsg;
 
-/**
- * 
- * @author Ananth
- * 
- */
-public class StaffDaoImpl extends UserDaoImpl<Staff> implements StaffDao
+public interface InfoMsgDao extends MessageDao<InfoMsg>
 {
-	public StaffDaoImpl()
-	{
-		super(Staff.class);
-	}
 
 }

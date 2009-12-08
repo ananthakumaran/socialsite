@@ -20,6 +20,11 @@ package com.socialsite.dao.hibernate;
 import com.socialsite.dao.AdminDao;
 import com.socialsite.persistence.Admin;
 
+/**
+ * 
+ * @author Ananth
+ * 
+ */
 public class AdminDaoImpl extends UserDaoImpl<Admin> implements AdminDao
 {
 

@@ -35,6 +35,10 @@ public class Course implements AbstractDomain
 
 	private Set<Student>		students			= new HashSet<Student>();
 
+	public Course()
+	{
+	}
+
 	public long getId()
 	{
 		return id;

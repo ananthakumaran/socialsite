@@ -1,3 +1,20 @@
+--
+--     Copyright SocialSite (C) 2009
+--
+--     This program is free software: you can redistribute it and/or modify
+--     it under the terms of the GNU General Public License as published by
+--     the Free Software Foundation, either version 3 of the License, or
+--     (at your option) any later version.
+--
+--     This program is distributed in the hope that it will be useful,
+--     but WITHOUT ANY WARRANTY; without even the implied warranty of
+--     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+--     GNU General Public License for more details.
+--
+--     You should have received a copy of the GNU General Public License
+--     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--
+
 
     alter table ADMIN 
         drop 
@@ -18,6 +35,14 @@
     alter table FRIEND_REQUEST_MSG 
         drop 
         foreign key fk_FRIEND_REQUEST_MSG_sender_id_User_id;
+
+    alter table INFO_MSG 
+        drop 
+        foreign key FK3954B050E1E64E06;
+
+    alter table INFO_MSG 
+        drop 
+        foreign key fk_INFO_MSG_sender_id_User_id;
 
     alter table MESSAGE 
         drop 
@@ -73,6 +98,8 @@
 
     drop table if exists FRIEND_REQUEST_MSG;
 
+    drop table if exists INFO_MSG;
+
     drop table if exists MESSAGE;
 
     drop table if exists Profile;
@@ -104,6 +131,13 @@
     );
 
     create table FRIEND_REQUEST_MSG (
+        id bigint not null,
+        message varchar(255),
+        sender_id bigint,
+        primary key (id)
+    );
+
+    create table INFO_MSG (
         id bigint not null,
         message varchar(255),
         sender_id bigint,
@@ -199,6 +233,18 @@
     alter table FRIEND_REQUEST_MSG 
         add index fk_FRIEND_REQUEST_MSG_sender_id_User_id (sender_id), 
         add constraint fk_FRIEND_REQUEST_MSG_sender_id_User_id 
+        foreign key (sender_id) 
+        references User (id);
+
+    alter table INFO_MSG 
+        add index FK3954B050E1E64E06 (id), 
+        add constraint FK3954B050E1E64E06 
+        foreign key (id) 
+        references MESSAGE (id);
+
+    alter table INFO_MSG 
+        add index fk_INFO_MSG_sender_id_User_id (sender_id), 
+        add constraint fk_INFO_MSG_sender_id_User_id 
         foreign key (sender_id) 
         references User (id);
 

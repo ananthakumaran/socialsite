@@ -15,21 +15,25 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.dao.hibernate;
+package com.socialsite.image;
 
-import com.socialsite.dao.StaffDao;
-import com.socialsite.persistence.Staff;
+import org.apache.wicket.markup.html.panel.Panel;
 
 /**
- * 
  * @author Ananth
- * 
  */
-public class StaffDaoImpl extends UserDaoImpl<Staff> implements StaffDao
+public class ImagePanel extends Panel
 {
-	public StaffDaoImpl()
+
+	/**
+	 * 
+	 */
+	private static final long	serialVersionUID	= 1L;
+
+	public ImagePanel(final String id)
 	{
-		super(Staff.class);
+		super(id);
+		// TODO Auto-generated constructor stub
 	}
 
 }

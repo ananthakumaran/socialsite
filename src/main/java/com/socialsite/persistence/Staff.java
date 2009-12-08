@@ -32,6 +32,15 @@ public class Staff extends User
 
 	private Set<Course>			courses				= new HashSet<Course>();
 
+	public Staff()
+	{
+	}
+
+	public Staff(final String userName, final String password)
+	{
+		super(userName, password);
+	}
+
 	public Set<Course> getCourses()
 	{
 		return courses;

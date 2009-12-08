@@ -133,6 +133,4 @@ public class UserDaoTest extends AbstractDaoTest
 				unknown.getId()));
 	}
 
-	
-
 }

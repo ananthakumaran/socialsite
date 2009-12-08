@@ -17,6 +17,12 @@
 
 package com.socialsite.persistence;
 
+/**
+ * Message represents a friendRequest
+ * 
+ * @author Ananth
+ * 
+ */
 public class FriendRequestMsg extends Message
 {
 
@@ -29,6 +35,10 @@ public class FriendRequestMsg extends Message
 	private User				sender;
 	/** message send during friend request */
 	private String				message;
+
+	public FriendRequestMsg()
+	{
+	}
 
 	public String getMessage()
 	{

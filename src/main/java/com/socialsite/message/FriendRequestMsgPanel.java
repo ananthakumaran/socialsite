@@ -66,12 +66,12 @@ public class FriendRequestMsgPanel extends Panel
 		super(id);
 
 		UserLink user;
-		
+
 		final ResourceReference imageResource = new ResourceReference(
-		"userImageResource");
-	add(new Image("userthumb", imageResource, new ValueMap(
-		"id=" + friendRequestMsg.getSender().getId() + ",thumb=true")));
-		
+			"userImageResource");
+		add(new Image("userthumb", imageResource, new ValueMap("id="
+				+ friendRequestMsg.getSender().getId() + ",thumb=true")));
+
 		add(user = new UserLink("user", new Model<User>(friendRequestMsg
 			.getSender())));
 		user.add(new Label("name", friendRequestMsg.getSender().getUserName()));
