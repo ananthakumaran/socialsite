@@ -44,10 +44,6 @@
         drop 
         foreign key fk_INFO_MSG_sender_id_User_id;
 
-    alter table MESSAGE 
-        drop 
-        foreign key fk_Message_user_id_User_id;
-
     alter table Profile 
         drop 
         foreign key fk_Profile_user_id_User_id;
@@ -92,6 +88,14 @@
         drop 
         foreign key fk_Friend_Reference_friend_id_User_id;
 
+    alter table message_user 
+        drop 
+        foreign key message_user_user_id_User_id;
+
+    alter table message_user 
+        drop 
+        foreign key message_user_message_id_Message_id;
+
     drop table if exists ADMIN;
 
     drop table if exists COURSE;
@@ -117,6 +121,8 @@
     drop table if exists User;
 
     drop table if exists friend_reference;
+
+    drop table if exists message_user;
 
     create table ADMIN (
         id bigint not null,
@@ -146,7 +152,6 @@
 
     create table MESSAGE (
         id bigint not null auto_increment,
-        user_id bigint,
         time date,
         primary key (id)
     );
@@ -206,6 +211,12 @@
         primary key (friend_id, user_id)
     );
 
+    create table message_user (
+        user_id bigint not null,
+        message_id bigint not null,
+        primary key (message_id, user_id)
+    );
+
     alter table ADMIN 
         add index FK3B40B2FE8BA0282 (id), 
         add constraint FK3B40B2FE8BA0282 
@@ -246,12 +257,6 @@
         add index fk_INFO_MSG_sender_id_User_id (sender_id), 
         add constraint fk_INFO_MSG_sender_id_User_id 
         foreign key (sender_id) 
-        references User (id);
-
-    alter table MESSAGE 
-        add index fk_Message_user_id_User_id (user_id), 
-        add constraint fk_Message_user_id_User_id 
-        foreign key (user_id) 
         references User (id);
 
     alter table Profile 
@@ -319,3 +324,15 @@
         add constraint fk_Friend_Reference_friend_id_User_id 
         foreign key (friend_id) 
         references User (id);
+
+    alter table message_user 
+        add index message_user_user_id_User_id (user_id), 
+        add constraint message_user_user_id_User_id 
+        foreign key (user_id) 
+        references User (id);
+
+    alter table message_user 
+        add index message_user_message_id_Message_id (message_id), 
+        add constraint message_user_message_id_Message_id 
+        foreign key (message_id) 
+        references MESSAGE (id);

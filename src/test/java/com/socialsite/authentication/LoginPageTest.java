@@ -78,7 +78,6 @@ public class LoginPageTest extends AbstractDaoTest
 		form.setValue("username", "ananthas");
 		form.setValue("password", "pathasfdasf");
 
-		// TODO find the reason for the two submits
 		form.submit("login");
 		tester
 			.assertErrorMessages(new String[] { "Invalid username or password" });

@@ -19,9 +19,7 @@ package com.socialsite.dao.hibernate;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.Query;
 
 import com.socialsite.dao.MessageDao;
 import com.socialsite.persistence.Message;
@@ -41,11 +39,13 @@ public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T>
 	@SuppressWarnings("unchecked")
 	public List<T> getMessage(final User user, final int first, final int count)
 	{
-		final Criteria criteria = getSession().createCriteria(domainClass);
-		criteria.add(Restrictions.eq("user", user));
-		criteria.setFirstResult(first);
-		criteria.setMaxResults(count);
-		return criteria.list();
+		final Query query = getSession().createQuery(
+			" select m from Message m , User u "
+					+ " where u = :user and u member of m.users ");
+		query.setParameter("user", user);
+		query.setFirstResult(first);
+		query.setMaxResults(count);
+		return query.list();
 	}
 
 	/**
@@ -53,11 +53,14 @@ public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T>
 	 */
 	public int getMessageCount(final User user)
 	{
-		final Criteria criteria = getSession().createCriteria(domainClass);
-		criteria.add(Restrictions.eq("user", user));
-		criteria.setProjection(Projections.rowCount());
+		final Query query = getSession().createQuery(
+			" select count(m) from Message m , User u "
+					+ " where u = :user and u member of m.users ");
+		query.setParameter("user", user);
 
-		return (Integer) criteria.uniqueResult();
+		final Long result = (Long) query.uniqueResult();
+
+		return result.intValue();
 	}
 
 }

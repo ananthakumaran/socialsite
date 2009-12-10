@@ -1,28 +1,23 @@
 <?xml version="1.0"?>
-<!--
+	<!--
 
-        Copyright SocialSite (C) 2009
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
--->
+		Copyright SocialSite (C) 2009 This program is free software: you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation, either
+		version 3 of the License, or (at your option) any later version. This
+		program is distributed in the hope that it will be useful, but WITHOUT
+		ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+		FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+		for more details. You should have received a copy of the GNU General
+		Public License along with this program. If not, see
+		<http://www.gnu.org/licenses/>.
+	-->
 
 <!DOCTYPE hibernate-mapping PUBLIC
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.socialsite.persistence">
-	<class name="User" abstract="true" >
+	<class name="User" abstract="true">
 		<!-- id -->
 		<id name="id" type="long" column="id">
 			<generator class="identity"></generator>
@@ -35,13 +30,18 @@
 
 		<!-- Relations -->
 
-		<one-to-one name="profile" class="Profile"  />
+		<one-to-one name="profile" class="Profile" />
 
 		<set name="friends" table="friend_reference">
 			<key column="friend_id" foreign-key="fk_Friend_Reference_friend_id_User_id"
 				not-null="true"></key>
-			<many-to-many class="com.socialsite.persistence.User"
-				column="user_id" foreign-key="fk_Friend_Reference_user_id_User_id" />
+			<many-to-many class="User" column="user_id"
+				foreign-key="fk_Friend_Reference_user_id_User_id" />
+		</set>
+
+		<set name="messages" table="message_user">
+			<key column="user_id" not-null="true" />
+			<many-to-many class="Message" column="message_id" />
 		</set>
 
 		<set name="scraps">
@@ -74,12 +74,13 @@
 				<one-to-many class="Course" />
 			</set>
 			<many-to-one name="university" column="university_id"
-			 foreign-key="fk_Staff_university_id_University_id"/>
+				foreign-key="fk_Staff_university_id_University_id" />
 		</joined-subclass>
 
 		<joined-subclass name="Admin" table="ADMIN">
 			<key column="id" />
-			<one-to-one name="university" class="University" property-ref="admin"/>
+			<one-to-one name="university" class="University"
+				property-ref="admin" />
 		</joined-subclass>
 
 	</class>

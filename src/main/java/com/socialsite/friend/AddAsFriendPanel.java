@@ -89,7 +89,7 @@ public class AddAsFriendPanel extends BasePanel
 				// create a new friend request
 				final FriendRequestMsg friendRequest = new FriendRequestMsg();
 				friendRequest.setSender(user);
-				friendRequest.setUser(friend);
+				friendRequest.getUsers().add(friend);
 				friendRequest.setMessage(message);
 				friendRequest.setTime(new Date());
 				friendRequestMsgDao.save(friendRequest);

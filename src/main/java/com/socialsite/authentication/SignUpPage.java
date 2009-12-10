@@ -182,7 +182,7 @@ public class SignUpPage extends WebPage
 							user = new Admin(userName, password);
 							userDao.save(user);
 							final InfoMsg message = new InfoMsg();
-							message.setUser(user);
+							message.getUsers().add(user);
 							message.setMessage("Your request is received");
 							messageDao.save(message);
 						} else

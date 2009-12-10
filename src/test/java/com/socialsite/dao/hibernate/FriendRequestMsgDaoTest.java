@@ -18,6 +18,7 @@
 package com.socialsite.dao.hibernate;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
@@ -60,7 +61,7 @@ public class FriendRequestMsgDaoTest extends AbstractDaoTest
 		final FriendRequestMsg m = new FriendRequestMsg();
 		m.setMessage("hello");
 		m.setSender(ananth);
-		m.setUser(anantha);
+		m.getUsers().add(anantha);
 		m.setTime(new Date());
 
 		// friendRequestMsgDao.save(m);
@@ -68,6 +69,32 @@ public class FriendRequestMsgDaoTest extends AbstractDaoTest
 
 		assertEquals(0, messageDao.getMessageCount(ananth));
 		assertEquals(1, messageDao.getMessageCount(anantha));
+
+	}
+
+	@Test
+	@Transactional
+	public void hasFriendRequestTest()
+	{
+		final User ananth = new Student("ananth", "pass");
+		userDao.save(ananth);
+
+		final User anantha = new Student("anantha", "pass");
+		userDao.save(anantha);
+
+		final FriendRequestMsg m = new FriendRequestMsg();
+		m.setMessage("hello");
+		m.setSender(ananth);
+		m.getUsers().add(anantha);
+		m.setTime(new Date());
+
+		// friendRequestMsgDao.save(m);
+		messageDao.save(m);
+
+		assertTrue(friendRequestMsgDao.hasFriendRequest(ananth.getId(), anantha
+			.getId()));
+		assertTrue(friendRequestMsgDao.hasFriendRequest(anantha.getId(), ananth
+			.getId()));
 
 	}
 }

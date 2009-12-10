@@ -21,6 +21,8 @@ import org.hibernate.Query;
 
 import com.socialsite.dao.FriendRequestMsgDao;
 import com.socialsite.persistence.FriendRequestMsg;
+import com.socialsite.persistence.Student;
+import com.socialsite.persistence.User;
 
 /**
  * 
@@ -38,12 +40,20 @@ public class FriendRequestMsgDaoImpl extends MessageDaoImpl<FriendRequestMsg>
 
 	public boolean hasFriendRequest(final long userid, final long guestid)
 	{
+		final User user = new Student();
+		user.setId(userid);
+
+		final User guest = new Student();
+		guest.setId(guestid);
+
 		final Query q = getSession()
 			.createQuery(
 				" select count(*) from FriendRequestMsg m where (m.sender.id = :guestid "
-						+ " and m.user.id = :userid) or (m.sender.id = :userid and m.user.id = :guestid) ");
+						+ " and :user member of  m.users) or (m.sender.id = :userid and :guest member of m.users) ");
 		q.setParameter("userid", userid);
 		q.setParameter("guestid", guestid);
+		q.setParameter("user", user);
+		q.setParameter("guest", guest);
 
 		final long result = (Long) q.uniqueResult();
 

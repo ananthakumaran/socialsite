@@ -22,8 +22,10 @@
 			<generator class="identity"></generator>
 		</id>
 
-		<many-to-one name="user" column="user_id" class="User"
-			foreign-key="fk_Message_user_id_User_id" />
+		<set name="users" table="message_user"  >
+			<key column="message_id" foreign-key="message_user_message_id_Message_id" not-null="true"  />
+			<many-to-many class="User" column="user_id" foreign-key="message_user_user_id_User_id"  />
+		</set>
 
 		<property name="time" type="date" />
 

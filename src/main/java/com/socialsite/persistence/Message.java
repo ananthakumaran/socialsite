@@ -18,6 +18,8 @@
 package com.socialsite.persistence;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Message implements AbstractDomain
 {
@@ -31,7 +33,7 @@ public abstract class Message implements AbstractDomain
 
 	private Date				time;
 
-	private User				user;
+	private Set<User>			users				= new HashSet<User>();
 
 	public Message()
 	{
@@ -49,9 +51,9 @@ public abstract class Message implements AbstractDomain
 		return time;
 	}
 
-	public User getUser()
+	public Set<User> getUsers()
 	{
-		return user;
+		return users;
 	}
 
 	public void setId(final long id)
@@ -64,9 +66,8 @@ public abstract class Message implements AbstractDomain
 		this.time = time;
 	}
 
-	public void setUser(final User user)
+	public void setUsers(final Set<User> users)
 	{
-		this.user = user;
+		this.users = users;
 	}
-
 }

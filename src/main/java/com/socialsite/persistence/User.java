@@ -47,18 +47,20 @@ public abstract class User implements AbstractDomain
 
 	}
 
-	private long		id;
-	private String		userName;
+	private long			id;
+	private String			userName;
 
-	private String		password;
+	private String			password;
 
-	private Profile		profile;
+	private Profile			profile;
 
-	private Set<User>	friends		= new HashSet<User>();
+	private Set<User>		friends		= new HashSet<User>();
 
-	private Set<Scrap>	scraps		= new HashSet<Scrap>();
+	private Set<Scrap>		scraps		= new HashSet<Scrap>();
 
-	private Set<Scrap>	scrapsSend	= new HashSet<Scrap>();
+	private Set<Scrap>		scrapsSend	= new HashSet<Scrap>();
+
+	private Set<Message>	messages	= new HashSet<Message>();
 
 	/**
 	 * constructor
@@ -104,6 +106,11 @@ public abstract class User implements AbstractDomain
 	public long getId()
 	{
 		return id;
+	}
+
+	public Set<Message> getMessages()
+	{
+		return messages;
 	}
 
 	public String getPassword()
@@ -152,6 +159,11 @@ public abstract class User implements AbstractDomain
 	public void setId(final long id)
 	{
 		this.id = id;
+	}
+
+	public void setMessages(final Set<Message> messages)
+	{
+		this.messages = messages;
 	}
 
 	public void setPassword(final String password)

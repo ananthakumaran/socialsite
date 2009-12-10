@@ -96,7 +96,7 @@ public class FriendRequestMsgPanel extends Panel
 				// add him as the friend
 				final User user = friendRequestMsg.getSender();
 
-				user.addFriend(friendRequestMsg.getUser());
+				user.addFriend(friendRequestMsg.getUsers().iterator().next());
 				// save the user
 				userDao.save(user);
 
