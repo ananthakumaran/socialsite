@@ -1,0 +1,50 @@
+<html xmlns:wicket>
+
+<wicket:head>
+
+	<style type="text/css">
+div.grippie {
+	background: #EEEEEE url(img/grippie.png) no-repeat scroll center 2px;
+	border-color: #DDDDDD;
+	border-style: solid;
+	border-width: 0pt 1px 1px;
+	cursor: s-resize;
+	height: 9px;
+	overflow: hidden;
+}
+
+.resizable-textarea textarea {
+	display: block;
+	margin-bottom: 0pt;
+	width: 95%;
+	height: 20%;
+}
+</style>
+</wicket:head>
+
+<wicket:panel>
+	<textarea id="myTextarea" wicket:id="textarea">
+  </textarea>
+	<script type="text/javascript">
+	// to set WMD's options programatically, define a "wmd_options" object with whatever settings
+	// you want to override.  Here are the defaults:
+	wmd_options = {
+		// format sent to the server.  Use "Markdown" to return the markdown source.
+		output : "HTML",
+
+		// line wrapping length for lists, blockquotes, etc.
+		lineLength : 40,
+
+		// toolbar buttons.  Undo and redo get appended automatically.
+		buttons : "bold italic | link blockquote code image | ol ul heading hr",
+
+		// option to automatically add WMD to the first textarea found.  See apiExample.html for usage.
+		autostart : true
+	};
+</script>
+	<wicket:link>
+		<script type="text/javascript" src="wmd.js"></script>
+	</wicket:link>
+	<div class="wmd-preview"></div>
+</wicket:panel>
+</html>
