@@ -17,7 +17,22 @@
 
 package com.socialsite.image;
 
+import java.util.Random;
+
+import org.apache.wicket.ResourceReference;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
+import org.apache.wicket.markup.html.form.upload.FileUpload;
+import org.apache.wicket.markup.html.image.Image;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.util.value.ValueMap;
+
+import com.socialsite.ajax.fileupload.UploadPanel;
+import com.socialsite.dao.ProfileDao;
+import com.socialsite.persistence.User;
 
 /**
  * @author Ananth
@@ -30,10 +45,133 @@ public class ImagePanel extends Panel
 	 */
 	private static final long	serialVersionUID	= 1L;
 
-	public ImagePanel(final String id)
+	/** Feedback panel */
+	// private final FeedbackPanel feedback;
+
+	@SpringBean(name = "profileDao")
+	private ProfileDao			profileDao;
+
+	public ImagePanel(final String id, final User user)
 	{
 		super(id);
-		// TODO Auto-generated constructor stub
+
+		// allow the modal window to update the panel
+		this.setOutputMarkupId(true);
+		final ResourceReference imageResource = new ResourceReference(
+			"userImageResource");
+		final Image userImage;
+		add(userImage = new Image("userimage", imageResource, new ValueMap(
+			"id=" + user.getId())));
+		userImage.setOutputMarkupId(true);
+
+		final ModalWindow modal;
+		add(modal = new ModalWindow("modal"));
+
+		modal.setContent(new UploadPanel(modal.getContentId())
+		{
+
+			/**
+			 * 
+			 */
+			private static final long	serialVersionUID	= 1L;
+
+			@Override
+			public void onUploadFinished(AjaxRequestTarget target,
+					String filename, String newFileUrl)
+			{
+				
+				final ResourceReference imageResource = new ResourceReference(
+					"userImageResource");
+
+				Random rand = new Random();
+
+				userImage.setImageResourceReference(imageResource,
+					new ValueMap("id=" + user.getId() + ",rand="
+							+ rand.nextLong()));
+				target.addComponent(userImage);
+			}
+
+			@Override
+			public String onFileUploaded(FileUpload upload)
+			{
+
+				if (upload == null)
+				{
+					// No image was provided
+					error( "Please upload an image.");
+				} else if (upload.getSize() == 0)
+				{
+					error("Please upload an image.");
+				} else if (!checkContentType(upload.getContentType()))
+				{
+					error("Only images of types png, jpg, and gif are allowed.");
+				} else
+				{
+					final ImageService imageService = new ImageService();
+
+					user.getProfile().setThumb(
+						imageService.resize(upload.getBytes(),
+							ImageService.THUMB_SIZE));
+					user.getProfile().setImage(
+						imageService.resize(upload.getBytes(),
+							ImageService.IMAGE_SIZE));
+					profileDao.save(user.getProfile());
+				}
+
+				return null;
+			}
+		});
+		modal.setTitle(" Select the image ");
+		modal.setCookieName("modal");
+
+		modal.setCloseButtonCallback(new ModalWindow.CloseButtonCallback()
+		{
+			/**
+			 * 
+			 */
+			private static final long	serialVersionUID	= 1L;
+
+			public boolean onCloseButtonClicked(AjaxRequestTarget target)
+			{
+				return true;
+			}
+		});
+
+		modal.setWindowClosedCallback(new ModalWindow.WindowClosedCallback()
+		{
+			/**
+			 * 
+			 */
+			private static final long	serialVersionUID	= 1L;
+
+			public void onClose(AjaxRequestTarget target)
+			{
+			}
+		});
+
+		add(new AjaxLink("changeimage")
+		{
+			/**
+			 * 
+			 */
+			private static final long	serialVersionUID	= 1L;
+
+			@Override
+			public void onClick(AjaxRequestTarget target)
+			{
+				modal.show(target);
+			}
+		});
 	}
 
+	private boolean checkContentType(final String contentType)
+	{
+		if (contentType.equalsIgnoreCase("image/gif")
+				|| contentType.equalsIgnoreCase("image/jpeg")
+				|| contentType.equalsIgnoreCase("image/png"))
+		{
+			return true;
+		}
+		return false;
+	}
 }

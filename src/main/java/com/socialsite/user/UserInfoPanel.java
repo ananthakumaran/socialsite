@@ -17,17 +17,15 @@
 
 package com.socialsite.user;
 
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.apache.wicket.util.value.ValueMap;
 
 import com.socialsite.SocialSiteSession;
 import com.socialsite.dao.UserDao;
 import com.socialsite.friend.AddAsFriendPanel;
+import com.socialsite.image.ImagePanel;
 import com.socialsite.persistence.User;
 import com.socialsite.scrap.ScrapPage;
 
@@ -50,10 +48,9 @@ public class UserInfoPanel extends Panel
 		super(id);
 
 		final User user = userDao.load(SocialSiteSession.get().getUserId());
-		final ResourceReference imageResource = new ResourceReference(
-			"userImageResource");
-		add(new Image("userimage", imageResource, new ValueMap("id="
-				+ user.getId())));
+		
+		add(new ImagePanel("userimage", user).setOutputMarkupId(true));
+		
 		add(new Label("username", user.getUserName()));
 		add(new Link<Object>("scrap")
 		{
