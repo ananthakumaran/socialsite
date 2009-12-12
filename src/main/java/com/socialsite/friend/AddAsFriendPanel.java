@@ -45,18 +45,18 @@ public class AddAsFriendPanel extends BasePanel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 	/** Model for message */
-	private String				message;
+	private String message;
 
 	/** Spring Dao to access the user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 	/** Spring Dao to access the friendrequest object */
 	@SpringBean(name = "friendRequestMsgDao")
-	private FriendRequestMsgDao	friendRequestMsgDao;
+	private FriendRequestMsgDao friendRequestMsgDao;
 	/** feedback panel */
-	private FeedbackPanel		feedback;
+	private FeedbackPanel feedback;
 
 	/**
 	 * constructor
@@ -66,8 +66,8 @@ public class AddAsFriendPanel extends BasePanel
 		super(id);
 		final Form<Object> addAsFriendForm = new Form<Object>("addasfriendform");
 		add(addAsFriendForm);
-		addAsFriendForm.add(new RequiredTextField<String>("message",
-			new PropertyModel<String>(this, "message")));
+		addAsFriendForm.add(new RequiredTextField<String>("message", new PropertyModel<String>(
+				this, "message")));
 		AjaxSubmitLink send;
 		addAsFriendForm.add(send = new AjaxSubmitLink("send")
 		{
@@ -75,17 +75,14 @@ public class AddAsFriendPanel extends BasePanel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void onSubmit(final AjaxRequestTarget target,
-					final Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				// load the users
-				final User user = userDao.load(SocialSiteSession.get()
-					.getSessionUser().getId());
-				final User friend = userDao.load(SocialSiteSession.get()
-					.getUserId());
+				final User user = userDao.load(SocialSiteSession.get().getSessionUser().getId());
+				final User friend = userDao.load(SocialSiteSession.get().getUserId());
 				// create a new friend request
 				final FriendRequestMsg friendRequest = new FriendRequestMsg();
 				friendRequest.setSender(user);
@@ -100,8 +97,7 @@ public class AddAsFriendPanel extends BasePanel
 				target.addComponent(feedback);
 
 				// remove the form
-				target
-					.appendJavascript(" SocialSite.Home.AddAsFriend.removeAll();");
+				target.appendJavascript(" SocialSite.Home.AddAsFriend.removeAll();");
 			}
 		});
 		addAsFriendForm.setDefaultButton(send);
@@ -112,8 +108,8 @@ public class AddAsFriendPanel extends BasePanel
 	@Override
 	public boolean isVisible()
 	{
-		return !friendRequestMsgDao.hasFriendRequest(SocialSiteSession.get()
-			.getSessionUser().getId(), SocialSiteSession.get().getUserId());
+		return !friendRequestMsgDao.hasFriendRequest(SocialSiteSession.get().getSessionUser()
+				.getId(), SocialSiteSession.get().getUserId());
 
 		// return true;
 

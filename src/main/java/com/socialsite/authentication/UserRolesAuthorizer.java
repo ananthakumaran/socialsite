@@ -45,8 +45,7 @@ public class UserRolesAuthorizer implements IRoleCheckingStrategy
 	 */
 	public boolean hasAnyRole(final Roles roles)
 	{
-		final SessionUser sessionUser = SocialSiteSession.get()
-			.getSessionUser();
+		final SessionUser sessionUser = SocialSiteSession.get().getSessionUser();
 		if (sessionUser != null)
 		{
 			// check whether he has the role

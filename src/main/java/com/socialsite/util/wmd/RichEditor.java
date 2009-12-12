@@ -14,17 +14,16 @@ import org.apache.wicket.model.IModel;
  * 
  * @author Ananth
  */
-public class RichEditor<T> extends FormComponentPanel<T> implements
-		IHeaderContributor
+public class RichEditor<T> extends FormComponentPanel<T> implements IHeaderContributor
 {
 
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** text area */
-	private TextArea<T>			textArea;
+	private TextArea<T> textArea;
 
 	/**
 	 * constructor
@@ -51,8 +50,7 @@ public class RichEditor<T> extends FormComponentPanel<T> implements
 		// jquery
 		response.renderJavascriptReference("js/jquery/jquery.min.js");
 		// TextArea Resizer
-		ResourceReference resizeRef = new ResourceReference(getClass(),
-			"jquery.textarearesizer.js");
+		ResourceReference resizeRef = new ResourceReference(getClass(), "jquery.textarearesizer.js");
 		response.renderJavascriptReference(resizeRef);
 		response.renderOnDomReadyJavascript("$('textarea').TextAreaResizer();");
 	}

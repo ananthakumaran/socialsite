@@ -30,7 +30,8 @@ import com.socialsite.persistence.User;
  * 
  */
 public class FriendRequestMsgDaoImpl extends MessageDaoImpl<FriendRequestMsg>
-		implements FriendRequestMsgDao
+		implements
+			FriendRequestMsgDao
 {
 
 	public FriendRequestMsgDaoImpl()
@@ -47,15 +48,15 @@ public class FriendRequestMsgDaoImpl extends MessageDaoImpl<FriendRequestMsg>
 		guest.setId(guestid);
 
 		final Query q = getSession()
-			.createQuery(
-				" select count(*) from FriendRequestMsg m where (m.sender.id = :guestid "
-						+ " and :user member of  m.users) or (m.sender.id = :userid and :guest member of m.users) ");
+				.createQuery(
+						" select count(*) from FriendRequestMsg m where (m.sender.id = :guestid "
+								+ " and :user member of  m.users) or (m.sender.id = :userid and :guest member of m.users) ");
 		q.setParameter("userid", userid);
 		q.setParameter("guestid", guestid);
 		q.setParameter("user", user);
 		q.setParameter("guest", guest);
 
-		final long result = (Long) q.uniqueResult();
+		final long result = (Long)q.uniqueResult();
 
 		return result == 0 ? false : true;
 

@@ -41,12 +41,12 @@ public class SearchDataProvider extends SortableDataProvider<User>
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 	/** filter text */
-	private final StringWrapper	filter;
+	private final StringWrapper filter;
 	/** DAO to access the group details */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	public SearchDataProvider(final StringWrapper filter)
 	{
@@ -59,8 +59,7 @@ public class SearchDataProvider extends SortableDataProvider<User>
 
 	public Iterator<User> iterator(final int first, final int count)
 	{
-		return userDao.findAll(filter.toString(), first, count, getSort())
-			.iterator();
+		return userDao.findAll(filter.toString(), first, count, getSort()).iterator();
 	}
 
 	public IModel<User> model(final User domain)

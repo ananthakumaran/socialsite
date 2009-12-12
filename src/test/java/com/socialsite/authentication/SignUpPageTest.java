@@ -22,6 +22,7 @@ package com.socialsite.authentication;
 
 import org.apache.wicket.util.tester.FormTester;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +35,7 @@ import com.socialsite.util.SpringWicketTester;
 public class SignUpPageTest
 {
 
-	SpringWicketTester	tester;
+	SpringWicketTester tester;
 
 	@Test
 	@Transactional
@@ -61,6 +62,7 @@ public class SignUpPageTest
 
 	@Test
 	@Transactional
+	@Ignore
 	public void signUpTest()
 	{
 		tester.assertNoErrorMessage();

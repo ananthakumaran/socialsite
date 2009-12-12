@@ -29,12 +29,12 @@ public class FriendRequestMsg extends Message
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** The sender who sends the friend request */
-	private User				sender;
+	private User sender;
 	/** message send during friend request */
-	private String				message;
+	private String message;
 
 	public FriendRequestMsg()
 	{

@@ -29,7 +29,7 @@ import org.jasypt.util.password.StrongPasswordEncryptor;
  */
 public abstract class User implements AbstractDomain
 {
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * encrypts the password
@@ -41,26 +41,25 @@ public abstract class User implements AbstractDomain
 	private static String encryptPassword(final String password)
 	{
 		final StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
-		final String encryptedPassword = passwordEncryptor
-			.encryptPassword(password);
+		final String encryptedPassword = passwordEncryptor.encryptPassword(password);
 		return encryptedPassword;
 
 	}
 
-	private long			id;
-	private String			userName;
+	private long id;
+	private String userName;
 
-	private String			password;
+	private String password;
 
-	private Profile			profile;
+	private Profile profile;
 
-	private Set<User>		friends		= new HashSet<User>();
+	private Set<User> friends = new HashSet<User>();
 
-	private Set<Scrap>		scraps		= new HashSet<Scrap>();
+	private Set<Scrap> scraps = new HashSet<Scrap>();
 
-	private Set<Scrap>		scrapsSend	= new HashSet<Scrap>();
+	private Set<Scrap> scrapsSend = new HashSet<Scrap>();
 
-	private Set<Message>	messages	= new HashSet<Message>();
+	private Set<Message> messages = new HashSet<Message>();
 
 	/**
 	 * constructor

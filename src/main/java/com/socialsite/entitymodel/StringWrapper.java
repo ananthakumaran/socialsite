@@ -27,9 +27,9 @@ import java.io.Serializable;
 public class StringWrapper implements Serializable
 {
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 	/** holds the model value */
-	private String				model;
+	private String model;
 
 	/**
 	 * constructor

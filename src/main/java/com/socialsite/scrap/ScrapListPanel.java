@@ -38,6 +38,7 @@ import com.socialsite.SocialSiteSession;
 import com.socialsite.authentication.SessionUser;
 import com.socialsite.dao.ScrapDao;
 import com.socialsite.dataprovider.ScrapDataProvider;
+import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Scrap;
 import com.socialsite.persistence.User;
 import com.socialsite.user.UserLink;
@@ -50,14 +51,14 @@ public class ScrapListPanel extends BasePanel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** spring dao to handle scrap objects */
 	@SpringBean(name = "scrapDao")
-	private ScrapDao			scrapDao;
+	private ScrapDao scrapDao;
 
 	/** container for the scraplist **/
-	public WebMarkupContainer	scrapListContainer;
+	public WebMarkupContainer scrapListContainer;
 
 	public ScrapListPanel(final String id)
 	{
@@ -68,17 +69,16 @@ public class ScrapListPanel extends BasePanel
 		scrapListContainer.setOutputMarkupId(true);
 		add(scrapListContainer);
 
-		final ScrapDataProvider scrapDataProvider = new ScrapDataProvider(
-			SocialSiteSession.get().getUserId());
+		final ScrapDataProvider scrapDataProvider = new ScrapDataProvider(SocialSiteSession.get()
+				.getUserId());
 
-		final DataView<Scrap> scrapDataView = new DataView<Scrap>("scrap",
-			scrapDataProvider, 10)
+		final DataView<Scrap> scrapDataView = new DataView<Scrap>("scrap", scrapDataProvider, 10)
 		{
 
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			protected void populateItem(final Item<Scrap> item)
@@ -88,19 +88,17 @@ public class ScrapListPanel extends BasePanel
 				final User author = scrap.getAuthor();
 
 				// image
-				final ResourceReference imageResource = new ResourceReference(
-					"userImageResource");
-				item.add(new Image("userthumb", imageResource, new ValueMap(
-					"id=" + author.getId() + ",thumb=true")));
+				final ResourceReference imageResource = new ResourceReference(ImageType.USER.name());
+				item.add(new Image("userthumb", imageResource, new ValueMap("id=" + author.getId()
+						+ ",thumb=true")));
 
 				// link to the author page
 				UserLink userLink;
-				item.add(userLink = new UserLink("user",
-					new Model<User>(author)));
+				item.add(userLink = new UserLink("user", new Model<User>(author)));
 				userLink.add(new Label("name", author.getUserName()));
 
-				final DateFormat dateFormat = DateFormat.getDateTimeInstance(
-					DateFormat.MEDIUM, DateFormat.SHORT);
+				final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
+						DateFormat.SHORT);
 
 				item.add(new Label("time", dateFormat.format(scrap.getTime())));
 				// message
@@ -117,17 +115,15 @@ public class ScrapListPanel extends BasePanel
 					/**
 					 * 
 					 */
-					private static final long	serialVersionUID	= 1L;
+					private static final long serialVersionUID = 1L;
 
 					@Override
 					public boolean isVisible()
 					{
-						final SessionUser sessionUser = SocialSiteSession.get()
-							.getSessionUser();
+						final SessionUser sessionUser = SocialSiteSession.get().getSessionUser();
 						// allow the owner and the author to delete the scrap
 						if (sessionUser.hasRole("OWNER")
-								|| sessionUser.getId() == getModelObject()
-									.getAuthor().getId())
+								|| sessionUser.getId() == getModelObject().getAuthor().getId())
 						{
 							return true;
 						}
@@ -153,7 +149,7 @@ public class ScrapListPanel extends BasePanel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			public void onRequest()
 			{
@@ -164,8 +160,7 @@ public class ScrapListPanel extends BasePanel
 			public void renderHead(final IHeaderResponse response)
 			{
 				// bind the reply link handler while rendering this container
-				response
-					.renderOnDomReadyJavascript(" SocialSite.Scrap.Reply.init() ");
+				response.renderOnDomReadyJavascript(" SocialSite.Scrap.Reply.init() ");
 			}
 		});
 	}

@@ -25,14 +25,10 @@ import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.markup.html.image.Image;
-import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.util.value.ValueMap;
 
 import com.socialsite.ajax.fileupload.UploadPanel;
-import com.socialsite.dao.ProfileDao;
-import com.socialsite.persistence.User;
 
 /**
  * @author Ananth
@@ -43,25 +39,52 @@ public class ImagePanel extends Panel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	/** Feedback panel */
-	// private final FeedbackPanel feedback;
 
-	@SpringBean(name = "profileDao")
-	private ProfileDao			profileDao;
-
-	public ImagePanel(final String id, final User user)
+	/**
+	 * sets the thumnail as false
+	 * 
+	 * @param component
+	 *            component id
+	 * @param id
+	 *            id used to fetch the image
+	 * @param imageType
+	 *            type of the image (userimage , courseimage etc)
+	 */
+	public ImagePanel(final String component, final long id, final ImageType imageType)
 	{
-		super(id);
+		this(component, id, imageType, false);
+	}
+
+
+	/**
+	 * 
+	 * @param component
+	 *            component id
+	 * @param id
+	 *            id used to fetch the image
+	 * @param imageType
+	 *            type of the image (userimage , courseimage etc)
+	 * @param thumb
+	 *            will show thumb image if true
+	 */
+	public ImagePanel(final String component, final long id, final ImageType imageType,
+			final boolean thumb)
+	{
+		super(component);
 
 		// allow the modal window to update the panel
 		this.setOutputMarkupId(true);
-		final ResourceReference imageResource = new ResourceReference(
-			"userImageResource");
+		final ResourceReference imageResource = new ResourceReference(imageType.name());
 		final Image userImage;
-		add(userImage = new Image("userimage", imageResource, new ValueMap(
-			"id=" + user.getId())));
+		ValueMap valueMap = new ValueMap();
+		valueMap.add("id", id + "");
+		if (thumb)
+		{
+			valueMap.add("thumb", "true");
+		}
+		add(userImage = new Image("userimage", imageResource, valueMap));
 		userImage.setOutputMarkupId(true);
 
 		final ModalWindow modal;
@@ -73,21 +96,29 @@ public class ImagePanel extends Panel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
-			public void onUploadFinished(AjaxRequestTarget target,
-					String filename, String newFileUrl)
+			public void onUploadFinished(AjaxRequestTarget target, String filename,
+					String newFileUrl)
 			{
-				
-				final ResourceReference imageResource = new ResourceReference(
-					"userImageResource");
 
+				final ResourceReference imageResource = new ResourceReference(imageType.name());
+
+
+				ValueMap valueMap = new ValueMap();
+				valueMap.add("id", id + "");
+				// add a random parameter so the browser will change the image
+				// lively
 				Random rand = new Random();
+				valueMap.add("rand", rand.nextLong() + "");
+				if (thumb)
+				{
+					valueMap.add("thumb", "true");
+				}
 
-				userImage.setImageResourceReference(imageResource,
-					new ValueMap("id=" + user.getId() + ",rand="
-							+ rand.nextLong()));
+				userImage.setImageResourceReference(imageResource, valueMap);
+				// update the image after the user changes it
 				target.addComponent(userImage);
 			}
 
@@ -98,24 +129,19 @@ public class ImagePanel extends Panel
 				if (upload == null)
 				{
 					// No image was provided
-					error( "Please upload an image.");
-				} else if (upload.getSize() == 0)
+					error("Please upload an image.");
+				}
+				else if (upload.getSize() == 0)
 				{
 					error("Please upload an image.");
-				} else if (!checkContentType(upload.getContentType()))
+				}
+				else if (!checkContentType(upload.getContentType()))
 				{
 					error("Only images of types png, jpg, and gif are allowed.");
-				} else
+				}
+				else
 				{
-					final ImageService imageService = new ImageService();
-
-					user.getProfile().setThumb(
-						imageService.resize(upload.getBytes(),
-							ImageService.THUMB_SIZE));
-					user.getProfile().setImage(
-						imageService.resize(upload.getBytes(),
-							ImageService.IMAGE_SIZE));
-					profileDao.save(user.getProfile());
+					saveImage(upload.getBytes());
 				}
 
 				return null;
@@ -129,7 +155,7 @@ public class ImagePanel extends Panel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			public boolean onCloseButtonClicked(AjaxRequestTarget target)
 			{
@@ -142,36 +168,57 @@ public class ImagePanel extends Panel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			public void onClose(AjaxRequestTarget target)
 			{
 			}
 		});
 
-		add(new AjaxLink("changeimage")
+		add(new AjaxLink<Void>("changeimage")
 		{
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onClick(AjaxRequestTarget target)
 			{
 				modal.show(target);
 			}
+
+			@Override
+			public boolean isVisible()
+			{
+				if (thumb)
+				{
+					return false;
+				}
+				// TODO show this link only for user who have access to change
+				// it. don't show it for thumb images
+				return true;
+			}
 		});
 	}
 
 	private boolean checkContentType(final String contentType)
 	{
-		if (contentType.equalsIgnoreCase("image/gif")
-				|| contentType.equalsIgnoreCase("image/jpeg")
+		if (contentType.equalsIgnoreCase("image/gif") || contentType.equalsIgnoreCase("image/jpeg")
 				|| contentType.equalsIgnoreCase("image/png"))
 		{
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * override this method to save the file
+	 * 
+	 * @param imageData
+	 */
+	protected void saveImage(byte[] imageData)
+	{
+
 	}
 }

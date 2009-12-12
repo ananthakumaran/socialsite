@@ -40,13 +40,13 @@ public class FriendRequestMsgDaoTest extends AbstractDaoTest
 {
 
 	@Resource(name = "messageDao")
-	MessageDao<Message>		messageDao;
+	MessageDao<Message> messageDao;
 
 	@Resource(name = "userDao")
-	private UserDao<User>	userDao;
+	private UserDao<User> userDao;
 
 	@Resource(name = "friendRequestMsgDao")
-	FriendRequestMsgDao		friendRequestMsgDao;
+	FriendRequestMsgDao friendRequestMsgDao;
 
 	@Test
 	@Transactional
@@ -91,10 +91,8 @@ public class FriendRequestMsgDaoTest extends AbstractDaoTest
 		// friendRequestMsgDao.save(m);
 		messageDao.save(m);
 
-		assertTrue(friendRequestMsgDao.hasFriendRequest(ananth.getId(), anantha
-			.getId()));
-		assertTrue(friendRequestMsgDao.hasFriendRequest(anantha.getId(), ananth
-			.getId()));
+		assertTrue(friendRequestMsgDao.hasFriendRequest(ananth.getId(), anantha.getId()));
+		assertTrue(friendRequestMsgDao.hasFriendRequest(anantha.getId(), ananth.getId()));
 
 	}
 }

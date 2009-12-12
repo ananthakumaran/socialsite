@@ -33,8 +33,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-abstract public class AbstractDaoTest extends
-		AbstractTransactionalJUnit4SpringContextTests
+abstract public class AbstractDaoTest extends AbstractTransactionalJUnit4SpringContextTests
 {
 	/**
 	 * cleans the database before the execution of the test
@@ -46,5 +45,5 @@ abstract public class AbstractDaoTest extends
 	}
 
 	@Autowired
-	protected SessionFactory	sessionFactory;
+	protected SessionFactory sessionFactory;
 }

@@ -50,39 +50,35 @@ public class FriendRequestMsgPanel extends Panel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** spring Dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	@SpringBean(name = "messageDao")
-	private MessageDao<Message>	messageDao;
+	private MessageDao<Message> messageDao;
 
-	public FriendRequestMsgPanel(final String id,
-			final FriendRequestMsg friendRequestMsg,
+	public FriendRequestMsgPanel(final String id, final FriendRequestMsg friendRequestMsg,
 			final WebMarkupContainer container)
 	{
 		super(id);
 
 		UserLink user;
 
-		final ResourceReference imageResource = new ResourceReference(
-			"userImageResource");
+		final ResourceReference imageResource = new ResourceReference("userImageResource");
 		add(new Image("userthumb", imageResource, new ValueMap("id="
 				+ friendRequestMsg.getSender().getId() + ",thumb=true")));
 
-		add(user = new UserLink("user", new Model<User>(friendRequestMsg
-			.getSender())));
+		add(user = new UserLink("user", new Model<User>(friendRequestMsg.getSender())));
 		user.add(new Label("name", friendRequestMsg.getSender().getUserName()));
 		add(new Label("message", friendRequestMsg.getMessage()));
-		add(new Link<FriendRequestMsg>("yes", new Model<FriendRequestMsg>(
-			friendRequestMsg))
+		add(new Link<FriendRequestMsg>("yes", new Model<FriendRequestMsg>(friendRequestMsg))
 		{
 			/**
 		 * 
 		 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onClick()
@@ -90,8 +86,7 @@ public class FriendRequestMsgPanel extends Panel
 
 				FriendRequestMsg friendRequestMsg = getModelObject();
 
-				friendRequestMsg = (FriendRequestMsg) messageDao
-					.load(friendRequestMsg.getId());
+				friendRequestMsg = (FriendRequestMsg)messageDao.load(friendRequestMsg.getId());
 
 				// add him as the friend
 				final User user = friendRequestMsg.getSender();
@@ -106,14 +101,13 @@ public class FriendRequestMsgPanel extends Panel
 			}
 		});
 
-		add(new AjaxLink<FriendRequestMsg>("no", new Model<FriendRequestMsg>(
-			friendRequestMsg))
+		add(new AjaxLink<FriendRequestMsg>("no", new Model<FriendRequestMsg>(friendRequestMsg))
 		{
 
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onClick(final AjaxRequestTarget target)
@@ -126,8 +120,7 @@ public class FriendRequestMsgPanel extends Panel
 			}
 		});
 
-		final DateFormat format = DateFormat.getDateTimeInstance(
-			DateFormat.LONG, DateFormat.SHORT);
+		final DateFormat format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT);
 
 		add(new Label("time", format.format(friendRequestMsg.getTime())));
 

@@ -27,6 +27,7 @@ import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
 import com.socialsite.authentication.LoginPage;
 import com.socialsite.authentication.UserRolesAuthorizer;
+import com.socialsite.image.ImageType;
 import com.socialsite.image.UserImageResource;
 
 /**
@@ -37,11 +38,11 @@ import com.socialsite.image.UserImageResource;
  */
 public class SocialSiteApplication extends WebApplication
 {
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	public static SocialSiteApplication get()
 	{
-		return (SocialSiteApplication) Application.get();
+		return (SocialSiteApplication)Application.get();
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class SocialSiteApplication extends WebApplication
 		getMarkupSettings().setAutomaticLinking(true);
 
 		// user image
-		getSharedResources().add("userImageResource", new UserImageResource());
+		getSharedResources().add(ImageType.USER.name(), new UserImageResource());
 
 	}
 
@@ -93,7 +94,7 @@ public class SocialSiteApplication extends WebApplication
 	{
 		// set the authorization Strategy
 		getSecuritySettings().setAuthorizationStrategy(
-			new RoleAuthorizationStrategy(new UserRolesAuthorizer()));
+				new RoleAuthorizationStrategy(new UserRolesAuthorizer()));
 		// MetaDataRoleAuthorizationStrategy.authorize(HomePage.class, "ADMIN");
 		// getSecuritySettings().setUnauthorizedComponentInstantiationListener(
 		// new SocialSiteUnauthorizedComponentInstantiationListener());

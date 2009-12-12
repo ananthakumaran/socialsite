@@ -27,8 +27,9 @@ import org.apache.wicket.authorization.IUnauthorizedComponentInstantiationListen
  * @author Ananth
  * 
  */
-public class SocialSiteUnauthorizedComponentInstantiationListener implements
-		IUnauthorizedComponentInstantiationListener
+public class SocialSiteUnauthorizedComponentInstantiationListener
+		implements
+			IUnauthorizedComponentInstantiationListener
 {
 	/**
 	 * Redirects to the LogingPage if the user is not authorized

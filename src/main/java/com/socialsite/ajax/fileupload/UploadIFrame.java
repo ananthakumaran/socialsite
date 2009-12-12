@@ -10,17 +10,16 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.markup.html.form.upload.FileUploadField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
-import org.wicketstuff.validation.client.ClientAndServerValidatingFeedbackBehavior;
 
 public abstract class UploadIFrame extends WebPage
 {
 
-	private boolean				uploaded	= false;
-	private FileUploadField		uploadField;
-	private String				newFileUrl;
+	private boolean uploaded = false;
+	private FileUploadField uploadField;
+	private String newFileUrl;
 
 	/** Feedback panel */
-	private final FeedbackPanel	feedback;
+	private final FeedbackPanel feedback;
 
 	public UploadIFrame()
 	{
@@ -48,15 +47,25 @@ public abstract class UploadIFrame extends WebPage
 	 */
 	protected abstract String manageInputSream(FileUpload upload);
 
-	private class UploadForm extends Form
+	private class UploadForm extends Form<Void>
 	{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		public UploadForm(String id)
 		{
 			super(id);
 			uploadField = new FileUploadField("file");
 			add(uploadField);
-			add(new AjaxLink("submit")
+			add(new AjaxLink<Void>("submit")
 			{
+				/**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
 				@Override
 				public void onClick(AjaxRequestTarget target)
 				{
@@ -82,21 +91,22 @@ public abstract class UploadIFrame extends WebPage
 		// a hacked component to run the callback on the parent
 		add(new WebComponent("onUploaded")
 		{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
-			protected void onComponentTagBody(MarkupStream markupStream,
-					ComponentTag openTag)
+			protected void onComponentTagBody(MarkupStream markupStream, ComponentTag openTag)
 			{
 				if (uploaded)
 				{
 					if (uploadField.getFileUpload() != null)
 					{
-						replaceComponentTagBody(markupStream, openTag,
-							"window.parent."
-									+ getOnUploadedCallback()
-									+ "('"
-									+ uploadField.getFileUpload()
-										.getClientFileName() + "','"
-									+ newFileUrl + "')");
+						replaceComponentTagBody(markupStream, openTag, "window.parent."
+								+ getOnUploadedCallback() + "('"
+								+ uploadField.getFileUpload().getClientFileName() + "','"
+								+ newFileUrl + "')");
 					}
 					uploaded = false;
 				}

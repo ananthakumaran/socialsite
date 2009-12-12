@@ -47,13 +47,11 @@ public class ScrapDaoImpl extends AbstractDaoImpl<Scrap> implements ScrapDao
 	 * @see com.socialsite.dao.ScrapDao#getScraps(User, int, int)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Scrap> getScraps(final User user, final int first,
-			final int count)
+	public List<Scrap> getScraps(final User user, final int first, final int count)
 	{
 
-		return getSession().createCriteria(Scrap.class).add(
-			Restrictions.eq("receiver", user)).addOrder(Order.desc("time"))
-			.setFirstResult(first).setMaxResults(count).list();
+		return getSession().createCriteria(Scrap.class).add(Restrictions.eq("receiver", user))
+				.addOrder(Order.desc("time")).setFirstResult(first).setMaxResults(count).list();
 
 	}
 
@@ -62,9 +60,9 @@ public class ScrapDaoImpl extends AbstractDaoImpl<Scrap> implements ScrapDao
 	 */
 	public int getScrapsCount(final User user)
 	{
-		return (Integer) getSession().createCriteria(Scrap.class).add(
-			Restrictions.eq("receiver", user)).setProjection(
-			Projections.rowCount()).uniqueResult();
+		return (Integer)getSession().createCriteria(Scrap.class).add(
+				Restrictions.eq("receiver", user)).setProjection(Projections.rowCount())
+				.uniqueResult();
 	}
 
 }

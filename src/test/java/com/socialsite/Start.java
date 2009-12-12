@@ -44,8 +44,7 @@ public class Start
 
 		try
 		{
-			System.out
-				.println(">>> STARTING EMBEDDED JETTY SERVER, PRESS ANY KEY TO STOP");
+			System.out.println(">>> STARTING EMBEDDED JETTY SERVER, PRESS ANY KEY TO STOP");
 			server.start();
 			System.in.read();
 			System.out.println(">>> STOPPING EMBEDDED JETTY SERVER");
@@ -54,7 +53,8 @@ public class Start
 			// }
 			server.stop();
 			server.join();
-		} catch (final Exception e)
+		}
+		catch (final Exception e)
 		{
 			e.printStackTrace();
 			System.exit(100);

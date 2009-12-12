@@ -380,12 +380,18 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>taglist-maven-plugin</artifactId>
 			</plugin>
+			<!-- Find Bug -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.0.1</version>
+			</plugin>
 		</plugins>
 	</reporting>
 
 	<!-- properties -->
 	<properties>
-		<wicket.version>1.4.3</wicket.version>
+		<wicket.version>1.4.4</wicket.version>
 		<jetty.version>6.1.6</jetty.version>
 	</properties>
 

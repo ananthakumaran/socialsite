@@ -42,10 +42,10 @@ import com.socialsite.persistence.User;
 public class ScrapDaoTest extends AbstractDaoTest
 {
 	@Resource(name = "userDao")
-	private UserDao<User>	userDao;
+	private UserDao<User> userDao;
 
 	@Resource(name = "scrapDao")
-	private ScrapDao		scrapDao;
+	private ScrapDao scrapDao;
 
 	@Test
 	@Transactional
@@ -68,8 +68,7 @@ public class ScrapDaoTest extends AbstractDaoTest
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
 		// check the count of rows in the table
-		final int result = simpleJdbcTemplate
-			.queryForInt("select count(*) from scrap");
+		final int result = simpleJdbcTemplate.queryForInt("select count(*) from scrap");
 		assertEquals("The table should contain only on row", result, 1);
 
 	}

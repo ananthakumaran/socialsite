@@ -40,14 +40,14 @@ public class FriendsDataProvider extends SortableDataProvider<User>
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** user id */
-	private final long			id;
+	private final long id;
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	public FriendsDataProvider(final long id)
 	{

@@ -36,18 +36,18 @@ public class MessageDataProvider extends SortableDataProvider<Message>
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** user id */
-	private final long			id;
+	private final long id;
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	/** spring dao to handle message object */
 	@SpringBean(name = "messageDao")
-	private MessageDao<Message>	messageDao;
+	private MessageDao<Message> messageDao;
 
 	/**
 	 * constructor
@@ -74,8 +74,7 @@ public class MessageDataProvider extends SortableDataProvider<Message>
 
 	public int size()
 	{
-		System.out.println("size"
-				+ messageDao.getMessageCount(userDao.load(id)));
+		System.out.println("size" + messageDao.getMessageCount(userDao.load(id)));
 		return messageDao.getMessageCount(userDao.load(id));
 
 	}

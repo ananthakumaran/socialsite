@@ -26,15 +26,16 @@ import com.socialsite.persistence.AbstractDomain;
  * 
  * @author Ananth
  */
-public abstract class AbstractEntityModel<T extends AbstractDomain> extends
-		LoadableDetachableModel<T>
+public abstract class AbstractEntityModel<T extends AbstractDomain>
+		extends
+			LoadableDetachableModel<T>
 {
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 	/** id of the domain object */
-	protected long				id;
+	protected long id;
 	/** domain object */
-	protected T					domain;
+	protected T domain;
 
 	/**
 	 * creates a detachable Domain object

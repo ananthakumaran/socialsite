@@ -25,13 +25,12 @@ import com.socialsite.persistence.AbstractDomain;
  * 
  * @author Ananth
  */
-public class EntityModel<T extends AbstractDomain> extends
-		AbstractEntityModel<T>
+public class EntityModel<T extends AbstractDomain> extends AbstractEntityModel<T>
 {
 
-	private static final long		serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 	/** DAO to load the domanin object */
-	private final AbstractDao<T>	dao;
+	private final AbstractDao<T> dao;
 
 	/**
 	 * creates a detachable Domain object

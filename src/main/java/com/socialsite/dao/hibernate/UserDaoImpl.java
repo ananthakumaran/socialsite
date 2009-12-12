@@ -38,8 +38,7 @@ import com.socialsite.persistence.User;
  * @param <T>
  * 
  */
-public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
-		UserDao<T>
+public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements UserDao<T>
 {
 
 	public UserDaoImpl(final Class<T> domainClass)
@@ -55,7 +54,7 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 	{
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		criteria.add(Restrictions.eq("userName", userName));
-		final T user = (T) criteria.uniqueResult();
+		final T user = (T)criteria.uniqueResult();
 
 		if (user != null && user.matchPassword(password))
 		{
@@ -71,9 +70,9 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 	{
 		filter = filter == null ? "" : filter;
 
-		final Long count = (Long) getSession().createQuery(
-			"select count(u) from User u where " + " u.userName like :filter ")
-			.setParameter("filter", "%" + filter + "%").uniqueResult();
+		final Long count = (Long)getSession().createQuery(
+				"select count(u) from User u where " + " u.userName like :filter ").setParameter(
+				"filter", "%" + filter + "%").uniqueResult();
 
 		return count.intValue();
 	}
@@ -94,12 +93,12 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 		final String sortBy = "u." + sortParam.getProperty();
 		final String sort = sortParam.isAscending() ? "asc" : "desc";
 
-		query.append(" from User u where u.userName like :filter order by ")
-			.append(sortBy).append(" ").append(sort);
+		query.append(" from User u where u.userName like :filter order by ").append(sortBy).append(
+				" ").append(sort);
 
-		return getSession().createQuery(query.toString()).setParameter(
-			"filter", "%" + filter + "%").setFirstResult(first).setMaxResults(
-			count).list();
+		return getSession().createQuery(query.toString())
+				.setParameter("filter", "%" + filter + "%").setFirstResult(first).setMaxResults(
+						count).list();
 	}
 
 	/**
@@ -108,7 +107,7 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 	@SuppressWarnings("unchecked")
 	public List<T> getFriends(final T user)
 	{
-		return (List<T>) new ArrayList<User>(user.getFriends());
+		return (List<T>)new ArrayList<User>(user.getFriends());
 	}
 
 	/**
@@ -117,8 +116,7 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 	@SuppressWarnings("unchecked")
 	public List<T> getFriends(final User user, final int first, final int count)
 	{
-		final Query q = getSession().createQuery(
-			"select u.friends from User u where u.id = :id");
+		final Query q = getSession().createQuery("select u.friends from User u where u.id = :id");
 		q.setFirstResult(first);
 		q.setMaxResults(count);
 		q.setParameter("id", user.getId());
@@ -132,9 +130,9 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 	{
 
 		// or friend_id= :id
-		final BigInteger count = (BigInteger) getSession().createSQLQuery(
-			" select count(*) from friend_reference where user_id=:id  ")
-			.setParameter("id", user.getId()).uniqueResult();
+		final BigInteger count = (BigInteger)getSession().createSQLQuery(
+				" select count(*) from friend_reference where user_id=:id  ").setParameter("id",
+				user.getId()).uniqueResult();
 
 		return count.intValue();
 	}
@@ -152,16 +150,17 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements
 
 		// or (user_id = :id1 and friend_id = :id2)
 
-		final BigInteger count = (BigInteger) getSession().createSQLQuery(
-			"select count(*) from friend_reference where"
-					+ " (friend_id = :id1 and user_id = :id2)    ")
-			.setParameter("id1", id1).setParameter("id2", id2).uniqueResult();
+		final BigInteger count = (BigInteger)getSession().createSQLQuery(
+				"select count(*) from friend_reference where"
+						+ " (friend_id = :id1 and user_id = :id2)    ").setParameter("id1", id1)
+				.setParameter("id2", id2).uniqueResult();
 
 		// friend
 		if (count.intValue() == 1)
 		{
 			return SocialSiteRoles.friendRole;
-		} else
+		}
+		else
 		{ // unknown
 			return SocialSiteRoles.userRole;
 		}

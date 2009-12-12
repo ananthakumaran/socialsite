@@ -31,13 +31,13 @@ public class Scrap implements AbstractDomain
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	private long				id;
-	private User				author;
-	private User				receiver;
-	private Date				time;
-	private String				message;
+	private long id;
+	private User author;
+	private User receiver;
+	private Date time;
+	private String message;
 
 	public Scrap()
 	{

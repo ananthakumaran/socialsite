@@ -35,9 +35,9 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 {
 
 	/** class of the domain */
-	protected final Class<T>	domainClass;
+	protected final Class<T> domainClass;
 	/** Hibernate sessionFactory to access the database */
-	private SessionFactory		sessionFactory;
+	private SessionFactory sessionFactory;
 
 	/**
 	 * constructor
@@ -59,7 +59,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	{
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		criteria.setProjection(Projections.rowCount());
-		return (Integer) criteria.uniqueResult();
+		return (Integer)criteria.uniqueResult();
 	}
 
 	/**
@@ -115,7 +115,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	@SuppressWarnings("unchecked")
 	public T load(final long id)
 	{
-		return (T) getSession().get(domainClass, id);
+		return (T)getSession().get(domainClass, id);
 	}
 
 	/**
@@ -127,7 +127,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	@SuppressWarnings("unchecked")
 	public T merge(final T object)
 	{
-		return (T) getSession().merge(object);
+		return (T)getSession().merge(object);
 	}
 
 	/**

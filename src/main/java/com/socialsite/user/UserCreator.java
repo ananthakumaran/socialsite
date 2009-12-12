@@ -42,7 +42,7 @@ public class UserCreator
 
 	/** Spring Dao to handle profile object */
 	@SpringBean(name = "profileDao")
-	private ProfileDao	profileDao;
+	private ProfileDao profileDao;
 
 	// /** Spring Dao to handle user object */
 	// @SpringBean(name = "userDao")
@@ -53,10 +53,8 @@ public class UserCreator
 		// inject the spring resources
 		InjectorHolder.getInjector().inject(this);
 
-		final PackageResource imageRef = PackageResource.get(UserCreator.class,
-			"user-150.png");
-		final PackageResource iconRef = PackageResource.get(UserCreator.class,
-			"user-100.png");
+		final PackageResource imageRef = PackageResource.get(UserCreator.class, "user-150.png");
+		final PackageResource iconRef = PackageResource.get(UserCreator.class, "user-100.png");
 
 		// ResourceReference imageRef = new
 		// ResourceReference(this.getClass(),"user-150.png");
@@ -67,15 +65,15 @@ public class UserCreator
 		{
 			System.out.println(user.getProfile().getEmail());
 			user.getProfile().setImage(
-				IOUtils.toByteArray(imageRef.getResourceStream()
-					.getInputStream()));
+					IOUtils.toByteArray(imageRef.getResourceStream().getInputStream()));
 			user.getProfile().setThumb(
-				IOUtils.toByteArray(iconRef.getResourceStream()
-					.getInputStream()));
-		} catch (final IOException e)
+					IOUtils.toByteArray(iconRef.getResourceStream().getInputStream()));
+		}
+		catch (final IOException e)
 		{
 			Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, e);
-		} catch (final ResourceStreamNotFoundException e)
+		}
+		catch (final ResourceStreamNotFoundException e)
 		{
 			Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, e);
 		}

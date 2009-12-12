@@ -43,10 +43,10 @@ public class HeaderPanel extends BasePanel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** Model for search text box */
-	public StringWrapper		filter;
+	public StringWrapper filter;
 
 	/*
 	 * construct
@@ -64,7 +64,7 @@ public class HeaderPanel extends BasePanel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onClick()
@@ -81,7 +81,7 @@ public class HeaderPanel extends BasePanel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onClick()
@@ -99,7 +99,7 @@ public class HeaderPanel extends BasePanel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onClick()
@@ -118,14 +118,14 @@ public class HeaderPanel extends BasePanel
 		add(searchForm);
 
 		// search box
-		searchForm.add(new TextField<String>("searchtextbox",
-			new PropertyModel<String>(this, "filter.model")));
+		searchForm.add(new TextField<String>("searchtextbox", new PropertyModel<String>(this,
+				"filter.model")));
 		searchForm.add(search = new SubmitLink("search")
 		{
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onSubmit()

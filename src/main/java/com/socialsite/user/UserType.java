@@ -23,8 +23,7 @@ package com.socialsite.user;
  * @author Ananth
  * 
  */
-public enum UserType
-{
+public enum UserType {
 	STUDENT, STAFF, ADMIN
 
 }

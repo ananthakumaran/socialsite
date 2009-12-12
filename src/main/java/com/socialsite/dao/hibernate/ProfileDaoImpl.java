@@ -26,8 +26,7 @@ import com.socialsite.persistence.Profile;
  * @author Ananth
  * 
  */
-public class ProfileDaoImpl extends AbstractDaoImpl<Profile> implements
-		ProfileDao
+public class ProfileDaoImpl extends AbstractDaoImpl<Profile> implements ProfileDao
 {
 	/**
 	 * constructor
@@ -42,9 +41,9 @@ public class ProfileDaoImpl extends AbstractDaoImpl<Profile> implements
 	 */
 	public byte[] getUserImage(final Long userId)
 	{
-		return (byte[]) getSession().createQuery(
-			"select image from Profile where user.id = :userid ").setParameter(
-			"userid", userId).uniqueResult();
+		return (byte[])getSession().createQuery(
+				"select image from Profile where user.id = :userid ")
+				.setParameter("userid", userId).uniqueResult();
 	}
 
 	/**
@@ -52,8 +51,8 @@ public class ProfileDaoImpl extends AbstractDaoImpl<Profile> implements
 	 */
 	public byte[] getUserThumb(final Long userId)
 	{
-		return (byte[]) getSession().createQuery(
-			"select thumb from Profile where user.id = :userid ").setParameter(
-			"userid", userId).uniqueResult();
+		return (byte[])getSession().createQuery(
+				"select thumb from Profile where user.id = :userid ")
+				.setParameter("userid", userId).uniqueResult();
 	}
 }

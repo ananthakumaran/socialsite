@@ -35,7 +35,7 @@ public class SocialSiteSession extends WebSession
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * static getter for {@link SocialSiteSession}
@@ -44,16 +44,16 @@ public class SocialSiteSession extends WebSession
 	 */
 	public static SocialSiteSession get()
 	{
-		return (SocialSiteSession) Session.get();
+		return (SocialSiteSession)Session.get();
 	}
 
 	/** logged in user */
-	private SessionUser	sessionUser;
+	private SessionUser sessionUser;
 
 	/**
 	 * id of the user that the logged in user is visiting
 	 */
-	private long		userId;
+	private long userId;
 
 	/**
 	 * constructor

@@ -39,9 +39,9 @@ public class LoginPageTest extends AbstractDaoTest
 {
 
 	@Resource(name = "userDao")
-	private UserDao<User>	userDao;
+	private UserDao<User> userDao;
 
-	SpringWicketTester		tester;
+	SpringWicketTester tester;
 
 	@Test
 	@Transactional
@@ -54,8 +54,8 @@ public class LoginPageTest extends AbstractDaoTest
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		assertNotNull("correct username and password", userDao.checkUserStatus(
-			"student", "password"));
+		assertNotNull("correct username and password", userDao.checkUserStatus("student",
+				"password"));
 		//
 		final FormTester form = tester.newFormTester("loginform");
 
@@ -79,8 +79,7 @@ public class LoginPageTest extends AbstractDaoTest
 		form.setValue("password", "pathasfdasf");
 
 		form.submit("login");
-		tester
-			.assertErrorMessages(new String[] { "Invalid username or password" });
+		tester.assertErrorMessages(new String[] { "Invalid username or password" });
 		tester.assertRenderedPage(LoginPage.class);
 	}
 

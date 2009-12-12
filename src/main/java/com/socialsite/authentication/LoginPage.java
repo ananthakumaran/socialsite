@@ -40,26 +40,24 @@ import com.socialsite.persistence.User;
 public class LoginPage extends WebPage
 {
 	/** Model for the username */
-	private String			userName;
+	private String userName;
 	/** Model for the password */
-	private String			password;
+	private String password;
 	/** Spring Dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>	userDao;
+	private UserDao<User> userDao;
 
 	public LoginPage()
 	{
 		// intialize the spring DAO
 		InjectorHolder.getInjector().inject(this);
 
-		final StatelessForm<Object> form = new StatelessForm<Object>(
-			"loginform");
+		final StatelessForm<Object> form = new StatelessForm<Object>("loginform");
 		add(form);
 
-		form.add(new RequiredTextField<String>("username",
-			new PropertyModel<String>(this, "userName")));
-		form.add(new PasswordTextField("password", new PropertyModel<String>(
-			this, "password")));
+		form.add(new RequiredTextField<String>("username", new PropertyModel<String>(this,
+				"userName")));
+		form.add(new PasswordTextField("password", new PropertyModel<String>(this, "password")));
 		SubmitLink login;
 		form.add(login = new SubmitLink("login")
 		{
@@ -67,7 +65,7 @@ public class LoginPage extends WebPage
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onSubmit()
@@ -79,8 +77,7 @@ public class LoginPage extends WebPage
 					return;
 				}
 				final SocialSiteSession session = SocialSiteSession.get();
-				session.setSessionUser(new SessionUser(user.getId(),
-					SocialSiteRoles.ownerRole));
+				session.setSessionUser(new SessionUser(user.getId(), SocialSiteRoles.ownerRole));
 				session.setUserId(user.getId());
 				setResponsePage(new HomePage());
 			}

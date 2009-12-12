@@ -34,12 +34,12 @@ import com.socialsite.persistence.User;
 @AuthorizeInstantiation( { "USER", "FRIEND", "OWNER" })
 public class BasePage extends WebPage
 {
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	protected HeaderPanel		headerPanel;
+	protected HeaderPanel headerPanel;
 
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	/**
 	 * Constructor
@@ -75,6 +75,6 @@ public class BasePage extends WebPage
 		session.setUserId(userId);
 		// set the roles
 		session.getSessionUser().setRoles(
-			userDao.getUsersRelation(userId, session.getSessionUser().getId()));
+				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
 	}
 }

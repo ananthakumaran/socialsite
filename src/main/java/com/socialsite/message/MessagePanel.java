@@ -40,10 +40,10 @@ public class MessagePanel extends Panel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** container for the messages */
-	WebMarkupContainer			messageContainer;
+	WebMarkupContainer messageContainer;
 
 	/**
 	 * constructor
@@ -59,17 +59,17 @@ public class MessagePanel extends Panel
 		add(messageContainer = new WebMarkupContainer("container"));
 		messageContainer.setOutputMarkupId(true);
 
-		final MessageDataProvider MessageDataProvider = new MessageDataProvider(
-			SocialSiteSession.get().getUserId());
+		final MessageDataProvider MessageDataProvider = new MessageDataProvider(SocialSiteSession
+				.get().getUserId());
 
-		final DataView<Message> friendRequestDataView = new DataView<Message>(
-			"messagelist", MessageDataProvider)
+		final DataView<Message> friendRequestDataView = new DataView<Message>("messagelist",
+				MessageDataProvider)
 		{
 
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			protected void populateItem(final Item<Message> item)
@@ -78,11 +78,12 @@ public class MessagePanel extends Panel
 				final Message message = item.getModelObject();
 				if (message instanceof FriendRequestMsg)
 				{
-					item.add(new FriendRequestMsgPanel("message",
-						(FriendRequestMsg) message, messageContainer));
-				} else if (message instanceof InfoMsg)
+					item.add(new FriendRequestMsgPanel("message", (FriendRequestMsg)message,
+							messageContainer));
+				}
+				else if (message instanceof InfoMsg)
 				{
-					item.add(new InfoMsgPanel("message", (InfoMsg) message));
+					item.add(new InfoMsgPanel("message", (InfoMsg)message));
 				}
 
 			}

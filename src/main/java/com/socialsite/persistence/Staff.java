@@ -26,11 +26,11 @@ public class Staff extends User
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	private University			university;
+	private University university;
 
-	private Set<Course>			courses				= new HashSet<Course>();
+	private Set<Course> courses = new HashSet<Course>();
 
 	public Staff()
 	{

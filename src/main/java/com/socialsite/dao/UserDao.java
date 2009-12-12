@@ -71,8 +71,7 @@ public interface UserDao<T extends User> extends AbstractDao<T>
 	 *            used to sort the user List
 	 * @return List containing the {@link User} matched the search criteriaF
 	 */
-	public List<T> findAll(String filter, int first, int count,
-			SortParam sortParam);
+	public List<T> findAll(String filter, int first, int count, SortParam sortParam);
 
 	/**
 	 * get the friend list of the given user

@@ -48,7 +48,7 @@ public class ProfilePage extends BasePage
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public Panel getPanel(final String panelId)
@@ -63,7 +63,7 @@ public class ProfilePage extends BasePage
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public Panel getPanel(final String panelId)

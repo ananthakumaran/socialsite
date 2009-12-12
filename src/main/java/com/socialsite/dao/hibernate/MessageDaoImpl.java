@@ -25,8 +25,7 @@ import com.socialsite.dao.MessageDao;
 import com.socialsite.persistence.Message;
 import com.socialsite.persistence.User;
 
-public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T>
-		implements MessageDao<T>
+public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T> implements MessageDao<T>
 {
 	public MessageDaoImpl(final Class<T> clazz)
 	{
@@ -40,8 +39,7 @@ public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T>
 	public List<T> getMessage(final User user, final int first, final int count)
 	{
 		final Query query = getSession().createQuery(
-			" select m from Message m , User u "
-					+ " where u = :user and u member of m.users ");
+				" select m from Message m , User u " + " where u = :user and u member of m.users ");
 		query.setParameter("user", user);
 		query.setFirstResult(first);
 		query.setMaxResults(count);
@@ -54,11 +52,11 @@ public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T>
 	public int getMessageCount(final User user)
 	{
 		final Query query = getSession().createQuery(
-			" select count(m) from Message m , User u "
-					+ " where u = :user and u member of m.users ");
+				" select count(m) from Message m , User u "
+						+ " where u = :user and u member of m.users ");
 		query.setParameter("user", user);
 
-		final Long result = (Long) query.uniqueResult();
+		final Long result = (Long)query.uniqueResult();
 
 		return result.intValue();
 	}

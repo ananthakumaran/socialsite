@@ -32,10 +32,10 @@ public class SessionUser implements IClusterable
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	private final long			id;
-	private Roles				roles;
+	private final long id;
+	private Roles roles;
 
 	public SessionUser(final long id, final Roles roles)
 	{

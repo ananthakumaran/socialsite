@@ -25,8 +25,7 @@ import com.socialsite.persistence.InfoMsg;
  * @author Ananth
  * 
  */
-public class InfoMsgDaoImpl extends MessageDaoImpl<InfoMsg> implements
-		InfoMsgDao
+public class InfoMsgDaoImpl extends MessageDaoImpl<InfoMsg> implements InfoMsgDao
 {
 
 	/**

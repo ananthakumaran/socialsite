@@ -43,20 +43,18 @@ public class DefaultImage
 	 */
 	public DefaultImage(final Profile profile)
 	{
-		final PackageResource imageRef = PackageResource.get(getClass(),
-			"user-125.png");
-		final PackageResource iconRef = PackageResource.get(getClass(),
-			"user-75.png");
+		final PackageResource imageRef = PackageResource.get(getClass(), "user-125.png");
+		final PackageResource iconRef = PackageResource.get(getClass(), "user-75.png");
 		try
 		{
-			profile.setImage(IOUtils.toByteArray(imageRef.getResourceStream()
-				.getInputStream()));
-			profile.setThumb(IOUtils.toByteArray(iconRef.getResourceStream()
-				.getInputStream()));
-		} catch (final IOException e)
+			profile.setImage(IOUtils.toByteArray(imageRef.getResourceStream().getInputStream()));
+			profile.setThumb(IOUtils.toByteArray(iconRef.getResourceStream().getInputStream()));
+		}
+		catch (final IOException e)
 		{
 			Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, e);
-		} catch (final ResourceStreamNotFoundException e)
+		}
+		catch (final ResourceStreamNotFoundException e)
 		{
 			Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, e);
 		}

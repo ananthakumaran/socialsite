@@ -23,11 +23,11 @@ public class InfoMsg extends Message
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	private String				message;
+	private String message;
 	/** The sender who sends the friend request */
-	private User				Sender;
+	private User Sender;
 
 	public InfoMsg()
 	{

@@ -38,15 +38,14 @@ public class SpringWicketTester extends WicketTester
 	/**
 	 * The Spring web application context
 	 */
-	private XmlWebApplicationContext	spring;
+	private XmlWebApplicationContext spring;
 
 	/**
 	 * constructor
 	 */
 	public SpringWicketTester()
 	{
-		this(new SocialSiteApplication(), null,
-			"classpath:applicationContext.xml");
+		this(new SocialSiteApplication(), null, "classpath:applicationContext.xml");
 
 	}
 
@@ -106,13 +105,10 @@ public class SpringWicketTester extends WicketTester
 	@Override
 	public ServletContext newServletContext(final String path)
 	{
-		final ServletContext context = new MockServletContext(getApplication(),
-			path);
+		final ServletContext context = new MockServletContext(getApplication(), path);
 		getSpringContext().setServletContext(context);
 
-		context.setAttribute(
-			WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE,
-			spring);
+		context.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, spring);
 		return context;
 	}
 

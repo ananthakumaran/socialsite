@@ -24,13 +24,13 @@ class ImageResourceState extends ResourceState
 {
 	// CONSTRUCTORS
 
-	private String	contentType;
+	private String contentType;
 
 	// MEMBERS
 
-	private byte[]	data;
+	private byte[] data;
 
-	private Time	lastModified;
+	private Time lastModified;
 
 	ImageResourceState()
 	{

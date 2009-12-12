@@ -36,12 +36,12 @@ import com.socialsite.util.SpringWicketTester;
 public class LoadData extends AbstractDaoTest
 {
 
-	SpringWicketTester		tester;
+	SpringWicketTester tester;
 	@Resource(name = "userDao")
-	private UserDao<User>	userDao;
+	private UserDao<User> userDao;
 
 	@Resource(name = "profileDao")
-	private ProfileDao		profileDao;
+	private ProfileDao profileDao;
 
 	/**
 	 * run this method to load some data for the site

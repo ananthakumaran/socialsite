@@ -26,14 +26,18 @@ public class Course implements AbstractDomain
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
-	private long				id;
+	private static final long serialVersionUID = 1L;
+	private long id;
 
-	private University			university;
+	private String name;
+	private byte[] image;
+	private byte[] thumb;
 
-	private Staff				staff;
+	private University university;
 
-	private Set<Student>		students			= new HashSet<Student>();
+	private Staff staff;
+
+	private Set<Student> students = new HashSet<Student>();
 
 	public Course()
 	{
@@ -57,6 +61,36 @@ public class Course implements AbstractDomain
 	public University getUniversity()
 	{
 		return university;
+	}
+
+	public byte[] getImage()
+	{
+		return image;
+	}
+
+	public void setImage(byte[] image)
+	{
+		this.image = image;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public byte[] getThumb()
+	{
+		return thumb;
+	}
+
+	public void setThumb(byte[] thumb)
+	{
+		this.thumb = thumb;
 	}
 
 	public void setId(final long id)

@@ -17,17 +17,16 @@
 
 package com.socialsite.friend;
 
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
-import org.apache.wicket.util.value.ValueMap;
 
 import com.socialsite.BasePanel;
 import com.socialsite.SocialSiteSession;
 import com.socialsite.dataprovider.FriendsDataProvider;
+import com.socialsite.image.ImagePanel;
+import com.socialsite.image.ImageType;
 import com.socialsite.persistence.User;
 import com.socialsite.user.UserLink;
 
@@ -39,36 +38,30 @@ public class FriendsPanel extends BasePanel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	public FriendsPanel(final String id)
 	{
 		super(id);
 		// friends data provider
-		final FriendsDataProvider friendsDataProvider = new FriendsDataProvider(
-			SocialSiteSession.get().getUserId());
+		final FriendsDataProvider friendsDataProvider = new FriendsDataProvider(SocialSiteSession
+				.get().getUserId());
 
-		final DataView<User> friendList = new DataView<User>("friends",
-			friendsDataProvider)
+		final DataView<User> friendList = new DataView<User>("friends", friendsDataProvider)
 		{
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			protected void populateItem(final Item<User> item)
 			{
 				final User user = item.getModelObject();
-
-				final ResourceReference imageResource = new ResourceReference(
-					"userImageResource");
-				item.add(new Image("userthumb", imageResource, new ValueMap(
-					"id=" + user.getId() + ",thumb=true")));
+				item.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, true));
 				Link<User> name;
 				item.add(name = new UserLink("home", item.getModel()));
-				name.add(new Label("username", item.getModelObject()
-					.getUserName()));
+				name.add(new Label("username", item.getModelObject().getUserName()));
 			}
 
 		};

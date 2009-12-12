@@ -27,13 +27,13 @@ public abstract class Message implements AbstractDomain
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
-	private long				id;
+	private long id;
 
-	private Date				time;
+	private Date time;
 
-	private Set<User>			users				= new HashSet<User>();
+	private Set<User> users = new HashSet<User>();
 
 	public Message()
 	{

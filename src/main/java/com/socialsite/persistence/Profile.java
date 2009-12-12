@@ -27,14 +27,14 @@ public class Profile implements AbstractDomain
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
-	private long				id;
-	private User				user;
-	private String				firstName;
-	private String				lastName;
-	private String				email;
-	byte[]						image;
-	private byte[]				thumb;
+	private static final long serialVersionUID = 1L;
+	private long id;
+	private User user;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private byte[] image;
+	private byte[] thumb;
 
 	/**
 	 * TODO add other fields link address , birthday etc;

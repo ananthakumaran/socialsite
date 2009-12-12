@@ -45,21 +45,20 @@ public class ReplyPanel extends BasePanel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** spring dao to handle scrap objects */
 	@SpringBean(name = "scrapDao")
-	private ScrapDao			scrapDao;
+	private ScrapDao scrapDao;
 
 	/** model for message */
-	private String				message;
+	private String message;
 
 	public ReplyPanel(final String id, final IModel<Scrap> scrap)
 	{
 		super(id, scrap);
 		// container show the link to the replied scrap
-		final WebMarkupContainer sentScrapContainer = new WebMarkupContainer(
-			"sent");
+		final WebMarkupContainer sentScrapContainer = new WebMarkupContainer("sent");
 
 		sentScrapContainer.add(new Link<Scrap>("sentscrap", scrap)
 		{
@@ -67,7 +66,7 @@ public class ReplyPanel extends BasePanel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void onClick()
@@ -84,8 +83,8 @@ public class ReplyPanel extends BasePanel
 		sentScrapContainer.setOutputMarkupPlaceholderTag(true);
 
 		final Form<Scrap> replyForm = new Form<Scrap>("replyform", scrap);
-		replyForm.add(new TextArea<String>("message",
-			new PropertyModel<String>(this, "message")).setRequired(true));
+		replyForm.add(new TextArea<String>("message", new PropertyModel<String>(this, "message"))
+				.setRequired(true));
 
 		AjaxSubmitLink send;
 		replyForm.add(send = new AjaxSubmitLink("send")
@@ -94,14 +93,13 @@ public class ReplyPanel extends BasePanel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void onSubmit(final AjaxRequestTarget target,
-					final Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 
-				final Scrap scrap = (Scrap) form.getModelObject();
+				final Scrap scrap = (Scrap)form.getModelObject();
 
 				// create a reply scrap
 				final Scrap replyScrap = new Scrap();
@@ -117,8 +115,7 @@ public class ReplyPanel extends BasePanel
 				target.addComponent(sentScrapContainer);
 
 				// hide the reply form
-				target.appendJavascript("$('#" + replyForm.getMarkupId()
-						+ "').parent().hide()");
+				target.appendJavascript("$('#" + replyForm.getMarkupId() + "').parent().hide()");
 			}
 
 		});

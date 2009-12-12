@@ -41,8 +41,8 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
 public class ImageService
 {
 
-	public static final int	THUMB_SIZE	= 75;
-	public static final int	IMAGE_SIZE	= 125;
+	public static final int THUMB_SIZE = 75;
+	public static final int IMAGE_SIZE = 125;
 
 	/**
 	 * rescale the images
@@ -58,10 +58,10 @@ public class ImageService
 		// Get the image from a file.
 		final Image inImage = new ImageIcon(imageData).getImage();
 		// Determine the scale.
-		double scale = (double) maxSize / (double) inImage.getHeight(null);
+		double scale = (double)maxSize / (double)inImage.getHeight(null);
 		if (inImage.getWidth(null) > inImage.getHeight(null))
 		{
-			scale = (double) maxSize / (double) inImage.getWidth(null);
+			scale = (double)maxSize / (double)inImage.getWidth(null);
 		}
 
 		// Determine size of new image.
@@ -71,7 +71,7 @@ public class ImageService
 
 		// Create an image buffer in which to paint on.
 		final BufferedImage outImage = new BufferedImage(maxSize, maxSize,
-			BufferedImage.TYPE_INT_RGB);
+				BufferedImage.TYPE_INT_RGB);
 
 		// Set the scale.
 		final AffineTransform tx = new AffineTransform();
@@ -85,8 +85,7 @@ public class ImageService
 
 		// Paint image.
 		final Graphics2D g2d = outImage.createGraphics();
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-			RenderingHints.VALUE_ANTIALIAS_ON);
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2d.drawImage(inImage, tx, null);
 		g2d.dispose();
 
@@ -98,14 +97,14 @@ public class ImageService
 		{
 			encoder.encode(outImage);
 			os.close();
-		} catch (final ImageFormatException e)
+		}
+		catch (final ImageFormatException e)
 		{
-			Logger.getLogger(ImageService.class.getName()).log(Level.SEVERE,
-				null, e);
-		} catch (final IOException e)
+			Logger.getLogger(ImageService.class.getName()).log(Level.SEVERE, null, e);
+		}
+		catch (final IOException e)
 		{
-			Logger.getLogger(ImageService.class.getName()).log(Level.SEVERE,
-				null, e);
+			Logger.getLogger(ImageService.class.getName()).log(Level.SEVERE, null, e);
 		}
 
 		return os.toByteArray();

@@ -34,11 +34,11 @@ public class UserImageResource extends DynamicWebResource
 {
 
 	@SpringBean(name = "profileDao")
-	private ProfileDao			profileDao;
+	private ProfileDao profileDao;
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	public UserImageResource()
 	{
@@ -61,15 +61,15 @@ public class UserImageResource extends DynamicWebResource
 			imageResourceState.setContentType("image/jpeg");
 			if (params.containsKey("thumb"))
 			{
-				imageResourceState.setData(profileDao.getUserThumb(params
-					.getAsLong("id")));
-			} else
+				imageResourceState.setData(profileDao.getUserThumb(params.getAsLong("id")));
+			}
+			else
 			{
-				imageResourceState.setData(profileDao.getUserImage(params
-					.getAsLong("id")));
+				imageResourceState.setData(profileDao.getUserImage(params.getAsLong("id")));
 			}
 
-		} catch (final Exception e)
+		}
+		catch (final Exception e)
 		{
 			return new ResourceState()
 			{

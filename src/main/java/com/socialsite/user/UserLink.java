@@ -38,11 +38,11 @@ public class UserLink extends Link<User>
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	/**
 	 * constructor
@@ -66,8 +66,9 @@ public class UserLink extends Link<User>
 		session.setUserId(getModelObject().getId());
 		// set the rules
 		session.getSessionUser().setRoles(
-			userDao.getUsersRelation(getModelObject().getId(), session
-				.getSessionUser().getId()));
+				userDao
+						.getUsersRelation(getModelObject().getId(), session.getSessionUser()
+								.getId()));
 		// redirect to the home page
 		setResponsePage(new HomePage());
 	}

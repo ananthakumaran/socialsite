@@ -26,12 +26,10 @@ import org.apache.wicket.authorization.strategies.role.RoleAuthorizationStrategy
  * @author Ananth
  * 
  */
-public final class SocialSiteAuthorizationStrategy extends
-		RoleAuthorizationStrategy
+public final class SocialSiteAuthorizationStrategy extends RoleAuthorizationStrategy
 {
 
-	public SocialSiteAuthorizationStrategy(
-			final IRoleCheckingStrategy roleCheckingStrategy)
+	public SocialSiteAuthorizationStrategy(final IRoleCheckingStrategy roleCheckingStrategy)
 	{
 		super(roleCheckingStrategy);
 

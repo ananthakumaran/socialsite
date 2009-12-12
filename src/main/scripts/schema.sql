@@ -114,6 +114,9 @@
 
     create table COURSE (
         id bigint not null auto_increment,
+        name varchar(255),
+        image mediumblob,
+        thumb mediumblob,
         university_id bigint,
         staff_id bigint,
         primary key (id)
@@ -177,6 +180,9 @@
 
     create table UNIVERSITY (
         id bigint not null auto_increment,
+        name varchar(255),
+        image mediumblob,
+        thumb mediumblob,
         admin_id bigint,
         primary key (id)
     );

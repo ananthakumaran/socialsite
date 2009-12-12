@@ -27,6 +27,10 @@
 			<generator class="identity"></generator>
 		</id>
 
+		<!-- properties -->
+		<property name="name" type="string" />
+		<property name="image" type="binary" length="10000000" />
+		<property name="thumb" type="binary" length="100000" />
 
 		<!-- relations -->
 

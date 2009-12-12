@@ -40,7 +40,7 @@ import com.socialsite.persistence.User;
 public class ProfileDaoTest extends AbstractDaoTest
 {
 	@Resource(name = "profileDao")
-	private ProfileDao	profileDao;
+	private ProfileDao profileDao;
 
 	@Test
 	@Transactional
@@ -58,22 +58,19 @@ public class ProfileDaoTest extends AbstractDaoTest
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		final int userResult = simpleJdbcTemplate
-			.queryForInt("select count(*) from user");
+		final int userResult = simpleJdbcTemplate.queryForInt("select count(*) from user");
 		assertEquals("user table should contain one entry ", userResult, 1);
 
-		final int profileResult = simpleJdbcTemplate
-			.queryForInt("select count(*) from profile");
-		assertEquals("profile table should contain one entry ", profileResult,
-			1);
+		final int profileResult = simpleJdbcTemplate.queryForInt("select count(*) from profile");
+		assertEquals("profile table should contain one entry ", profileResult, 1);
 
 		final Long user_id = simpleJdbcTemplate
-			.queryForLong("select id from user where username='ananth' ");
+				.queryForLong("select id from user where username='ananth' ");
 		final Long profile_user_id = simpleJdbcTemplate
-			.queryForLong("select user_id from profile where firstname='ananth' ");
+				.queryForLong("select user_id from profile where firstname='ananth' ");
 
-		assertEquals("Both the user_id and profile_user_id should be equal",
-			user_id, profile_user_id);
+		assertEquals("Both the user_id and profile_user_id should be equal", user_id,
+				profile_user_id);
 
 	}
 
@@ -90,8 +87,8 @@ public class ProfileDaoTest extends AbstractDaoTest
 
 		final byte[] image = profileDao.getUserImage(ananth.getId());
 		assertNotNull("should return the data", image);
-		assertEquals("image data should be equal to  'dummy data' ",
-			new String(image), "dummy data");
+		assertEquals("image data should be equal to  'dummy data' ", new String(image),
+				"dummy data");
 
 	}
 
@@ -108,8 +105,8 @@ public class ProfileDaoTest extends AbstractDaoTest
 
 		final byte[] image = profileDao.getUserThumb(ananth.getId());
 		assertNotNull("should return the data", image);
-		assertEquals("image data should be equal to  'dummy data' ",
-			new String(image), "dummy data");
+		assertEquals("image data should be equal to  'dummy data' ", new String(image),
+				"dummy data");
 
 	}
 

@@ -42,18 +42,18 @@ public class ScrapDataProvider extends SortableDataProvider<Scrap>
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** user id */
-	private final long			id;
+	private final long id;
 
 	/** spring dao to handle scrap object */
 	@SpringBean(name = "scrapDao")
-	private ScrapDao			scrapDao;
+	private ScrapDao scrapDao;
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	public ScrapDataProvider(final long id)
 	{

@@ -44,18 +44,18 @@ public class SendScrapPanel extends BasePanel
 	/**
 	 * 
 	 */
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** model for message */
-	private String				message;
+	private String message;
 
 	/** spring dao to handle user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	/** spring dao to handle scrap object */
 	@SpringBean(name = "scrapDao")
-	private ScrapDao			scrapDao;
+	private ScrapDao scrapDao;
 
 	/**
 	 * constructor
@@ -65,16 +65,15 @@ public class SendScrapPanel extends BasePanel
 	 * @param scrapListContainer
 	 *            container to be updated when the scrap is send
 	 */
-	public SendScrapPanel(final String id,
-			final WebMarkupContainer scrapListContainer)
+	public SendScrapPanel(final String id, final WebMarkupContainer scrapListContainer)
 	{
 		super(id);
 
 		final Form<Object> scrapForm = new Form<Object>("scrapform");
 		add(scrapForm);
 
-		scrapForm.add(new TextArea<String>("message",
-			new PropertyModel<String>(this, "message")).setRequired(true));
+		scrapForm.add(new TextArea<String>("message", new PropertyModel<String>(this, "message"))
+				.setRequired(true));
 		AjaxSubmitLink send;
 		scrapForm.add(send = new AjaxSubmitLink("send")
 		{
@@ -82,16 +81,14 @@ public class SendScrapPanel extends BasePanel
 			/**
 			 * 
 			 */
-			private static final long	serialVersionUID	= 1L;
+			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void onSubmit(final AjaxRequestTarget target,
-					final Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				final SocialSiteSession session = SocialSiteSession.get();
 
-				final User author = userDao.load(session.getSessionUser()
-					.getId());
+				final User author = userDao.load(session.getSessionUser().getId());
 				final User receiver = userDao.load(session.getUserId());
 
 				// save the scrap

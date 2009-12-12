@@ -32,11 +32,11 @@ import com.socialsite.persistence.User;
 public class BasePanel extends Panel
 {
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	/** spring dao to access the user object */
 	@SpringBean(name = "userDao")
-	private UserDao<User>		userDao;
+	private UserDao<User> userDao;
 
 	/**
 	 * constructor
@@ -75,6 +75,6 @@ public class BasePanel extends Panel
 		session.setUserId(userId);
 		// set the roles
 		session.getSessionUser().setRoles(
-			userDao.getUsersRelation(userId, session.getSessionUser().getId()));
+				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
 	}
 }
