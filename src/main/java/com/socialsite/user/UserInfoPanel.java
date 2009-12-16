@@ -66,7 +66,7 @@ public class UserInfoPanel extends Panel
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void saveImage(byte[] imageData)
+			protected void saveImage(final byte[] imageData)
 			{
 				final ImageService imageService = new ImageService();
 

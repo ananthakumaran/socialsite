@@ -75,10 +75,10 @@ public class ImagePanel extends Panel
 		super(component);
 
 		// allow the modal window to update the panel
-		this.setOutputMarkupId(true);
+		setOutputMarkupId(true);
 		final ResourceReference imageResource = new ResourceReference(imageType.name());
 		final Image userImage;
-		ValueMap valueMap = new ValueMap();
+		final ValueMap valueMap = new ValueMap();
 		valueMap.add("id", id + "");
 		if (thumb)
 		{
@@ -99,31 +99,7 @@ public class ImagePanel extends Panel
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public void onUploadFinished(AjaxRequestTarget target, String filename,
-					String newFileUrl)
-			{
-
-				final ResourceReference imageResource = new ResourceReference(imageType.name());
-
-
-				ValueMap valueMap = new ValueMap();
-				valueMap.add("id", id + "");
-				// add a random parameter so the browser will change the image
-				// lively
-				Random rand = new Random();
-				valueMap.add("rand", rand.nextLong() + "");
-				if (thumb)
-				{
-					valueMap.add("thumb", "true");
-				}
-
-				userImage.setImageResourceReference(imageResource, valueMap);
-				// update the image after the user changes it
-				target.addComponent(userImage);
-			}
-
-			@Override
-			public String onFileUploaded(FileUpload upload)
+			public String onFileUploaded(final FileUpload upload)
 			{
 
 				if (upload == null)
@@ -146,6 +122,30 @@ public class ImagePanel extends Panel
 
 				return null;
 			}
+
+			@Override
+			public void onUploadFinished(final AjaxRequestTarget target, final String filename,
+					final String newFileUrl)
+			{
+
+				final ResourceReference imageResource = new ResourceReference(imageType.name());
+
+
+				final ValueMap valueMap = new ValueMap();
+				valueMap.add("id", id + "");
+				// add a random parameter so the browser will change the image
+				// lively
+				final Random rand = new Random();
+				valueMap.add("rand", rand.nextLong() + "");
+				if (thumb)
+				{
+					valueMap.add("thumb", "true");
+				}
+
+				userImage.setImageResourceReference(imageResource, valueMap);
+				// update the image after the user changes it
+				target.addComponent(userImage);
+			}
 		});
 		modal.setTitle(" Select the image ");
 		modal.setCookieName("modal");
@@ -157,7 +157,7 @@ public class ImagePanel extends Panel
 			 */
 			private static final long serialVersionUID = 1L;
 
-			public boolean onCloseButtonClicked(AjaxRequestTarget target)
+			public boolean onCloseButtonClicked(final AjaxRequestTarget target)
 			{
 				return true;
 			}
@@ -170,7 +170,7 @@ public class ImagePanel extends Panel
 			 */
 			private static final long serialVersionUID = 1L;
 
-			public void onClose(AjaxRequestTarget target)
+			public void onClose(final AjaxRequestTarget target)
 			{
 			}
 		});
@@ -183,12 +183,6 @@ public class ImagePanel extends Panel
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public void onClick(AjaxRequestTarget target)
-			{
-				modal.show(target);
-			}
-
-			@Override
 			public boolean isVisible()
 			{
 				if (thumb)
@@ -198,6 +192,12 @@ public class ImagePanel extends Panel
 				// TODO show this link only for user who have access to change
 				// it. don't show it for thumb images
 				return true;
+			}
+
+			@Override
+			public void onClick(final AjaxRequestTarget target)
+			{
+				modal.show(target);
 			}
 		});
 	}
@@ -217,7 +217,7 @@ public class ImagePanel extends Panel
 	 * 
 	 * @param imageData
 	 */
-	protected void saveImage(byte[] imageData)
+	protected void saveImage(final byte[] imageData)
 	{
 
 	}

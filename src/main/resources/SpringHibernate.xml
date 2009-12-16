@@ -134,15 +134,25 @@
 	</bean>
 
 	<!-- InfoMsgDao -->
-	<bean id="InfoMsgDaoTarget" class="com.socialsite.dao.hibernate.InfoMsgDaoImpl"
+	<bean id="infoMsgDaoTarget" class="com.socialsite.dao.hibernate.InfoMsgDaoImpl"
 		lazy-init="true">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="InfoMsgDao" parent="transactionProxyTemplate" lazy-init="true">
-		<property name="target" ref="InfoMsgDaoTarget" />
+	<bean id="infoMsgDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="infoMsgDaoTarget" />
 	</bean>
 
+	<!-- UniversityMsgDao -->
+	<bean id="universityDaoTarget" class="com.socialsite.dao.hibernate.UniversityDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="universityDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="universityDaoTarget" />
+	</bean>
 
 
 

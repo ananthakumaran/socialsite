@@ -33,24 +33,26 @@ public class RichEditor<T> extends FormComponentPanel<T> implements IHeaderContr
 	 * @param model
 	 *            model for the textarea
 	 */
-	public RichEditor(String id, IModel<T> model)
+	public RichEditor(final String id, final IModel<T> model)
 	{
 		super(id, model);
 		add(textArea = new TextArea<T>("textarea", model));
 	}
 
+	@Override
 	protected void convertInput()
 	{
 		// TODO filter any javascript in the markup
 		setConvertedInput(textArea.getConvertedInput());
 	}
 
-	public void renderHead(IHeaderResponse response)
+	public void renderHead(final IHeaderResponse response)
 	{
 		// jquery
 		response.renderJavascriptReference("js/jquery/jquery.min.js");
 		// TextArea Resizer
-		ResourceReference resizeRef = new ResourceReference(getClass(), "jquery.textarearesizer.js");
+		final ResourceReference resizeRef = new ResourceReference(getClass(),
+				"jquery.textarearesizer.js");
 		response.renderJavascriptReference(resizeRef);
 		response.renderOnDomReadyJavascript("$('textarea').TextAreaResizer();");
 	}

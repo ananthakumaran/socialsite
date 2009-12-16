@@ -14,17 +14,126 @@ import org.apache.wicket.markup.html.panel.Panel;
 public abstract class UploadPanel extends Panel
 {
 
+	private class OnUploadedBehavior extends AbstractDefaultAjaxBehavior
+	{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+		public String getCallback()
+		{
+			return generateCallbackScript(
+					"wicketAjaxGet('" + getCallbackUrl(false)
+							+ "&amp;amp;newFileUrl=' + encodeURIComponent(newFileUrl)"
+							+ " + '&amp;amp;clientFileName=' + encodeURIComponent(clientFileName)")
+					.toString();
+		}
+
+		@Override
+		protected void respond(final AjaxRequestTarget target)
+		{
+			onUploadFinished(target, getRequest().getParameter("clientFileName"), getRequest()
+					.getParameter("newFileUrl"));
+		}
+	}
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private InlineFrame uploadIFrame = null;
 
-	public UploadPanel(String id)
+	public UploadPanel(final String id)
 	{
 		super(id);
 		addOnUploadedCallback();
 		setOutputMarkupId(true);
+	}
+
+	/**
+	 * Hackie method allowing to add a javascript in the page defining the
+	 * callback called by the innerIframe
+	 * 
+	 */
+	private void addOnUploadedCallback()
+	{
+		final OnUploadedBehavior onUploadBehavior = new OnUploadedBehavior();
+		add(onUploadBehavior);
+		add(new WebComponent("onUploaded")
+		{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected void onComponentTagBody(final MarkupStream markupStream,
+					final ComponentTag openTag)
+			{
+				// calling it through setTimeout we ensure that the callback is
+				// called
+				// in the proper execution context, that is the parent frame
+				replaceComponentTagBody(markupStream, openTag, "function onUpload_"
+						+ UploadPanel.this.getMarkupId()
+						+ "(clientFileName, newFileUrl) {window.setTimeout(function() { "
+						+ onUploadBehavior.getCallback() + " }, 0 )}");
+			}
+		});
+	}
+
+	/**
+	 * Create the iframe containing the upload widget
+	 * 
+	 */
+	private void addUploadIFrame()
+	{
+		final IPageLink iFrameLink = new IPageLink()
+		{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			public Page getPage()
+			{
+				return new UploadIFrame()
+				{
+					@Override
+					protected String getOnUploadedCallback()
+					{
+						return "onUpload_" + UploadPanel.this.getMarkupId();
+					}
+
+					@Override
+					protected String manageInputSream(final FileUpload upload)
+					{
+						return UploadPanel.this.onFileUploaded(upload);
+					}
+				};
+			}
+
+			public Class<UploadIFrame> getPageIdentity()
+			{
+				return UploadIFrame.class;
+			}
+		};
+		uploadIFrame = new InlineFrame("upload", getPage().getPageMap(), iFrameLink);
+		add(uploadIFrame);
+	}
+
+	@Override
+	protected void onBeforeRender()
+	{
+		super.onBeforeRender();
+		if (uploadIFrame == null)
+		{
+			// the iframe should be attached to a page to be able to get its
+			// pagemap,
+			// that's why i'm adding it in onBeforRender
+			addUploadIFrame();
+		}
 	}
 
 	/**
@@ -48,112 +157,5 @@ public abstract class UploadPanel extends Panel
 	 *            Url of the uploaded file
 	 */
 	public abstract void onUploadFinished(AjaxRequestTarget target, String filename,
-			String newFileUrl);
-
-	@Override
-	protected void onBeforeRender()
-	{
-		super.onBeforeRender();
-		if (uploadIFrame == null)
-		{
-			// the iframe should be attached to a page to be able to get its
-			// pagemap,
-			// that's why i'm adding it in onBeforRender
-			addUploadIFrame();
-		}
-	}
-
-	/**
-	 * Create the iframe containing the upload widget
-	 * 
-	 */
-	private void addUploadIFrame()
-	{
-		IPageLink iFrameLink = new IPageLink()
-		{
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			public Page getPage()
-			{
-				return new UploadIFrame()
-				{
-					@Override
-					protected String getOnUploadedCallback()
-					{
-						return "onUpload_" + UploadPanel.this.getMarkupId();
-					}
-
-					@Override
-					protected String manageInputSream(FileUpload upload)
-					{
-						return UploadPanel.this.onFileUploaded(upload);
-					}
-				};
-			}
-
-			public Class<UploadIFrame> getPageIdentity()
-			{
-				return UploadIFrame.class;
-			}
-		};
-		uploadIFrame = new InlineFrame("upload", getPage().getPageMap(), iFrameLink);
-		add(uploadIFrame);
-	}
-
-	/**
-	 * Hackie method allowing to add a javascript in the page defining the
-	 * callback called by the innerIframe
-	 * 
-	 */
-	private void addOnUploadedCallback()
-	{
-		final OnUploadedBehavior onUploadBehavior = new OnUploadedBehavior();
-		add(onUploadBehavior);
-		add(new WebComponent("onUploaded")
-		{
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			protected void onComponentTagBody(MarkupStream markupStream, ComponentTag openTag)
-			{
-				// calling it through setTimeout we ensure that the callback is
-				// called
-				// in the proper execution context, that is the parent frame
-				replaceComponentTagBody(markupStream, openTag, "function onUpload_"
-						+ UploadPanel.this.getMarkupId()
-						+ "(clientFileName, newFileUrl) {window.setTimeout(function() { "
-						+ onUploadBehavior.getCallback() + " }, 0 )}");
-			}
-		});
-	}
-
-	private class OnUploadedBehavior extends AbstractDefaultAjaxBehavior
-	{
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-		public String getCallback()
-		{
-			return generateCallbackScript(
-					"wicketAjaxGet('" + getCallbackUrl(false)
-							+ "&amp;amp;newFileUrl=' + encodeURIComponent(newFileUrl)"
-							+ " + '&amp;amp;clientFileName=' + encodeURIComponent(clientFileName)")
-					.toString();
-		}
-
-		@Override
-		protected void respond(AjaxRequestTarget target)
-		{
-			UploadPanel.this.onUploadFinished(target, getRequest().getParameter("clientFileName"),
-					getRequest().getParameter("newFileUrl"));
-		}
-	};
+			String newFileUrl);;
 }

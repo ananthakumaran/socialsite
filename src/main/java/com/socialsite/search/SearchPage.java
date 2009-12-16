@@ -24,7 +24,6 @@ import org.apache.wicket.markup.repeater.data.DataView;
 import com.socialsite.BasePage;
 import com.socialsite.dataprovider.SearchDataProvider;
 import com.socialsite.entitymodel.StringWrapper;
-import com.socialsite.persistence.User;
 import com.socialsite.user.UserInfoPanel;
 
 /**
@@ -44,7 +43,8 @@ public class SearchPage extends BasePage
 	 * @param searchText
 	 *            search text
 	 */
-	public SearchPage(final StringWrapper filter)
+	@SuppressWarnings("unchecked")
+	public SearchPage(final StringWrapper filter, final SearchOption searchOption)
 	{
 		// intialize the filter
 		this.filter = filter;
@@ -52,9 +52,10 @@ public class SearchPage extends BasePage
 		// add the user info panel
 		add(new UserInfoPanel("userinfo"));
 
-		final SearchDataProvider searchDataProvider = new SearchDataProvider(this.filter);
+		final SearchDataProvider searchDataProvider = new SearchDataProvider(this.filter,
+				searchOption);
 
-		final DataView<User> searchList = new DataView<User>("searchlist", searchDataProvider, 10)
+		final DataView searchList = new DataView("searchlist", searchDataProvider, 10)
 		{
 
 			/**
@@ -63,9 +64,17 @@ public class SearchPage extends BasePage
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void populateItem(final Item<User> item)
+			protected void populateItem(final Item item)
 			{
-				item.add(new SearchUserInfoPanel("userdetails", item.getModel()));
+				switch (searchOption)
+				{
+					case USER :
+						item.add(new SearchUserInfoPanel("details", item.getModel()));
+					case UNIVERSITY :
+						item.add(new SearchUniversityInfo("details", item.getModel()));
+				}
+
+
 			}
 		};
 

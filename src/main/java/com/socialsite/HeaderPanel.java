@@ -17,11 +17,15 @@
 
 package com.socialsite;
 
+import java.util.Arrays;
+
+import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
 import com.socialsite.authentication.LogoutPage;
@@ -29,6 +33,7 @@ import com.socialsite.entitymodel.StringWrapper;
 import com.socialsite.home.HomePage;
 import com.socialsite.profile.ProfilePage;
 import com.socialsite.scrap.ScrapPage;
+import com.socialsite.search.SearchOption;
 import com.socialsite.search.SearchPage;
 import com.socialsite.util.BusyIndicatorPanel;
 
@@ -120,6 +125,13 @@ public class HeaderPanel extends BasePanel
 		// search box
 		searchForm.add(new TextField<String>("searchtextbox", new PropertyModel<String>(this,
 				"filter.model")));
+
+		// search options
+		final DropDownChoice<SearchOption> searchOptions = new DropDownChoice<SearchOption>(
+				"options", Arrays.asList(SearchOption.USER, SearchOption.UNIVERSITY));
+		searchOptions.setDefaultModel(new Model<SearchOption>(SearchOption.USER));
+		searchForm.add(searchOptions);
+
 		searchForm.add(search = new SubmitLink("search")
 		{
 			/**
@@ -130,7 +142,7 @@ public class HeaderPanel extends BasePanel
 			@Override
 			public void onSubmit()
 			{
-				setResponsePage(new SearchPage(filter));
+				setResponsePage(new SearchPage(filter, searchOptions.getModelObject()));
 			}
 		});
 		searchForm.setDefaultButton(search);

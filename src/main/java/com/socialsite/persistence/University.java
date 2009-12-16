@@ -40,6 +40,12 @@ public class University implements AbstractDomain
 
 	public University()
 	{
+		this("");
+	}
+
+	public University(final String name)
+	{
+		setName(name);
 	}
 
 	public Admin getAdmin()
@@ -52,24 +58,14 @@ public class University implements AbstractDomain
 		return courses;
 	}
 
+	public long getId()
+	{
+		return id;
+	}
+
 	public byte[] getImage()
 	{
 		return image;
-	}
-
-	public void setImage(byte[] image)
-	{
-		this.image = image;
-	}
-
-	public byte[] getThumb()
-	{
-		return thumb;
-	}
-
-	public void setThumb(byte[] thumb)
-	{
-		this.thumb = thumb;
 	}
 
 	public String getName()
@@ -77,19 +73,14 @@ public class University implements AbstractDomain
 		return name;
 	}
 
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-	
-	public long getId()
-	{
-		return id;
-	}
-
 	public Set<Staff> getStaffs()
 	{
 		return staffs;
+	}
+
+	public byte[] getThumb()
+	{
+		return thumb;
 	}
 
 	public void setAdmin(final Admin admin)
@@ -107,8 +98,23 @@ public class University implements AbstractDomain
 		this.id = id;
 	}
 
+	public void setImage(final byte[] image)
+	{
+		this.image = image;
+	}
+
+	public void setName(final String name)
+	{
+		this.name = name;
+	}
+
 	public void setStaffs(final Set<Staff> staffs)
 	{
 		this.staffs = staffs;
+	}
+
+	public void setThumb(final byte[] thumb)
+	{
+		this.thumb = thumb;
 	}
 }

@@ -26,10 +26,12 @@ import org.springframework.test.annotation.NotTransactional;
 import com.socialsite.authentication.SignUpPage;
 import com.socialsite.dao.AbstractDaoTest;
 import com.socialsite.dao.ProfileDao;
+import com.socialsite.dao.UniversityDao;
 import com.socialsite.dao.UserDao;
 import com.socialsite.image.DefaultImage;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Student;
+import com.socialsite.persistence.University;
 import com.socialsite.persistence.User;
 import com.socialsite.util.SpringWicketTester;
 
@@ -42,6 +44,27 @@ public class LoadData extends AbstractDaoTest
 
 	@Resource(name = "profileDao")
 	private ProfileDao profileDao;
+
+	@Resource(name = "universityDao")
+	private UniversityDao universityDao;
+
+	/**
+	 * helper to create profile for users
+	 * 
+	 * @param users
+	 *            users
+	 */
+	public void createProfiles(final User... users)
+	{
+		for (final User user : users)
+		{
+			final Profile profile = new Profile();
+			profile.setUser(user);
+			user.setProfile(profile);
+			new DefaultImage(user.getProfile());
+			profileDao.save(user.getProfile());
+		}
+	}
 
 	/**
 	 * run this method to load some data for the site
@@ -60,72 +83,59 @@ public class LoadData extends AbstractDaoTest
 		final User user3 = new Student("user3", "password");
 		final User user4 = new Student("user4", "password");
 		final User user5 = new Student("user5", "password");
+		saveUsers(user1, user2, user3, user4, user5);
 
-		userDao.save(user1);
-		userDao.save(user2);
-		userDao.save(user3);
-		userDao.save(user4);
-		userDao.save(user5);
+		// create the profiles
+		createProfiles(user1, user2, user3, user4, user5);
+		// add some friends for all users
+		setFriend(user1, user2, user3, user4, user5);
+		setFriend(user2, user3, user4);
+		setFriend(user3, user5);
+		saveUsers(user1, user2, user3, user4, user5);
 
-		final Profile p1 = new Profile();
-		p1.setUser(user1);
-		user1.setProfile(p1);
-		new DefaultImage(user1.getProfile());
-		profileDao.save(user1.getProfile());
+		final University university1 = new University("TestUniversity");
+		final University university2 = new University("Harvard");
+		saveUniversities(university1, university2);
 
-		final Profile p2 = new Profile();
-		p2.setUser(user2);
-		user2.setProfile(p2);
-		new DefaultImage(user2.getProfile());
-		profileDao.save(user2.getProfile());
+	}
 
-		final Profile p3 = new Profile();
-		p3.setUser(user3);
-		user3.setProfile(p3);
-		new DefaultImage(user3.getProfile());
-		profileDao.save(user3.getProfile());
+	public void saveUniversities(final University... uinversities)
+	{
+		for (final University uinversity : uinversities)
+		{
+			universityDao.save(uinversity);
+		}
+	}
 
-		final Profile p4 = new Profile();
-		p4.setUser(user4);
-		user4.setProfile(p4);
-		new DefaultImage(user4.getProfile());
-		profileDao.save(user4.getProfile());
+	/**
+	 * helper to save users
+	 * 
+	 * @param users
+	 *            users
+	 */
+	public void saveUsers(final User... users)
+	{
+		for (final User user : users)
+		{
+			userDao.save(user);
+		}
+	}
 
-		final Profile p5 = new Profile();
-		p5.setUser(user5);
-		user5.setProfile(p5);
-		new DefaultImage(user5.getProfile());
-		profileDao.save(user5.getProfile());
-		user1.addFriend(user2);
-		System.out.print("user2 is a friend of user1 ");
-
-		user1.addFriend(user3);
-		System.out.print("user3 is a friend of user1 ");
-		user1.addFriend(user4);
-		System.out.print("user4 is a friend of user1 ");
-		user1.addFriend(user5);
-		System.out.print("user5 is a friend of user1 ");
-
-		userDao.save(user1);
-
-		user2.addFriend(user3);
-		System.out.print("user3 is a friend of user2 ");
-		user2.addFriend(user4);
-		System.out.print("user4 is a friend of user3 ");
-
-		userDao.save(user2);
-
-		user3.addFriend(user5);
-		System.out.print("user5 is a friend of user3 ");
-
-		userDao.save(user3);
-
-		userDao.save(user1);
-		userDao.save(user2);
-		userDao.save(user3);
-		userDao.save(user4);
-		userDao.save(user5);
-
+	/**
+	 * helper method to add many friends
+	 * 
+	 * @param user
+	 *            user
+	 * @param friends
+	 *            friends to be added
+	 */
+	public void setFriend(final User user, final User... friends)
+	{
+		for (final User friend : friends)
+		{
+			user.addFriend(friend);
+		}
+		userDao.save(user);
 	}
 
 	@Before
@@ -135,5 +145,4 @@ public class LoadData extends AbstractDaoTest
 		tester.startPage(SignUpPage.class);
 
 	}
-
 }

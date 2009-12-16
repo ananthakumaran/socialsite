@@ -22,9 +22,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import com.socialsite.authentication.LoginPageTest;
+import com.socialsite.authentication.SignUpPageTest;
 import com.socialsite.dao.hibernate.FriendRequestMsgDaoTest;
 import com.socialsite.dao.hibernate.ProfileDaoTest;
 import com.socialsite.dao.hibernate.ScrapDaoTest;
+import com.socialsite.dao.hibernate.UniversityDaoTest;
 import com.socialsite.dao.hibernate.UserDaoTest;
 import com.socialsite.scripts.SchemaCreator;
 
@@ -37,8 +39,8 @@ import com.socialsite.scripts.SchemaCreator;
 @RunWith(Suite.class)
 @Suite.SuiteClasses( {
 
-LoginPageTest.class, ScrapDaoTest.class, UserDaoTest.class, ProfileDaoTest.class,
-		FriendRequestMsgDaoTest.class
+LoginPageTest.class, SignUpPageTest.class, ScrapDaoTest.class, UserDaoTest.class,
+		ProfileDaoTest.class, FriendRequestMsgDaoTest.class, UniversityDaoTest.class
 
 })
 public class AllTests
