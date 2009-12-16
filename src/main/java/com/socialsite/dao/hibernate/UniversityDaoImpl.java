@@ -1,3 +1,20 @@
+/**
+ *     Copyright SocialSite (C) 2009
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.socialsite.dao.hibernate;
 
 import java.util.List;
@@ -14,6 +31,9 @@ import com.socialsite.persistence.University;
  */
 public class UniversityDaoImpl extends AbstractDaoImpl<University> implements UniversityDao
 {
+	/**
+	 * constructor
+	 */
 	public UniversityDaoImpl()
 	{
 		super(University.class);
@@ -22,15 +42,9 @@ public class UniversityDaoImpl extends AbstractDaoImpl<University> implements Un
 	/**
 	 * @see com.socialsite.dao.UniversityDao#countAll(String)
 	 */
-	public int countAll(String filter)
+	public int countAll(final String filter)
 	{
-		filter = filter == null ? "" : filter;
-
-		final Long count = (Long)getSession().createQuery(
-				"select count(u) from University u where " + " u.name like :filter ").setParameter(
-				"filter", "%" + filter + "%").uniqueResult();
-
-		return count.intValue();
+		return count(filter, University.class, "name");
 	}
 
 	/**
@@ -38,23 +52,9 @@ public class UniversityDaoImpl extends AbstractDaoImpl<University> implements Un
 	 *      SortParam)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<University> findAll(String filter, final int first, final int count,
+	public List<University> findAll(final String filter, final int first, final int count,
 			final SortParam sortParam)
 	{
-
-		filter = filter == null ? "" : filter;
-
-		final StringBuilder query = new StringBuilder();
-
-		// set the sort parameters
-		final String sortBy = "u." + sortParam.getProperty();
-		final String sort = sortParam.isAscending() ? "asc" : "desc";
-
-		query.append(" from University u where u.name like :filter order by ").append(sortBy)
-				.append(" ").append(sort);
-
-		return getSession().createQuery(query.toString())
-				.setParameter("filter", "%" + filter + "%").setFirstResult(first).setMaxResults(
-						count).list();
+		return find(filter, first, count, sortParam, University.class, "name");
 	}
 }

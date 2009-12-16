@@ -19,6 +19,7 @@ package com.socialsite.dao.hibernate;
 
 import java.util.List;
 
+import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -51,6 +52,30 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	}
 
 	/**
+	 * helper method to find the count of item that match the filter
+	 * 
+	 * @param filter
+	 *            filter text
+	 * @param clazz
+	 *            class of the item
+	 * @param field
+	 *            field that will be matched with the criteria
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	protected int count(String filter, final Class clazz, final String field)
+	{
+		// avoid NPE
+		filter = filter == null ? "" : filter;
+
+		final Long count = (Long)getSession().createQuery(
+				"select count(u) from " + clazz.getName() + " u where " + " u." + field
+						+ " like :filter ").setParameter("filter", "%" + filter + "%")
+				.uniqueResult();
+		return count.intValue();
+	}
+
+	/**
 	 * find the number of unique rows in the given domainclass (table)
 	 * 
 	 * @return no of unique rows in the given domainclass (table)
@@ -71,6 +96,44 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	public void delete(final T object)
 	{
 		getSession().delete(object);
+	}
+
+	/**
+	 * a helper method to find the list of item matching the filter
+	 * 
+	 * @param filter
+	 *            filter text
+	 * @param first
+	 *            first index of the resul
+	 * @param count
+	 *            count
+	 * @param sortParam
+	 *            sorting is done based on this property
+	 * @param clazz
+	 *            class of the item
+	 * @param field
+	 *            field that will be matched with the criteria
+	 * @return list of item matching the filter text
+	 */
+	@SuppressWarnings("unchecked")
+	protected List find(String filter, final int first, final int count, final SortParam sortParam,
+			final Class clazz, final String field)
+	{
+		// avoids the NPE
+		filter = filter == null ? "" : filter;
+
+		final StringBuilder query = new StringBuilder();
+		// set the sort parameters
+		final String sortBy = "u." + sortParam.getProperty();
+		final String sort = sortParam.isAscending() ? "asc" : "desc";
+		// query construction
+		query.append(" from ").append(clazz.getName()).append(" u where u.").append(field).append(
+				" like :filter order by ").append(sortBy).append(" ").append(sort);
+
+		return getSession().createQuery(query.toString())
+				.setParameter("filter", "%" + filter + "%").setFirstResult(first).setMaxResults(
+						count).list();
+
 	}
 
 	/**

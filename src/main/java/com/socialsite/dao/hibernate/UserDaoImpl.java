@@ -41,6 +41,12 @@ import com.socialsite.persistence.User;
 public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements UserDao<T>
 {
 
+	/**
+	 * constructor
+	 * 
+	 * @param domainClass
+	 *            domainclass
+	 */
 	public UserDaoImpl(final Class<T> domainClass)
 	{
 		super(domainClass);
@@ -66,39 +72,19 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements U
 	/**
 	 * @see com.socialsite.dao.UserDao#countAll(String)
 	 */
-	public int countAll(String filter)
+	public int countAll(final String filter)
 	{
-		filter = filter == null ? "" : filter;
-
-		final Long count = (Long)getSession().createQuery(
-				"select count(u) from User u where " + " u.userName like :filter ").setParameter(
-				"filter", "%" + filter + "%").uniqueResult();
-
-		return count.intValue();
+		return count(filter, User.class, "userName");
 	}
 
 	/**
 	 * @see com.socialsite.dao.UserDao#findAll(String, int, int, SortParam)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<T> findAll(String filter, final int first, final int count,
+	public List<T> findAll(final String filter, final int first, final int count,
 			final SortParam sortParam)
 	{
-
-		filter = filter == null ? "" : filter;
-
-		final StringBuilder query = new StringBuilder();
-
-		// set the sort parameters
-		final String sortBy = "u." + sortParam.getProperty();
-		final String sort = sortParam.isAscending() ? "asc" : "desc";
-
-		query.append(" from User u where u.userName like :filter order by ").append(sortBy).append(
-				" ").append(sort);
-
-		return getSession().createQuery(query.toString())
-				.setParameter("filter", "%" + filter + "%").setFirstResult(first).setMaxResults(
-						count).list();
+		return find(filter, first, count, sortParam, User.class, "userName");
 	}
 
 	/**
