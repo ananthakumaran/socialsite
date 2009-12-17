@@ -20,6 +20,12 @@ package com.socialsite.image;
 import org.apache.wicket.markup.html.DynamicWebResource.ResourceState;
 import org.apache.wicket.util.time.Time;
 
+/**
+ * TODO supply the lastModified date
+ * 
+ * @author Ananth
+ * 
+ */
 class ImageResourceState extends ResourceState
 {
 	// CONSTRUCTORS
@@ -32,9 +38,10 @@ class ImageResourceState extends ResourceState
 
 	private Time lastModified;
 
-	ImageResourceState()
+	ImageResourceState(Time lastModified)
 	{
 		super();
+		this.lastModified = lastModified;
 	}
 
 	@Override
@@ -59,6 +66,11 @@ class ImageResourceState extends ResourceState
 	public Time lastModifiedTime()
 	{
 		return lastModified;
+	}
+
+	public void setLastModified(Time lastModified)
+	{
+		this.lastModified = lastModified;
 	}
 
 	void setContentType(final String contentType)

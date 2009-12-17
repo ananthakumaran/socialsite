@@ -384,7 +384,13 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>2.0.1</version>
+				<reportSets>
+					<reportSet></reportSet>
+					<reportSet></reportSet>
+				</reportSets>
+				<configuration>
+				<omitVisitors></omitVisitors>
+				</configuration>				
 			</plugin>
 		</plugins>
 	</reporting>

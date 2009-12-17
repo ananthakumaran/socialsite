@@ -20,6 +20,7 @@ package com.socialsite.image;
 import org.apache.wicket.injection.web.InjectorHolder;
 import org.apache.wicket.markup.html.DynamicWebResource;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.util.time.Time;
 import org.apache.wicket.util.value.ValueMap;
 
 import com.socialsite.dao.ProfileDao;
@@ -53,21 +54,23 @@ public class UserImageResource extends DynamicWebResource
 
 		// parameters
 		final ValueMap params = getParameters();
-
+		final long id = params.getAsLong("id");
 		// load the image from the database
-		final ImageResourceState imageResourceState = new ImageResourceState();
+		final ImageResourceState imageResourceState = new ImageResourceState(Time
+				.valueOf((profileDao.getLastModifiedTime(id))));
 		try
 		{
 			imageResourceState.setContentType("image/jpeg");
+
+
 			if (params.containsKey("thumb"))
 			{
-				imageResourceState.setData(profileDao.getUserThumb(params.getAsLong("id")));
+				imageResourceState.setData(profileDao.getUserThumb(id));
 			}
 			else
 			{
-				imageResourceState.setData(profileDao.getUserImage(params.getAsLong("id")));
+				imageResourceState.setData(profileDao.getUserImage(id));
 			}
-
 		}
 		catch (final Exception e)
 		{

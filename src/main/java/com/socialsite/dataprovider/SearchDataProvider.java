@@ -100,7 +100,7 @@ public class SearchDataProvider extends SortableDataProvider
 				model = new EntityModel(absDomain, userDao);
 				break;
 			case UNIVERSITY :
-				model = new EntityModel(absDomain, userDao);
+				model = new EntityModel(absDomain, universityDao);
 				break;
 		}
 

@@ -17,6 +17,8 @@
 
 package com.socialsite.persistence;
 
+import java.util.Date;
+
 /**
  * @author Ananth
  * 
@@ -35,6 +37,7 @@ public class Profile implements AbstractDomain
 	private String email;
 	private byte[] image;
 	private byte[] thumb;
+	private Date lastModified;
 
 	/**
 	 * TODO add other fields link address , birthday etc;
@@ -42,11 +45,22 @@ public class Profile implements AbstractDomain
 
 	public Profile()
 	{
+		setLastModified(new Date());
 	}
 
 	public String getEmail()
 	{
 		return email;
+	}
+
+	public Date getLastModified()
+	{
+		return lastModified;
+	}
+
+	public void setLastModified(Date lastModified)
+	{
+		this.lastModified = lastModified;
 	}
 
 	public String getFirstName()
@@ -103,6 +117,7 @@ public class Profile implements AbstractDomain
 	public void setImage(final byte[] image)
 	{
 		this.image = image;
+		setLastModified(new Date());
 	}
 
 	public void setLastName(final String lastName)
@@ -113,6 +128,7 @@ public class Profile implements AbstractDomain
 	public void setThumb(final byte[] thumb)
 	{
 		this.thumb = thumb;
+		setLastModified(new Date());
 	}
 
 	public void setUser(final User user)

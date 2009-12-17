@@ -70,8 +70,10 @@ public class SearchPage extends BasePage
 				{
 					case USER :
 						item.add(new SearchUserInfoPanel("details", item.getModel()));
+						break;
 					case UNIVERSITY :
 						item.add(new SearchUniversityInfo("details", item.getModel()));
+						break;
 				}
 
 

@@ -149,6 +149,7 @@
         email varchar(255),
         image mediumblob,
         thumb mediumblob,
+        lastModified date,
         primary key (user_id)
     );
 

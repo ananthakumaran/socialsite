@@ -166,6 +166,7 @@ public class SignUpPage extends WebPage
 							break;
 						case STAFF :
 							user = new Staff(userName, password);
+							break;
 						case ADMIN :
 							// TODO send a comfirmation mail
 							if (universityName != null && !universityName.equals(""))
@@ -184,6 +185,9 @@ public class SignUpPage extends WebPage
 							}
 
 							break;
+						default :
+							error("Unknown error occured Possibly a bug");
+							return;
 					}
 
 					userDao.save(user);
