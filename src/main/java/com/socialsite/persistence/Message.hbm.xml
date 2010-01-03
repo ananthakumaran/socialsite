@@ -22,17 +22,24 @@
 			<generator class="identity"></generator>
 		</id>
 
-		<set name="users" table="message_user"  >
-			<key column="message_id" foreign-key="message_user_message_id_Message_id" not-null="true"  />
-			<many-to-many class="User" column="user_id" foreign-key="message_user_user_id_User_id"  />
+		<!-- properties -->
+		<property name="time" type="timestamp" />
+
+		<!-- relations -->
+		<set name="users" table="message_user">
+			<key column="message_id" foreign-key="message_user_message_id_Message_id"
+				not-null="true" />
+			<many-to-many class="User" column="user_id"
+				foreign-key="message_user_user_id_User_id" />
 		</set>
 
-		<property name="time" type="date" />
+		<!-- sublclasses -->
 
 		<joined-subclass name="FriendRequestMsg" table="FRIEND_REQUEST_MSG">
 			<key column="id"></key>
-
+			<!-- properties -->
 			<property name="message" type="string" />
+			<!-- relations -->
 			<many-to-one name="sender" column="sender_id" class="User"
 				foreign-key="fk_FRIEND_REQUEST_MSG_sender_id_User_id" />
 
@@ -40,9 +47,11 @@
 
 		<joined-subclass name="InfoMsg" table="INFO_MSG">
 			<key column="id"></key>
+			<!-- properties -->
 			<property name="message" type="string"></property>
+			<!-- relations -->
 			<many-to-one name="sender" column="sender_id" class="User"
-				foreign-key="fk_INFO_MSG_sender_id_User_id"  />
+				foreign-key="fk_INFO_MSG_sender_id_User_id" />
 		</joined-subclass>
 
 	</class>

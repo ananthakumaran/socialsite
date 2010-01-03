@@ -58,17 +58,18 @@ public class FriendsDataProvider extends SortableDataProvider<User>
 
 	public Iterator<User> iterator(final int first, final int count)
 	{
-		return userDao.getFriends(userDao.load(id), first, count).iterator();
+		return userDao.getFriends(id, first, count).iterator();
 	}
 
 	public IModel<User> model(final User user)
 	{
+		System.out.println(user.getId());
 		return new EntityModel<User>(user, userDao);
 	}
 
 	public int size()
 	{
-		return userDao.getFriendsCount(userDao.load(id));
+		return userDao.getFriendsCount(id);
 	}
 
 }

@@ -29,7 +29,7 @@ import com.socialsite.persistence.University;
  * @author Ananth
  * 
  */
-public class UniversityDaoImpl extends AbstractDaoImpl<University> implements UniversityDao
+public class UniversityDaoImpl extends AbstractImageDaoImpl<University> implements UniversityDao
 {
 	/**
 	 * constructor
@@ -39,17 +39,21 @@ public class UniversityDaoImpl extends AbstractDaoImpl<University> implements Un
 		super(University.class);
 	}
 
-	/**
-	 * @see com.socialsite.dao.UniversityDao#countAll(String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.UniversityDao#countAll(java.lang.String)
 	 */
 	public int countAll(final String filter)
 	{
 		return count(filter, University.class, "name");
 	}
 
-	/**
-	 * @see com.socialsite.dao.UniversityDao#findAll(String, int, int,
-	 *      SortParam)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.UniversityDao#findAll(java.lang.String, int, int,
+	 * org.apache.wicket.extensions.markup.html.repeater.util.SortParam)
 	 */
 	@SuppressWarnings("unchecked")
 	public List<University> findAll(final String filter, final int first, final int count,
@@ -57,4 +61,5 @@ public class UniversityDaoImpl extends AbstractDaoImpl<University> implements Un
 	{
 		return find(filter, first, count, sortParam, University.class, "name");
 	}
+
 }

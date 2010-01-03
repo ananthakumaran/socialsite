@@ -43,5 +43,8 @@
 		<mapping resource="com/socialsite/persistence/Message.hbm.xml"/>
 		<mapping resource="com/socialsite/persistence/University.hbm.xml"/>
 		<mapping resource="com/socialsite/persistence/Course.hbm.xml" />
+		<mapping resource="com/socialsite/persistence/Answer.hbm.xml"/>
+		<mapping resource="com/socialsite/persistence/Question.hbm.xml"/>
+		<mapping resource="com/socialsite/persistence/Comment.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

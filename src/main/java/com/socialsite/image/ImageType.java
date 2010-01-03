@@ -25,6 +25,6 @@ package com.socialsite.image;
  */
 public enum ImageType {
 
-	USER, USER_THUMB, UNIVERSITY, UNIVERSITY_THUMB, COURSE, COURSE_THUMB
+	USER, UNIVERSITY, COURSE
 
 }

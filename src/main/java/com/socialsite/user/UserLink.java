@@ -33,7 +33,7 @@ import com.socialsite.persistence.User;
  * @author Ananth
  * 
  */
-public class UserLink extends Link<User>
+public class UserLink<T extends User> extends Link<T>
 {
 	/**
 	 * 
@@ -52,7 +52,7 @@ public class UserLink extends Link<User>
 	 * @param model
 	 *            user model object
 	 */
-	public UserLink(final String id, final IModel<User> model)
+	public UserLink(final String id, final IModel<T> model)
 	{
 		super(id, model);
 		InjectorHolder.getInjector().inject(this);

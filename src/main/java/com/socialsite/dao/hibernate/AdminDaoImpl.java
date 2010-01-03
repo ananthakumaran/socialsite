@@ -28,6 +28,9 @@ import com.socialsite.persistence.Admin;
 public class AdminDaoImpl extends UserDaoImpl<Admin> implements AdminDao
 {
 
+	/**
+	 * constructor
+	 */
 	public AdminDaoImpl()
 	{
 		super(Admin.class);

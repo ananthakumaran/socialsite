@@ -49,7 +49,8 @@ public class SchemaCreator
 	/**
 	 * Creates the schema for the database run this file and the schema will
 	 * written to schema.sql run the schema.sql to clean and build the database
-	 * and run the populate.sql to populate the database
+	 * and run the {@link com.socialsite.scripts.LoadData} to populate the
+	 * database
 	 * 
 	 */
 	public static void main(final String[] args)

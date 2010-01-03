@@ -3,6 +3,22 @@
         drop 
         foreign key FK3B40B2FE8BA0282;
 
+    alter table ANSWER 
+        drop 
+        foreign key fk_Answer_user_id_User_id;
+
+    alter table ANSWER 
+        drop 
+        foreign key fk_Answer_question_id_Question_id;
+
+    alter table COMMENT 
+        drop 
+        foreign key fk_Comment_answer_id_Answer_id;
+
+    alter table COMMENT 
+        drop 
+        foreign key fk_Comment_user_id_User_id;
+
     alter table COURSE 
         drop 
         foreign key fk_Course_staff_id_Staff_id;
@@ -30,6 +46,14 @@
     alter table Profile 
         drop 
         foreign key fk_Profile_user_id_User_id;
+
+    alter table QUESTION 
+        drop 
+        foreign key fk_Question_user_id_User_id;
+
+    alter table QUESTION 
+        drop 
+        foreign key fk_Question_course_id_Course_id;
 
     alter table STAFF 
         drop 
@@ -81,6 +105,10 @@
 
     drop table if exists ADMIN;
 
+    drop table if exists ANSWER;
+
+    drop table if exists COMMENT;
+
     drop table if exists COURSE;
 
     drop table if exists FRIEND_REQUEST_MSG;
@@ -90,6 +118,8 @@
     drop table if exists MESSAGE;
 
     drop table if exists Profile;
+
+    drop table if exists QUESTION;
 
     drop table if exists STAFF;
 
@@ -112,11 +142,30 @@
         primary key (id)
     );
 
+    create table ANSWER (
+        id bigint not null auto_increment,
+        time datetime,
+        text text,
+        user_id bigint,
+        question_id bigint,
+        primary key (id)
+    );
+
+    create table COMMENT (
+        id bigint not null auto_increment,
+        time datetime,
+        text text,
+        answer_id bigint,
+        user_id bigint,
+        primary key (id)
+    );
+
     create table COURSE (
         id bigint not null auto_increment,
         name varchar(255),
         image mediumblob,
         thumb mediumblob,
+        lastModified datetime,
         university_id bigint,
         staff_id bigint,
         primary key (id)
@@ -138,7 +187,7 @@
 
     create table MESSAGE (
         id bigint not null auto_increment,
-        time date,
+        time datetime,
         primary key (id)
     );
 
@@ -149,8 +198,18 @@
         email varchar(255),
         image mediumblob,
         thumb mediumblob,
-        lastModified date,
+        lastModified datetime,
         primary key (user_id)
+    );
+
+    create table QUESTION (
+        id bigint not null auto_increment,
+        heading varchar(255),
+        time datetime,
+        text text,
+        course_id bigint,
+        user_id bigint,
+        primary key (id)
     );
 
     create table STAFF (
@@ -184,6 +243,7 @@
         name varchar(255),
         image mediumblob,
         thumb mediumblob,
+        lastModified datetime,
         admin_id bigint,
         primary key (id)
     );
@@ -211,6 +271,30 @@
         add index FK3B40B2FE8BA0282 (id), 
         add constraint FK3B40B2FE8BA0282 
         foreign key (id) 
+        references User (id);
+
+    alter table ANSWER 
+        add index fk_Answer_user_id_User_id (user_id), 
+        add constraint fk_Answer_user_id_User_id 
+        foreign key (user_id) 
+        references User (id);
+
+    alter table ANSWER 
+        add index fk_Answer_question_id_Question_id (question_id), 
+        add constraint fk_Answer_question_id_Question_id 
+        foreign key (question_id) 
+        references QUESTION (id);
+
+    alter table COMMENT 
+        add index fk_Comment_answer_id_Answer_id (answer_id), 
+        add constraint fk_Comment_answer_id_Answer_id 
+        foreign key (answer_id) 
+        references ANSWER (id);
+
+    alter table COMMENT 
+        add index fk_Comment_user_id_User_id (user_id), 
+        add constraint fk_Comment_user_id_User_id 
+        foreign key (user_id) 
         references User (id);
 
     alter table COURSE 
@@ -254,6 +338,18 @@
         add constraint fk_Profile_user_id_User_id 
         foreign key (user_id) 
         references User (id);
+
+    alter table QUESTION 
+        add index fk_Question_user_id_User_id (user_id), 
+        add constraint fk_Question_user_id_User_id 
+        foreign key (user_id) 
+        references User (id);
+
+    alter table QUESTION 
+        add index fk_Question_course_id_Course_id (course_id), 
+        add constraint fk_Question_course_id_Course_id 
+        foreign key (course_id) 
+        references COURSE (id);
 
     alter table STAFF 
         add index FK4B8CAC0E8BA0282 (id), 

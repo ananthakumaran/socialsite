@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+	<!--
+
+		Copyright SocialSite (C) 2009 This program is free software: you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation, either
+		version 3 of the License, or (at your option) any later version. This
+		program is distributed in the hope that it will be useful, but WITHOUT
+		ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+		FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+		for more details. You should have received a copy of the GNU General
+		Public License along with this program. If not, see
+		<http://www.gnu.org/licenses/>.
+	-->
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.socialsite.persistence">
+	<class name="Answer" table="ANSWER">
+		<!-- id -->
+		<id name="id" type="long">
+			<generator class="identity"></generator>
+		</id>
+		<!-- properties -->
+		<property name="time" type="timestamp" />
+		<property name="text" type="text" />
+
+		<!-- relations -->
+		<many-to-one name="user" column="user_id" class="User"
+			foreign-key="fk_Answer_user_id_User_id" />
+
+		<many-to-one name="question" column="question_id" class="Question"
+			foreign-key="fk_Answer_question_id_Question_id" />
+		<set name="comments">
+			<key column="answer_id" />
+			<one-to-many class="Comment" />
+		</set>
+
+	</class>
+</hibernate-mapping>

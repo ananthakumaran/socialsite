@@ -15,17 +15,21 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.util;
+package com.socialsite.course.question;
 
+import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.IModel;
+
+import com.socialsite.course.answer.AddAnswerPanel;
+import com.socialsite.course.answer.AnswersPanel;
+import com.socialsite.persistence.Question;
 
 /**
- * shows a generic busy indicator at the top of the page for both ajax and
- * non-ajax links
- * 
  * @author Ananth
  */
-public class BusyIndicatorPanel extends Panel
+public class QuestionPanel extends Panel
 {
 
 	/**
@@ -33,14 +37,15 @@ public class BusyIndicatorPanel extends Panel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * constructor
-	 * 
-	 * @param id
-	 *            id
-	 */
-	public BusyIndicatorPanel(final String id)
+	public QuestionPanel(final String id, final IModel<Question> model)
 	{
-		super(id);
+		super(id, model);
+		final Question question = model.getObject();
+		add(new Label("heading", question.getHeading()));
+		add(new Label("text", question.getText()).setEscapeModelStrings(false));
+		MarkupContainer answerPanel;
+		add(answerPanel = new AnswersPanel("answers", model));
+		add(new AddAnswerPanel("addanswer", model, answerPanel));
 	}
+
 }

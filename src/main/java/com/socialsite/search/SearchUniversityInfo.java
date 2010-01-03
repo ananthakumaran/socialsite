@@ -22,6 +22,7 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
 import com.socialsite.persistence.University;
+import com.socialsite.university.UniversityLink;
 
 /**
  * @author Ananth
@@ -45,7 +46,9 @@ public class SearchUniversityInfo extends Panel
 	{
 		super(id);
 		final University university = model.getObject();
-		add(new Label("name", university.getName()));
+		final UniversityLink universityLink;
+		add(universityLink = new UniversityLink("university", model));
+		universityLink.add(new Label("name", university.getName()));
 	}
 
 }

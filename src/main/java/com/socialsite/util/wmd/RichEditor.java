@@ -17,7 +17,6 @@
 
 package com.socialsite.util.wmd;
 
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.form.FormComponentPanel;
@@ -27,11 +26,11 @@ import org.apache.wicket.model.IModel;
 /**
  * WMD rich Editor
  * 
- * TODO convert the button image into a single image (CSS Sprite)
+ * TODO convert the button images into a single image (CSS Sprite)
  * 
  * @author Ananth
  */
-public class RichEditor<T> extends FormComponentPanel<T> implements IHeaderContributor
+public class RichEditor extends FormComponentPanel<String> implements IHeaderContributor
 {
 
 	/**
@@ -40,7 +39,7 @@ public class RichEditor<T> extends FormComponentPanel<T> implements IHeaderContr
 	private static final long serialVersionUID = 1L;
 
 	/** text area */
-	private TextArea<T> textArea;
+	private TextArea<String> textArea;
 
 	/**
 	 * constructor
@@ -50,10 +49,11 @@ public class RichEditor<T> extends FormComponentPanel<T> implements IHeaderContr
 	 * @param model
 	 *            model for the textarea
 	 */
-	public RichEditor(final String id, final IModel<T> model)
+	public RichEditor(final String id, final IModel<String> model)
 	{
 		super(id, model);
-		add(textArea = new TextArea<T>("textarea", model));
+		add(textArea = new TextArea<String>("textarea", model));
+		textArea.setRequired(true);
 	}
 
 	@Override
@@ -65,12 +65,11 @@ public class RichEditor<T> extends FormComponentPanel<T> implements IHeaderContr
 
 	public void renderHead(final IHeaderResponse response)
 	{
-		// jquery
-		response.renderJavascriptReference("js/jquery/jquery.min.js");
+		// initialize the editor
+		response.renderJavascriptReference("js/socialsite/editor.js");
+		// wmd
+		response.renderJavascriptReference("js/wmd/wmd.js");
 		// TextArea Resizer
-		final ResourceReference resizeRef = new ResourceReference(getClass(),
-				"jquery.textarearesizer.js");
-		response.renderJavascriptReference(resizeRef);
-		response.renderOnDomReadyJavascript("$('textarea').TextAreaResizer();");
+		response.renderJavascriptReference("js/jquery/plugin/textarearesizer.js");
 	}
 }

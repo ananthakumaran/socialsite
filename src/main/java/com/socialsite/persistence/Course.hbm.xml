@@ -1,22 +1,17 @@
 <?xml version="1.0"?>
-<!--
+	<!--
 
-        Copyright SocialSite (C) 2009
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
--->
+		Copyright SocialSite (C) 2009 This program is free software: you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation, either
+		version 3 of the License, or (at your option) any later version. This
+		program is distributed in the hope that it will be useful, but WITHOUT
+		ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+		FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+		for more details. You should have received a copy of the GNU General
+		Public License along with this program. If not, see
+		<http://www.gnu.org/licenses/>.
+	-->
 
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
@@ -31,6 +26,7 @@
 		<property name="name" type="string" />
 		<property name="image" type="binary" length="10000000" />
 		<property name="thumb" type="binary" length="100000" />
+		<property name="lastModified" type="timestamp" />
 
 		<!-- relations -->
 
@@ -41,10 +37,14 @@
 			foreign-key="fk_Course_staff_id_Staff_id" />
 
 		<set name="students" table="STUDENT_COURSE">
-			<key column="course_id" foreign-key="fk_STUDENT_COURSE_course_id_Course_id"/>
+			<key column="course_id" foreign-key="fk_STUDENT_COURSE_course_id_Course_id" />
 			<many-to-many class="Student" column="student_id" />
 		</set>
-		
-		
+
+		<set name="questions">
+			<key column="course_id" />
+			<one-to-many class="Question" />
+		</set>
+
 	</class>
 </hibernate-mapping>

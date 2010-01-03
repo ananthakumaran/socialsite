@@ -17,6 +17,8 @@
 
 package com.socialsite.home;
 
+import org.apache.wicket.markup.html.IHeaderResponse;
+
 import com.socialsite.BasePage;
 import com.socialsite.friend.FriendsPanel;
 import com.socialsite.message.MessagePanel;
@@ -30,10 +32,23 @@ import com.socialsite.user.UserInfoPanel;
 public class HomePage extends BasePage
 {
 
+	/**
+	 * constructor
+	 * 
+	 * Home page of the user
+	 * 
+	 */
 	public HomePage()
 	{
 		add(new UserInfoPanel("userinfo"));
 		add(new MessagePanel("message"));
 		add(new FriendsPanel("friends"));
+	}
+
+	@Override
+	public void renderHead(final IHeaderResponse response)
+	{
+		super.renderHead(response);
+		response.renderJavascriptReference("js/socialsite/home.js");
 	}
 }

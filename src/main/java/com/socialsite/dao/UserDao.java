@@ -78,6 +78,21 @@ public interface UserDao<T extends User> extends AbstractDao<T>
 	 * 
 	 * XXX Don't use the getter in the user object (use this instead)
 	 * 
+	 * @param userId
+	 *            user id
+	 *@param first
+	 *            first item no of the user List
+	 * @param count
+	 *            no of items needed in the user List
+	 * @return List containig all the friends
+	 */
+	public List<T> getFriends(long userId, int first, int count);
+
+	/**
+	 * get the friend list of the given user
+	 * 
+	 * XXX Don't use the getter in the user object (use this instead)
+	 * 
 	 * @param T
 	 *            user object
 	 * @return List containig all the friends
@@ -85,29 +100,14 @@ public interface UserDao<T extends User> extends AbstractDao<T>
 	public List<T> getFriends(T user);
 
 	/**
-	 * get the friend list of the given user
-	 * 
-	 * XXX Don't use the getter in the user object (use this instead)
-	 * 
-	 * @param user
-	 *            user object
-	 *@param first
-	 *            first item no of the user List
-	 * @param count
-	 *            no of items needed in the user List
-	 * @return List containig all the friends
-	 */
-	public List<T> getFriends(User user, int first, int count);
-
-	/**
 	 * find the count of friends
 	 * 
-	 * @param T
-	 *            user object
+	 * @param userId
+	 *            user id
 	 * 
 	 * @return count of friends
 	 */
-	public int getFriendsCount(T user);
+	public int getFriendsCount(long userId);
 
 	/**
 	 * find the relationship between two users

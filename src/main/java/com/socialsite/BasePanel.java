@@ -17,6 +17,10 @@
 
 package com.socialsite;
 
+import org.apache.wicket.Component;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.markup.html.IHeaderContributor;
+import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -29,7 +33,7 @@ import com.socialsite.persistence.User;
  * 
  * @author Ananth
  */
-public class BasePanel extends Panel
+public class BasePanel extends Panel implements IHeaderContributor
 {
 
 	private static final long serialVersionUID = 1L;
@@ -63,6 +67,21 @@ public class BasePanel extends Panel
 	}
 
 	/**
+	 * gets the id of the session user
+	 * 
+	 * @return id of the session user
+	 */
+	public long getSessionUserId()
+	{
+		return SocialSiteSession.get().getSessionUser().getId();
+	}
+
+	public void renderHead(final IHeaderResponse response)
+	{
+
+	}
+
+	/**
 	 * set the user id in the session and also sets the roles in the session
 	 * 
 	 * @param userId
@@ -76,5 +95,41 @@ public class BasePanel extends Panel
 		// set the roles
 		session.getSessionUser().setRoles(
 				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
+	}
+
+	/**
+	 * gets the domain model object of the the user in the session
+	 * 
+	 * @return user
+	 */
+	public User getSessionUser()
+	{
+		return userDao.load(getSessionUserId());
+	}
+
+	/**
+	 * fires a event with the collection of all the updated dom elements after
+	 * the wicket ajax response. To subscribe the event call the
+	 * <code>SocialSite.Ajax.registerPostAjax</code>. Your callback function
+	 * will be called with a jQuery Wrapped set of all the update dom as the
+	 * first argument.
+	 * 
+	 * NOTE: call this only once after all the components are added to the
+	 * target
+	 * 
+	 * 
+	 * @param target
+	 *            ajax target
+	 */
+	public void firePostAjaxUpdateEvent(AjaxRequestTarget target)
+	{
+		StringBuffer script = new StringBuffer(" SocialSite.Ajax.handle([");
+		for (Component component : target.getComponents())
+		{
+			script.append("\"" + component.getMarkupId() + "\",");
+		}
+		script.append("])");
+
+		target.getHeaderResponse().renderOnDomReadyJavascript(script.toString());
 	}
 }

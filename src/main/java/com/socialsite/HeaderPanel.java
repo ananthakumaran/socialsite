@@ -35,7 +35,6 @@ import com.socialsite.profile.ProfilePage;
 import com.socialsite.scrap.ScrapPage;
 import com.socialsite.search.SearchOption;
 import com.socialsite.search.SearchPage;
-import com.socialsite.util.BusyIndicatorPanel;
 
 /**
  * Header panel of the application
@@ -59,9 +58,6 @@ public class HeaderPanel extends BasePanel
 	public HeaderPanel(final String id)
 	{
 		super(id);
-
-		// busy indicator
-		add(new BusyIndicatorPanel("busy"));
 
 		add(new Link<Object>("home")
 		{

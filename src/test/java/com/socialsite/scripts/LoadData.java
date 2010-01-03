@@ -17,54 +17,25 @@
 
 package com.socialsite.scripts;
 
-import javax.annotation.Resource;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.annotation.NotTransactional;
 
-import com.socialsite.authentication.SignUpPage;
-import com.socialsite.dao.AbstractDaoTest;
-import com.socialsite.dao.ProfileDao;
-import com.socialsite.dao.UniversityDao;
-import com.socialsite.dao.UserDao;
-import com.socialsite.image.DefaultImage;
-import com.socialsite.persistence.Profile;
+import com.socialsite.authentication.LoginPage;
+import com.socialsite.dao.AbstractDaoTestHelper;
+import com.socialsite.persistence.Admin;
+import com.socialsite.persistence.Answer;
+import com.socialsite.persistence.Course;
+import com.socialsite.persistence.Question;
+import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.University;
 import com.socialsite.persistence.User;
 import com.socialsite.util.SpringWicketTester;
 
-public class LoadData extends AbstractDaoTest
+public class LoadData extends AbstractDaoTestHelper
 {
 
-	SpringWicketTester tester;
-	@Resource(name = "userDao")
-	private UserDao<User> userDao;
-
-	@Resource(name = "profileDao")
-	private ProfileDao profileDao;
-
-	@Resource(name = "universityDao")
-	private UniversityDao universityDao;
-
-	/**
-	 * helper to create profile for users
-	 * 
-	 * @param users
-	 *            users
-	 */
-	public void createProfiles(final User... users)
-	{
-		for (final User user : users)
-		{
-			final Profile profile = new Profile();
-			profile.setUser(user);
-			user.setProfile(profile);
-			new DefaultImage(user.getProfile());
-			profileDao.save(user.getProfile());
-		}
-	}
 
 	/**
 	 * run this method to load some data for the site
@@ -93,56 +64,58 @@ public class LoadData extends AbstractDaoTest
 		setFriend(user3, user5);
 		saveUsers(user1, user2, user3, user4, user5);
 
-		final University university1 = new University("TestUniversity");
-		final University university2 = new University("Harvard");
+		// create admin for university
+		final Admin admin1 = new Admin("admin1", "password");
+		final Admin admin2 = new Admin("admin2", "password");
+		saveUsers(admin1, admin2);
+		createProfiles(admin1, admin2);
+
+		// create universities
+		final University university1 = new University("TestUniversity", admin1);
+		final University university2 = new University("Harvard", admin2);
+		setDefaultImage(university1, university2);
 		saveUniversities(university1, university2);
 
+		// staffs
+		final Staff staff1 = new Staff("staff1", "password", university1);
+		final Staff staff2 = new Staff("staff2", "password", university2);
+		saveUsers(staff1, staff2);
+		saveUniversities(university1, university2);
+		createProfiles(staff1, staff2);
+
+
+		// courses
+		final Course course1 = new Course("course1", staff1, university1);
+		final Course course2 = new Course("course2", staff2, university2);
+		setDefaultImage(course1, course2);
+		saveCourses(course1, course2);
+		saveUniversities(university1, university2);
+
+
+		// Questions
+		final Question question1 = new Question("sample Question1", course1, user1);
+		question1.setText("<b>This is a sample Question1</b><em>this is em</em><p>new paragraph");
+		final Question question2 = new Question("sample Question2", course1, user1);
+		question2.setText("This is a sample Question2");
+		saveQuestion(question1, question2);
+
+
+		// Answers
+		final Answer answer1 = new Answer(question1, user2);
+		answer1.setText("this is a sample answer1");
+		final Answer answer2 = new Answer(question1, user3);
+		answer2.setText("this is a sample answer2");
+		saveAnswers(answer1, answer2);
+
+
 	}
 
-	public void saveUniversities(final University... uinversities)
-	{
-		for (final University uinversity : uinversities)
-		{
-			universityDao.save(uinversity);
-		}
-	}
-
-	/**
-	 * helper to save users
-	 * 
-	 * @param users
-	 *            users
-	 */
-	public void saveUsers(final User... users)
-	{
-		for (final User user : users)
-		{
-			userDao.save(user);
-		}
-	}
-
-	/**
-	 * helper method to add many friends
-	 * 
-	 * @param user
-	 *            user
-	 * @param friends
-	 *            friends to be added
-	 */
-	public void setFriend(final User user, final User... friends)
-	{
-		for (final User friend : friends)
-		{
-			user.addFriend(friend);
-		}
-		userDao.save(user);
-	}
 
 	@Before
 	public void setup()
 	{
 		tester = new SpringWicketTester();
-		tester.startPage(SignUpPage.class);
+		tester.startPage(LoginPage.class);
 
 	}
 }

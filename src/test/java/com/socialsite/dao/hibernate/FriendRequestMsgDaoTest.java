@@ -18,45 +18,62 @@
 package com.socialsite.dao.hibernate;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.socialsite.dao.AbstractDaoTest;
-import com.socialsite.dao.FriendRequestMsgDao;
-import com.socialsite.dao.MessageDao;
-import com.socialsite.dao.UserDao;
+import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.FriendRequestMsg;
-import com.socialsite.persistence.Message;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
 
-public class FriendRequestMsgDaoTest extends AbstractDaoTest
+/**
+ * 
+ * @author Ananth
+ * 
+ */
+public class FriendRequestMsgDaoTest extends AbstractDaoTestHelper
 {
 
-	@Resource(name = "messageDao")
-	MessageDao<Message> messageDao;
-
-	@Resource(name = "userDao")
-	private UserDao<User> userDao;
-
-	@Resource(name = "friendRequestMsgDao")
-	FriendRequestMsgDao friendRequestMsgDao;
 
 	@Test
 	@Transactional
-	public void friendRequestMessageTest()
+	public void testDeleteFriendRequest()
 	{
 		final User ananth = new Student("ananth", "pass");
-		userDao.save(ananth);
-
 		final User anantha = new Student("anantha", "pass");
-		userDao.save(anantha);
+
+		saveUsers(ananth, anantha);
+
+		final FriendRequestMsg m = new FriendRequestMsg();
+		m.setMessage("hello");
+		m.setSender(ananth);
+		m.getUsers().add(anantha);
+		m.setTime(new Date());
+		messageDao.save(m);
+
+		assertEquals(1, messageDao.countAll());
+		assertEquals(2, userDao.countAll());
+		// delete the message
+		messageDao.delete(m);
+		assertEquals(0, messageDao.countAll());
+		assertEquals(2, userDao.countAll());
+
+
+	}
+
+	@Test
+	@Transactional
+	public void testFriendRequestMessage()
+	{
+		final User ananth = new Student("ananth", "pass");
+		final User anantha = new Student("anantha", "pass");
+
+		saveUsers(ananth, anantha);
 
 		final FriendRequestMsg m = new FriendRequestMsg();
 		m.setMessage("hello");
@@ -74,13 +91,12 @@ public class FriendRequestMsgDaoTest extends AbstractDaoTest
 
 	@Test
 	@Transactional
-	public void hasFriendRequestTest()
+	public void testHasFriendRequest()
 	{
 		final User ananth = new Student("ananth", "pass");
-		userDao.save(ananth);
-
 		final User anantha = new Student("anantha", "pass");
-		userDao.save(anantha);
+		final User user1 = new Student("user1", "password");
+		saveUsers(ananth, anantha, user1);
 
 		final FriendRequestMsg m = new FriendRequestMsg();
 		m.setMessage("hello");
@@ -93,6 +109,8 @@ public class FriendRequestMsgDaoTest extends AbstractDaoTest
 
 		assertTrue(friendRequestMsgDao.hasFriendRequest(ananth.getId(), anantha.getId()));
 		assertTrue(friendRequestMsgDao.hasFriendRequest(anantha.getId(), ananth.getId()));
+		assertFalse(friendRequestMsgDao.hasFriendRequest(ananth.getId(), user1.getId()));
+		assertFalse(friendRequestMsgDao.hasFriendRequest(user1.getId(), anantha.getId()));
 
 	}
 }

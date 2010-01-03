@@ -40,30 +40,12 @@ div.grippie {
 }
 </style>
 </wicket:head>
-
 <wicket:panel>
-	<textarea id="myTextarea" wicket:id="textarea">
+	<!-- hide the textarea to avoid errors in wmd(wmd creates error if the textarea is
+	 visible but any parent is hidden . To avoid  this keep the text area hidden if it is not
+	 visible). keep the width 100% so the textarea resizer won't look crazy  -->
+	<textarea class="richEditor" wicket:id="textarea" style="display: none ; width:100%">
   </textarea>
-	<script type="text/javascript">
-	// to set WMD's options programatically, define a "wmd_options" object with whatever settings
-	// you want to override.  Here are the defaults:
-	wmd_options = {
-		// format sent to the server.  Use "Markdown" to return the markdown source.
-		output : "HTML",
-
-		// line wrapping length for lists, blockquotes, etc.
-		lineLength : 40,
-
-		// toolbar buttons.  Undo and redo get appended automatically.
-		buttons : "bold italic | link blockquote code image | ol ul heading hr",
-
-		// option to automatically add WMD to the first textarea found.  See apiExample.html for usage.
-		autostart : true
-	};
-</script>
-	<wicket:link>
-		<script type="text/javascript" src="wmd.js"></script>
-	</wicket:link>
 	<div class="wmd-preview"></div>
 </wicket:panel>
 </html>

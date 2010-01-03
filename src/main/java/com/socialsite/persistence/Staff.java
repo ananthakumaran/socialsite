@@ -41,6 +41,18 @@ public class Staff extends User
 		super(userName, password);
 	}
 
+	public Staff(final String userName, final String password, final University university)
+	{
+		super(userName, password);
+		setUniversity(university);
+	}
+
+	public void addUniversity(final University university)
+	{
+		setUniversity(university);
+		university.getStaffs().add(this);
+	}
+
 	public Set<Course> getCourses()
 	{
 		return courses;

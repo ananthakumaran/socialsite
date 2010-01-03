@@ -27,7 +27,9 @@ import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
 import com.socialsite.authentication.LoginPage;
 import com.socialsite.authentication.UserRolesAuthorizer;
+import com.socialsite.image.CourseImageResource;
 import com.socialsite.image.ImageType;
+import com.socialsite.image.UniversityImageResource;
 import com.socialsite.image.UserImageResource;
 
 /**
@@ -52,6 +54,13 @@ public class SocialSiteApplication extends WebApplication
 	{
 	}
 
+	@Override
+	public String getConfigurationType()
+	{
+		return "DEVELOPMENT";
+		// return "DEPLOYMENT";
+	}
+
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
 	 */
@@ -74,6 +83,7 @@ public class SocialSiteApplication extends WebApplication
 
 		// add spring listener to the application
 		addComponentInstantiationListener(new SpringComponentInjector(this));
+		
 
 		// intializes the security listeners
 		initSecurity();
@@ -81,8 +91,24 @@ public class SocialSiteApplication extends WebApplication
 		// enables wicket autolinking
 		getMarkupSettings().setAutomaticLinking(true);
 
+		// init all the image resources
+		initImageResources();
+
+		// logs all the request to the server
+		// Application.get().getRequestLoggerSettings().setRequestLoggerEnabled(true);
+	}
+
+	/**
+	 * registers all the image resources
+	 */
+	private void initImageResources()
+	{
 		// user image
 		getSharedResources().add(ImageType.USER.name(), new UserImageResource());
+		// university image
+		getSharedResources().add(ImageType.UNIVERSITY.name(), new UniversityImageResource());
+		// course image
+		getSharedResources().add(ImageType.COURSE.name(), new CourseImageResource());
 
 	}
 
@@ -90,29 +116,12 @@ public class SocialSiteApplication extends WebApplication
 	 * initializes all the security settings
 	 * 
 	 */
-	public void initSecurity()
+	private void initSecurity()
 	{
 		// set the authorization Strategy
 		getSecuritySettings().setAuthorizationStrategy(
 				new RoleAuthorizationStrategy(new UserRolesAuthorizer()));
-		// MetaDataRoleAuthorizationStrategy.authorize(HomePage.class, "ADMIN");
-		// getSecuritySettings().setUnauthorizedComponentInstantiationListener(
-		// new SocialSiteUnauthorizedComponentInstantiationListener());
-		//
-		// // Register the component instatiation listener to check the
-		// // authorization of each page
-		// addComponentInstantiationListener(new
-		// IComponentInstantiationListener() {
-		//
-		// public void onInstantiation(Component component) {
-		// if (!getSecuritySettings().getAuthorizationStrategy()
-		// .isInstantiationAuthorized(component.getClass())) {
-		// getSecuritySettings()
-		// .getUnauthorizedComponentInstantiationListener()
-		// .onUnauthorizedInstantiation(component);
-		// }
-		// }
-		// });
+
 	}
 
 	/**

@@ -17,7 +17,9 @@
 
 package com.socialsite.university;
 
-import org.apache.wicket.markup.html.WebPage;
+import com.socialsite.BasePage;
+import com.socialsite.course.CoursesPanel;
+import com.socialsite.persistence.University;
 
 /**
  * 
@@ -25,15 +27,16 @@ import org.apache.wicket.markup.html.WebPage;
  * 
  * @author Ananth
  */
-public class UniversityPage extends WebPage
+public class UniversityPage extends BasePage
 {
 
 	/**
 	 * constructor
 	 */
-	public UniversityPage()
+	public UniversityPage(final University university)
 	{
-
+		add(new UniversityInfoPanel("info", university));
+		add(new CoursesPanel("courses", university));
 	}
 
 }

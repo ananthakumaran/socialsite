@@ -58,9 +58,11 @@ public class FriendsPanel extends BasePanel
 			protected void populateItem(final Item<User> item)
 			{
 				final User user = item.getModelObject();
-				item.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, true));
+				UserLink<User> userImageLink;
+				item.add(userImageLink = new UserLink<User>("imagelink", item.getModel()));
+				userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, true));
 				Link<User> name;
-				item.add(name = new UserLink("home", item.getModel()));
+				item.add(name = new UserLink<User>("home", item.getModel()));
 				name.add(new Label("username", item.getModelObject().getUserName()));
 			}
 

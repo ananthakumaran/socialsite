@@ -143,7 +143,7 @@
 		<property name="target" ref="infoMsgDaoTarget" />
 	</bean>
 
-	<!-- UniversityMsgDao -->
+	<!-- UniversityDao -->
 	<bean id="universityDaoTarget" class="com.socialsite.dao.hibernate.UniversityDaoImpl"
 		lazy-init="true">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -154,6 +154,41 @@
 		<property name="target" ref="universityDaoTarget" />
 	</bean>
 
+	<!-- CourseDao -->
+	<bean id="courseDaoTarget" class="com.socialsite.dao.hibernate.CourseDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
+	<bean id="courseDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="courseDaoTarget" />
+	</bean>
+	<!-- QuestionDao -->
+	<bean id="questionDaoTarget" class="com.socialsite.dao.hibernate.QuestionDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
+	<bean id="questionDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="questionDaoTarget" />
+	</bean>
+	<!-- AnswerDao -->
+	<bean id="answerDaoTarget" class="com.socialsite.dao.hibernate.AnswerDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="answerDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="answerDaoTarget" />
+	</bean>
+	<!-- CommentDao -->
+	<bean id="commentDaoTarget" class="com.socialsite.dao.hibernate.CommentDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="commentDao" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target" ref="commentDaoTarget" />
+	</bean>
 </beans>

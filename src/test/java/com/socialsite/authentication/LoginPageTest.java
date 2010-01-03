@@ -19,40 +19,41 @@ package com.socialsite.authentication;
 
 import static org.junit.Assert.assertNotNull;
 
-import javax.annotation.Resource;
-
+import org.apache.wicket.injection.web.InjectorHolder;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.util.tester.FormTester;
+import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.springframework.orm.hibernate3.SessionFactoryUtils;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
-import com.socialsite.dao.AbstractDaoTest;
 import com.socialsite.dao.UserDao;
 import com.socialsite.home.HomePage;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
+import com.socialsite.scripts.SchemaCreator;
 import com.socialsite.util.SpringWicketTester;
 
-public class LoginPageTest extends AbstractDaoTest
+
+@TransactionConfiguration(defaultRollback = true)
+public class LoginPageTest 
 {
 
-	@Resource(name = "userDao")
+	@SpringBean(name = "userDao")
 	private UserDao<User> userDao;
 
 	SpringWicketTester tester;
 
 	@Test
-	@Transactional
-	@Ignore
-	public void loginFormTest()
+	@Rollback
+	public void testLoginForm()
 	{
 
+
+		InjectorHolder.getInjector().inject(this);
 		final User user = new Student("student", "password");
 		userDao.save(user);
-		// flush the session so we can get the record using JDBC template
-		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
 		assertNotNull("correct username and password", userDao.checkUserStatus("student",
 				"password"));
@@ -70,8 +71,7 @@ public class LoginPageTest extends AbstractDaoTest
 	}
 
 	@Test
-	@Transactional
-	public void loginFormWrongAuthenticationTest()
+	public void testLoginFormWrongAuthentication()
 	{
 		final FormTester form = tester.newFormTester("loginform");
 
@@ -84,18 +84,25 @@ public class LoginPageTest extends AbstractDaoTest
 	}
 
 	@Test
-	@Transactional
-	public void loginRenderTest()
+	public void testLoginRender()
 	{
 		tester.assertNoErrorMessage();
 		tester.assertRenderedPage(LoginPage.class);
 	}
 
+
 	@Before
-	public void setup()
+	public void setupTest()
 	{
+
 		tester = new SpringWicketTester();
 		tester.startPage(LoginPage.class);
+	}
+
+	@AfterClass
+	public static void cleanUp()
+	{
+		SchemaCreator.create();
 	}
 
 }

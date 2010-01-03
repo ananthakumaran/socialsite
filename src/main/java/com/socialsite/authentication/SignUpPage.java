@@ -197,7 +197,7 @@ public class SignUpPage extends WebPage
 
 					p.setEmail(email);
 					// set the default image for the profile
-					new DefaultImage(p);
+					new DefaultImage().forUser(p);
 					profileDao.save(p);
 
 					final SocialSiteSession session = SocialSiteSession.get();

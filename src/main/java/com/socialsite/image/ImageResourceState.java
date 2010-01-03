@@ -38,7 +38,7 @@ class ImageResourceState extends ResourceState
 
 	private Time lastModified;
 
-	ImageResourceState(Time lastModified)
+	ImageResourceState(final Time lastModified)
 	{
 		super();
 		this.lastModified = lastModified;
@@ -68,11 +68,6 @@ class ImageResourceState extends ResourceState
 		return lastModified;
 	}
 
-	public void setLastModified(Time lastModified)
-	{
-		this.lastModified = lastModified;
-	}
-
 	void setContentType(final String contentType)
 	{
 		this.contentType = contentType;
@@ -81,6 +76,11 @@ class ImageResourceState extends ResourceState
 	void setData(final byte[] data)
 	{
 		this.data = data;
+	}
+
+	public void setLastModified(final Time lastModified)
+	{
+		this.lastModified = lastModified;
 	}
 
 	// METHODS

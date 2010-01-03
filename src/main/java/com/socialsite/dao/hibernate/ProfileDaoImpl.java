@@ -17,8 +17,6 @@
 
 package com.socialsite.dao.hibernate;
 
-import java.util.Date;
-
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.persistence.Profile;
 
@@ -28,8 +26,9 @@ import com.socialsite.persistence.Profile;
  * @author Ananth
  * 
  */
-public class ProfileDaoImpl extends AbstractDaoImpl<Profile> implements ProfileDao
+public class ProfileDaoImpl extends AbstractImageDaoImpl<Profile> implements ProfileDao
 {
+
 	/**
 	 * constructor
 	 */
@@ -38,30 +37,4 @@ public class ProfileDaoImpl extends AbstractDaoImpl<Profile> implements ProfileD
 		super(Profile.class);
 	}
 
-	/**
-	 * @see com.socialsite.dao.ProfileDao#getUserImage(Long)
-	 */
-	public byte[] getUserImage(final long userId)
-	{
-		return (byte[])getSession().createQuery(
-				"select image from Profile where user.id = :userid ")
-				.setParameter("userid", userId).uniqueResult();
-	}
-
-	/**
-	 * @see com.socialsite.dao.ProfileDao#getUserThumb(Long)
-	 */
-	public byte[] getUserThumb(final long userId)
-	{
-		return (byte[])getSession().createQuery(
-				"select thumb from Profile where user.id = :userid ")
-				.setParameter("userid", userId).uniqueResult();
-	}
-
-	public Date getLastModifiedTime(final long id)
-	{
-		return (Date)getSession().createQuery(
-				"select lastModified from Profile p where p.user.id = :userid").setParameter(
-				"userid", id).uniqueResult();
-	}
 }

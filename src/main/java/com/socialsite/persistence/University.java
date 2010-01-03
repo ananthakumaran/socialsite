@@ -17,6 +17,7 @@
 
 package com.socialsite.persistence;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,7 +32,7 @@ public class University implements AbstractDomain
 	private String name;
 	private byte[] image;
 	private byte[] thumb;
-
+	private Date lastModified;
 	private Admin admin;
 
 	private Set<Staff> staffs = new HashSet<Staff>();
@@ -40,12 +41,18 @@ public class University implements AbstractDomain
 
 	public University()
 	{
-		this("");
 	}
 
 	public University(final String name)
 	{
+		this(name, null);
+	}
+
+	public University(final String name, final Admin admin)
+	{
 		setName(name);
+		setAdmin(admin);
+		setLastModified(new Date());
 	}
 
 	public Admin getAdmin()
@@ -66,6 +73,11 @@ public class University implements AbstractDomain
 	public byte[] getImage()
 	{
 		return image;
+	}
+
+	public Date getLastModified()
+	{
+		return lastModified;
 	}
 
 	public String getName()
@@ -101,6 +113,12 @@ public class University implements AbstractDomain
 	public void setImage(final byte[] image)
 	{
 		this.image = image;
+		setLastModified(new Date());
+	}
+
+	public void setLastModified(final Date lastModified)
+	{
+		this.lastModified = lastModified;
 	}
 
 	public void setName(final String name)
@@ -116,5 +134,6 @@ public class University implements AbstractDomain
 	public void setThumb(final byte[] thumb)
 	{
 		this.thumb = thumb;
+		setLastModified(new Date());
 	}
 }

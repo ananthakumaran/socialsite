@@ -72,7 +72,6 @@ public class SpringWicketTester extends WicketTester
 			final String... springConfigURLs)
 	{
 		super(app, context);
-
 		reconfigure(springConfigURLs);
 	}
 
@@ -107,7 +106,6 @@ public class SpringWicketTester extends WicketTester
 	{
 		final ServletContext context = new MockServletContext(getApplication(), path);
 		getSpringContext().setServletContext(context);
-
 		context.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, spring);
 		return context;
 	}

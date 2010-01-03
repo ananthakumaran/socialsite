@@ -20,14 +20,14 @@ package com.socialsite.dao.hibernate;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 
-import javax.annotation.Resource;
+import java.util.Date;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.socialsite.dao.AbstractDaoTest;
-import com.socialsite.dao.ProfileDao;
+import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
@@ -37,18 +37,15 @@ import com.socialsite.persistence.User;
  * @author Ananth
  * 
  */
-public class ProfileDaoTest extends AbstractDaoTest
+public class ProfileDaoTest extends AbstractDaoTestHelper
 {
-	@Resource(name = "profileDao")
-	private ProfileDao profileDao;
 
 	@Test
 	@Transactional
 	public void testCreate()
 	{
 		final User ananth = new Student("ananth", "pass");
-		final Profile ananthProfile = new Profile();
-		ananthProfile.setUser(ananth);
+		final Profile ananthProfile = new Profile(ananth);
 		ananthProfile.setEmail("ananth@gmail.com");
 		ananthProfile.setFirstName("ananth");
 		ananthProfile.setLastName("Kumaran");
@@ -76,16 +73,29 @@ public class ProfileDaoTest extends AbstractDaoTest
 
 	@Test
 	@Transactional
+	public void testGetLastModifiedTime()
+	{
+		final Date date = new Date();
+		final User ananth = new Student("ananth", "pass");
+		final Profile ananthProfile = new Profile(ananth);
+		ananthProfile.setLastModified(date);
+		profileDao.save(ananthProfile);
+		Assert.assertEquals(date.getTime() / 1000, profileDao.getLastModifiedTime(ananth.getId())
+				.getTime() / 1000);
+
+	}
+
+	@Test
+	@Transactional
 	public void testGetUserImage()
 	{
 		final User ananth = new Student("ananth", "pass");
-		final Profile ananthProfile = new Profile();
-		ananthProfile.setUser(ananth);
+		final Profile ananthProfile = new Profile(ananth);
 		// set some dummy data for image
 		ananthProfile.setImage("dummy data".getBytes());
 		profileDao.save(ananthProfile);
 
-		final byte[] image = profileDao.getUserImage(ananth.getId());
+		final byte[] image = profileDao.getImage(ananth.getId());
 		assertNotNull("should return the data", image);
 		assertEquals("image data should be equal to  'dummy data' ", new String(image),
 				"dummy data");
@@ -97,13 +107,12 @@ public class ProfileDaoTest extends AbstractDaoTest
 	public void testGetUserThumb()
 	{
 		final User ananth = new Student("ananth", "pass");
-		final Profile ananthProfile = new Profile();
-		ananthProfile.setUser(ananth);
+		final Profile ananthProfile = new Profile(ananth);
 		// set some dummy data for image
 		ananthProfile.setThumb("dummy data".getBytes());
 		profileDao.save(ananthProfile);
 
-		final byte[] image = profileDao.getUserThumb(ananth.getId());
+		final byte[] image = profileDao.getThumb(ananth.getId());
 		assertNotNull("should return the data", image);
 		assertEquals("image data should be equal to  'dummy data' ", new String(image),
 				"dummy data");

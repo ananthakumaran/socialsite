@@ -18,12 +18,11 @@
 package com.socialsite.image;
 
 import org.apache.wicket.injection.web.InjectorHolder;
-import org.apache.wicket.markup.html.DynamicWebResource;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.apache.wicket.util.time.Time;
-import org.apache.wicket.util.value.ValueMap;
 
+import com.socialsite.dao.AbstractImageDao;
 import com.socialsite.dao.ProfileDao;
+import com.socialsite.persistence.Profile;
 
 /**
  * handles the request for the images
@@ -31,7 +30,7 @@ import com.socialsite.dao.ProfileDao;
  * @author Ananth
  * 
  */
-public class UserImageResource extends DynamicWebResource
+public class UserImageResource extends AbstractImageResource<Profile>
 {
 
 	@SpringBean(name = "profileDao")
@@ -41,55 +40,21 @@ public class UserImageResource extends DynamicWebResource
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public UserImageResource()
-	{
-
-	}
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.image.AbstractImageResource#getImageDao()
+	 */
 	@Override
-	protected ResourceState getResourceState()
+	public AbstractImageDao<Profile> getImageDao()
 	{
-		// inject the spring dao
-		InjectorHolder.getInjector().inject(this);
-
-		// parameters
-		final ValueMap params = getParameters();
-		final long id = params.getAsLong("id");
-		// load the image from the database
-		final ImageResourceState imageResourceState = new ImageResourceState(Time
-				.valueOf((profileDao.getLastModifiedTime(id))));
-		try
+		if (profileDao == null)
 		{
-			imageResourceState.setContentType("image/jpeg");
-
-
-			if (params.containsKey("thumb"))
-			{
-				imageResourceState.setData(profileDao.getUserThumb(id));
-			}
-			else
-			{
-				imageResourceState.setData(profileDao.getUserImage(id));
-			}
+			// inject the spring dao
+			InjectorHolder.getInjector().inject(this);
 		}
-		catch (final Exception e)
-		{
-			return new ResourceState()
-			{
 
-				@Override
-				public String getContentType()
-				{
-					return null;
-				}
-
-				@Override
-				public byte[] getData()
-				{
-					return null;
-				}
-			};
-		}
-		return imageResourceState;
+		return profileDao;
 	}
+
 }

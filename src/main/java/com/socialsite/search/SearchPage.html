@@ -21,25 +21,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd"
 	xml:lang="en" lang="en">
-<head>
-<link rel="stylesheet" href="css/global.css" />
-</head>
 <body>
 <div id="container">
 <div id="header">
 <div wicket:id="header">[header panel]</div>
 </div>
-<div id="leftsidebar">
-<div wicket:id="userinfo">[user info panel ]</div>
-</div>
-<div id="rightsidebar"></div>
-<div id="content_2">
+<div wicket:id="userinfo" class="wrap">[user info panel ]</div>
+<div id="content">
+<div class="wrap">
 <ol>
 	<li wicket:id="searchlist">
 	<div wicket:id="details">[ user list ]</div>
 	</li>
 </ol>
 <div wicket:id="searchpagination"></div>
+</div>
 </div>
 <div class="clear"></div>
 </div>

@@ -17,8 +17,6 @@
 
 package com.socialsite.dao;
 
-import java.util.Date;
-
 import com.socialsite.persistence.Profile;
 
 /**
@@ -26,32 +24,7 @@ import com.socialsite.persistence.Profile;
  * 
  * @author Ananth
  */
-public interface ProfileDao extends AbstractDao<Profile>
+public interface ProfileDao extends AbstractImageDao<Profile>
 {
 
-	/**
-	 * get the userImage of the user
-	 * 
-	 * @param userId
-	 *            user id
-	 * @return byte[] contains the userImage
-	 */
-	public byte[] getUserImage(long userId);
-
-	/**
-	 * get the thumbnail userImage of the user
-	 * 
-	 * @param userId
-	 *            user id
-	 * @return byte[] thumbnail contains the userImage
-	 */
-	public byte[] getUserThumb(long userId);
-
-	/**
-	 * returns the last modified date of the 
-	 * user image
-	 * @param id
-	 * @return
-	 */
-	public Date getLastModifiedTime(final long id);
 }

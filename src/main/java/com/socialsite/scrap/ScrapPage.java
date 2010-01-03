@@ -17,6 +17,8 @@
 
 package com.socialsite.scrap;
 
+import org.apache.wicket.markup.html.IHeaderResponse;
+
 import com.socialsite.BasePage;
 import com.socialsite.user.UserInfoPanel;
 
@@ -42,4 +44,11 @@ public class ScrapPage extends BasePage
 		add(new SendScrapPanel("send", scrapListPanel.scrapListContainer));
 	}
 
+
+	@Override
+	public void renderHead(final IHeaderResponse response)
+	{
+		super.renderHead(response);
+		response.renderJavascriptReference("js/socialsite/scrap.js");
+	}
 }

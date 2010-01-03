@@ -17,6 +17,7 @@
 
 package com.socialsite.persistence;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,8 +40,32 @@ public class Course implements AbstractDomain
 
 	private Set<Student> students = new HashSet<Student>();
 
+	private Date lastModified;
+
+	private Set<Question> questions = new HashSet<Question>();
+
 	public Course()
 	{
+	}
+
+	public Course(final String name, final Staff staff, final University university)
+	{
+		setName(name);
+		setStaff(staff);
+		addUniversity(university);
+		setLastModified(new Date());
+	}
+
+	public void addQuestions(final Question question)
+	{
+		getQuestions().add(question);
+		question.setCourse(this);
+	}
+
+	public void addUniversity(final University university)
+	{
+		setUniversity(university);
+		university.getCourses().add(this);
 	}
 
 	public long getId()
@@ -48,14 +73,25 @@ public class Course implements AbstractDomain
 		return id;
 	}
 
+
 	public byte[] getImage()
 	{
 		return image;
 	}
 
+	public Date getLastModified()
+	{
+		return lastModified;
+	}
+
 	public String getName()
 	{
 		return name;
+	}
+
+	public Set<Question> getQuestions()
+	{
+		return questions;
 	}
 
 	public Staff getStaff()
@@ -88,9 +124,19 @@ public class Course implements AbstractDomain
 		this.image = image;
 	}
 
+	public void setLastModified(final Date lastModified)
+	{
+		this.lastModified = lastModified;
+	}
+
 	public void setName(final String name)
 	{
 		this.name = name;
+	}
+
+	public void setQuestions(final Set<Question> questions)
+	{
+		this.questions = questions;
 	}
 
 	public void setStaff(final Staff staff)

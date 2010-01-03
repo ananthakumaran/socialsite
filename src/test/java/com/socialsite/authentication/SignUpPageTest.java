@@ -20,6 +20,7 @@
  */
 package com.socialsite.authentication;
 
+import org.apache.wicket.injection.web.InjectorHolder;
 import org.apache.wicket.util.tester.FormTester;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -66,12 +67,14 @@ public class SignUpPageTest
 	public void signUpTest()
 	{
 		tester.assertNoErrorMessage();
+		InjectorHolder.getInjector().inject(this);
 
 		final FormTester form = tester.newFormTester("signupform");
 		form.setValue("username", "ananth");
 		form.setValue("password", "password");
 		form.setValue("re-password", "password");
 		form.setValue("email", "anatha@gmail.com");
+	//	form.setValue("usertype", "student");
 
 		form.submit("signup");
 		tester.assertNoErrorMessage();

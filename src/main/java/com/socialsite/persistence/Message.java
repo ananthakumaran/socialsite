@@ -41,6 +41,14 @@ public abstract class Message implements AbstractDomain
 		setTime(new Date());
 	}
 
+	/*
+	 * add the user to the receiver list
+	 */
+	public void addUser(final User user)
+	{
+		getUsers().add(user);
+	}
+
 	public long getId()
 	{
 		return id;

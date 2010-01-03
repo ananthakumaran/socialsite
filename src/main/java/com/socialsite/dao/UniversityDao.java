@@ -28,7 +28,7 @@ import com.socialsite.persistence.University;
  * @author Ananth
  * 
  */
-public interface UniversityDao extends AbstractDao<University>
+public interface UniversityDao extends AbstractImageDao<University>
 {
 	/**
 	 * find the number of unique rows in the University (table) that matched the
@@ -50,11 +50,11 @@ public interface UniversityDao extends AbstractDao<University>
 	 *            <p>
 	 *            if filter is null all the users will be added to the list
 	 * @param first
-	 *            first item no of the user List
+	 *            first item no of the university List
 	 * @param count
-	 *            no of items needed in the user List
+	 *            no of items needed in the university List
 	 * @param sortParam
-	 *            used to sort the user List
+	 *            used to sort the university List
 	 * @return List containing the {@link University} matched the search
 	 *         criteria
 	 */

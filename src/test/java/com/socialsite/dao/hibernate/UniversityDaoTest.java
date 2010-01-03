@@ -18,16 +18,18 @@
 package com.socialsite.dao.hibernate;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import javax.annotation.Resource;
+import java.util.Date;
 
 import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.junit.Test;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.socialsite.dao.AbstractDaoTest;
-import com.socialsite.dao.UniversityDao;
+import com.socialsite.authentication.SignUpPage;
+import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.University;
+import com.socialsite.util.SpringWicketTester;
 
 /**
  * 
@@ -36,15 +38,12 @@ import com.socialsite.persistence.University;
  * @author Ananth
  * 
  */
-public class UniversityDaoTest extends AbstractDaoTest
+public class UniversityDaoTest extends AbstractDaoTestHelper
 {
-
-	@Resource(name = "universityDao")
-	private UniversityDao universityDao;
 
 	@Test
 	@Transactional
-	public void countTest()
+	public void testCountAll()
 	{
 		final University u = new University("test");
 		universityDao.save(u);
@@ -53,12 +52,51 @@ public class UniversityDaoTest extends AbstractDaoTest
 
 	@Test
 	@Transactional
-	public void findAllTest()
+	public void testFinlAll()
 	{
 		// TODO check some more conditions
 		final University u = new University("test");
 		universityDao.save(u);
 		assertEquals(1, universityDao.findAll("te", 0, 5, new SortParam("name", true)).size());
 	}
+
+	@Test
+	@Transactional
+	public void testGetImage()
+	{
+		tester = new SpringWicketTester();
+		tester.startPage(SignUpPage.class);
+		final University university1 = new University("testuniversity");
+		setDefaultImage(university1);
+		saveUniversities(university1);
+		assertNotNull(universityDao.getImage(university1.getId()));
+	}
+
+	@Test
+	@Transactional
+	public void testGetLastModifiedTime()
+	{
+		final Date date = new Date();
+		// courses
+		final University university1 = new University("testuniversity");
+		university1.setLastModified(date);
+		saveUniversities(university1);
+
+		assertEquals(date.getTime() / 1000, universityDao.getLastModifiedTime(university1.getId())
+				.getTime() / 1000);
+	}
+
+	@Test
+	@Transactional
+	public void testGetThumb()
+	{
+		tester = new SpringWicketTester();
+		tester.startPage(SignUpPage.class);
+		final University university1 = new University("testuniversity");
+		setDefaultImage(university1);
+		saveUniversities(university1);
+		assertNotNull(universityDao.getThumb(university1.getId()));
+	}
+
 
 }

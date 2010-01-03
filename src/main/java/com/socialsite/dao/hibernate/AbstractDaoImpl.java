@@ -23,7 +23,10 @@ import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 import com.socialsite.dao.AbstractDao;
 
@@ -65,14 +68,13 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	@SuppressWarnings("unchecked")
 	protected int count(String filter, final Class clazz, final String field)
 	{
-		// avoid NPE
+		// Avoids NPE
 		filter = filter == null ? "" : filter;
 
-		final Long count = (Long)getSession().createQuery(
-				"select count(u) from " + clazz.getName() + " u where " + " u." + field
-						+ " like :filter ").setParameter("filter", "%" + filter + "%")
-				.uniqueResult();
-		return count.intValue();
+		final Criteria criteria = getSession().createCriteria(clazz);
+		criteria.add(Restrictions.ilike(field, filter, MatchMode.ANYWHERE));
+		criteria.setProjection(Projections.rowCount());
+		return (Integer)criteria.uniqueResult();
 	}
 
 	/**
@@ -122,18 +124,13 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 		// avoids the NPE
 		filter = filter == null ? "" : filter;
 
-		final StringBuilder query = new StringBuilder();
-		// set the sort parameters
-		final String sortBy = "u." + sortParam.getProperty();
-		final String sort = sortParam.isAscending() ? "asc" : "desc";
-		// query construction
-		query.append(" from ").append(clazz.getName()).append(" u where u.").append(field).append(
-				" like :filter order by ").append(sortBy).append(" ").append(sort);
-
-		return getSession().createQuery(query.toString())
-				.setParameter("filter", "%" + filter + "%").setFirstResult(first).setMaxResults(
-						count).list();
-
+		// order
+		final Order order = sortParam.isAscending() ? Order.asc(sortParam.getProperty()) : Order
+				.desc(sortParam.getProperty());
+		final Criteria criteria = getSession().createCriteria(clazz);
+		criteria.add(Restrictions.ilike(field, filter, MatchMode.ANYWHERE));
+		criteria.addOrder(order);
+		return criteria.list();
 	}
 
 	/**
@@ -147,6 +144,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		return criteria.list();
 	}
+
 
 	/**
 	 * get hibernate Session from SessionFactory
@@ -167,6 +165,7 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 	{
 		return sessionFactory;
 	}
+
 
 	/**
 	 * load the domainclass of the given id

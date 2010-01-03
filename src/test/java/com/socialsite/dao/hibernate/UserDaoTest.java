@@ -21,23 +21,24 @@ import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 
-import javax.annotation.Resource;
-
+import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.junit.Test;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.socialsite.authentication.SocialSiteRoles;
-import com.socialsite.dao.AbstractDaoTest;
-import com.socialsite.dao.UserDao;
+import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
 
-public class UserDaoTest extends AbstractDaoTest
+/**
+ * 
+ * @author Ananth
+ * 
+ */
+public class UserDaoTest extends AbstractDaoTestHelper
 {
 
-	@Resource(name = "userDao")
-	private UserDao<User> userDao;
 
 	@Test
 	@Transactional
@@ -48,6 +49,20 @@ public class UserDaoTest extends AbstractDaoTest
 		assertNotNull("correct username and password", userDao.checkUserStatus("ananth", "pass"));
 		assertNull("wrong username ", userDao.checkUserStatus("asdf", "pass"));
 		assertNull("wrong password ", userDao.checkUserStatus("ananth", "ss"));
+	}
+
+	@Test
+	@Transactional
+	public void testCountAll()
+	{
+		final User ananth = new Student("ananth", "pass");
+		final User anantha = new Student("anantha", "pass");
+		saveUsers(ananth, anantha);
+		assertEquals(2, userDao.countAll("an"));
+		assertEquals(1, userDao.countAll("anantha"));
+		assertEquals(0, userDao.countAll("ufasdf"));
+		assertEquals(2, userDao.countAll());
+
 	}
 
 	@Test
@@ -68,17 +83,24 @@ public class UserDaoTest extends AbstractDaoTest
 
 	@Test
 	@Transactional
+	public void testFindAll()
+	{
+		final User ananth = new Student("ananth", "pass");
+		final User anantha = new Student("anantha", "pass");
+		saveUsers(ananth, anantha);
+		assertEquals(2, userDao.findAll(null, 0, 2, new SortParam("userName", true)).size());
+		assertEquals(2, userDao.findAll("an", 0, 2, new SortParam("userName", false)).size());
+	}
+
+	@Test
+	@Transactional
 	public void testFriendRelation()
 	{
 		final User ananth = new Student("ananth", "pass");
-		userDao.save(ananth);
-
 		final User anantha = new Student("anantha", "pass");
-		userDao.save(anantha);
-
+		saveUsers(ananth, anantha);
 		ananth.addFriend(anantha);
-
-		userDao.save(ananth);
+		saveUsers(ananth);
 
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
@@ -100,21 +122,50 @@ public class UserDaoTest extends AbstractDaoTest
 
 	@Test
 	@Transactional
+	public void testGetFriends()
+	{
+		final User ananth = new Student("ananth", "pass");
+		final User anantha = new Student("anantha", "pass");
+		saveUsers(ananth, anantha);
+		ananth.addFriend(anantha);
+		saveUsers(anantha);
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+		assertEquals(1, userDao.getFriends(ananth).size());
+		assertEquals(1, userDao.getFriends(anantha.getId(), 0, 1).size());
+
+		final User friend = userDao.getFriends(ananth.getId(), 0, 1).get(0);
+
+		assertEquals(anantha, friend);
+
+	}
+
+	@Test
+	@Transactional
+	public void testGetFriendsCount()
+	{
+		final User ananth = new Student("ananth", "pass");
+		final User anantha = new Student("anantha", "pass");
+		saveUsers(ananth, anantha);
+		ananth.addFriend(anantha);
+		saveUsers(anantha);
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+		assertEquals(1, userDao.getFriendsCount(anantha.getId()));
+		assertEquals(1, userDao.getFriendsCount(ananth.getId()));
+
+	}
+
+	@Test
+	@Transactional
 	public void testGetUsersRelation()
 	{
 		final User ananth = new Student("ananth", "pass");
-		userDao.save(ananth);
-
 		final User anantha = new Student("anantha", "pass");
-		userDao.save(anantha);
-
+		saveUsers(ananth, anantha);
 		ananth.addFriend(anantha);
-
-		userDao.save(ananth);
-
 		final User unknown = new Student("unknown", "pass");
-		userDao.save(unknown);
-
+		saveUsers(anantha, unknown);
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 

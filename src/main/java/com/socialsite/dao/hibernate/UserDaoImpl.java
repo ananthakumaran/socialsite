@@ -52,8 +52,11 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements U
 		super(domainClass);
 	}
 
-	/**
-	 * @see com.socialsite.dao.UserDao#checkUserStatus(String, String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.UserDao#checkUserStatus(java.lang.String,
+	 * java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
 	public T checkUserStatus(final String userName, final String password)
@@ -69,16 +72,21 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements U
 		return null;
 	}
 
-	/**
-	 * @see com.socialsite.dao.UserDao#countAll(String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.UserDao#countAll(java.lang.String)
 	 */
 	public int countAll(final String filter)
 	{
 		return count(filter, User.class, "userName");
 	}
 
-	/**
-	 * @see com.socialsite.dao.UserDao#findAll(String, int, int, SortParam)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.UserDao#findAll(java.lang.String, int, int,
+	 * org.apache.wicket.extensions.markup.html.repeater.util.SortParam)
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> findAll(final String filter, final int first, final int count,
@@ -87,8 +95,27 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements U
 		return find(filter, first, count, sortParam, User.class, "userName");
 	}
 
-	/**
-	 * @see com.socialsite.dao.UserDao#getFriends(User)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.socialsite.dao.UserDao#getFriends(com.socialsite.persistence.User,
+	 * int, int)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<T> getFriends(final long userId, final int first, final int count)
+	{
+		final Query query = getSession().createQuery(
+				"select u.friends from User u where u.id = :userId").setParameter("userId", userId)
+				.setFirstResult(first).setMaxResults(count);
+		return query.list();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.socialsite.dao.UserDao#getFriends(com.socialsite.persistence.User)
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> getFriends(final T user)
@@ -96,34 +123,26 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements U
 		return (List<T>)new ArrayList<User>(user.getFriends());
 	}
 
-	/**
-	 * @see com.socialsite.dao.UserDao#getFriends(User, int, int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.socialsite.dao.UserDao#getFriendsCount(com.socialsite.persistence
+	 * .User)
 	 */
-	@SuppressWarnings("unchecked")
-	public List<T> getFriends(final User user, final int first, final int count)
-	{
-		final Query q = getSession().createQuery("select u.friends from User u where u.id = :id");
-		q.setFirstResult(first);
-		q.setMaxResults(count);
-		q.setParameter("id", user.getId());
-		return q.list();
-	}
-
-	/**
-	 * @see com.socialsite.dao.UserDao#getFriendsCount()
-	 */
-	public int getFriendsCount(final T user)
+	public int getFriendsCount(final long userId)
 	{
 
-		// or friend_id= :id
 		final BigInteger count = (BigInteger)getSession().createSQLQuery(
 				" select count(*) from friend_reference where user_id=:id  ").setParameter("id",
-				user.getId()).uniqueResult();
+				userId).uniqueResult();
 
 		return count.intValue();
 	}
 
-	/**
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.socialsite.dao.UserDao#getUsersRelation(long, long)
 	 */
 	public Roles getUsersRelation(final long id1, final long id2)
@@ -133,8 +152,6 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements U
 		{
 			return SocialSiteRoles.ownerRole;
 		}
-
-		// or (user_id = :id1 and friend_id = :id2)
 
 		final BigInteger count = (BigInteger)getSession().createSQLQuery(
 				"select count(*) from friend_reference where"

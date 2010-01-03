@@ -18,6 +18,8 @@
 package com.socialsite;
 
 import org.apache.wicket.authorization.strategies.role.annotations.AuthorizeInstantiation;
+import org.apache.wicket.markup.html.IHeaderContributor;
+import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -32,7 +34,7 @@ import com.socialsite.persistence.User;
  * 
  */
 @AuthorizeInstantiation( { "USER", "FRIEND", "OWNER" })
-public class BasePage extends WebPage
+public class BasePage extends WebPage implements IHeaderContributor
 {
 	private static final long serialVersionUID = 1L;
 
@@ -62,6 +64,28 @@ public class BasePage extends WebPage
 
 	}
 
+	public void renderHead(final IHeaderResponse response)
+	{
+		// NOTE add all the css references here.Don't add css link in the other
+		// pages or panel.This will help in combing all the css files into
+		// single file during deployment
+
+
+		response.renderCSSReference("css/reset.css");
+		response.renderCSSReference("css/global.css");
+		response.renderCSSReference("css/home.css");
+		response.renderCSSReference("css/login.css");
+		response.renderCSSReference("css/scrap.css");
+		response.renderCSSReference("css/typography.css");
+
+
+		// renders the jquery and socialsite in all pages
+		response.renderJavascriptReference("js/jquery/jquery.js");
+		response.renderJavascriptReference("js/socialsite/socialsite.js");
+
+
+	}
+
 	/**
 	 * set the user id in the session and also sets the roles in the session
 	 * 
@@ -77,4 +101,5 @@ public class BasePage extends WebPage
 		session.getSessionUser().setRoles(
 				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
 	}
+
 }

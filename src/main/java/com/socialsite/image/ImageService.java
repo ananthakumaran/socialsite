@@ -38,6 +38,7 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
  * @author Ananth
  * 
  */
+@SuppressWarnings("restriction")
 public class ImageService
 {
 

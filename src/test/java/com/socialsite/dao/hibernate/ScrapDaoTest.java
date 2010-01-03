@@ -22,15 +22,11 @@ import static junit.framework.Assert.assertEquals;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.junit.Test;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.socialsite.dao.AbstractDaoTest;
-import com.socialsite.dao.ScrapDao;
-import com.socialsite.dao.UserDao;
+import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.Scrap;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
@@ -39,13 +35,8 @@ import com.socialsite.persistence.User;
  * @author Ananth
  * 
  */
-public class ScrapDaoTest extends AbstractDaoTest
+public class ScrapDaoTest extends AbstractDaoTestHelper
 {
-	@Resource(name = "userDao")
-	private UserDao<User> userDao;
-
-	@Resource(name = "scrapDao")
-	private ScrapDao scrapDao;
 
 	@Test
 	@Transactional

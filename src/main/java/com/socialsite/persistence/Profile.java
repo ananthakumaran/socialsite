@@ -45,22 +45,17 @@ public class Profile implements AbstractDomain
 
 	public Profile()
 	{
+	}
+
+	public Profile(final User user)
+	{
+		setUser(user);
 		setLastModified(new Date());
 	}
 
 	public String getEmail()
 	{
 		return email;
-	}
-
-	public Date getLastModified()
-	{
-		return lastModified;
-	}
-
-	public void setLastModified(Date lastModified)
-	{
-		this.lastModified = lastModified;
 	}
 
 	public String getFirstName()
@@ -82,6 +77,11 @@ public class Profile implements AbstractDomain
 	public byte[] getImage()
 	{
 		return image;
+	}
+
+	public Date getLastModified()
+	{
+		return lastModified;
 	}
 
 	public String getLastName()
@@ -120,6 +120,11 @@ public class Profile implements AbstractDomain
 		setLastModified(new Date());
 	}
 
+	public void setLastModified(final Date lastModified)
+	{
+		this.lastModified = lastModified;
+	}
+
 	public void setLastName(final String lastName)
 	{
 		this.lastName = lastName;
@@ -135,4 +140,5 @@ public class Profile implements AbstractDomain
 	{
 		this.user = user;
 	}
+
 }

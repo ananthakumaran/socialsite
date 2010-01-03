@@ -93,8 +93,8 @@ public class ScrapListPanel extends BasePanel
 						+ ",thumb=true")));
 
 				// link to the author page
-				UserLink userLink;
-				item.add(userLink = new UserLink("user", new Model<User>(author)));
+				UserLink<User> userLink;
+				item.add(userLink = new UserLink<User>("user", new Model<User>(author)));
 				userLink.add(new Label("name", author.getUserName()));
 
 				final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
