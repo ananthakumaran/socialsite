@@ -46,7 +46,7 @@ SocialSite.Util.Editor = {
     },
     
     PostAjaxSetUp: function(changed$){
-		var that = SocialSite.Util.Editor;
+        var that = SocialSite.Util.Editor;
         changed$.find('textarea.richEditor').each(that.createEditor).TextAreaResizer();
     },
     // create the editor after the dom in loaded
@@ -54,9 +54,24 @@ SocialSite.Util.Editor = {
     
         //	console.log('creating editor');
         var textArea = $(this);
+        var form = textArea.parents('form');
+        // remove this
         if (textArea.hasClass('processed')) {
             alert('processessing already processed');
         }
+        //	can't add a hook  to the form submit due to the bug	WICKET-1448
+        //textArea.parents('form')[0].onsubmit = (function(){
+        //    var form = $(this);
+        //    console.log('hook called', form);
+        //    form.find('textarea.richEditor').val(form.find('div.wmd-priview').html());
+        //    return false;
+        //});
+        
+        // FIXME this won't work if the user submit the form using the return key
+        form.find('a.editor-text').mousedown(function(){
+            form.find('textarea.richEditor').val(form.find('div.wmd-preview').html());
+            return false;
+        });
         
         var panes = {
             input: this,
@@ -71,4 +86,8 @@ SocialSite.Util.Editor = {
 
 $().ready(function(){
     SocialSite.Util.Editor.setUp();
+    $('form').submit(function(){
+        console.log('working');
+        return false;
+    });
 });

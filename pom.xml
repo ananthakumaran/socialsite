@@ -391,7 +391,7 @@
 
 	<!-- properties -->
 	<properties>
-		<wicket.version>1.4.4</wicket.version>
+		<wicket.version>1.4.5</wicket.version>
 		<jetty.version>6.1.6</jetty.version>
 	</properties>
 

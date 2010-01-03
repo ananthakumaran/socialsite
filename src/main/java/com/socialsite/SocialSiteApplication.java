@@ -83,7 +83,7 @@ public class SocialSiteApplication extends WebApplication
 
 		// add spring listener to the application
 		addComponentInstantiationListener(new SpringComponentInjector(this));
-		
+
 
 		// intializes the security listeners
 		initSecurity();

@@ -74,7 +74,8 @@ public class SignUpPageTest
 		form.setValue("password", "password");
 		form.setValue("re-password", "password");
 		form.setValue("email", "anatha@gmail.com");
-	//	form.setValue("usertype", "student");
+		// FIXME don't know how to set the radio group
+		form.setValue("usertype", "0:signupform:usertype:0");
 
 		form.submit("signup");
 		tester.assertNoErrorMessage();

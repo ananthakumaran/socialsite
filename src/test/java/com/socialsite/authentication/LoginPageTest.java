@@ -37,7 +37,7 @@ import com.socialsite.util.SpringWicketTester;
 
 
 @TransactionConfiguration(defaultRollback = true)
-public class LoginPageTest 
+public class LoginPageTest
 {
 
 	@SpringBean(name = "userDao")
