@@ -42,7 +42,7 @@ public class AnswersPanel extends BasePanel
 		super(id, model);
 		// allow other panels to update this panel using ajax
 		setOutputMarkupId(true);
-		Question question = model.getObject();
+		final Question question = model.getObject();
 		// TODO add the answers and other things
 		final DataView<Answer> answerView = new DataView<Answer>("answers", new AnswerDataProvider(
 				question.getId()))

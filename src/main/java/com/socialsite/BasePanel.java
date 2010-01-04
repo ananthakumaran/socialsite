@@ -67,6 +67,42 @@ public class BasePanel extends Panel implements IHeaderContributor
 	}
 
 	/**
+	 * fires a event with the collection of all the updated dom elements after
+	 * the wicket ajax response. To subscribe the event call the
+	 * <code>SocialSite.Ajax.registerPostAjax</code>. Your callback function
+	 * will be called with a jQuery Wrapped set of all the update dom as the
+	 * first argument.
+	 * 
+	 * NOTE: call this only once after all the components are added to the
+	 * target
+	 * 
+	 * 
+	 * @param target
+	 *            ajax target
+	 */
+	public void firePostAjaxUpdateEvent(final AjaxRequestTarget target)
+	{
+		final StringBuffer script = new StringBuffer(" SocialSite.Ajax.handle([");
+		for (final Component component : target.getComponents())
+		{
+			script.append("\"" + component.getMarkupId() + "\",");
+		}
+		script.append("])");
+
+		target.getHeaderResponse().renderOnDomReadyJavascript(script.toString());
+	}
+
+	/**
+	 * gets the domain model object of the the user in the session
+	 * 
+	 * @return user
+	 */
+	public User getSessionUser()
+	{
+		return userDao.load(getSessionUserId());
+	}
+
+	/**
 	 * gets the id of the session user
 	 * 
 	 * @return id of the session user
@@ -95,41 +131,5 @@ public class BasePanel extends Panel implements IHeaderContributor
 		// set the roles
 		session.getSessionUser().setRoles(
 				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
-	}
-
-	/**
-	 * gets the domain model object of the the user in the session
-	 * 
-	 * @return user
-	 */
-	public User getSessionUser()
-	{
-		return userDao.load(getSessionUserId());
-	}
-
-	/**
-	 * fires a event with the collection of all the updated dom elements after
-	 * the wicket ajax response. To subscribe the event call the
-	 * <code>SocialSite.Ajax.registerPostAjax</code>. Your callback function
-	 * will be called with a jQuery Wrapped set of all the update dom as the
-	 * first argument.
-	 * 
-	 * NOTE: call this only once after all the components are added to the
-	 * target
-	 * 
-	 * 
-	 * @param target
-	 *            ajax target
-	 */
-	public void firePostAjaxUpdateEvent(AjaxRequestTarget target)
-	{
-		StringBuffer script = new StringBuffer(" SocialSite.Ajax.handle([");
-		for (Component component : target.getComponents())
-		{
-			script.append("\"" + component.getMarkupId() + "\",");
-		}
-		script.append("])");
-
-		target.getHeaderResponse().renderOnDomReadyJavascript(script.toString());
 	}
 }

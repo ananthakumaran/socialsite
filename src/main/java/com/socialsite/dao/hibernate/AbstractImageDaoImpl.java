@@ -38,9 +38,22 @@ public class AbstractImageDaoImpl<T> extends AbstractDaoImpl<T> implements Abstr
 	 * 
 	 * @param domainClass
 	 */
-	public AbstractImageDaoImpl(Class<T> domainClass)
+	public AbstractImageDaoImpl(final Class<T> domainClass)
 	{
 		super(domainClass);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.AbstractImageDao#getImage(long)
+	 */
+	public byte[] getImage(final long id)
+	{
+		final Criteria criteria = getSession().createCriteria(domainClass);
+		criteria.add(Restrictions.idEq(id));
+		criteria.setProjection(Projections.property("image"));
+		return (byte[])criteria.uniqueResult();
 	}
 
 	/*
@@ -66,19 +79,6 @@ public class AbstractImageDaoImpl<T> extends AbstractDaoImpl<T> implements Abstr
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		criteria.add(Restrictions.idEq(id));
 		criteria.setProjection(Projections.property("thumb"));
-		return (byte[])criteria.uniqueResult();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.socialsite.dao.AbstractImageDao#getImage(long)
-	 */
-	public byte[] getImage(final long id)
-	{
-		final Criteria criteria = getSession().createCriteria(domainClass);
-		criteria.add(Restrictions.idEq(id));
-		criteria.setProjection(Projections.property("image"));
 		return (byte[])criteria.uniqueResult();
 	}
 }

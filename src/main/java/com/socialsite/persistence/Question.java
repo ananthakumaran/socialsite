@@ -48,13 +48,6 @@ public class Question implements AbstractDomain
 	{
 	}
 
-	public Question(final String heading, final String text)
-	{
-		setHeading(heading);
-		setText(text);
-		setTime(new Date());
-	}
-
 	public Question(final String heading, final Course course, final User user)
 	{
 		setHeading(heading);
@@ -63,7 +56,14 @@ public class Question implements AbstractDomain
 		setTime(new Date());
 	}
 
-	public void addAnswer(Answer answer)
+	public Question(final String heading, final String text)
+	{
+		setHeading(heading);
+		setText(text);
+		setTime(new Date());
+	}
+
+	public void addAnswer(final Answer answer)
 	{
 		getAnswers().add(answer);
 		answer.setQuestion(this);

@@ -60,7 +60,7 @@ public class AnswerDaoTest extends AbstractDaoTestHelper
 		// Answers
 		final Answer answer1 = new Answer(question1, user1);
 		answer1.setText("this is a sample answer1");
-		Calendar cal = Calendar.getInstance();
+		final Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.HOUR, 1);
 		// makes sure the answer comes first in the list of anwers
 		answer1.setTime(cal.getTime());

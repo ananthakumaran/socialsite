@@ -29,15 +29,6 @@ import java.util.Date;
 public interface AbstractImageDao<T> extends AbstractDao<T>
 {
 	/**
-	 * gets the last modified date
-	 * 
-	 * @param id
-	 *            id of the domain class
-	 * @return last modified date
-	 */
-	public Date getLastModifiedTime(final long id);
-
-	/**
 	 * gets the image
 	 * 
 	 * @param id
@@ -45,6 +36,15 @@ public interface AbstractImageDao<T> extends AbstractDao<T>
 	 * @return image
 	 */
 	public byte[] getImage(final long id);
+
+	/**
+	 * gets the last modified date
+	 * 
+	 * @param id
+	 *            id of the domain class
+	 * @return last modified date
+	 */
+	public Date getLastModifiedTime(final long id);
 
 	/**
 	 * gets the thumb

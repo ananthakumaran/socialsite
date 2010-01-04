@@ -29,7 +29,7 @@ fieldset input,fieldset textarea , input[type="text"] {
 }
 
 /**--------------- round cornered links ----------------*/
-.round {
+.round-back {
 	background: #222 url(../img/alert-overlay.png) repeat-x;
 	display: inline-block;
 	padding: 5px 10px 6px;
@@ -56,6 +56,40 @@ fieldset input,fieldset textarea , input[type="text"] {
 	font-size: 13px;
 }
 
-.round:hover {
+.round-back:hover {
 	background-color: #007D9A;
 }
+
+input.submit:hover, button:hover, input[type="submit"]:hover, input[type="file"] > input[type="button"]:hover {
+background-color:#D5D5D5;
+}
+
+.round:hover, .round:focus, input.round[type="submit"]:hover, input.btn[type="submit"]:focus, button.btn:hover, button.btn:focus {
+background-position:0 -6px;
+border-color:#999999 #999999 #888888;
+color:#000000;
+}
+
+.round, input.btn[type="submit"], input.btn[type="button"] {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+-moz-border-radius-bottomleft:4px;
+-moz-border-radius-bottomright:4px;
+-moz-border-radius-topleft:4px;
+-moz-border-radius-topright:4px;
+-x-system-font:none;
+background:#DDDDDD url(../img/bg-btn.gif) repeat-x scroll 0 0;
+border-color:#DDDDDD #DDDDDD #CCCCCC;
+border-style:solid;
+border-width:1px;
+font-size:14px;
+color:#333333;
+overflow:visible;
+padding:4px 8px 5px;
+text-shadow:1px 1px 0 #FFFFFF;
+width:auto;
+}
+
+
+

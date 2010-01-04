@@ -17,11 +17,20 @@
 
 package com.socialsite.util.wmd;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.form.FormComponentPanel;
 import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.util.file.File;
+import org.owasp.validator.html.AntiSamy;
+import org.owasp.validator.html.CleanResults;
+import org.owasp.validator.html.Policy;
+import org.owasp.validator.html.PolicyException;
+import org.owasp.validator.html.ScanException;
 
 /**
  * WMD rich Editor
@@ -37,6 +46,41 @@ public class RichEditor extends FormComponentPanel<String> implements IHeaderCon
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/** antisamy config file */
+	private static File file = new File("./src/main/resources/antisamy.xml");
+
+	/**
+	 * sanitizes the html
+	 * 
+	 * @param html
+	 *            dirty html
+	 * @return clean html or error message if it contains errors
+	 */
+	private static String getCleanHtml(final String html)
+	{
+		final AntiSamy sanitizer = new AntiSamy();
+		CleanResults results = null;
+		try
+		{
+			results = sanitizer.scan(html, Policy.getInstance(file));
+		}
+		catch (final ScanException e)
+		{
+			Logger.getLogger(RichEditor.class.getName()).log(Level.SEVERE, "", e);
+		}
+		catch (final PolicyException e)
+		{
+			Logger.getLogger(RichEditor.class.getName()).log(Level.SEVERE, "", e);
+		}
+		if (results != null)
+		{
+			return results.getCleanHTML();
+		}
+		else
+		{
+			return "<p>input contains errors<p>";
+		}
+	}
 
 	/** text area */
 	private TextArea<String> textArea;
@@ -59,8 +103,9 @@ public class RichEditor extends FormComponentPanel<String> implements IHeaderCon
 	@Override
 	protected void convertInput()
 	{
+
 		// TODO filter any javascript in the markup
-		setConvertedInput(textArea.getConvertedInput());
+		setConvertedInput(getCleanHtml(textArea.getConvertedInput()));
 	}
 
 	public void renderHead(final IHeaderResponse response)

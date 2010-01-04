@@ -50,13 +50,14 @@ public class AddAnswerPanel extends BasePanel
 	@SpringBean(name = "answerDao")
 	private AnswerDao answerDao;
 
-	public AddAnswerPanel(String id, final IModel<Question> model, final MarkupContainer dependent)
+	public AddAnswerPanel(final String id, final IModel<Question> model,
+			final MarkupContainer dependent)
 	{
 		super(id, model);
-		Form<Void> form = new Form<Void>("form");
+		final Form<Void> form = new Form<Void>("form");
 		add(form);
 		form.add(new RichEditor("richeditor", new PropertyModel<String>(this, "text")));
-		AjaxSubmitLink addAnswer = new AjaxSubmitLink("addanswer")
+		final AjaxSubmitLink addAnswer = new AjaxSubmitLink("addanswer")
 		{
 
 			/**
@@ -73,11 +74,11 @@ public class AddAnswerPanel extends BasePanel
 			}
 
 			@Override
-			protected void onSubmit(AjaxRequestTarget target, Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				// save the answers
-				Question question = model.getObject();
-				Answer answer = new Answer();
+				final Question question = model.getObject();
+				final Answer answer = new Answer();
 				answer.setUser(getSessionUser());
 				answer.setText(text);
 				question.addAnswer(answer);

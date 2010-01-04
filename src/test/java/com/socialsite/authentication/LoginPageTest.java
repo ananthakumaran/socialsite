@@ -40,10 +40,24 @@ import com.socialsite.util.SpringWicketTester;
 public class LoginPageTest
 {
 
+	@AfterClass
+	public static void cleanUp()
+	{
+		SchemaCreator.create();
+	}
+
 	@SpringBean(name = "userDao")
 	private UserDao<User> userDao;
 
 	SpringWicketTester tester;
+
+	@Before
+	public void setupTest()
+	{
+
+		tester = new SpringWicketTester();
+		tester.startPage(LoginPage.class);
+	}
 
 	@Test
 	@Rollback
@@ -70,6 +84,7 @@ public class LoginPageTest
 
 	}
 
+
 	@Test
 	public void testLoginFormWrongAuthentication()
 	{
@@ -88,21 +103,6 @@ public class LoginPageTest
 	{
 		tester.assertNoErrorMessage();
 		tester.assertRenderedPage(LoginPage.class);
-	}
-
-
-	@Before
-	public void setupTest()
-	{
-
-		tester = new SpringWicketTester();
-		tester.startPage(LoginPage.class);
-	}
-
-	@AfterClass
-	public static void cleanUp()
-	{
-		SchemaCreator.create();
 	}
 
 }

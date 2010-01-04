@@ -48,7 +48,7 @@ public class AnswerDaoImpl extends AbstractDaoImpl<Answer> implements AnswerDao
 	 * @see com.socialsite.dao.AnswerDao#getAnswers(long, int, int)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Answer> getAnswers(long questionId, int first, int count)
+	public List<Answer> getAnswers(final long questionId, final int first, final int count)
 	{
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		criteria.add(Restrictions.eq("question.id", questionId));
@@ -65,7 +65,7 @@ public class AnswerDaoImpl extends AbstractDaoImpl<Answer> implements AnswerDao
 	 * 
 	 * @see com.socialsite.dao.AnswerDao#getAnswersCount(long)
 	 */
-	public int getAnswersCount(long questionId)
+	public int getAnswersCount(final long questionId)
 	{
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		criteria.add(Restrictions.eq("question.id", questionId));

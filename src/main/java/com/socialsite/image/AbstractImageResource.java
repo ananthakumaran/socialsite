@@ -43,6 +43,16 @@ public abstract class AbstractImageResource<T> extends DynamicWebResource
 		setCacheable(true);
 	}
 
+	/**
+	 * override this method and return the Dao to access the image
+	 * 
+	 * NOTE: Inject the Bean lazily to allow the Wicket tester to run properly.
+	 * ie Don't inject the bean inside the contructor
+	 * 
+	 * @return Dao
+	 */
+	public abstract AbstractImageDao<T> getImageDao();
+
 	@Override
 	protected ResourceState getResourceState()
 	{
@@ -70,14 +80,4 @@ public abstract class AbstractImageResource<T> extends DynamicWebResource
 		}
 		return imageResourceState;
 	}
-
-	/**
-	 * override this method and return the Dao to access the image
-	 * 
-	 * NOTE: Inject the Bean lazily to allow the Wicket tester to run properly.
-	 * ie Don't inject the bean inside the contructor
-	 * 
-	 * @return Dao
-	 */
-	public abstract AbstractImageDao<T> getImageDao();
 }
