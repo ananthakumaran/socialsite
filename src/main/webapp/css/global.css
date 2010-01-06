@@ -117,3 +117,11 @@ body {
 	font-size: 1em;
 	padding: 2px;
 }
+
+
+/**---------------------- Question -----------------------**/
+
+.addQuestion , .addAnswer , .addComment {
+	/** avoids the flickering problem in FF  */
+	overflow:hidden;
+}
