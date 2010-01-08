@@ -76,6 +76,7 @@ public class Course implements AbstractDomain
 	 */
 	public void changeImage(final byte[] image)
 	{
+		this.image = image;
 		setLastModified(new Date());
 	}
 
