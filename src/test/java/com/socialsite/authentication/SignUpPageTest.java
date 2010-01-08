@@ -25,7 +25,6 @@ import org.apache.wicket.util.tester.FormTester;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.socialsite.util.SpringWicketTester;
 
@@ -39,7 +38,6 @@ public class SignUpPageTest
 	SpringWicketTester tester;
 
 	@Test
-	@Transactional
 	public void different_Password_Test()
 	{
 		final FormTester form = tester.newFormTester("signupform");
@@ -62,7 +60,6 @@ public class SignUpPageTest
 	}
 
 	@Test
-	@Transactional
 	@Ignore
 	public void signUpTest()
 	{
