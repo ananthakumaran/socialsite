@@ -198,7 +198,6 @@
         email varchar(255),
         image mediumblob,
         thumb mediumblob,
-        lastModified datetime,
         primary key (user_id)
     );
 
@@ -252,6 +251,7 @@
         id bigint not null auto_increment,
         userName varchar(255) not null unique,
         password varchar(255) not null,
+        lastModified datetime,
         primary key (id)
     );
 

@@ -78,7 +78,7 @@ public class ProfileDaoTest extends AbstractDaoTestHelper
 		final Date date = new Date();
 		final User ananth = new Student("ananth", "pass");
 		final Profile ananthProfile = new Profile(ananth);
-		ananthProfile.setLastModified(date);
+		ananthProfile.getUser().setLastModified(date);
 		profileDao.save(ananthProfile);
 		Assert.assertEquals(date.getTime() / 1000, profileDao.getLastModifiedTime(ananth.getId())
 				.getTime() / 1000);
@@ -92,7 +92,7 @@ public class ProfileDaoTest extends AbstractDaoTestHelper
 		final User ananth = new Student("ananth", "pass");
 		final Profile ananthProfile = new Profile(ananth);
 		// set some dummy data for image
-		ananthProfile.setImage("dummy data".getBytes());
+		ananthProfile.changeImage("dummy data".getBytes());
 		profileDao.save(ananthProfile);
 
 		final byte[] image = profileDao.getImage(ananth.getId());
@@ -109,7 +109,7 @@ public class ProfileDaoTest extends AbstractDaoTestHelper
 		final User ananth = new Student("ananth", "pass");
 		final Profile ananthProfile = new Profile(ananth);
 		// set some dummy data for image
-		ananthProfile.setThumb("dummy data".getBytes());
+		ananthProfile.changeThumb("dummy data".getBytes());
 		profileDao.save(ananthProfile);
 
 		final byte[] image = profileDao.getThumb(ananth.getId());

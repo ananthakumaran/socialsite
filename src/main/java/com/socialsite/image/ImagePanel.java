@@ -17,7 +17,7 @@
 
 package com.socialsite.image;
 
-import java.util.Random;
+import java.util.Date;
 
 import org.apache.wicket.ResourceReference;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -51,10 +51,13 @@ public class ImagePanel extends Panel
 	 *            id used to fetch the image
 	 * @param imageType
 	 *            type of the image (userimage , courseimage etc)
+	 * @param lastModified
+	 *            lastmodified date of the image
 	 */
-	public ImagePanel(final String component, final long id, final ImageType imageType)
+	public ImagePanel(final String component, final long id, final ImageType imageType,
+			final Date lastModified)
 	{
-		this(component, id, imageType, false);
+		this(component, id, imageType, lastModified, false);
 	}
 
 
@@ -68,9 +71,11 @@ public class ImagePanel extends Panel
 	 *            type of the image (userimage , courseimage etc)
 	 * @param thumb
 	 *            will show thumb image if true
+	 * @param lastModified
+	 *            lastmodified date of the image
 	 */
 	public ImagePanel(final String component, final long id, final ImageType imageType,
-			final boolean thumb)
+			final Date lastModified, final boolean thumb)
 	{
 		super(component);
 
@@ -80,6 +85,12 @@ public class ImagePanel extends Panel
 		final Image userImage;
 		final ValueMap valueMap = new ValueMap();
 		valueMap.add("id", id + "");
+
+		// the version is used to change the url dynamically if the image is
+		// changed. This will allow the browser to cache images
+		// reference http://code.google.com/speed/page-speed/docs/caching.html
+		// #Use fingerprinting to dynamically enable caching.
+		valueMap.add("version", lastModified.getTime() + "");
 		if (thumb)
 		{
 			valueMap.add("thumb", "true");
@@ -133,10 +144,8 @@ public class ImagePanel extends Panel
 
 				final ValueMap valueMap = new ValueMap();
 				valueMap.add("id", id + "");
-				// add a random parameter so the browser will change the image
-				// lively
-				final Random rand = new Random();
-				valueMap.add("rand", rand.nextLong() + "");
+				// change the image lively
+				valueMap.add("version", new Date().getTime() + "");
 				if (thumb)
 				{
 					valueMap.add("thumb", "true");

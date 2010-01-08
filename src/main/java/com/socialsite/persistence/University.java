@@ -55,6 +55,30 @@ public class University implements AbstractDomain
 		setLastModified(new Date());
 	}
 
+	/**
+	 * changes the profile image
+	 * 
+	 * @param image
+	 *            image data in byte[]
+	 */
+	public void changeImage(final byte[] image)
+	{
+		this.image = image;
+		setLastModified(new Date());
+	}
+
+	/**
+	 * changes the thumb
+	 * 
+	 * @param thumb
+	 *            thumb data in byte[]
+	 */
+	public void changeThumb(final byte[] thumb)
+	{
+		this.thumb = thumb;
+		setLastModified(new Date());
+	}
+
 	public Admin getAdmin()
 	{
 		return admin;
@@ -113,7 +137,6 @@ public class University implements AbstractDomain
 	public void setImage(final byte[] image)
 	{
 		this.image = image;
-		setLastModified(new Date());
 	}
 
 	public void setLastModified(final Date lastModified)
@@ -134,6 +157,5 @@ public class University implements AbstractDomain
 	public void setThumb(final byte[] thumb)
 	{
 		this.thumb = thumb;
-		setLastModified(new Date());
 	}
 }

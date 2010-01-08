@@ -17,6 +17,7 @@
 
 package com.socialsite.persistence;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +52,7 @@ public abstract class User implements AbstractDomain
 
 	private String password;
 
+	private Date lastModified;
 	private Profile profile;
 
 	private Set<User> friends = new HashSet<User>();
@@ -107,6 +109,11 @@ public abstract class User implements AbstractDomain
 		return id;
 	}
 
+	public Date getLastModified()
+	{
+		return lastModified;
+	}
+
 	public Set<Message> getMessages()
 	{
 		return messages;
@@ -158,6 +165,11 @@ public abstract class User implements AbstractDomain
 	public void setId(final long id)
 	{
 		this.id = id;
+	}
+
+	public void setLastModified(final Date lastModified)
+	{
+		this.lastModified = lastModified;
 	}
 
 	public void setMessages(final Set<Message> messages)

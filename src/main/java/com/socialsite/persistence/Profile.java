@@ -37,7 +37,6 @@ public class Profile implements AbstractDomain
 	private String email;
 	private byte[] image;
 	private byte[] thumb;
-	private Date lastModified;
 
 	/**
 	 * TODO add other fields link address , birthday etc;
@@ -50,7 +49,31 @@ public class Profile implements AbstractDomain
 	public Profile(final User user)
 	{
 		setUser(user);
-		setLastModified(new Date());
+		getUser().setLastModified(new Date());
+	}
+
+	/**
+	 * changes the profile image
+	 * 
+	 * @param image
+	 *            image data in byte[]
+	 */
+	public void changeImage(final byte[] image)
+	{
+		this.image = image;
+		getUser().setLastModified(new Date());
+	}
+
+	/**
+	 * changes the thumb
+	 * 
+	 * @param thumb
+	 *            thumb data in byte[]
+	 */
+	public void changeThumb(final byte[] thumb)
+	{
+		this.thumb = thumb;
+		getUser().setLastModified(new Date());
 	}
 
 	public String getEmail()
@@ -79,11 +102,6 @@ public class Profile implements AbstractDomain
 		return image;
 	}
 
-	public Date getLastModified()
-	{
-		return lastModified;
-	}
-
 	public String getLastName()
 	{
 		return lastName;
@@ -109,6 +127,7 @@ public class Profile implements AbstractDomain
 		this.firstName = firstName;
 	}
 
+
 	public void setId(final long id)
 	{
 		this.id = id;
@@ -117,12 +136,6 @@ public class Profile implements AbstractDomain
 	public void setImage(final byte[] image)
 	{
 		this.image = image;
-		setLastModified(new Date());
-	}
-
-	public void setLastModified(final Date lastModified)
-	{
-		this.lastModified = lastModified;
 	}
 
 	public void setLastName(final String lastName)
@@ -133,7 +146,6 @@ public class Profile implements AbstractDomain
 	public void setThumb(final byte[] thumb)
 	{
 		this.thumb = thumb;
-		setLastModified(new Date());
 	}
 
 	public void setUser(final User user)

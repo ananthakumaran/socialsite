@@ -17,8 +17,15 @@
 
 package com.socialsite.dao.hibernate;
 
+import java.util.Date;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.persistence.Profile;
+import com.socialsite.persistence.User;
 
 /**
  * DAO implementation for Profile object
@@ -37,4 +44,19 @@ public class ProfileDaoImpl extends AbstractImageDaoImpl<Profile> implements Pro
 		super(Profile.class);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.socialsite.dao.hibernate.AbstractImageDaoImpl#getLastModifiedTime
+	 * (long)
+	 */
+	@Override
+	public Date getLastModifiedTime(final long id)
+	{
+		final Criteria criteria = getSession().createCriteria(User.class);
+		criteria.add(Restrictions.idEq(id));
+		criteria.setProjection(Projections.property("lastModified"));
+		return (Date)criteria.uniqueResult();
+	}
 }

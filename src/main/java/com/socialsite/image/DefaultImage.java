@@ -46,8 +46,8 @@ public class DefaultImage
 	 */
 	public void forCourse(final Course course)
 	{
-		course.setImage(getImageData("course-125.png"));
-		course.setThumb(getImageData("course-75.png"));
+		course.changeImage(getImageData("course-125.png"));
+		course.changeThumb(getImageData("course-75.png"));
 	}
 
 	/**
@@ -58,8 +58,8 @@ public class DefaultImage
 	 */
 	public void forUniversity(final University university)
 	{
-		university.setImage(getImageData("university-125.png"));
-		university.setThumb(getImageData("university-75.png"));
+		university.changeImage(getImageData("university-125.png"));
+		university.changeThumb(getImageData("university-75.png"));
 	}
 
 	/**
@@ -70,8 +70,8 @@ public class DefaultImage
 	 */
 	public void forUser(final Profile profile)
 	{
-		profile.setImage(getImageData("user-125.png"));
-		profile.setThumb(getImageData("user-75.png"));
+		profile.changeImage(getImageData("user-125.png"));
+		profile.changeThumb(getImageData("user-75.png"));
 	}
 
 	/**

@@ -60,7 +60,8 @@ public class FriendsPanel extends BasePanel
 				final User user = item.getModelObject();
 				UserLink<User> userImageLink;
 				item.add(userImageLink = new UserLink<User>("imagelink", item.getModel()));
-				userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, true));
+				userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
+						.getLastModified(), true));
 				Link<User> name;
 				item.add(name = new UserLink<User>("home", item.getModel()));
 				name.add(new Label("username", item.getModelObject().getUserName()));

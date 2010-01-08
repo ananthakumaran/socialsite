@@ -27,6 +27,7 @@
 		<property name="userName" type="string" unique="true"
 			not-null="true" />
 		<property name="password" type="string" not-null="true" />
+		<property name="lastModified" type="timestamp" />
 
 		<!-- Relations -->
 

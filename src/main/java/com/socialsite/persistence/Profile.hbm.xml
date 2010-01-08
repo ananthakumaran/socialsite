@@ -38,7 +38,7 @@
   <property name="email" type="string" />
   <property name="image" type="binary" length="10000000"/>
   <property name="thumb" type="binary"  length="100000"/>
-  <property name="lastModified" type="timestamp" />
+  
   
   <!-- Relations -->
   <one-to-one name="user"  class="com.socialsite.persistence.User"  constrained="true" foreign-key="fk_Profile_user_id_User_id" />

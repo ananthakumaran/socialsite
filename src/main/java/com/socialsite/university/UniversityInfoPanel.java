@@ -55,7 +55,8 @@ public class UniversityInfoPanel extends Panel
 	{
 		super(id);
 		// image of the university
-		add(new ImagePanel("image", university.getId(), ImageType.UNIVERSITY)
+		add(new ImagePanel("image", university.getId(), ImageType.UNIVERSITY, university
+				.getLastModified())
 		{
 
 			/**
@@ -67,8 +68,8 @@ public class UniversityInfoPanel extends Panel
 			protected void saveImage(final byte[] imageData)
 			{
 				final ImageService imageService = new ImageService();
-				university.setImage(imageService.resize(imageData, ImageService.IMAGE_SIZE));
-				university.setThumb(imageService.resize(imageData, ImageService.THUMB_SIZE));
+				university.changeImage(imageService.resize(imageData, ImageService.IMAGE_SIZE));
+				university.changeThumb(imageService.resize(imageData, ImageService.THUMB_SIZE));
 				universityDao.save(university);
 			}
 

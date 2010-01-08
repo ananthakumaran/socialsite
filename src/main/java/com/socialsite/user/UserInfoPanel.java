@@ -57,7 +57,7 @@ public class UserInfoPanel extends Panel
 
 		final User user = userDao.load(SocialSiteSession.get().getUserId());
 
-		add(new ImagePanel("userimage", user.getId(), ImageType.USER)
+		add(new ImagePanel("userimage", user.getId(), ImageType.USER, user.getLastModified())
 		{
 
 			/**
@@ -70,9 +70,12 @@ public class UserInfoPanel extends Panel
 			{
 				final ImageService imageService = new ImageService();
 
-				user.getProfile().setThumb(imageService.resize(imageData, ImageService.THUMB_SIZE));
-				user.getProfile().setImage(imageService.resize(imageData, ImageService.IMAGE_SIZE));
+				user.getProfile().changeThumb(
+						imageService.resize(imageData, ImageService.THUMB_SIZE));
+				user.getProfile().changeImage(
+						imageService.resize(imageData, ImageService.IMAGE_SIZE));
 				profileDao.save(user.getProfile());
+				userDao.save(user);
 
 			}
 

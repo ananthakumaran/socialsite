@@ -69,7 +69,7 @@ public class CoursesPanel extends Panel
 				CourseLink courseImageLink;
 				item.add(courseImageLink = new CourseLink("imagelink", item.getModel()));
 				courseImageLink.add(new ImagePanel("coursethumb", course.getId(), ImageType.COURSE,
-						true));
+						course.getLastModified(), true));
 
 				// course link
 				CourseLink courseLink;

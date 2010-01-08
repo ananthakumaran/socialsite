@@ -68,11 +68,34 @@ public class Course implements AbstractDomain
 		university.getCourses().add(this);
 	}
 
+	/**
+	 * changes the profile image
+	 * 
+	 * @param image
+	 *            image data in byte[]
+	 */
+	public void changeImage(final byte[] image)
+	{
+		setLastModified(new Date());
+	}
+
+
+	/**
+	 * changes the thumb
+	 * 
+	 * @param thumb
+	 *            thumb data in byte[]
+	 */
+	public void changeThumb(final byte[] thumb)
+	{
+		this.thumb = thumb;
+		setLastModified(new Date());
+	}
+
 	public long getId()
 	{
 		return id;
 	}
-
 
 	public byte[] getImage()
 	{

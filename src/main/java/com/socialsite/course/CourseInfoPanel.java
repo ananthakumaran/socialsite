@@ -49,7 +49,7 @@ public class CourseInfoPanel extends BasePanel
 	{
 		super(id, model);
 		final Course course = model.getObject();
-		add(new ImagePanel("image", course.getId(), ImageType.COURSE)
+		add(new ImagePanel("image", course.getId(), ImageType.COURSE, course.getLastModified())
 		{
 
 			/**
@@ -61,8 +61,8 @@ public class CourseInfoPanel extends BasePanel
 			protected void saveImage(final byte[] imageData)
 			{
 				final ImageService imageService = new ImageService();
-				course.setImage(imageService.resize(imageData, ImageService.IMAGE_SIZE));
-				course.setThumb(imageService.resize(imageData, ImageService.THUMB_SIZE));
+				course.changeImage(imageService.resize(imageData, ImageService.IMAGE_SIZE));
+				course.changeThumb(imageService.resize(imageData, ImageService.THUMB_SIZE));
 				courseDao.save(course);
 			}
 
