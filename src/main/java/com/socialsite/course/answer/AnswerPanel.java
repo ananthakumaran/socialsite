@@ -37,7 +37,7 @@ public class AnswerPanel extends BasePanel
 	{
 		super(id, model);
 		final Answer answer = model.getObject();
-		add(new Label("text", answer.getText()));
+		add(new Label("text", answer.getText()).setEscapeModelStrings(false));
 	}
 
 }

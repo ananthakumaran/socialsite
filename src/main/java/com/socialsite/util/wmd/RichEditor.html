@@ -18,34 +18,11 @@
 -->
 
 <html xmlns:wicket>
-
-<wicket:head>
-
-	<style type="text/css">
-div.grippie {
-	background: #EEEEEE url(img/grippie.png) no-repeat scroll center 2px;
-	border-color: #DDDDDD;
-	border-style: solid;
-	border-width: 0pt 1px 1px;
-	cursor: s-resize;
-	height: 9px;
-	overflow: hidden;
-}
-
-.resizable-textarea textarea {
-	display: block;
-	margin-bottom: 0pt;
-	width: 95%;
-	height: 20%;
-}
-</style>
-</wicket:head>
 <wicket:panel>
 	<!-- hide the textarea to avoid errors in wmd(wmd creates error if the textarea is
 	 visible but any parent is hidden . To avoid  this keep the text area hidden if it is not
 	 visible). keep the width 100% so the textarea resizer won't look crazy  -->
 	<textarea class="richEditor" wicket:id="textarea" style="display: none ; width:100%">
   </textarea>
-	<div class="wmd-preview"></div>
 </wicket:panel>
 </html>

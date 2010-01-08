@@ -16,10 +16,6 @@
  */
  @CHARSET "ISO-8859-1";
 
-@IMPORT url("reset.css");
-
-@IMPORT url("round.css");
-
 /*------------------------ Typography -----------------------*/
 body {
 	font-size: 16px;

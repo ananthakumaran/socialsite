@@ -19,48 +19,39 @@ var SocialSite = SocialSite || {};
 // util package
 SocialSite.Util = SocialSite.Util || {};
 
-// set the default option for wmd editor
-wmd_options = {
-	// format sent to the server. Use "Markdown" to return the markdown source.
-	output : "HTML",
-
-	// line wrapping length for lists, blockquotes, etc.
-	lineLength : 40,
-
-	// toolbar buttons. Undo and redo get appended automatically.
-	buttons : "bold italic | link blockquote code image | ol ul heading hr",
-
-	// option to automatically add WMD to the first textarea found. See
-	// apiExample.html for usage.
-	autostart : false
-};
-
-// FIXME send the converted(HTML) code to the server during the
+// FIXME send the converted(HTML) code to the server during the(need some more
+// workaround)
 // ajax form submit
 SocialSite.Util.Editor = {
+	// wmd options
+	wmdOptions : {
+		"preview" : true,
+		"helpLink" : "http://daringfireball.net/projects/markdown/",
+		"helpHoverTitle" : "Markdown Help"
+	},
+	// initiallizes the editor
 	setUp : function() {
-		$('textarea.richEditor:not(textarea.processed)')
-				.each(this.createEditor).TextAreaResizer();
+		var editor = $('textarea.richEditor:not(textarea.processed)');
+		// setup up the editor
+		editor.wmd(this.wmdOptions);
+		editor.each(this.createEditor).val('').TextAreaResizer();
 		SocialSite.Util.Slider.setUp();
 		// creates the editor after each ajax response
 		SocialSite.Ajax.registerPostAjax(this.PostAjaxSetUp);
 	},
 
+	// set up the editor after the ajax call
 	PostAjaxSetUp : function(changed$) {
 		var that = SocialSite.Util.Editor;
-		changed$.find('textarea.richEditor').each(that.createEditor)
-				.TextAreaResizer();
+		var editor = changed$.find('textarea.richEditor');
+		// setup the editor
+		editor.wmd(that.wmdOptions);
+		editor.each(that.createEditor).TextAreaResizer();
 	},
-	// create the editor after the dom in loaded
+	// adds hooks to the editor
 	createEditor : function() {
-
-		// console.log('creating editor');
 		var textArea = $(this);
 		var form = textArea.parents('form');
-		// remove this
-		if (textArea.hasClass('processed')) {
-			alert('processessing already processed');
-		}
 		// can't add a hook to the form submit due to the bug WICKET-1448
 		// textArea.parents('form')[0].onsubmit = (function(){
 		// var form = $(this);
@@ -71,37 +62,20 @@ SocialSite.Util.Editor = {
 
 		// FIXME this won't work if the user submit the form using the return
 		// key
-		form.find('a.editor-text').mousedown(
-				function() {
-					form.find('textarea.richEditor').val(
-							form.find('div.wmd-preview').html());
-					return false;
-				});
-
-		var panes = {
-			input : this,
-			preview : $(this).next('div.wmd-preview')[0],
-			output : null
-		};
-
-		// make sure that the other dependencies are loaded
-		try {
-			var previewManager = new Attacklab.wmd.previewManager(panes);
-			// build the editor and tell it to refresh the preview after
-			// commands
-			var editor = new Attacklab.wmd.editor(this, previewManager.refresh);
-		} catch (e) {
-			// console.log('the dependencies needed to create editor are not
-			// loaded',e);
-			// FIXME this error is generated after the modal window is closed
-		}
+		form.find('a.editor-text').mousedown(function() {
+			// set the textarea value to the output markup so that
+				// the markup can be submitted to the server
+				form.find('textarea.richEditor').val(
+						form.find('div.wmd-preview').html());
+				return false;
+			}).click(function() {
+			// clear the textarea after submitting the form
+				// TODO find a clean way to do it
+				form.find('textarea.richEditor').val("");
+			});
 	}
 };
 
 $().ready(function() {
 	SocialSite.Util.Editor.setUp();
-	$('form').submit(function() {
-		console.log('working');
-		return false;
-	});
 });

@@ -77,6 +77,8 @@ public class BasePage extends WebPage implements IHeaderContributor
 		response.renderCSSReference("css/login.css");
 		response.renderCSSReference("css/scrap.css");
 		response.renderCSSReference("css/typography.css");
+		response.renderCSSReference("css/round.css");
+		response.renderCSSReference("css/wmd.css");
 
 
 		// renders the jquery and socialsite in all pages

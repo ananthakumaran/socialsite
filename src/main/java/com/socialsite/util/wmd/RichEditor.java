@@ -33,9 +33,8 @@ import org.owasp.validator.html.PolicyException;
 import org.owasp.validator.html.ScanException;
 
 /**
- * WMD rich Editor
- * 
- * TODO convert the button images into a single image (CSS Sprite)
+ * WMD rich Editor. This uses the nathanborror branch of the wmd editor <a
+ * href="http://github.com/nathanborror/wmd">github</a>
  * 
  * @author Ananth
  */
@@ -110,10 +109,10 @@ public class RichEditor extends FormComponentPanel<String> implements IHeaderCon
 
 	public void renderHead(final IHeaderResponse response)
 	{
+		// wmd
+		response.renderJavascriptReference("js/jquery/plugin/wmd.js");
 		// initialize the editor
 		response.renderJavascriptReference("js/socialsite/editor.js");
-		// wmd
-		response.renderJavascriptReference("js/wmd/wmd.js");
 		// TextArea Resizer
 		response.renderJavascriptReference("js/jquery/plugin/textarearesizer.js");
 	}
