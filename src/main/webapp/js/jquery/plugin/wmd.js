@@ -45,8 +45,6 @@
         });
     };
 })(jQuery);
-
-
 function setup_wmd(wmd_options) {
 
 var Attacklab = Attacklab || {};
@@ -143,7 +141,6 @@ Attacklab.wmdBase = function(){
 	// normally since the focus never leaves the textarea.
 	wmd.ieCachedRange = null;		// cached textarea selection
 	wmd.ieRetardedClick = false;	// flag
-	
 	
 	// Returns true if the DOM element is visible, false if it's hidden.
 	// Checks if display is anything other than none.
@@ -1745,8 +1742,8 @@ Attacklab.wmdBase = function(){
 			
 			previewMgr.refresh(true);
 			
-		};	
-			
+		};
+		
 		// The editor cann't be created after the page is loaded bcoz we 
 		// are creating the editor after the page load event.This makes it 
 		// impossible to create a editor after a ajax response.
@@ -2474,6 +2471,16 @@ this.makeHtml = function(text) {
 	g_urls = new Array();
 	g_titles = new Array();
 	g_html_blocks = new Array();
+
+	// Donot allow the user to enter html directly to avoid
+	// xss attack.For now strip all the html tag entered by
+	// the user
+	// TODO: create a whitelist of html tags and allow that tags only
+	
+	 
+	// strip the user entered html
+	text = text.replace(/<\S[^><]*>/g, "");
+
 
 	// attacklab: Replace ~ with ~T
 	// This lets us use tilde as an escape char to avoid md5 hashes
