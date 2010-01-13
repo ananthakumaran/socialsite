@@ -37,11 +37,16 @@
             this.id = this.id || "wmd-input-" + counter;
             options.input = this.id;
             
+            if (window.console)
+                console.log(options);
+            
             setup_wmd(options);
             counter++;
         });
     };
 })(jQuery);
+
+
 function setup_wmd(wmd_options) {
 
 var Attacklab = Attacklab || {};
@@ -139,20 +144,13 @@ Attacklab.wmdBase = function(){
 	wmd.ieCachedRange = null;		// cached textarea selection
 	wmd.ieRetardedClick = false;	// flag
 	
+	
 	// Returns true if the DOM element is visible, false if it's hidden.
 	// Checks if display is anything other than none.
 	util.isVisible = function (elem) {
-	
-	    if (window.getComputedStyle) {
-	        // Most browsers
-			return window.getComputedStyle(elem, null).getPropertyValue("display") !== "none";
-		}
-		else if (elem.currentStyle) {
-		    // IE
-			return elem.currentStyle["display"] !== "none";
-		}
-	};
-	
+            // shamelessly copied from jQuery
+            return elem.offsetWidth > 0 || elem.offsetHeight > 0;
+        };
 	
 	// Adds a listener callback to a DOM element which is fired on a specified
 	// event.
@@ -1747,9 +1745,21 @@ Attacklab.wmdBase = function(){
 			
 			previewMgr.refresh(true);
 			
-		};
-		
-		util.addEvent(top, "load", loadListener);
+		};	
+			
+		// The editor cann't be created after the page is loaded bcoz we 
+		// are creating the editor after the page load event.This makes it 
+		// impossible to create a editor after a ajax response.
+		// To create a editor after ajax response set the isAjax 
+		// 
+		//  TODO find a clear way to fix this. one way is to keep track whether 
+		//  the page load event. if it was fired earlier the load the editor immediatly 
+		if (wmd_options.isAjax) {
+			loadListener();
+		}
+		else {
+			util.addEvent(top, "load", loadListener);
+		}
 	};
 	
 	wmd.previewManager = function(){
@@ -2465,11 +2475,6 @@ this.makeHtml = function(text) {
 	g_titles = new Array();
 	g_html_blocks = new Array();
 
-	// edited to strip the html tags to avoid XSS problem
-	// TODO do some more checking for XSS
-	var re = /<\S[^><]*>/g;
-	text = text.replace(re, "");
-	
 	// attacklab: Replace ~ with ~T
 	// This lets us use tilde as an escape char to avoid md5 hashes
 	// The choice of character is arbitray; anything that isn't
@@ -2512,6 +2517,18 @@ this.makeHtml = function(text) {
 
 	// attacklab: Restore tildes
 	text = text.replace(/~T/g,"~");
+
+        // ** GFM **  Auto-link URLs and emails
+        text = text.replace(/https?\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!]/g, function(wholeMatch){
+            var left = RegExp.leftContext
+            var right = RegExp.rightContext
+            if (left.match(/<[^>]+$/) && right.match(/^[^>]*>/)) {return wholeMatch}
+            return "<a href='" + wholeMatch + "'>" + wholeMatch + "</a>";
+        });
+        text = text.replace(/[a-z0-9_\-+=.]+@[a-z0-9\-]+(\.[a-z0-9-]+)+/ig, function(wholeMatch){
+            return "<a href='mailto:" + wholeMatch + "'>" + wholeMatch + "</a>";
+        });
+
 
 	return text;
 }
@@ -2715,8 +2732,8 @@ var _RunBlockGamut = function(text) {
 	// Do Horizontal Rules:
 	var key = hashBlock("<hr />");
 	text = text.replace(/^[ ]{0,2}([ ]?\*[ ]?){3,}[ \t]*$/gm,key);
-	text = text.replace(/^[ ]{0,2}([ ]?-[ ]?){3,}[ \t]*$/gm,key);
-	text = text.replace(/^[ ]{0,2}([ ]?_[ ]?){3,}[ \t]*$/gm,key);
+	text = text.replace(/^[ ]{0,2}([ ]?\-[ ]?){3,}[ \t]*$/gm,key);
+	text = text.replace(/^[ ]{0,2}([ ]?\_[ ]?){3,}[ \t]*$/gm,key);
 
 	text = _DoLists(text);
 	text = _DoCodeBlocks(text);
@@ -3342,8 +3359,10 @@ var _EncodeCode = function(text) {
 var _DoItalicsAndBold = function(text) {
 
 	// <strong> must go first:
-	text = text.replace(/(\*\*|__)(?=\S)([^\r]*?\S[\*_]*)\1/g,
+	text = text.replace(/(\*\*|__)(?=\S)([^\r]*?\S[*_]*)\1/g,
 		"<strong>$2</strong>");
+
+        text = text.replace(/(\w)_(\w)/g, "$1~E95E$2") // ** GFM **  "~E95E" == escaped "_"
 
 	text = text.replace(/(\*|_)(?=\S)([^\r]*?\S)\1/g,
 		"<em>$2</em>");
@@ -3426,6 +3445,7 @@ var _FormParagraphs = function(text) {
 		}
 		else if (str.search(/\S/) >= 0) {
 			str = _RunSpanGamut(str);
+                        str = str.replace(/\n/g,"<br />");  // ** GFM **
 			str = str.replace(/^([ \t]*)/g,"<p>");
 			str += "</p>"
 			grafsOut.push(str);

@@ -35,17 +35,20 @@ SocialSite.Util.Editor = {
 		// setup up the editor
 		editor.wmd(this.wmdOptions);
 		editor.each(this.createEditor).val('').TextAreaResizer();
-		SocialSite.Util.Slider.setUp();
 		// creates the editor after each ajax response
 		SocialSite.Ajax.registerPostAjax(this.PostAjaxSetUp);
+		SocialSite.Util.Slider.setUp();
 	},
 
 	// set up the editor after the ajax call
 	PostAjaxSetUp : function(changed$) {
 		var that = SocialSite.Util.Editor;
 		var editor = changed$.find('textarea.richEditor');
+		// wmd options	
+		var wmdAjaxOptions = that.wmdOptions;
+		wmdAjaxOptions.isAjax = true;
 		// setup the editor
-		editor.wmd(that.wmdOptions);
+		editor.wmd(wmdAjaxOptions);
 		editor.each(that.createEditor).TextAreaResizer();
 	},
 	// adds hooks to the editor

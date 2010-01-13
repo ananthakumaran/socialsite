@@ -18,9 +18,10 @@
 package com.socialsite.course.question;
 
 import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
-import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
@@ -63,52 +64,37 @@ public class AddQuestionPanel extends BasePanel
 		form.add(new RequiredTextField<String>("heading",
 				new PropertyModel<String>(this, "heading")));
 		form.add(new RichEditor("richeditor", new PropertyModel<String>(this, "text")));
-		final SubmitLink addQuestionLink = new SubmitLink("addquestion", form)
+		final AjaxSubmitLink addQuestionLink = new AjaxSubmitLink("addquestion", form)
 		{
 
 			/** */
 			private static final long serialVersionUID = 1L;
 
+
 			@Override
-			public void onSubmit()
+			protected void onError(final AjaxRequestTarget target, final Form<?> form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				// save the question
-				final Course course = form.getModelObject();
+				final Course course = (Course)form.getModelObject();
 				// create another question model
 				final Question question = new Question(heading, text);
 				question.setCourse(course);
 				question.setUser(getSessionUser());
 				questionDao.save(question);
+				// update the related contents
+				target.addComponent(dependent);
+				target.addComponent(feedback);
+				// fire the update event so the editor can intialize
+				firePostAjaxUpdateEvent(target);
 			}
-
-
-			// @Override
-			// protected void onError(final AjaxRequestTarget target, final
-			// Form<?> form)
-			// {
-			// super.onError(target, form);
-			// // show feedback messages
-			// target.addComponent(feedback);
-			// }
-
-			// @Override
-			// protected void onSubmit(final AjaxRequestTarget target, final
-			// Form<?> form)
-			// {
-			// // save the question
-			// final Course course = (Course)form.getModelObject();
-			// // create another question model
-			// final Question question = new Question(heading, text);
-			// question.setCourse(course);
-			// question.setUser(getSessionUser());
-			// questionDao.save(question);
-			// // update the related contents
-			// target.addComponent(dependent);
-			// target.addComponent(feedback);
-			//
-			// // fire the update event so the editor can intialize
-			// firePostAjaxUpdateEvent(target);
-			// }
 		};
 
 		form.add(addQuestionLink);
