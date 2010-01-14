@@ -17,6 +17,13 @@
 
 package com.socialsite.dao.hibernate;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+
 import com.socialsite.dao.CommentDao;
 import com.socialsite.persistence.Comment;
 
@@ -31,6 +38,38 @@ public class CommentDaoImpl extends AbstractDaoImpl<Comment> implements CommentD
 	public CommentDaoImpl()
 	{
 		super(Comment.class);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.CommentDao#getComments(long, int, int)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Comment> getComments(final long answerId, final int first, final int count)
+	{
+		final Criteria criteria = getSession().createCriteria(domainClass);
+		criteria.add(Restrictions.eq("answer.id", answerId));
+		criteria.setFirstResult(first);
+		criteria.setMaxResults(count);
+
+		// order by date
+		criteria.addOrder(Order.desc("time"));
+		return criteria.list();
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.CommentDao#getCommentsCount(long)
+	 */
+	public int getCommentsCount(final long answerId)
+	{
+		final Criteria criteria = getSession().createCriteria(domainClass);
+		criteria.add(Restrictions.eq("answer.id", answerId));
+		criteria.setProjection(Projections.rowCount());
+		return (Integer)criteria.uniqueResult();
 	}
 
 }

@@ -15,37 +15,50 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.course.answer;
+package com.socialsite.course.comment;
 
-import org.apache.wicket.MarkupContainer;
-import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.repeater.Item;
+import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.model.IModel;
 
 import com.socialsite.BasePanel;
-import com.socialsite.course.comment.AddCommentPanel;
-import com.socialsite.course.comment.CommentsPanel;
+import com.socialsite.dataprovider.CommentDataProvider;
 import com.socialsite.persistence.Answer;
+import com.socialsite.persistence.Comment;
 
 /**
  * @author Ananth
  */
-public class AnswerPanel extends BasePanel
+public class CommentsPanel extends BasePanel
 {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public AnswerPanel(final String id, final IModel<Answer> model)
+	public CommentsPanel(final String id, final IModel<Answer> model)
 	{
 		super(id, model);
+		// allow other panels to update this panel using ajax
+		setOutputMarkupId(true);
 		final Answer answer = model.getObject();
-		add(new Label("text", answer.getText()).setEscapeModelStrings(false));
+		final DataView<Comment> commentView = new DataView<Comment>("comments",
+				new CommentDataProvider(answer.getId()))
+		{
 
-		MarkupContainer commentPanel;
-		add(commentPanel = new CommentsPanel("comments", model));
-		add(new AddCommentPanel("addcomment", model, commentPanel));
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
 
+			@Override
+			protected void populateItem(final Item<Comment> item)
+			{
+				item.add(new CommentPanel("comment", item.getModel()));
+			}
+		};
+		add(commentView);
 	}
 
 }

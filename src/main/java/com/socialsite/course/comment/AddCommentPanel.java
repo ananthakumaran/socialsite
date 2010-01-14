@@ -15,7 +15,7 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.course.answer;
+package com.socialsite.course.comment;
 
 import java.util.Date;
 
@@ -29,37 +29,37 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
-import com.socialsite.dao.AnswerDao;
+import com.socialsite.dao.CommentDao;
 import com.socialsite.persistence.Answer;
-import com.socialsite.persistence.Question;
+import com.socialsite.persistence.Comment;
 import com.socialsite.util.wmd.RichEditor;
 
 /**
  * @author Ananth
  */
-public class AddAnswerPanel extends BasePanel
+public class AddCommentPanel extends BasePanel
 {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 	/** feedback panel */
 	FeedbackPanel feedback;
 	/** model for answer text */
 	private String text;
 
-	@SpringBean(name = "answerDao")
-	private AnswerDao answerDao;
+	@SpringBean(name = "commentDao")
+	private CommentDao commentDao;
 
-	public AddAnswerPanel(final String id, final IModel<Question> model,
+	public AddCommentPanel(final String id, final IModel<Answer> model,
 			final MarkupContainer dependent)
 	{
 		super(id, model);
 		final Form<Void> form = new Form<Void>("form");
 		add(form);
 		form.add(new RichEditor("richeditor", new PropertyModel<String>(this, "text")));
-		final AjaxSubmitLink addAnswer = new AjaxSubmitLink("addanswer")
+		final AjaxSubmitLink addComment = new AjaxSubmitLink("addcomment")
 		{
 
 			/**
@@ -78,23 +78,22 @@ public class AddAnswerPanel extends BasePanel
 			@Override
 			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
-				// save the answers
-				final Question question = model.getObject();
-				final Answer answer = new Answer();
-				answer.setUser(getSessionUser());
-				answer.setText(text);
-				answer.setTime(new Date());
-				question.addAnswer(answer);
-
-				answerDao.save(answer);
+				// saves the new comment
+				final Answer answer = model.getObject();
+				final Comment comment = new Comment();
+				comment.setText(text);
+				comment.setTime(new Date());
+				comment.setUser(getSessionUser());
+				answer.addComment(comment);
+				commentDao.save(comment);
+				// update the dependent
 				target.addComponent(dependent);
-				// fire the update event so the editor can intialize
-				firePostAjaxUpdateEvent(target);
 			}
 		};
-		form.add(addAnswer);
-		form.setDefaultButton(addAnswer);
+		form.add(addComment);
+		form.setDefaultButton(addComment);
 		add(feedback = new FeedbackPanel("feedback"));
 		feedback.setOutputMarkupId(true);
+
 	}
 }

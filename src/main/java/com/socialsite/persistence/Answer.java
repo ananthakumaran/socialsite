@@ -53,6 +53,12 @@ public class Answer implements AbstractDomain
 		setTime(new Date());
 	}
 
+	public void addComment(final Comment comment)
+	{
+		getComments().add(comment);
+		comment.setAnswer(this);
+	}
+
 	public Set<Comment> getComments()
 	{
 		return comments;
@@ -81,6 +87,11 @@ public class Answer implements AbstractDomain
 	public User getUser()
 	{
 		return user;
+	}
+
+	public void removeComment(final Comment comment)
+	{
+		getComments().remove(comment);
 	}
 
 	public void setComments(final Set<Comment> comments)

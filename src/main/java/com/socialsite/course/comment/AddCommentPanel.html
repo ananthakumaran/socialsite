@@ -19,8 +19,13 @@
 
 <html xmlns:wicket>
 <wicket:panel>
-	<div wicket:id="text">[Answer text]</div>
-	<div wicket:id="comments">[ comments ]</div>
-	<div wicket:id="addcomment">[ add your comment]</div>
+  <a href="#" class="slideText round">AddComment</a>
+	<div style="display: none" class=".addComment">
+	<div wicket:id="feedback"></div>
+	<form wicket:id="form">
+	<div wicket:id="richeditor"></div>
+	<a wicket:id="addcomment" class="editor-text" href="#">Add Comment</a></form>
+	</div>
 </wicket:panel>
 </html>
+  

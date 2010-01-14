@@ -15,37 +15,30 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.course.answer;
+package com.socialsite.course.comment;
 
-import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import com.socialsite.BasePanel;
-import com.socialsite.course.comment.AddCommentPanel;
-import com.socialsite.course.comment.CommentsPanel;
-import com.socialsite.persistence.Answer;
+import com.socialsite.persistence.Comment;
 
 /**
  * @author Ananth
  */
-public class AnswerPanel extends BasePanel
+public class CommentPanel extends Panel
 {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public AnswerPanel(final String id, final IModel<Answer> model)
+	public CommentPanel(final String id, final IModel<Comment> model)
 	{
 		super(id, model);
-		final Answer answer = model.getObject();
-		add(new Label("text", answer.getText()).setEscapeModelStrings(false));
-
-		MarkupContainer commentPanel;
-		add(commentPanel = new CommentsPanel("comments", model));
-		add(new AddCommentPanel("addcomment", model, commentPanel));
-
+		final Comment comment = model.getObject();
+		add(new Label("text", comment.getText()).setEscapeModelStrings(false));
 	}
 
 }
