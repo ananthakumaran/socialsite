@@ -44,7 +44,7 @@ SocialSite.Util.Editor = {
 	PostAjaxSetUp : function(changed$) {
 		var that = SocialSite.Util.Editor;
 		var editor = changed$.find('textarea.richEditor');
-		// wmd options	
+		// wmd options
 		var wmdAjaxOptions = that.wmdOptions;
 		wmdAjaxOptions.isAjax = true;
 		// setup the editor
@@ -64,14 +64,19 @@ SocialSite.Util.Editor = {
 		// });
 
 		// FIXME this won't work if the user submit the form using the return
-		// key
-		form.find('a.editor-text').mousedown(function() {
-			// set the textarea value to the output markup so that
-				// the markup can be submitted to the server
-				form.find('textarea.richEditor').val(
-						form.find('div.wmd-preview').html());
-				return false;
-			}).click(function() {
+
+		// store the onclick function declared by wicket and call it
+		// after setting the value in the text editor
+		var ajaxSubmitLink = form.find('a.editor-text')[0];
+		// save this so we can call it later
+		var wicketOnClick = ajaxSubmitLink.onclick;
+		ajaxSubmitLink.onclick = function() {
+			form.find('textarea.richEditor').val(
+					form.find('div.wmd-preview').html());
+			return wicketOnClick();
+		};
+
+		form.find('a.editor-text').click(function() {
 			// clear the textarea after submitting the form
 				// TODO find a clean way to do it
 				form.find('textarea.richEditor').val("");
