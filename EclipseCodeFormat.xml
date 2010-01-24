@@ -19,7 +19,7 @@
 -->
 
 <profiles version="6">
-<profile name="Wicket" version="6">
+<profile name="SocialSite" version="6">
 <setting id="comment_clear_blank_lines" value="false"/>
 <setting id="comment_format_comments" value="true"/>
 <setting id="comment_format_html" value="true"/>

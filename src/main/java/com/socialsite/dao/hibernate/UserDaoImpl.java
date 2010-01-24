@@ -106,7 +106,7 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements U
 	public List<T> getFriends(final long userId, final int first, final int count)
 	{
 		final Query query = getSession().createQuery(
-				"select u.friends from User u where u.id = :userId").setParameter("userId", userId)
+				"select u.friends from User u where u.id = :userId").setParameter("userId", userId).setFetchSize(count)
 				.setFirstResult(first).setMaxResults(count);
 		return query.list();
 	}
@@ -155,7 +155,7 @@ public class UserDaoImpl<T extends User> extends AbstractDaoImpl<T> implements U
 
 		final BigInteger count = (BigInteger)getSession().createSQLQuery(
 				"select count(*) from friend_reference where"
-						+ " (friend_id = :id1 and user_id = :id2)    ").setParameter("id1", id1)
+						+ " (friend_id = :id1 and user_id = :id2)").setParameter("id1", id1)
 				.setParameter("id2", id2).uniqueResult();
 
 		// friend
