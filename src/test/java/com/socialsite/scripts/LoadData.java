@@ -17,6 +17,10 @@
 
 package com.socialsite.scripts;
 
+
+import java.util.Date;
+import java.util.HashSet;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.annotation.NotTransactional;
@@ -26,6 +30,7 @@ import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.Admin;
 import com.socialsite.persistence.Answer;
 import com.socialsite.persistence.Course;
+import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Question;
 import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.Student;
@@ -108,8 +113,34 @@ public class LoadData extends AbstractDaoTestHelper
 		saveAnswers(answer1, answer2);
 
 
-	}
+		// messages
+		InfoMsg infoMsg1 = new InfoMsg();
+		infoMsg1.setMessage("This is a info message");
+		infoMsg1.setSender(user1);
+		// multicast
+		infoMsg1.addUser(user2);
+		infoMsg1.addUser(user3);
+		infoMsg1.addUser(user4);
+		infoMsg1.addUser(user5);
+		infoMsg1.setTime(new Date());
 
+		InfoMsg infoMsg2 = new InfoMsg();
+		infoMsg2.setMessage("Hi to all friends");
+		infoMsg2.setSender(user1);
+		// if you take the set from the user and assign it to the message
+		// hibernate removes the set from the user(???).So create a new Set
+		infoMsg2.setUsers(new HashSet<User>(user1.getFriends()));
+		infoMsg2.setTime(new Date());
+		
+		InfoMsg infoMsg3 = new InfoMsg();
+		infoMsg3.setMessage(" user1");
+		infoMsg3.setSender(user2);
+		infoMsg3.addUser(user1);
+		infoMsg3.setTime(new Date());
+		saveMessage(infoMsg1, infoMsg2 , infoMsg3);
+
+
+	}
 
 	@Before
 	public void setup()
