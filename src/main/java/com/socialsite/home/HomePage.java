@@ -18,10 +18,12 @@
 package com.socialsite.home;
 
 import org.apache.wicket.markup.html.IHeaderResponse;
+import org.apache.wicket.markup.html.panel.Panel;
 
 import com.socialsite.BasePage;
 import com.socialsite.friend.FriendsPanel;
 import com.socialsite.message.MessagePanel;
+import com.socialsite.message.MessageSenderPanel;
 import com.socialsite.user.UserInfoPanel;
 
 /**
@@ -40,9 +42,13 @@ public class HomePage extends BasePage
 	 */
 	public HomePage()
 	{
+		// update the message panel after sending the message panel
+		Panel msgPanel = new MessagePanel("message");
+		msgPanel.setOutputMarkupId(true);
 		add(new UserInfoPanel("userinfo"));
-		add(new MessagePanel("message"));
+		add(msgPanel);
 		add(new FriendsPanel("friends"));
+		add(new MessageSenderPanel("sender", msgPanel));
 	}
 
 	@Override

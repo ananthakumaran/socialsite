@@ -134,10 +134,23 @@ public class BasePanel extends Panel implements IHeaderContributor
 	}
 
 	/**
-	 * helper to check the role
-	 * @param role role
+	 * gets the user id(the visitor id)
+	 * 
+	 * @return visitor id
 	 */
-	public boolean hasRole(String role){
+	public long getUserId()
+	{
+		return SocialSiteSession.get().getUserId();
+	}
+
+	/**
+	 * helper to check the role
+	 * 
+	 * @param role
+	 *            role
+	 */
+	public boolean hasRole(String role)
+	{
 		return SocialSiteSession.get().getSessionUser().hasRole(role);
 	}
 }

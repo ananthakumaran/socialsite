@@ -25,8 +25,6 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
-import com.socialsite.SocialSiteSession;
-import com.socialsite.authentication.SessionUser;
 import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.dao.MessageDao;
 import com.socialsite.persistence.InfoMsg;
@@ -59,7 +57,7 @@ public class InfoMsgPanel extends BasePanel
 	{
 		super(id, infoMsgModel);
 		final InfoMsg infoMsg = infoMsgModel.getObject();
-		add(new Label("message", infoMsg.getMessage()));
+		add(new Label("message", infoMsg.getMessage()).setEscapeModelStrings(false));
 		add(new AjaxLink<InfoMsg>("delete", infoMsgModel)
 		{
 
