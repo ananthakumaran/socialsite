@@ -78,15 +78,15 @@ public class InfoMsgPanel extends BasePanel
 			@Override
 			public boolean isVisible()
 			{
-				SessionUser user = SocialSiteSession.get().getSessionUser();
+				
 				// allow the owner and the sender to delete the msg
-				if (user.hasRole(SocialSiteRoles.OWNER))
+				if (hasRole(SocialSiteRoles.OWNER))
 				{
 					return true;
 				}
 				else
 				{
-					return infoMsg.getSender().getId() == user.getId();
+					return infoMsg.getSender().getId() == getSessionUserId();
 				}
 			}
 		});

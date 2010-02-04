@@ -132,4 +132,12 @@ public class BasePanel extends Panel implements IHeaderContributor
 		session.getSessionUser().setRoles(
 				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
 	}
+
+	/**
+	 * helper to check the role
+	 * @param role role
+	 */
+	public boolean hasRole(String role){
+		return SocialSiteSession.get().getSessionUser().hasRole(role);
+	}
 }
