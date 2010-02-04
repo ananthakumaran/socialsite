@@ -17,11 +17,17 @@
 
 package com.socialsite.message;
 
+import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
+import com.socialsite.dao.MessageDao;
 import com.socialsite.persistence.InfoMsg;
+import com.socialsite.persistence.Message;
 
 /**
  * @author Ananth
@@ -32,6 +38,10 @@ public class InfoMsgPanel extends Panel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	/** spring dao to handle message object */
+	@SpringBean(name = "messageDao")
+	private MessageDao<Message> messageDao;
 
 	/**
 	 * constructor
@@ -41,11 +51,26 @@ public class InfoMsgPanel extends Panel
 	 * @param infoMsg
 	 *            message
 	 */
-	public InfoMsgPanel(final String id, final IModel<InfoMsg> infoMsgModel)
+	public InfoMsgPanel(final String id, final IModel<InfoMsg> infoMsgModel , final MarkupContainer dependent)
 	{
 		super(id);
 		InfoMsg infoMsg = infoMsgModel.getObject();
 		add(new Label("message", infoMsg.getMessage()));
+		add(new AjaxLink<InfoMsg>("delete" , infoMsgModel)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick(AjaxRequestTarget target)
+			{
+				messageDao.delete(getModelObject());
+				target.addComponent(dependent);
+			}
+		});
 		// TODO add other details
 	}
 
