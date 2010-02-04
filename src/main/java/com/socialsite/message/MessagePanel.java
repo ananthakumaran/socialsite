@@ -21,6 +21,7 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
+import org.apache.wicket.model.Model;
 
 import com.socialsite.SocialSiteSession;
 import com.socialsite.dataprovider.MessageDataProvider;
@@ -83,7 +84,7 @@ public class MessagePanel extends Panel
 				}
 				else if (message instanceof InfoMsg)
 				{
-					item.add(new InfoMsgPanel("message", (InfoMsg)message));
+					item.add(new InfoMsgPanel("message", new Model<InfoMsg>(((InfoMsg)message))));
 				}
 
 			}

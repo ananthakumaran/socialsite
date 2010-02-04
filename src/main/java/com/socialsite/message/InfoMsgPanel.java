@@ -19,6 +19,7 @@ package com.socialsite.message;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.IModel;
 
 import com.socialsite.persistence.InfoMsg;
 
@@ -40,9 +41,10 @@ public class InfoMsgPanel extends Panel
 	 * @param infoMsg
 	 *            message
 	 */
-	public InfoMsgPanel(final String id, final InfoMsg infoMsg)
+	public InfoMsgPanel(final String id, final IModel<InfoMsg> infoMsgModel)
 	{
 		super(id);
+		InfoMsg infoMsg = infoMsgModel.getObject();
 		add(new Label("message", infoMsg.getMessage()));
 		// TODO add other details
 	}
