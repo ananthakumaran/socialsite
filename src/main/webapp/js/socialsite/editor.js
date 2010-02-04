@@ -71,8 +71,11 @@ SocialSite.Util.Editor = {
 		// save this so we can call it later
 		var wicketOnClick = ajaxSubmitLink.onclick;
 		ajaxSubmitLink.onclick = function() {
+			var preview = form.find('div.wmd-preview'); 
 			form.find('textarea.richEditor').val(
-					form.find('div.wmd-preview').html());
+					preview.html());
+			preview.text("");
+			
 			return wicketOnClick();
 		};
 
