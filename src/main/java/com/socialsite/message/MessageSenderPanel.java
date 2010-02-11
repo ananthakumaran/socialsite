@@ -114,6 +114,9 @@ public class MessageSenderPanel extends BasePanel
 					infoMsg.addUser(userDao.load(getUserId()));
 				}
 				target.addComponent(dependent);
+
+				// fire the update event so the editor can intialize
+				firePostAjaxUpdateEvent(target);
 				messageDao.save(infoMsg);
 			}
 		});

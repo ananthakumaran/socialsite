@@ -19,8 +19,16 @@
 
 <html xmlns:wicket>
 <wicket:panel>
-  <div wicket:id="message"></div>
-  <a wicket:id="delete" href="#">Delete</a>
+	<div wicket:id="message"></div>
+	<div><a wicket:id="delete" href="#">Delete</a> <wicket:enclosure
+		child="form:send">
+		<a href="#" class="slideText round">Reply</a>
+		<div style="display: none">
+		<div wicket:id="feedback"></div>
+		<form wicket:id="form">
+		<div wicket:id="richeditor"></div>
+		<a wicket:id="send" class="editor-text" href="#">Send</a></form>
+		</div>
+	</wicket:enclosure></div>
 </wicket:panel>
 </html>
-  
