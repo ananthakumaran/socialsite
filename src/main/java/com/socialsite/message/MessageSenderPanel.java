@@ -94,23 +94,26 @@ public class MessageSenderPanel extends BasePanel
 			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 
+				User sender = getSessionUser();
 				final InfoMsg infoMsg = new InfoMsg();
 				infoMsg.setMessage(text);
-				infoMsg.setSender(getSessionUser());
+				infoMsg.setSender(sender);
 				infoMsg.setTime(new Date());
 				if (hasRole(SocialSiteRoles.OWNER))
 				{
 					// send the status to all the friends and who????
 					infoMsg.setUsers(new HashSet<User>(getSessionUser().getFriends()));
 
+					// add the user also
+					infoMsg.addUser(sender);
 				}
 				else
 				{
 					// may be friend or other user if he allows other to send
 					// msg
 					infoMsg.addUser(userDao.load(getUserId()));
-					target.addComponent(dependent);
 				}
+				target.addComponent(dependent);
 				messageDao.save(infoMsg);
 			}
 		});
