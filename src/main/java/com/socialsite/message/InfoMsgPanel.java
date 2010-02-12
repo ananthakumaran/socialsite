@@ -17,6 +17,7 @@
 
 package com.socialsite.message;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 import org.apache.wicket.MarkupContainer;
@@ -76,6 +77,8 @@ public class InfoMsgPanel extends BasePanel
 		super(id, infoMsgModel);
 		final InfoMsg infoMsg = infoMsgModel.getObject();
 		final User sender = infoMsg.getSender();
+		
+		// user image
 		UserLink<User> userImageLink;
 		Model<User> senderModel = new Model<User>(sender);
 		add(userImageLink = new UserLink<User>("imagelink", senderModel));
@@ -84,7 +87,15 @@ public class InfoMsgPanel extends BasePanel
 		Link<User> name;
 		add(name = new UserLink<User>("home", senderModel));
 		name.add(new Label("username", sender.getUserName()));
+		
+		final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
+				DateFormat.SHORT);
+		add(new Label("date",dateFormat.format(infoMsg.getTime())));
+		
+		// message
 		add(new Label("message", infoMsg.getMessage()).setEscapeModelStrings(false));
+		
+		// delete link
 		add(new AjaxLink<InfoMsg>("delete", infoMsgModel)
 		{
 
@@ -115,6 +126,7 @@ public class InfoMsgPanel extends BasePanel
 			}
 		});
 
+		// reply form
 		final Form<InfoMsg> form = new Form<InfoMsg>("form", infoMsgModel);
 		add(form);
 		form.add(new RichEditor("richeditor", new PropertyModel<String>(this, "text")));
@@ -176,6 +188,7 @@ public class InfoMsgPanel extends BasePanel
 			}
 		});
 
+		// feedback for reply 
 		add(feedback = new FeedbackPanel("feedback"));
 		feedback.setOutputMarkupId(true);
 		setOutputMarkupId(true);
