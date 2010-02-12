@@ -25,16 +25,22 @@ import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
 import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.dao.MessageDao;
+import com.socialsite.image.ImagePanel;
+import com.socialsite.image.ImageType;
 import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Message;
+import com.socialsite.persistence.User;
+import com.socialsite.user.UserLink;
 import com.socialsite.util.wmd.RichEditor;
 
 /**
@@ -69,6 +75,15 @@ public class InfoMsgPanel extends BasePanel
 	{
 		super(id, infoMsgModel);
 		final InfoMsg infoMsg = infoMsgModel.getObject();
+		final User sender = infoMsg.getSender();
+		UserLink<User> userImageLink;
+		Model<User> senderModel = new Model<User>(sender);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));
+		Link<User> name;
+		add(name = new UserLink<User>("home", senderModel));
+		name.add(new Label("username", sender.getUserName()));
 		add(new Label("message", infoMsg.getMessage()).setEscapeModelStrings(false));
 		add(new AjaxLink<InfoMsg>("delete", infoMsgModel)
 		{
