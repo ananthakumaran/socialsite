@@ -42,7 +42,7 @@ public class ProfilePage extends BasePage
 
 		final List<ITab> tabs = new ArrayList<ITab>();
 
-		tabs.add(new AbstractTab(new Model<String>("general"))
+		tabs.add(new AbstractTab(new Model<String>("Tab0"))
 		{
 
 			/**
@@ -57,7 +57,7 @@ public class ProfilePage extends BasePage
 			}
 		});
 
-		tabs.add(new AbstractTab(new Model<String>("general1"))
+		tabs.add(new AbstractTab(new Model<String>("Tab1"))
 		{
 
 			/**
