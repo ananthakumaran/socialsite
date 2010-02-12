@@ -48,7 +48,7 @@
 		<joined-subclass name="InfoMsg" table="INFO_MSG">
 			<key column="id"></key>
 			<!-- properties -->
-			<property name="message" type="string"></property>
+			<property name="message" type="text"></property>
 			<!-- relations -->
 			<many-to-one name="sender" column="sender_id" class="User"
 				foreign-key="fk_INFO_MSG_sender_id_User_id" />

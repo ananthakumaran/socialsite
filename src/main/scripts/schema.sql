@@ -180,7 +180,7 @@
 
     create table INFO_MSG (
         id bigint not null,
-        message varchar(255),
+        message text,
         sender_id bigint,
         primary key (id)
     );
