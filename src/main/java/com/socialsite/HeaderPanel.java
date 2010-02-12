@@ -32,7 +32,6 @@ import com.socialsite.authentication.LogoutPage;
 import com.socialsite.entitymodel.StringWrapper;
 import com.socialsite.home.HomePage;
 import com.socialsite.profile.ProfilePage;
-import com.socialsite.scrap.ScrapPage;
 import com.socialsite.search.SearchOption;
 import com.socialsite.search.SearchPage;
 
@@ -90,23 +89,6 @@ public class HeaderPanel extends BasePanel
 				setUserId(SocialSiteSession.get().getSessionUser().getId());
 				setResponsePage(ProfilePage.class);
 
-			}
-
-		});
-
-		add(new Link<Object>("scrap")
-		{
-
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void onClick()
-			{
-				setUserId(SocialSiteSession.get().getSessionUser().getId());
-				setResponsePage(ScrapPage.class);
 			}
 
 		});
