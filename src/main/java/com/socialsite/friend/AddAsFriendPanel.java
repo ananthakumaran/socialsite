@@ -58,6 +58,9 @@ public class AddAsFriendPanel extends BasePanel
 	/** feedback panel */
 	private FeedbackPanel feedback;
 
+	/** specifies the visibility */
+	private Boolean isVisible = null;
+
 	/**
 	 * constructor
 	 */
@@ -108,10 +111,13 @@ public class AddAsFriendPanel extends BasePanel
 	@Override
 	public boolean isVisible()
 	{
-		return !friendRequestMsgDao.hasFriendRequest(SocialSiteSession.get().getSessionUser()
-				.getId(), SocialSiteSession.get().getUserId());
+		// check the first time only
+		if (isVisible == null)
+		{
+			isVisible = !friendRequestMsgDao.hasFriendRequest(SocialSiteSession.get()
+					.getSessionUser().getId(), SocialSiteSession.get().getUserId());
 
-		// return true;
-
+		}
+		return isVisible;
 	}
 }
