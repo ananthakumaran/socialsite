@@ -77,7 +77,7 @@ public class InfoMsgPanel extends BasePanel
 		super(id, infoMsgModel);
 		final InfoMsg infoMsg = infoMsgModel.getObject();
 		final User sender = infoMsg.getSender();
-		
+
 		// user image
 		UserLink<User> userImageLink;
 		Model<User> senderModel = new Model<User>(sender);
@@ -87,14 +87,14 @@ public class InfoMsgPanel extends BasePanel
 		Link<User> name;
 		add(name = new UserLink<User>("home", senderModel));
 		name.add(new Label("username", sender.getUserName()));
-		
+
 		final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
 				DateFormat.SHORT);
-		add(new Label("date",dateFormat.format(infoMsg.getTime())));
-		
+		add(new Label("date", dateFormat.format(infoMsg.getTime())));
+
 		// message
 		add(new Label("message", infoMsg.getMessage()).setEscapeModelStrings(false));
-		
+
 		// delete link
 		add(new AjaxLink<InfoMsg>("delete", infoMsgModel)
 		{
@@ -172,17 +172,19 @@ public class InfoMsgPanel extends BasePanel
 				}
 				catch (Exception ex)
 				{
-					target.appendJavascript("SocialSite.Message.show('sorry we can't send your message. Try again later');");
+					target
+							.appendJavascript("SocialSite.Message.show('sorry we can't send your message. Try again later');");
 				}
-				
+
 				// show a message
-				target.appendJavascript("SocialSite.Message.show('Your reply message has been sent successfully ');");
-				
+				target
+						.appendJavascript("SocialSite.Message.show('Your reply message has been sent successfully ');");
+
 				// slideup the reply panel
 				String id = InfoMsgPanel.this.getMarkupId();
 				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 
-				
+
 				// TODO show the success message
 				// either use a global success or failure message handler
 				// or show the messge near this message
@@ -192,7 +194,7 @@ public class InfoMsgPanel extends BasePanel
 			}
 		});
 
-		// feedback for reply 
+		// feedback for reply
 		add(feedback = new FeedbackPanel("feedback"));
 		feedback.setOutputMarkupId(true);
 		setOutputMarkupId(true);

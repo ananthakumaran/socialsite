@@ -37,6 +37,12 @@ public class Profile implements AbstractDomain
 	private String email;
 	private byte[] image;
 	private byte[] thumb;
+	private String sex;
+	private String currentCity;
+	private String homeTown;
+	private String relationshipStatus;
+	private String politicalView;
+	private String religiousView;
 
 	/**
 	 * TODO add other fields link address , birthday etc;
@@ -153,4 +159,63 @@ public class Profile implements AbstractDomain
 		this.user = user;
 	}
 
+	public String getCurrentCity()
+	{
+		return currentCity;
+	}
+
+	public String getHomeTown()
+	{
+		return homeTown;
+	}
+
+	public String getPoliticalView()
+	{
+		return politicalView;
+	}
+
+	public String getRelationshipStatus()
+	{
+		return relationshipStatus;
+	}
+
+	public String getReligiousView()
+	{
+		return religiousView;
+	}
+
+	public String getSex()
+	{
+		return sex;
+	}
+
+	public void setCurrentCity(String currentCity)
+	{
+		this.currentCity = currentCity;
+	}
+
+	public void setHomeTown(String homeTown)
+	{
+		this.homeTown = homeTown;
+	}
+
+	public void setPoliticalView(String politicalView)
+	{
+		this.politicalView = politicalView;
+	}
+
+	public void setRelationshipStatus(String relationshipStatus)
+	{
+		this.relationshipStatus = relationshipStatus;
+	}
+
+	public void setReligiousView(String religiousView)
+	{
+		this.religiousView = religiousView;
+	}
+
+	public void setSex(String sex)
+	{
+		this.sex = sex;
+	}
 }

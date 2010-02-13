@@ -42,9 +42,8 @@ public class ProfilePage extends BasePage
 
 		final List<ITab> tabs = new ArrayList<ITab>();
 
-		tabs.add(new AbstractTab(new Model<String>("Tab0"))
+		tabs.add(new AbstractTab(new Model<String>("Basic"))
 		{
-
 			/**
 			 * 
 			 */
@@ -53,11 +52,11 @@ public class ProfilePage extends BasePage
 			@Override
 			public Panel getPanel(final String panelId)
 			{
-				return new GeneralTabPanel(panelId);
+				return new BasicTabPanel(panelId);
 			}
 		});
 
-		tabs.add(new AbstractTab(new Model<String>("Tab1"))
+		tabs.add(new AbstractTab(new Model<String>("Personal"))
 		{
 
 			/**
@@ -68,11 +67,10 @@ public class ProfilePage extends BasePage
 			@Override
 			public Panel getPanel(final String panelId)
 			{
-				return new GeneralTabPanel(panelId);
+				return new BasicTabPanel(panelId);
 			}
 		});
 
 		add(new AjaxTabbedPanel("tabs", tabs));
 	}
-
 }

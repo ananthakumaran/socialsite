@@ -17,12 +17,17 @@
 
 package com.socialsite.profile;
 
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.markup.html.panel.Panel;
+
 import com.socialsite.BasePanel;
+import com.socialsite.authentication.SocialSiteRoles;
 
 /**
  * @author Ananth
  */
-public class GeneralTabPanel extends BasePanel
+public class BasicTabPanel extends BasePanel
 {
 
 	/**
@@ -30,9 +35,38 @@ public class GeneralTabPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public GeneralTabPanel(final String id)
+	private Panel infoPanel = new BasicInfoPanel("basic");
+	private Panel formPanel = new BasicFormPanel("basic");
+	private Panel current = infoPanel;
+
+
+	public BasicTabPanel(final String id)
 	{
 		super(id);
+		add(current);
+		add(new AjaxLink<Void>("edit")
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick(AjaxRequestTarget target)
+			{
+				current.replaceWith(formPanel);
+				current = formPanel;
+				target.addComponent(current);
+			}
+
+			@Override
+			public boolean isVisible()
+			{
+				return hasRole(SocialSiteRoles.OWNER);
+			}
+		});
+
 	}
 
 }

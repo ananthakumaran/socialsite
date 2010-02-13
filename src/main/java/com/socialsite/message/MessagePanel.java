@@ -84,7 +84,8 @@ public class MessagePanel extends Panel
 				}
 				else if (message instanceof InfoMsg)
 				{
-					item.add(new InfoMsgPanel("message", new Model<InfoMsg>(((InfoMsg)message)),messageContainer));
+					item.add(new InfoMsgPanel("message", new Model<InfoMsg>(((InfoMsg)message)),
+							messageContainer));
 				}
 
 			}

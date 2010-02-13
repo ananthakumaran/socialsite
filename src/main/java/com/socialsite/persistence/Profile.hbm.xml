@@ -36,6 +36,12 @@
   <property name="firstName" type="string" />
   <property name="lastName" type="string" />
   <property name="email" type="string" />
+  <property name="sex" type="string" />
+  <property name="currentCity" type="string" />
+  <property name="homeTown" type="string" />
+  <property name="relationshipStatus" type="string" />
+  <property name="politicalView" type="text" />
+  <property name="religiousView" type="text" />
   <property name="image" type="binary" length="10000000"/>
   <property name="thumb" type="binary"  length="100000"/>
   

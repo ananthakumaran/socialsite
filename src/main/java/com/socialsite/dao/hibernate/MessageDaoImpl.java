@@ -39,7 +39,8 @@ public class MessageDaoImpl<T extends Message> extends AbstractDaoImpl<T> implem
 	public List<T> getMessage(final User user, final int first, final int count)
 	{
 		final Query query = getSession().createQuery(
-				" select m from Message m , User u " + " where u = :user and u member of m.users order by m.time desc");
+				" select m from Message m , User u "
+						+ " where u = :user and u member of m.users order by m.time desc");
 		query.setParameter("user", user);
 		query.setFirstResult(first);
 		query.setMaxResults(count);

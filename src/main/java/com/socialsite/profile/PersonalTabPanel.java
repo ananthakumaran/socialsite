@@ -15,49 +15,23 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@CHARSET "ISO-8859-1";
+package com.socialsite.profile;
 
-div.tabpanel div.tab-row {
-	float: left;
-	width: 100%;
-	background: #DAE0D2;
-	line-height: normal;
-}
+import com.socialsite.BasePanel;
 
-div.tabpanel div.tab-row ul {
-	margin: 0;
-	padding: 10px 10px 0;
-	list-style: none;
-}
+/**
+ * @author Ananth
+ */
+public class PersonalTabPanel extends BasePanel
+{
 
-div.tabpanel div.tab-row li {
-	float: left;
-	margin: 0;
-	padding: 0 0 0 9px;
-}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-div.tabpanel div.tab-row a {
-	display: block;
-	padding: 5px 15px 4px 6px;
-	text-decoration: none;
-	font-weight: bold;
-	white-space: nowrap;
-	color: #eee;
-}
-
-div.tab-panel {
-	clear: left;
-}
-
-div.tabpanel div.tab-row a:hover {
-	color: #fff;
-}
-
-div.tabpanel div.tab-row li.selected {
-	
-}
-
-div.tabpanel div.tab-row li.selected a {
-	color: #333;
-	padding-bottom: 5px;
+	public PersonalTabPanel(String id)
+	{
+		super(id);
+	}
 }
