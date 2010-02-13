@@ -74,7 +74,6 @@ public class MessageDataProvider extends SortableDataProvider<Message>
 
 	public int size()
 	{
-		System.out.println("size" + messageDao.getMessageCount(userDao.load(id)));
 		return messageDao.getMessageCount(userDao.load(id));
 
 	}

@@ -63,7 +63,6 @@ public class FriendsDataProvider extends SortableDataProvider<User>
 
 	public IModel<User> model(final User user)
 	{
-		System.out.println(user.getId());
 		return new EntityModel<User>(user, userDao);
 	}
 
