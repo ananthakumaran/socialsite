@@ -115,6 +115,8 @@ public class MessageSenderPanel extends BasePanel
 				}
 				target.addComponent(dependent);
 
+				// TODO show some meaningful message
+				target.appendJavascript("SocialSite.Message.show('Your message has been sent successfully ');");
 				// fire the update event so the editor can intialize
 				firePostAjaxUpdateEvent(target);
 				messageDao.save(infoMsg);

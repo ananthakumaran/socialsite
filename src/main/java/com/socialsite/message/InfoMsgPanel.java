@@ -172,13 +172,17 @@ public class InfoMsgPanel extends BasePanel
 				}
 				catch (Exception ex)
 				{
-					// TODO show the failure message
+					target.appendJavascript("SocialSite.Message.show('sorry we can't send your message. Try again later');");
 				}
-
+				
+				// show a message
+				target.appendJavascript("SocialSite.Message.show('Your reply message has been sent successfully ');");
+				
 				// slideup the reply panel
 				String id = InfoMsgPanel.this.getMarkupId();
 				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 
+				
 				// TODO show the success message
 				// either use a global success or failure message handler
 				// or show the messge near this message

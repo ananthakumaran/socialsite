@@ -99,7 +99,7 @@ body {
 }
 
 /**--------- busy indicator -----------**/
-#busy_indicator {
+#busy_indicator  {
 	position: fixed;
 	right: 50%;
 	background: #DDD;
@@ -113,7 +113,21 @@ body {
 	font-size: 1em;
 	padding: 2px;
 }
-
+ 
+#message {
+	position: fixed;
+	right: 50%;
+	background: #FBEE99;
+	color: #333;
+	padding: 2px;
+	margin: 0 auto;
+	z-index: 1000;
+	width: 200;
+	font-weight: bold;
+	text-align: center;
+	font-size: 1em;
+	padding: 2px;
+}
 
 /**---------------------- Question -----------------------**/
 
