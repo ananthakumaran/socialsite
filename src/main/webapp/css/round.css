@@ -24,8 +24,8 @@
 
 fieldset input,fieldset textarea , input[type="text"] {
 	border: 1px solid #DDDDDD;
-	margin: 5px 0;
-	padding: 5px;
+	margin: 1px 0;
+	padding: 1px;
 }
 
 /**--------------- round cornered links ----------------*/

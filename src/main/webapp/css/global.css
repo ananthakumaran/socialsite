@@ -29,8 +29,8 @@ body {
 /*------------------------Layout ---------------------------*/
 	/*** header ***/
 #header {
-	background: url("../img/header-background.png");
-	height: 60px;
+	background: #2358B8;
+	height: 36px;
 }
 
 #header div.navigation {
@@ -39,10 +39,9 @@ body {
 }
 
 #header div.navigation a {
-	color: #003269;
+	color: #FFFFFF;
 	margin-right: 8px;
-	font-size: 18px;
-	text-shadow: 0 1px 0 #D7E8FE;
+	font-size: 16px;
 }
 
 #header div.navLeft {
@@ -54,7 +53,7 @@ body {
 }
 
 #header div li {
-	padding: 15px 0;
+	padding: 9px 0;
 	list-style: none;
 	display: inline;
 	float: left;
