@@ -17,29 +17,45 @@
 
 package com.socialsite.profile;
 
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
+import org.apache.wicket.authorization.strategies.role.Roles;
 import org.apache.wicket.markup.html.panel.Panel;
 
-import com.socialsite.BasePanel;
+import com.socialsite.authentication.SocialSiteRoles;
 
-/**
- * @author Ananth
- */
-public class PersonalTabPanel extends BasePanel
+public class EditLink extends AjaxLink<Void>
 {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	Panel infoPanel;
+	Panel formPanel;
+	Panel current;
+	Roles roles;
 
-	private Panel infoPanel = new PersonalInfoPanel("personal");
-	private Panel formPanel = new PersonalFormPanel("personal");
-	private Panel current = infoPanel;
-
-	public PersonalTabPanel(String id)
+	public EditLink(String id, Panel infoPanel, Panel formPanel, Panel current, Roles roles)
 	{
 		super(id);
-		add(current);
-		add(new EditLink("edit", infoPanel, formPanel, current, getRoles()));
+		this.infoPanel = infoPanel;
+		this.formPanel = formPanel;
+		this.current = current;
+		this.roles = roles;
+	}
+
+	@Override
+	public void onClick(AjaxRequestTarget target)
+	{
+		current.replaceWith(formPanel);
+		current = formPanel;
+		target.addComponent(current);
+	}
+
+	@Override
+	public boolean isVisible()
+	{
+		return roles.hasRole(SocialSiteRoles.OWNER);
 	}
 }

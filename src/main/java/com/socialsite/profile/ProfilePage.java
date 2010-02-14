@@ -67,9 +67,41 @@ public class ProfilePage extends BasePage
 			@Override
 			public Panel getPanel(final String panelId)
 			{
-				return new BasicTabPanel(panelId);
+				return new PersonalTabPanel(panelId);
 			}
 		});
+
+		tabs.add(new AbstractTab(new Model<String>("Contact"))
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public Panel getPanel(final String panelId)
+			{
+				return new ContactTabPanel(panelId);
+			}
+		});
+
+
+		tabs.add(new AbstractTab(new Model<String>("Education"))
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public Panel getPanel(final String panelId)
+			{
+				return new EducationTabPanel(panelId);
+			}
+		});
+
 
 		add(new AjaxTabbedPanel("tabs", tabs));
 	}

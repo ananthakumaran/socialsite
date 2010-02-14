@@ -24,7 +24,7 @@ import com.socialsite.BasePanel;
 /**
  * @author Ananth
  */
-public class PersonalTabPanel extends BasePanel
+public class ContactTabPanel extends BasePanel
 {
 
 	/**
@@ -32,14 +32,17 @@ public class PersonalTabPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Panel infoPanel = new PersonalInfoPanel("personal");
-	private Panel formPanel = new PersonalFormPanel("personal");
+
+	private Panel infoPanel = new ContactInfoPanel("contact");
+	private Panel formPanel = new ContactFormPanel("contact");
 	private Panel current = infoPanel;
 
-	public PersonalTabPanel(String id)
+	public ContactTabPanel(String id)
 	{
 		super(id);
 		add(current);
 		add(new EditLink("edit", infoPanel, formPanel, current, getRoles()));
 	}
+
+
 }

@@ -19,10 +19,14 @@
 
 <html xmlns:wicket>
 <wicket:panel>
-  <div class="tab">
-  <a wicket:id="edit">Edit</a>
-  <div wicket:id="personal"></div>
- </div> 
+  <h1>form Panel</h1>
+	<div wicket:id="feedback"></div>
+	<div>
+	<form wicket:id="form">
+	<p><label>College/University:<input wicket:id="college" type="text"/></label></p>
+	<p><a wicket:id="save">Save</a></p>
+	</form>
+	</div>
 </wicket:panel>
 </html>
   

@@ -17,14 +17,12 @@
 
 package com.socialsite.profile;
 
-import org.apache.wicket.markup.html.panel.Panel;
-
 import com.socialsite.BasePanel;
 
 /**
  * @author Ananth
  */
-public class PersonalTabPanel extends BasePanel
+public class PersonalInfoPanel extends BasePanel
 {
 
 	/**
@@ -32,14 +30,10 @@ public class PersonalTabPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Panel infoPanel = new PersonalInfoPanel("personal");
-	private Panel formPanel = new PersonalFormPanel("personal");
-	private Panel current = infoPanel;
-
-	public PersonalTabPanel(String id)
+	public PersonalInfoPanel(String id)
 	{
 		super(id);
-		add(current);
-		add(new EditLink("edit", infoPanel, formPanel, current, getRoles()));
+		setOutputMarkupId(true);
 	}
+
 }

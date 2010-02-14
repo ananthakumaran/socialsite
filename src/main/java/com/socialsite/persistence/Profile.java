@@ -43,6 +43,22 @@ public class Profile implements AbstractDomain
 	private String relationshipStatus;
 	private String politicalView;
 	private String religiousView;
+	private String activities;
+	private String interests;
+	private String favouriteMusic;
+	private String favouriteTvShows;
+	private String favouriteMovies;
+	private String favouriteBooks;
+	private String favouriteQuotations;
+	private String aboutMe;
+	private String mobilePhone;
+	private String landPhone;
+	private String address;
+	private String city;
+	private String neighborhood;
+	private Integer zip;
+	private String website;
+	private String college;
 
 	/**
 	 * TODO add other fields link address , birthday etc;
@@ -218,4 +234,165 @@ public class Profile implements AbstractDomain
 	{
 		this.sex = sex;
 	}
+
+	public String getAboutMe()
+	{
+		return aboutMe;
+	}
+
+	public String getActivities()
+	{
+		return activities;
+	}
+
+	public String getFavouriteBooks()
+	{
+		return favouriteBooks;
+	}
+
+	public String getFavouriteMusic()
+	{
+		return favouriteMusic;
+	}
+
+	public String getFavouriteMovies()
+	{
+		return favouriteMovies;
+	}
+
+	public String getFavouriteQuotations()
+	{
+		return favouriteQuotations;
+	}
+
+	public String getFavouriteTvShows()
+	{
+		return favouriteTvShows;
+	}
+
+	public String getInterests()
+	{
+		return interests;
+	}
+
+	public void setAboutMe(String aboutMe)
+	{
+		this.aboutMe = aboutMe;
+	}
+
+	public void setActivities(String activities)
+	{
+		this.activities = activities;
+	}
+
+	public void setFavouriteBooks(String favouriteBooks)
+	{
+		this.favouriteBooks = favouriteBooks;
+	}
+
+	public void setFavouriteMovies(String favouriteMovies)
+	{
+		this.favouriteMovies = favouriteMovies;
+	}
+
+	public void setFavouriteMusic(String favouriteMusic)
+	{
+		this.favouriteMusic = favouriteMusic;
+	}
+
+	public void setFavouriteQuotations(String favouriteQuotations)
+	{
+		this.favouriteQuotations = favouriteQuotations;
+	}
+
+	public void setFavouriteTvShows(String favouriteTvShows)
+	{
+		this.favouriteTvShows = favouriteTvShows;
+	}
+
+	public void setInterests(String interests)
+	{
+		this.interests = interests;
+	}
+
+	public String getAddress()
+	{
+		return address;
+	}
+
+	public String getCity()
+	{
+		return city;
+	}
+
+	public String getLandPhone()
+	{
+		return landPhone;
+	}
+
+	public String getMobilePhone()
+	{
+		return mobilePhone;
+	}
+
+	public String getNeighborhood()
+	{
+		return neighborhood;
+	}
+
+	public String getWebsite()
+	{
+		return website;
+	}
+
+	public Integer getZip()
+	{
+		return zip;
+	}
+
+	public void setAddress(String address)
+	{
+		this.address = address;
+	}
+
+	public void setCity(String city)
+	{
+		this.city = city;
+	}
+
+	public void setLandPhone(String landPhone)
+	{
+		this.landPhone = landPhone;
+	}
+
+	public void setMobilePhone(String mobilePhone)
+	{
+		this.mobilePhone = mobilePhone;
+	}
+
+	public void setNeighborhood(String neighborhood)
+	{
+		this.neighborhood = neighborhood;
+	}
+
+	public void setWebsite(String website)
+	{
+		this.website = website;
+	}
+
+	public void setZip(Integer zip)
+	{
+		this.zip = zip;
+	}
+
+	public String getCollege()
+	{
+		return college;
+	}
+
+	public void setCollege(String college)
+	{
+		this.college = college;
+	}
+
 }

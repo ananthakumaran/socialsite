@@ -19,6 +19,7 @@ package com.socialsite;
 
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.authorization.strategies.role.Roles;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
@@ -152,5 +153,15 @@ public class BasePanel extends Panel implements IHeaderContributor
 	public boolean hasRole(String role)
 	{
 		return SocialSiteSession.get().getSessionUser().hasRole(role);
+	}
+
+	/**
+	 * helper to get the roles of the session user
+	 * 
+	 * @return roles of the session user
+	 */
+	public Roles getRoles()
+	{
+		return SocialSiteSession.get().getSessionUser().getRoles();
 	}
 }

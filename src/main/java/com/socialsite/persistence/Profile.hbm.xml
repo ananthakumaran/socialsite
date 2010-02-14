@@ -42,6 +42,22 @@
   <property name="relationshipStatus" type="string" />
   <property name="politicalView" type="text" />
   <property name="religiousView" type="text" />
+  <property name="activities" type="text" />
+  <property name="interests" type="text" />
+  <property name="favouriteMusic" type="text" />
+  <property name="favouriteMovies" type="text" />
+  <property name="favouriteTvShows" type="text" />
+  <property name="favouriteQuotations" type="text" />
+  <property name="favouriteBooks" type="text" />
+  <property name="aboutMe" type="text" />
+  <property name="mobilePhone" type="string" />
+  <property name="landPhone" type="string" />
+  <property name="address" type="string" />
+  <property name="city" type="string" />
+  <property name="neighborhood" type="string" />
+  <property name="zip" type="integer" />
+  <property name="website" type="string" />
+  <property name="college" type="string" />
   <property name="image" type="binary" length="10000000"/>
   <property name="thumb" type="binary"  length="100000"/>
   
