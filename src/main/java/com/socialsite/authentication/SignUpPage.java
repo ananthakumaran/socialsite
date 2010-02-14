@@ -22,17 +22,17 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.Radio;
 import org.apache.wicket.markup.html.form.RadioGroup;
+import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.validation.validator.EmailAddressValidator;
+import org.apache.wicket.validation.validator.RangeValidator;
+import org.apache.wicket.validation.validator.StringValidator.MaximumLengthValidator;
 import org.hibernate.exception.ConstraintViolationException;
-import org.wicketstuff.validation.client.ClientAndServerLengthBetweenValidatingBehavior;
-import org.wicketstuff.validation.client.ClientAndServerMaximumLengthValidatingBehavior;
-import org.wicketstuff.validation.client.ClientAndServerRequiredValidatingBehavior;
-import org.wicketstuff.validation.client.ClientAndServerValidatingFeedbackBehavior;
 
 import com.socialsite.SocialSiteSession;
 import com.socialsite.dao.MessageDao;
@@ -96,31 +96,29 @@ public class SignUpPage extends WebPage
 		final Form<Object> form = new Form<Object>("signupform");
 		add(form);
 
-		final TextField<String> username = new TextField<String>("username",
+		final TextField<String> username = new RequiredTextField<String>("username",
 				new PropertyModel<String>(this, "userName"));
-		username.add(new ClientAndServerRequiredValidatingBehavior(form));
-		username.add(new ClientAndServerMaximumLengthValidatingBehavior(form, 16));
+		username.add(MaximumLengthValidator.maximumLength(16));
 
 		form.add(username);
 
-		final TextField<String> emailTextField = new TextField<String>("email",
+		final TextField<String> emailTextField = new RequiredTextField<String>("email",
 				new PropertyModel<String>(this, "email"));
-		emailTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
-		// emailTextField.add(new ClientAndServerEmailAddressValidator(form));
+		emailTextField.add(EmailAddressValidator.getInstance());
 
 		form.add(emailTextField);
 
 		final PasswordTextField passwordTextField = new PasswordTextField("password",
 				new PropertyModel<String>(this, "password"));
-		passwordTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
-		passwordTextField.add(new ClientAndServerLengthBetweenValidatingBehavior(form, 6, 16));
+		passwordTextField.setRequired(true);
+		passwordTextField.add(new RangeValidator(6, 16));
 
 		form.add(passwordTextField);
 
 		final PasswordTextField rePasswordTextField = new PasswordTextField("re-password",
 				new PropertyModel<String>(this, "rePassword"));
-		rePasswordTextField.add(new ClientAndServerRequiredValidatingBehavior(form));
-		rePasswordTextField.add(new ClientAndServerLengthBetweenValidatingBehavior(form, 6, 16));
+		rePasswordTextField.setRequired(true);
+		rePasswordTextField.add(new RangeValidator(6, 16));
 
 		form.add(rePasswordTextField);
 
@@ -221,7 +219,6 @@ public class SignUpPage extends WebPage
 
 		// feedback panel
 		feedback = new FeedbackPanel("feedback");
-		feedback.add(new ClientAndServerValidatingFeedbackBehavior(form));
 		feedback.setOutputMarkupId(true);
 		add(feedback);
 	}
