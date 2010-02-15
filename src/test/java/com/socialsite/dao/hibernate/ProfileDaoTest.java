@@ -31,6 +31,8 @@ import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
+import com.socialsite.profile.Access;
+import com.socialsite.util.PrivacyField;
 
 /**
  * 
@@ -49,7 +51,6 @@ public class ProfileDaoTest extends AbstractDaoTestHelper
 		ananthProfile.setEmail("ananth@gmail.com");
 		ananthProfile.setFirstName("ananth");
 		ananthProfile.setLastName("Kumaran");
-
 		profileDao.save(ananthProfile);
 
 		// flush the session so we can get the record using JDBC template
@@ -119,4 +120,20 @@ public class ProfileDaoTest extends AbstractDaoTestHelper
 
 	}
 
+	@Test
+	@Transactional
+	public void testPrivacyField()
+	{
+
+		final User ananth = new Student("ananth", "pass");
+		final Profile ananthProfile = new Profile(ananth);
+		ananthProfile.setTest(new PrivacyField("testValue", Access.EVERYONE));
+		profileDao.save(ananthProfile);
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+
+		PrivacyField test = ananthProfile.getTest();
+		assertEquals("testValue", test.getValue());
+		assertEquals(Access.EVERYONE, test.getPrivacy());
+	}
 }

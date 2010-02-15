@@ -1,69 +1,70 @@
 <?xml version="1.0"?>
-<!--
+	<!--
 
-        Copyright SocialSite (C) 2009
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
--->
+		Copyright SocialSite (C) 2009 This program is free software: you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation, either
+		version 3 of the License, or (at your option) any later version. This
+		program is distributed in the hope that it will be useful, but WITHOUT
+		ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+		FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+		for more details. You should have received a copy of the GNU General
+		Public License along with this program. If not, see
+		<http://www.gnu.org/licenses/>.
+	-->
 
 <!DOCTYPE hibernate-mapping PUBLIC
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.socialsite.persistence">
-  <class name="Profile">
-  
-  <!-- id  -->
-  
-  <id name="id" type="long" column="user_id">
-  <generator class="foreign">
-  <param name="property">user</param>
-  </generator>
-  </id>
-  
-  <!-- property -->
-  <property name="firstName" type="string" />
-  <property name="lastName" type="string" />
-  <property name="email" type="string" />
-  <property name="sex" type="string" />
-  <property name="currentCity" type="string" />
-  <property name="homeTown" type="string" />
-  <property name="relationshipStatus" type="string" />
-  <property name="politicalView" type="text" />
-  <property name="religiousView" type="text" />
-  <property name="activities" type="text" />
-  <property name="interests" type="text" />
-  <property name="favouriteMusic" type="text" />
-  <property name="favouriteMovies" type="text" />
-  <property name="favouriteTvShows" type="text" />
-  <property name="favouriteQuotations" type="text" />
-  <property name="favouriteBooks" type="text" />
-  <property name="aboutMe" type="text" />
-  <property name="mobilePhone" type="string" />
-  <property name="landPhone" type="string" />
-  <property name="address" type="string" />
-  <property name="city" type="string" />
-  <property name="neighborhood" type="string" />
-  <property name="zip" type="integer" />
-  <property name="website" type="string" />
-  <property name="college" type="string" />
-  <property name="image" type="binary" length="10000000"/>
-  <property name="thumb" type="binary"  length="100000"/>
-  
-  
-  <!-- Relations -->
-  <one-to-one name="user"  class="com.socialsite.persistence.User"  constrained="true" foreign-key="fk_Profile_user_id_User_id" />
-  
-  </class>
+	<class name="Profile">
+
+		<!-- id  -->
+
+		<id name="id" type="long" column="user_id">
+			<generator class="foreign">
+				<param name="property">user</param>
+			</generator>
+		</id>
+
+		<!-- property -->
+		<property name="firstName" type="string" />
+		<property name="lastName" type="string" />
+		<property name="email" type="string" />
+		<property name="sex" type="string" />
+		<property name="currentCity" type="string" />
+		<property name="homeTown" type="string" />
+		<property name="relationshipStatus" type="string" />
+		<property name="politicalView" type="text" />
+		<property name="religiousView" type="text" />
+		<property name="activities" type="text" />
+		<property name="interests" type="text" />
+		<property name="favouriteMusic" type="text" />
+		<property name="favouriteMovies" type="text" />
+		<property name="favouriteTvShows" type="text" />
+		<property name="favouriteQuotations" type="text" />
+		<property name="favouriteBooks" type="text" />
+		<property name="aboutMe" type="text" />
+		<property name="mobilePhone" type="string" />
+		<property name="landPhone" type="string" />
+		<property name="address" type="string" />
+		<property name="city" type="string" />
+		<property name="neighborhood" type="string" />
+		<property name="zip" type="integer" />
+		<property name="website" type="string" />
+		<property name="college" type="string" />
+		<property name="image" type="binary" length="10000000" />
+		<property name="thumb" type="binary" length="100000" />
+
+		<property name="test" type="com.socialsite.util.PrivacyUserType">
+			<column name="value"></column>
+			<column name="privacy"></column>
+		</property>
+
+
+		<!-- Relations -->
+		<one-to-one name="user" class="com.socialsite.persistence.User"
+			constrained="true" foreign-key="fk_Profile_user_id_User_id" />
+
+	</class>
 </hibernate-mapping>

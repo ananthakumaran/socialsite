@@ -19,6 +19,8 @@ package com.socialsite.persistence;
 
 import java.util.Date;
 
+import com.socialsite.util.PrivacyField;
+
 /**
  * @author Ananth
  * 
@@ -59,6 +61,7 @@ public class Profile implements AbstractDomain
 	private Integer zip;
 	private String website;
 	private String college;
+	private PrivacyField test;
 
 	/**
 	 * TODO add other fields link address , birthday etc;
@@ -393,6 +396,17 @@ public class Profile implements AbstractDomain
 	public void setCollege(String college)
 	{
 		this.college = college;
+	}
+
+
+	public PrivacyField getTest()
+	{
+		return test;
+	}
+
+	public void setTest(PrivacyField test)
+	{
+		this.test = test;
 	}
 
 }
