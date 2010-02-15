@@ -30,7 +30,6 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.validation.validator.EmailAddressValidator;
-import org.apache.wicket.validation.validator.RangeValidator;
 import org.apache.wicket.validation.validator.StringValidator.MaximumLengthValidator;
 import org.hibernate.exception.ConstraintViolationException;
 
@@ -111,14 +110,14 @@ public class SignUpPage extends WebPage
 		final PasswordTextField passwordTextField = new PasswordTextField("password",
 				new PropertyModel<String>(this, "password"));
 		passwordTextField.setRequired(true);
-		passwordTextField.add(new RangeValidator(6, 16));
+		passwordTextField.add(MaximumLengthValidator.lengthBetween(6, 16));
 
 		form.add(passwordTextField);
 
 		final PasswordTextField rePasswordTextField = new PasswordTextField("re-password",
 				new PropertyModel<String>(this, "rePassword"));
 		rePasswordTextField.setRequired(true);
-		rePasswordTextField.add(new RangeValidator(6, 16));
+		rePasswordTextField.add(MaximumLengthValidator.lengthBetween(6, 16));
 
 		form.add(rePasswordTextField);
 
