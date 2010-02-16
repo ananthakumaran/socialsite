@@ -19,7 +19,7 @@ package com.socialsite.persistence;
 
 import java.util.Date;
 
-import com.socialsite.util.PrivacyField;
+import com.socialsite.util.PrivacyModel;
 
 /**
  * @author Ananth
@@ -61,7 +61,7 @@ public class Profile implements AbstractDomain
 	private Integer zip;
 	private String website;
 	private String college;
-	private PrivacyField test;
+	private PrivacyModel test;
 
 	/**
 	 * TODO add other fields link address , birthday etc;
@@ -399,12 +399,12 @@ public class Profile implements AbstractDomain
 	}
 
 
-	public PrivacyField getTest()
+	public PrivacyModel getTest()
 	{
 		return test;
 	}
 
-	public void setTest(PrivacyField test)
+	public void setTest(PrivacyModel test)
 	{
 		this.test = test;
 	}

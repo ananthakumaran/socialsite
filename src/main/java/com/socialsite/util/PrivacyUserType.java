@@ -49,8 +49,8 @@ public class PrivacyUserType implements CompositeUserType
 	{
 		if (x == null)
 			return null;
-		PrivacyField input = (PrivacyField)x;
-		return new PrivacyField(input.getValue(), input.getPrivacy());
+		PrivacyModel input = (PrivacyModel)x;
+		return new PrivacyModel(input.getValue(), input.getPrivacy());
 	}
 
 	public Serializable disassemble(Object value, SessionImplementor session)
@@ -67,7 +67,7 @@ public class PrivacyUserType implements CompositeUserType
 			return true;
 		if (x == null || y == null)
 			return false;
-		return ((PrivacyField)x).equals((PrivacyField)y);
+		return ((PrivacyModel)x).equals((PrivacyModel)y);
 	}
 
 	public String[] getPropertyNames()
@@ -82,7 +82,7 @@ public class PrivacyUserType implements CompositeUserType
 
 	public Object getPropertyValue(Object component, int property) throws HibernateException
 	{
-		PrivacyField input = (PrivacyField)component;
+		PrivacyModel input = (PrivacyModel)component;
 		if (property == 0)
 		{
 			return input.getValue();
@@ -107,21 +107,23 @@ public class PrivacyUserType implements CompositeUserType
 			throws HibernateException, SQLException
 	{
 		String value = (String)Hibernate.STRING.nullSafeGet(rs, names[0]);
+		String privacyStr = (String)Hibernate.STRING.nullSafeGet(rs, names[1]);
 		Access privacy = null;
-		if (!rs.wasNull() && names[1] != null)
+		if (privacyStr != null)
 		{
-			privacy = Enum.valueOf(Access.class, names[1]);
+			privacy = Enum.valueOf(Access.class, privacyStr);
 		}
-		return (value == null && privacy == null) ? null : new PrivacyField(value, privacy);
+		return (value == null && privacy == null) ? null : new PrivacyModel(value, privacy);
 	}
 
 	public void nullSafeSet(PreparedStatement st, Object value, int index,
 			SessionImplementor session) throws HibernateException, SQLException
 	{
-		PrivacyField privacyField = (value == null) ? new PrivacyField() : (PrivacyField)value;
+		PrivacyModel privacyField = (value == null) ? new PrivacyModel() : (PrivacyModel)value;
 		Hibernate.STRING.nullSafeSet(st, privacyField.getValue(), index);
-		String privacy = (privacyField.getPrivacy() == null) ? null : privacyField.getValue()
+		String privacy = (privacyField.getPrivacy() == null) ? null : privacyField.getPrivacy()
 				.toString();
+		System.out.println(privacy);
 		Hibernate.STRING.nullSafeSet(st, privacy, index + 1);
 	}
 
@@ -131,15 +133,15 @@ public class PrivacyUserType implements CompositeUserType
 		return deepCopy(original);
 	}
 
-	public Class<PrivacyField> returnedClass()
+	public Class<PrivacyModel> returnedClass()
 	{
-		return PrivacyField.class;
+		return PrivacyModel.class;
 	}
 
 	public void setPropertyValue(Object component, int property, Object value)
 			throws HibernateException
 	{
-		PrivacyField input = (PrivacyField)component;
+		PrivacyModel input = (PrivacyModel)component;
 		if (property == 0)
 		{
 			input.setValue((String)value);

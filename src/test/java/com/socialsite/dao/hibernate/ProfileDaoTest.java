@@ -32,7 +32,7 @@ import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.User;
 import com.socialsite.profile.Access;
-import com.socialsite.util.PrivacyField;
+import com.socialsite.util.PrivacyModel;
 
 /**
  * 
@@ -127,12 +127,12 @@ public class ProfileDaoTest extends AbstractDaoTestHelper
 
 		final User ananth = new Student("ananth", "pass");
 		final Profile ananthProfile = new Profile(ananth);
-		ananthProfile.setTest(new PrivacyField("testValue", Access.EVERYONE));
+		ananthProfile.setTest(new PrivacyModel("testValue", Access.EVERYONE));
 		profileDao.save(ananthProfile);
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		PrivacyField test = ananthProfile.getTest();
+		PrivacyModel test = ananthProfile.getTest();
 		assertEquals("testValue", test.getValue());
 		assertEquals(Access.EVERYONE, test.getPrivacy());
 	}

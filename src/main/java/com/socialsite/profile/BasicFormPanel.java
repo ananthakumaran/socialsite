@@ -26,11 +26,14 @@ import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.persistence.Profile;
+import com.socialsite.util.PrivacyField;
+import com.socialsite.util.PrivacyModel;
 
 /**
  * @author Ananth
@@ -58,6 +61,7 @@ public class BasicFormPanel extends BasePanel
 		setOutputMarkupId(true);
 		Form<Profile> form = new Form<Profile>("form", new CompoundPropertyModel<Profile>(profile));
 		add(form);
+		form.add(new PrivacyField("test" , new PropertyModel<PrivacyModel>(profile, "test")));
 		form.add(new TextField<String>("firstName"));
 		form.add(new TextField<String>("lastName"));
 		form.add(new DropDownChoice<String>("sex", Arrays.asList("Male", "Female")));
