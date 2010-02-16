@@ -14,43 +14,40 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-@CHARSET "ISO-8859-1";
+ @CHARSET "ISO-8859-1";
 
 div.tabpanel div.tab-row {
-	float: left;
-	width: 100%;
-	background: #DAE0D2;
-	line-height: normal;
+	
 }
 
 div.tabpanel div.tab-row ul {
-	margin: 0;
-	padding: 10px 10px 0;
-	list-style: none;
+	border-bottom: 1px solid #DDD;
 }
 
 div.tabpanel div.tab-row li {
-	float: left;
-	margin: 0;
-	padding: 0 0 0 9px;
+	display: inline;
 }
 
 div.tabpanel div.tab-row a {
-	display: block;
-	padding: 5px 15px 4px 6px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	border: 1px solid #DDDDDD;
+	display: inline-block;
+	font-size: 14px;
+	padding: 8px 15px 5px;
+	position: relative;
 	text-decoration: none;
-	font-weight: bold;
-	white-space: nowrap;
-	color: #eee;
-}
-
-div.tab-panel {
-	clear: left;
+	top: 1px;
+	color: #333333;
+	background: #F5F5F5;
+	border: 1px solid #DDDDDD;
+	-webkit-border-top-right-radius: 5px;
 }
 
 div.tabpanel div.tab-row a:hover {
-	color: #fff;
+	
 }
 
 div.tabpanel div.tab-row li.selected {
@@ -58,6 +55,6 @@ div.tabpanel div.tab-row li.selected {
 }
 
 div.tabpanel div.tab-row li.selected a {
-	color: #333;
-	padding-bottom: 5px;
+	background: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
 }
