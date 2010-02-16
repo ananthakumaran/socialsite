@@ -19,19 +19,16 @@ package com.socialsite.message;
 
 import java.text.DateFormat;
 
-import org.apache.wicket.ResourceReference;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.authorization.Action;
 import org.apache.wicket.authorization.strategies.role.annotations.AuthorizeAction;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
-import org.apache.wicket.util.value.ValueMap;
 
 import com.socialsite.dao.MessageDao;
 import com.socialsite.dao.UserDao;
