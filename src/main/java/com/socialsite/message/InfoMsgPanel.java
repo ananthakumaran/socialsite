@@ -109,6 +109,7 @@ public class InfoMsgPanel extends BasePanel
 			{
 				messageDao.delete(getModelObject());
 				target.addComponent(dependent);
+				firePostAjaxUpdateEvent(target);
 			}
 
 			@Override
