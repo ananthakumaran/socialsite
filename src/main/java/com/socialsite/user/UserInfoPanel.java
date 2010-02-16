@@ -18,7 +18,6 @@
 package com.socialsite.user;
 
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
@@ -30,7 +29,6 @@ import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageService;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.User;
-import com.socialsite.scrap.ScrapPage;
 
 /**
  * @author Ananth
@@ -82,21 +80,6 @@ public class UserInfoPanel extends Panel
 		});
 
 		add(new Label("username", user.getUserName()));
-		add(new Link<Object>("scrap")
-		{
-
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void onClick()
-			{
-				setResponsePage(ScrapPage.class);
-			}
-
-		});
 		add(new AddAsFriendPanel("addasfriend"));
 	}
 }

@@ -28,12 +28,10 @@
 .userInfo .box {
 	position: relative;
 	margin-top: 15px;
-	background: url("../img/userinfo-box.png");
 	padding: 10px;
 }
 
 .userInfo .boxBottom {
-	background: url("../img/userinfo-box-bottom.png");
 	height: 6px;
 	margin-bottom: 5px;
 }
