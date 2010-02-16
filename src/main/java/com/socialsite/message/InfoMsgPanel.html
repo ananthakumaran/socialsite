@@ -19,20 +19,25 @@
 
 <html xmlns:wicket>
 <wicket:panel>
-	<div><a wicket:id="imagelink" href="#"><span
-		wicket:id="userthumb"></span></a><a wicket:id="home"><span
-		wicket:id="username">[name]</span></a></div>
+	<div class="infoMessage"><a class="userImage"
+		wicket:id="imagelink" href="#"><span wicket:id="userthumb"></span></a>
+	<div class="top"><a wicket:id="home"><span
+		wicket:id="username">[name]</span></a> says <span class="right"
+		wicket:id="date"></span></div>
 	<div wicket:id="message"></div>
-	<div wicket:id="date"></div>
-	<div><a wicket:id="delete" href="#">Delete</a> <wicket:enclosure
+	<div class="clear"></div>
+	<div class="action">
+	<a wicket:id="delete" class="round" href="#">Delete</a> <wicket:enclosure
 		child="form:send">
 		<a href="#" class="slideText round">Reply</a>
-		<div style="display: none">
+		<div class="clear"></div>
+		<div class="editor" style="display: none">
 		<div wicket:id="feedback"></div>
 		<form wicket:id="form">
 		<div wicket:id="richeditor"></div>
 		<a wicket:id="send" class="editor-text" href="#">Send</a></form>
 		</div>
 	</wicket:enclosure></div>
+	</div>
 </wicket:panel>
 </html>

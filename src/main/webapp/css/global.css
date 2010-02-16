@@ -134,3 +134,11 @@ body {
 	/** avoids the flickering problem in FF  */
 	overflow:hidden;
 }
+ 
+/** helpers**/
+.right {
+	float:right;
+}
+.left {
+	float:left;
+} 

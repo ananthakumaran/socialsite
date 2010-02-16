@@ -137,14 +137,14 @@ SocialSite.Util.Slider = {
 		slide$.find('.slideText').click(function() {
 			// alias
 				var slideDom = $(this);
-				var content = slideDom.next();
+				var content = slideDom.nextAll('div.editor');
 				var textArea = content.find('textarea');
 				if (content.is(':hidden')) {
 					textArea.show();
 					content.slideDown('normal');
 				} else {
 					content.slideUp('normal', function() {
-						textArea.hide()
+						textArea.hide();
 					});
 				}
 				// avoids scrolling to top
