@@ -19,16 +19,18 @@
 
 <html xmlns:wicket>
 <wicket:panel>
-	<div class="friend" >
-	<img wicket:id="userthumb" /> 
+	<div class="message"><a class="userImage" wicket:id="imagelink"
+		href="#"><span wicket:id="userthumb"></span></a>
+	<div class="top">
+	<div class="right" wicket:id="time">August 13th, 2009 at 23:05</div>
 	</div>
 	<div class="messageContent">
-	<pre wicket:id="message" class="intro">[ Message ]</pre>
+	<div wicket:id="message" class="intro">[ Message ]</div>
 	<div class="confirm">Do you want to add <a wicket:id="user"><span
-		wicket:id="name">[ name ]</span></a> as your friend ?
-	<a class="round " wicket:id="yes">yes »</a> <a class="round" wicket:id="no">no »</a></div>
-	<div class="time" wicket:id="time">August 13th, 2009 at 23:05</div>
+		wicket:id="name">[ name ]</span></a> as your friend ? <a class="round "
+		wicket:id="yes">yes »</a> <a class="round" wicket:id="no">no »</a></div>
 	</div>
 	<div class="clear"></div>
+	</div>
 </wicket:panel>
 </html>

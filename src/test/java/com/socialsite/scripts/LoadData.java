@@ -30,6 +30,7 @@ import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.Admin;
 import com.socialsite.persistence.Answer;
 import com.socialsite.persistence.Course;
+import com.socialsite.persistence.FriendRequestMsg;
 import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Question;
 import com.socialsite.persistence.Staff;
@@ -64,7 +65,7 @@ public class LoadData extends AbstractDaoTestHelper
 		// create the profiles
 		createProfiles(user1, user2, user3, user4, user5);
 		// add some friends for all users
-		setFriend(user1, user2, user3, user4, user5);
+		setFriend(user1, user2, user3, user4);
 		setFriend(user2, user3, user4);
 		setFriend(user3, user5);
 		saveUsers(user1, user2, user3, user4, user5);
@@ -131,13 +132,21 @@ public class LoadData extends AbstractDaoTestHelper
 		// hibernate removes the set from the user(???).So create a new Set
 		infoMsg2.setUsers(new HashSet<User>(user1.getFriends()));
 		infoMsg2.setTime(new Date());
-		
+
 		InfoMsg infoMsg3 = new InfoMsg();
 		infoMsg3.setMessage(" user1");
 		infoMsg3.setSender(user2);
 		infoMsg3.addUser(user1);
 		infoMsg3.setTime(new Date());
-		saveMessage(infoMsg1, infoMsg2 , infoMsg3);
+
+		// friend reques message
+		FriendRequestMsg frnRqMsg = new FriendRequestMsg();
+		frnRqMsg.setSender(user5);
+		frnRqMsg.addUser(user1);
+		frnRqMsg.setMessage("Hai User1");
+		frnRqMsg.setTime(new Date());
+
+		saveMessage(infoMsg1, infoMsg2, infoMsg3, frnRqMsg);
 
 
 	}

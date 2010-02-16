@@ -35,6 +35,8 @@ import org.apache.wicket.util.value.ValueMap;
 
 import com.socialsite.dao.MessageDao;
 import com.socialsite.dao.UserDao;
+import com.socialsite.image.ImagePanel;
+import com.socialsite.image.ImageType;
 import com.socialsite.persistence.FriendRequestMsg;
 import com.socialsite.persistence.Message;
 import com.socialsite.persistence.User;
@@ -65,11 +67,13 @@ public class FriendRequestMsgPanel extends Panel
 		super(id);
 
 		UserLink<User> user;
-
-		final ResourceReference imageResource = new ResourceReference("userImageResource");
-		add(new Image("userthumb", imageResource, new ValueMap("id="
-				+ friendRequestMsg.getSender().getId() + ",thumb=true")));
-
+		User sender = friendRequestMsg.getSender();
+		// user image
+		UserLink<User> userImageLink;
+		Model<User> senderModel = new Model<User>(sender);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));
 		add(user = new UserLink<User>("user", new Model<User>(friendRequestMsg.getSender())));
 		user.add(new Label("name", friendRequestMsg.getSender().getUserName()));
 		add(new Label("message", friendRequestMsg.getMessage()));
@@ -120,9 +124,10 @@ public class FriendRequestMsgPanel extends Panel
 			}
 		});
 
-		final DateFormat format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT);
+		final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
+				DateFormat.SHORT);
 
-		add(new Label("time", format.format(friendRequestMsg.getTime())));
+		add(new Label("time", dateFormat.format(friendRequestMsg.getTime())));
 
 	}
 
