@@ -49,9 +49,9 @@ public class ContactInfoPanel extends BasePanel
 		add(new NonEmptyPanel("email", "Email", profile.getEmail()));
 		add(new PrivacyPanel("mobilePhone", new Model<PrivacyModel>(profile.getMobilePhone()),
 				"MobilePhone"));
-		add(new PrivacyPanel("landPhone", new Model<PrivacyModel>(profile.getMobilePhone()),
+		add(new PrivacyPanel("landPhone", new Model<PrivacyModel>(profile.getLandPhone()),
 				"LandPhone"));
-		add(new PrivacyPanel("address", new Model<PrivacyModel>(profile.getMobilePhone()),
+		add(new PrivacyPanel("address", new Model<PrivacyModel>(profile.getAddress()),
 				"Address"));
 		add(new NonEmptyPanel("city", "City", profile.getCity()));
 		add(new NonEmptyPanel("neighborhood", "Neighborhood", profile.getNeighborhood()));
