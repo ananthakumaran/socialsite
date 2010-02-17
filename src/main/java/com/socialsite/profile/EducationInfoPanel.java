@@ -18,6 +18,8 @@
 package com.socialsite.profile;
 
 import com.socialsite.BasePanel;
+import com.socialsite.persistence.Profile;
+import com.socialsite.util.NonEmptyPanel;
 
 /**
  * show the Education info of the user
@@ -32,10 +34,14 @@ public class EducationInfoPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private Profile profile;
+
 	public EducationInfoPanel(String id)
 	{
 		super(id);
+		this.profile = getUser().getProfile();
 		setOutputMarkupId(true);
+		add(new NonEmptyPanel("college", "College/University", profile.getCollege()));
 	}
 
 }
