@@ -200,7 +200,8 @@ public class ImagePanel extends Panel
 				}
 				// TODO show this link only for user who have access to change
 				// it. don't show it for thumb images
-				return true;
+				
+				return false;
 			}
 
 			@Override

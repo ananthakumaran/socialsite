@@ -17,30 +17,19 @@
 
 -->
 
-<html xmlns:wicket>
-<wicket:head>
-</wicket:head>
-<wicket:panel>
-	<div class="navigation">
-	<div class="navLeft">
-	<ul>
-		<li><a wicket:id="home" href="#">Home |</a></li>
-		<li><a wicket:id="profile" href="#">Profile |</a></li>
-		<li><a wicket:id="friends" href="#">Friends |</a></li>
-		<li><a href="#">Courses |</a></li>
-	</ul>
-	</div>
-	<div class="navRight">
-	<ul>
-		<li><a wicket:id="logout">Logout</a></li>
-		<li>
-		<form action="#" wicket:id="searchform"><input type="text"
-			wicket:id="searchtextbox" /> <select wicket:id="options"></select>
-		<a wicket:id="search">Search</a></form>
-		</li>
-	</ul>
-	</div>
-	<div class="clear"></div>
-	</div>
-</wicket:panel>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd"
+	xml:lang="en" lang="en">
+<body>
+<div id="header">
+<div wicket:id="header">[header panel]</div>
+</div>
+<div id="content">
+<div class="wrap">
+<div wicket:id="friends"></div>
+</div>
+</div>
+</body>
 </html>
+
