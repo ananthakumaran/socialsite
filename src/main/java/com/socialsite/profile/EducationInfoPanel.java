@@ -20,6 +20,8 @@ package com.socialsite.profile;
 import com.socialsite.BasePanel;
 
 /**
+ * show the Education info of the user
+ * 
  * @author Ananth
  */
 public class EducationInfoPanel extends BasePanel

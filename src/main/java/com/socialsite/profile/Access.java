@@ -17,6 +17,12 @@
 
 package com.socialsite.profile;
 
+/**
+ * specifies the Access level of the Data
+ * 
+ * @author Ananth
+ * 
+ */
 public enum Access {
-	EVERYONE, FRIENDS_ONLY , NONE;
+	EVERYONE, FRIENDS_ONLY, NONE;
 }

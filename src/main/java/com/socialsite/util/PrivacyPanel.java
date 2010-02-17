@@ -25,6 +25,8 @@ import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.profile.Access;
 
 /**
+ * This shows the value only if the owner gave the permission to view it
+ * 
  * @author Ananth
  */
 public class PrivacyPanel extends BasePanel
@@ -37,25 +39,19 @@ public class PrivacyPanel extends BasePanel
 
 	private PrivacyModel privacyModel;
 
-	/**
-	 * shows the panel if the current is allowed to see the data
-	 * 
-	 * @param id
-	 * @param model
-	 * @param label
-	 */
 	public PrivacyPanel(String id, IModel<PrivacyModel> model, String label)
 	{
 		super(id, model);
 		privacyModel = model.getObject();
 		add(new Label("field", label));
-		add(new Label("value",privacyModel.getValue()));
+		add(new Label("value", privacyModel.getValue()));
 
 	}
 
 	@Override
 	public boolean isVisible()
 	{
+		// Don't show empty values
 		if (privacyModel == null || privacyModel.getValue() == null)
 		{
 			return false;

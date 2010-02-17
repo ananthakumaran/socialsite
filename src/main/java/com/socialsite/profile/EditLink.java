@@ -24,6 +24,12 @@ import org.apache.wicket.markup.html.panel.Panel;
 
 import com.socialsite.authentication.SocialSiteRoles;
 
+/**
+ * Allows the owner to edit the profile info
+ * 
+ * @author Ananth
+ * 
+ */
 public class EditLink extends AjaxLink<Void>
 {
 

@@ -28,6 +28,8 @@ import org.apache.wicket.model.PropertyModel;
 import com.socialsite.profile.Access;
 
 /**
+ * Allows the user to set the privacy of a data
+ * 
  * @author Ananth
  */
 public class PrivacyField extends FormComponentPanel<PrivacyModel>

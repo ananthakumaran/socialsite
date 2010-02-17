@@ -30,6 +30,13 @@ import org.hibernate.usertype.CompositeUserType;
 
 import com.socialsite.profile.Access;
 
+/**
+ * 
+ * A composite UserType that contains the value and the Access type of the value
+ * 
+ * @author Ananth
+ * 
+ */
 public class PrivacyUserType implements CompositeUserType
 {
 

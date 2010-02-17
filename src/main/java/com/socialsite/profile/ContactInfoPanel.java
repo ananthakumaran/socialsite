@@ -20,6 +20,8 @@ package com.socialsite.profile;
 import com.socialsite.BasePanel;
 
 /**
+ * contains the contact info of the user
+ * 
  * @author Ananth
  */
 public class ContactInfoPanel extends BasePanel

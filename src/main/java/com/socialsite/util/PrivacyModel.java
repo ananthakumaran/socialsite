@@ -21,6 +21,12 @@ import java.io.Serializable;
 
 import com.socialsite.profile.Access;
 
+/**
+ * The user can set the Access level of this model
+ * 
+ * @author Ananth
+ * 
+ */
 public class PrivacyModel implements Serializable
 {
 

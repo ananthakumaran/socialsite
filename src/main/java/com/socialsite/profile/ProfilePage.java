@@ -30,6 +30,9 @@ import com.socialsite.BasePage;
 import com.socialsite.user.UserInfoPanel;
 
 /**
+ * 
+ * Main Profile Page
+ * 
  * @author Ananth
  */
 public class ProfilePage extends BasePage

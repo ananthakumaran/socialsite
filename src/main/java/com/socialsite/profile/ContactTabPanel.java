@@ -22,6 +22,8 @@ import org.apache.wicket.markup.html.panel.Panel;
 import com.socialsite.BasePanel;
 
 /**
+ * Contact Tab
+ * 
  * @author Ananth
  */
 public class ContactTabPanel extends BasePanel

@@ -21,6 +21,8 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 
 /**
+ * Shows the panel if the value is not Empty
+ * 
  * @author Ananth
  */
 public class NonEmptyPanel extends Panel
