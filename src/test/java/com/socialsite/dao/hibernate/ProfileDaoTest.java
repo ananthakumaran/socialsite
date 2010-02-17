@@ -127,12 +127,12 @@ public class ProfileDaoTest extends AbstractDaoTestHelper
 
 		final User ananth = new Student("ananth", "pass");
 		final Profile ananthProfile = new Profile(ananth);
-		ananthProfile.setTest(new PrivacyModel("testValue", Access.EVERYONE));
+		ananthProfile.setHomeTown(new PrivacyModel("testValue", Access.EVERYONE));
 		profileDao.save(ananthProfile);
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		PrivacyModel test = ananthProfile.getTest();
+		PrivacyModel test = ananthProfile.getHomeTown();
 		assertEquals("testValue", test.getValue());
 		assertEquals(Access.EVERYONE, test.getPrivacy());
 	}
