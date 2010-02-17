@@ -104,6 +104,15 @@ public class BasePanel extends Panel implements IHeaderContributor
 	}
 
 	/**
+	 * gets the domain model object of the the user (current page)
+	 * 
+	 * @return user
+	 */
+	public User getUser()
+	{
+		return userDao.load(getUserId());
+	}
+	/**
 	 * gets the id of the session user
 	 * 
 	 * @return id of the session user

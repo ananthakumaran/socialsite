@@ -113,7 +113,8 @@ public class PrivacyUserType implements CompositeUserType
 		{
 			privacy = Enum.valueOf(Access.class, privacyStr);
 		}
-		return (value == null && privacy == null) ? null : new PrivacyModel(value, privacy);
+		return (value == null && privacy == null) ? new PrivacyModel() : new PrivacyModel(value,
+				privacy);
 	}
 
 	public void nullSafeSet(PreparedStatement st, Object value, int index,
@@ -123,7 +124,6 @@ public class PrivacyUserType implements CompositeUserType
 		Hibernate.STRING.nullSafeSet(st, privacyField.getValue(), index);
 		String privacy = (privacyField.getPrivacy() == null) ? null : privacyField.getPrivacy()
 				.toString();
-		System.out.println(privacy);
 		Hibernate.STRING.nullSafeSet(st, privacy, index + 1);
 	}
 

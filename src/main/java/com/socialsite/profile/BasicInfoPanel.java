@@ -17,7 +17,12 @@
 
 package com.socialsite.profile;
 
+import org.apache.wicket.model.Model;
+
 import com.socialsite.BasePanel;
+import com.socialsite.persistence.Profile;
+import com.socialsite.util.PrivacyModel;
+import com.socialsite.util.PrivacyPanel;
 
 /**
  * @author Ananth
@@ -30,10 +35,13 @@ public class BasicInfoPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private Profile profile;
+
 	public BasicInfoPanel(String id)
 	{
 		super(id);
+		this.profile = getUser().getProfile();
 		setOutputMarkupId(true);
+		add(new PrivacyPanel("test", new Model<PrivacyModel>(profile.getTest()), "Test"));
 	}
-
 }

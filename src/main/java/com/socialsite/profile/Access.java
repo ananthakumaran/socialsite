@@ -18,5 +18,5 @@
 package com.socialsite.profile;
 
 public enum Access {
-	EVERYONE, FRIENDS_ONLY;
+	EVERYONE, FRIENDS_ONLY , NONE;
 }

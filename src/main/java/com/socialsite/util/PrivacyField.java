@@ -47,7 +47,7 @@ public class PrivacyField extends FormComponentPanel<PrivacyModel>
 		this.model = getModelObject();
 		add(textField = new TextField<String>("value", new PropertyModel<String>(model, "value")));
 		add(privacy = new DropDownChoice<Access>("privacy", new PropertyModel<Access>(model,
-				"privacy"), Arrays.asList(Access.EVERYONE, Access.FRIENDS_ONLY)));
+				"privacy"), Arrays.asList(Access.EVERYONE, Access.FRIENDS_ONLY, Access.NONE)));
 	}
 
 	@Override

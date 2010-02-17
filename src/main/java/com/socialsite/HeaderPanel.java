@@ -86,9 +86,8 @@ public class HeaderPanel extends BasePanel
 			@Override
 			public void onClick()
 			{
-				setUserId(SocialSiteSession.get().getSessionUser().getId());
+				setUserId(getUserId());
 				setResponsePage(ProfilePage.class);
-
 			}
 
 		});
