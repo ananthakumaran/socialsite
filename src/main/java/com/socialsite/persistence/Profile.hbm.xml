@@ -32,8 +32,14 @@
 		<property name="lastName" type="string" />
 		<property name="email" type="string" />
 		<property name="sex" type="string" />
-		<property name="currentCity" type="string" />
-		<property name="homeTown" type="string" />
+		<property name="currentCity" type="com.socialsite.util.PrivacyUserType">
+			<column name="currentCity_value"></column>
+			<column name="currentCity_privacy"></column>
+		</property>
+		<property name="homeTown" type="com.socialsite.util.PrivacyUserType">
+			<column name="homeTown_value"></column>
+			<column name="homeTown_privacy"></column>
+		</property>
 		<property name="relationshipStatus" type="string" />
 		<property name="politicalView" type="text" />
 		<property name="religiousView" type="text" />
@@ -45,9 +51,18 @@
 		<property name="favouriteQuotations" type="text" />
 		<property name="favouriteBooks" type="text" />
 		<property name="aboutMe" type="text" />
-		<property name="mobilePhone" type="string" />
-		<property name="landPhone" type="string" />
-		<property name="address" type="string" />
+		<property name="mobilePhone" type="com.socialsite.util.PrivacyUserType">
+			<column name="mobilePhone_value"></column>
+			<column name="mobilePhone_privacy"></column>
+		</property>
+		<property name="landPhone" type="com.socialsite.util.PrivacyUserType">
+			<column name="landPhone_value"></column>
+			<column name="landPhone_privacy"></column>
+		</property>
+		<property name="address" type="com.socialsite.util.PrivacyUserType">
+			<column name="address_value"></column>
+			<column name="address_privacy"></column>
+		</property>
 		<property name="city" type="string" />
 		<property name="neighborhood" type="string" />
 		<property name="zip" type="integer" />
@@ -56,10 +71,7 @@
 		<property name="image" type="binary" length="10000000" />
 		<property name="thumb" type="binary" length="100000" />
 
-		<property name="test" type="com.socialsite.util.PrivacyUserType">
-			<column name="value"></column>
-			<column name="privacy"></column>
-		</property>
+
 
 
 		<!-- Relations -->

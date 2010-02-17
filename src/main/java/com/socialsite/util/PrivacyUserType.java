@@ -56,8 +56,6 @@ public class PrivacyUserType implements CompositeUserType
 	public Serializable disassemble(Object value, SessionImplementor session)
 			throws HibernateException
 	{
-		if (value == null)
-			System.out.println("OOPPSSS");
 		return (Serializable)deepCopy(value);
 	}
 

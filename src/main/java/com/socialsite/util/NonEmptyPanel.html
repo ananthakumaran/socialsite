@@ -19,20 +19,7 @@
 
 <html xmlns:wicket>
 <wicket:panel>
-	<h1>form Panel</h1>
-	<div wicket:id="feedback"></div>
-	<div>
-	<form wicket:id="form">
-	<p><label>FirstName:<input wicket:id="firstName" type="text"/></label></p>
-	<p><label>LastName:<input wicket:id="lastName" type="text"/></label></p>
-	<p><label>Sex:<select wicket:id="sex"></select></label></p>
-	<p><label>CurrentCity:<span wicket:id="currentCity"></span></label></p>
-	<p><label>Home Town<span wicket:id="homeTown"></span></label></p>
-	<p><label>RelationshipStatus:<select wicket:id="relationshipStatus"></select></label></p>
-	<p><label>PoliticalView:<input wicket:id="politicalView" type="text"></input></label></p>
-	<p><label>ReligiousView:<input wicket:id="religiousView" type="text"></input></label></p>
-	<p><a wicket:id="save">Save</a></p>
-	</form>
-	</div>
+	<span wicket:id="label"></span>
+	<span wicket:id="value"></span>
 </wicket:panel>
 </html>

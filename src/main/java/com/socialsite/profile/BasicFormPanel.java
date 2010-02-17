@@ -61,12 +61,14 @@ public class BasicFormPanel extends BasePanel
 		setOutputMarkupId(true);
 		Form<Profile> form = new Form<Profile>("form", new CompoundPropertyModel<Profile>(profile));
 		add(form);
-		form.add(new PrivacyField("test" , new PropertyModel<PrivacyModel>(profile, "test")));
 		form.add(new TextField<String>("firstName"));
 		form.add(new TextField<String>("lastName"));
 		form.add(new DropDownChoice<String>("sex", Arrays.asList("Male", "Female")));
-		form.add(new TextField<String>("currentCity"));
-		form.add(new TextField<String>("homeTown"));
+		form.add(new PrivacyField("currentCity", new PropertyModel<PrivacyModel>(profile,
+				"currentCity")));
+		form
+				.add(new PrivacyField("homeTown", new PropertyModel<PrivacyModel>(profile,
+						"homeTown")));
 		form.add(new DropDownChoice<String>("relationshipStatus", Arrays.asList("Single",
 				"In a relationship", "Engaged", "Married", "Its complicated",
 				"In a open relationship", "Widowed")));

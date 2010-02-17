@@ -40,8 +40,8 @@ public class Profile implements AbstractDomain
 	private byte[] image;
 	private byte[] thumb;
 	private String sex;
-	private String currentCity;
-	private String homeTown;
+	private PrivacyModel currentCity;
+	private PrivacyModel homeTown;
 	private String relationshipStatus;
 	private String politicalView;
 	private String religiousView;
@@ -53,15 +53,14 @@ public class Profile implements AbstractDomain
 	private String favouriteBooks;
 	private String favouriteQuotations;
 	private String aboutMe;
-	private String mobilePhone;
-	private String landPhone;
-	private String address;
+	private PrivacyModel mobilePhone;
+	private PrivacyModel landPhone;
+	private PrivacyModel address;
 	private String city;
 	private String neighborhood;
 	private Integer zip;
 	private String website;
 	private String college;
-	private PrivacyModel test;
 
 	/**
 	 * TODO add other fields link address , birthday etc;
@@ -178,15 +177,16 @@ public class Profile implements AbstractDomain
 		this.user = user;
 	}
 
-	public String getCurrentCity()
+	public PrivacyModel getCurrentCity()
 	{
 		return currentCity;
 	}
 
-	public String getHomeTown()
+	public PrivacyModel getHomeTown()
 	{
 		return homeTown;
 	}
+
 
 	public String getPoliticalView()
 	{
@@ -208,15 +208,16 @@ public class Profile implements AbstractDomain
 		return sex;
 	}
 
-	public void setCurrentCity(String currentCity)
+	public void setCurrentCity(PrivacyModel currentCity)
 	{
 		this.currentCity = currentCity;
 	}
 
-	public void setHomeTown(String homeTown)
+	public void setHomeTown(PrivacyModel homeTown)
 	{
 		this.homeTown = homeTown;
 	}
+
 
 	public void setPoliticalView(String politicalView)
 	{
@@ -318,7 +319,7 @@ public class Profile implements AbstractDomain
 		this.interests = interests;
 	}
 
-	public String getAddress()
+	public PrivacyModel getAddress()
 	{
 		return address;
 	}
@@ -328,12 +329,12 @@ public class Profile implements AbstractDomain
 		return city;
 	}
 
-	public String getLandPhone()
+	public PrivacyModel getLandPhone()
 	{
 		return landPhone;
 	}
 
-	public String getMobilePhone()
+	public PrivacyModel getMobilePhone()
 	{
 		return mobilePhone;
 	}
@@ -353,7 +354,7 @@ public class Profile implements AbstractDomain
 		return zip;
 	}
 
-	public void setAddress(String address)
+	public void setAddress(PrivacyModel address)
 	{
 		this.address = address;
 	}
@@ -363,15 +364,16 @@ public class Profile implements AbstractDomain
 		this.city = city;
 	}
 
-	public void setLandPhone(String landPhone)
+	public void setLandPhone(PrivacyModel landPhone)
 	{
 		this.landPhone = landPhone;
 	}
 
-	public void setMobilePhone(String mobilePhone)
+	public void setMobilePhone(PrivacyModel mobilePhone)
 	{
 		this.mobilePhone = mobilePhone;
 	}
+
 
 	public void setNeighborhood(String neighborhood)
 	{
@@ -396,17 +398,6 @@ public class Profile implements AbstractDomain
 	public void setCollege(String college)
 	{
 		this.college = college;
-	}
-
-
-	public PrivacyModel getTest()
-	{
-		return test;
-	}
-
-	public void setTest(PrivacyModel test)
-	{
-		this.test = test;
 	}
 
 }
