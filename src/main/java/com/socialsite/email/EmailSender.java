@@ -1,10 +1,29 @@
+/**
+ *     Copyright SocialSite (C) 2009
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.socialsite.email;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +36,7 @@ import java.util.logging.Logger;
  */
 public class EmailSender
 {
+	private static final String ACTIVATE_URL = "http://email-relay.appspot.com/email_service?";
 	private final static Logger logger = Logger.getLogger(EmailSender.class.getName());
 	private StringBuffer emailURL = new StringBuffer();
 
@@ -38,7 +58,6 @@ public class EmailSender
 	public void send(Email email)
 	{
 		// TODO this should run asynchronously
-		emailURL.append("http://email-relay.appspot.com/email_service?");
 		// handle multiple receivers
 		addParam("receiver", email.getReceivers().get(0));
 		// someone is going to send email using this thing
@@ -49,7 +68,8 @@ public class EmailSender
 
 		try
 		{
-			URL url = new URL(emailURL.toString());
+
+			URL url = new URL(ACTIVATE_URL + emailURL.toString());
 			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
 			String line;
 			StringBuffer reply = new StringBuffer();
@@ -64,6 +84,11 @@ public class EmailSender
 				// message sending failed
 				logger.severe("Could not send Email");
 				logger.severe(reply.toString());
+				logger.severe("URL" + ACTIVATE_URL + emailURL.toString());
+			}
+			else
+			{
+				logger.info("email send successfully");
 			}
 
 		}
@@ -79,6 +104,13 @@ public class EmailSender
 
 	public void addParam(String key, String value)
 	{
-		emailURL.append(key).append("=").append(value).append("&");
+		try
+		{
+			emailURL.append(key).append("=").append(URLEncoder.encode(value, "UTF-8")).append("&");
+		}
+		catch (UnsupportedEncodingException e)
+		{
+			logger.log(Level.SEVERE, "", e);
+		}
 	}
 }

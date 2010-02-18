@@ -34,14 +34,13 @@ import org.apache.wicket.validation.validator.StringValidator.MaximumLengthValid
 import org.hibernate.exception.ConstraintViolationException;
 
 import com.socialsite.SocialSiteSession;
+import com.socialsite.activation.UniversityActivator;
 import com.socialsite.dao.MessageDao;
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.dao.UserDao;
-import com.socialsite.email.UniversityCreator;
 import com.socialsite.home.HomePage;
 import com.socialsite.image.DefaultImage;
 import com.socialsite.persistence.Admin;
-import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Message;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Staff;
@@ -171,7 +170,7 @@ public class SignUpPage extends WebPage
 							{
 								user = new Admin(userName, password);
 								userDao.save(user);
-								new UniversityCreator((Admin)user).create();
+								new UniversityActivator((Admin)user , universityName).create();
 								// final InfoMsg message = new InfoMsg();
 								// message.getUsers().add(user);
 								// message.setMessage("Your request for adding new University is being processed");

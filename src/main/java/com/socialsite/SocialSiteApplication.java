@@ -23,8 +23,10 @@ import org.apache.wicket.Response;
 import org.apache.wicket.Session;
 import org.apache.wicket.authorization.strategies.role.RoleAuthorizationStrategy;
 import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.request.target.coding.QueryStringUrlCodingStrategy;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 
+import com.socialsite.activation.ActivationPage;
 import com.socialsite.authentication.LoginPage;
 import com.socialsite.authentication.UserRolesAuthorizer;
 import com.socialsite.image.CourseImageResource;
@@ -94,6 +96,10 @@ public class SocialSiteApplication extends WebApplication
 		// init all the image resources
 		initImageResources();
 
+		
+		// mounts the activation page
+		mount(new QueryStringUrlCodingStrategy("activate",ActivationPage.class));
+		
 		// logs all the request to the server
 		// Application.get().getRequestLoggerSettings().setRequestLoggerEnabled(true);
 	}

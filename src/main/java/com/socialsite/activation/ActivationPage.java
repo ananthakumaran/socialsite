@@ -15,28 +15,18 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.email;
+package com.socialsite.activation;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.apache.wicket.PageParameters;
+import org.apache.wicket.markup.html.WebPage;
 
 /**
- * Don't run this test every time. This will send a email
- * 
  * @author Ananth
- * 
  */
-public class EmailSenderTest
+public class ActivationPage extends WebPage
 {
-	@Test
-	@Ignore
-	public void testSend()
+	public ActivationPage(PageParameters params)
 	{
-		Email email = new Email();
-		// am i sending message to myself :)
-		email.addReceivers("ananthakumaran@gmail.com");
-		email.setSubject("Unit Testing");
-		email.setMessage("Test Message");
-		new EmailSender().send(email);
+
 	}
 }
