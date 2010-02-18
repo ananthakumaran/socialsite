@@ -44,6 +44,7 @@
 				<value>com/socialsite/persistence/Answer.hbm.xml</value>
 				<value>com/socialsite/persistence/Comment.hbm.xml</value>
 				<value>com/socialsite/persistence/Question.hbm.xml</value>
+				<value>com/socialsite/persistence/Activation.hbm.xml</value>
 			</list>
 		</property>
 

@@ -191,4 +191,15 @@
 	<bean id="commentDao" parent="transactionProxyTemplate" lazy-init="true">
 		<property name="target" ref="commentDaoTarget" />
 	</bean>
+
+	<!-- ActivationDao -->
+	<bean id="activationDaoTarget" class="com.socialsite.dao.hibernate.AbstractDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="activationDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="activationDaoTarget" />
+	</bean>
 </beans>
