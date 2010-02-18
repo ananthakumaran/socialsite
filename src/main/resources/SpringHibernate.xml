@@ -193,7 +193,7 @@
 	</bean>
 
 	<!-- ActivationDao -->
-	<bean id="activationDaoTarget" class="com.socialsite.dao.hibernate.AbstractDaoImpl"
+	<bean id="activationDaoTarget" class="com.socialsite.dao.hibernate.ActivationDaoImpl"
 		lazy-init="true">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>

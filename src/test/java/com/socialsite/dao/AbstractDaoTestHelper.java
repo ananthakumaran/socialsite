@@ -92,6 +92,9 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 	@Resource(name = "infoMsgDao")
 	protected InfoMsgDao infoMsgDao;
 
+	@Resource(name = "activationDao")
+	protected ActivationDao activationDao;
+
 	@Autowired
 	protected SessionFactory sessionFactory;
 

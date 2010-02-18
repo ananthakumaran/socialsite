@@ -23,6 +23,7 @@ import org.junit.runners.Suite;
 
 import com.socialsite.authentication.LoginPageTest;
 import com.socialsite.authentication.SignUpPageTest;
+import com.socialsite.dao.hibernate.ActivationDaoTest;
 import com.socialsite.dao.hibernate.AdminDaoTest;
 import com.socialsite.dao.hibernate.AnswerDaoTest;
 import com.socialsite.dao.hibernate.CommentDaoTest;
@@ -50,7 +51,7 @@ import com.socialsite.scripts.SchemaCreator;
 		UserDaoTest.class, ProfileDaoTest.class, FriendRequestMsgDaoTest.class,
 		UniversityDaoTest.class, CourseDaoTest.class, AdminDaoTest.class, AnswerDaoTest.class,
 		CommentDaoTest.class, InfoMsgDaoTest.class, MessageDaoTest.class, QuestionDaoTest.class,
-		StaffDaoTest.class, StudentDaoTest.class })
+		StaffDaoTest.class, StudentDaoTest.class, ActivationDaoTest.class })
 public class AllTests
 {
 
