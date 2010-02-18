@@ -37,6 +37,7 @@ import com.socialsite.SocialSiteSession;
 import com.socialsite.dao.MessageDao;
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.dao.UserDao;
+import com.socialsite.email.UniversityCreator;
 import com.socialsite.home.HomePage;
 import com.socialsite.image.DefaultImage;
 import com.socialsite.persistence.Admin;
@@ -170,10 +171,11 @@ public class SignUpPage extends WebPage
 							{
 								user = new Admin(userName, password);
 								userDao.save(user);
-								final InfoMsg message = new InfoMsg();
-								message.getUsers().add(user);
-								message.setMessage("Your request is received");
-								messageDao.save(message);
+								new UniversityCreator((Admin)user).create();
+								// final InfoMsg message = new InfoMsg();
+								// message.getUsers().add(user);
+								// message.setMessage("Your request for adding new University is being processed");
+								// messageDao.save(message);
 							}
 							else
 							{
