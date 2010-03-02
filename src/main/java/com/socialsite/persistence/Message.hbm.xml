@@ -45,6 +45,13 @@
 
 		</joined-subclass>
 
+		<joined-subclass name="StaffRequestMsg" table="STAFF_REQUEST_MSG">
+			<key column="id"></key>
+			<!-- relations -->
+			<many-to-one name="sender" column="sender_id" class="Staff"
+				foreign-key="fk_FRIEND_REQUEST_MSG_sender_id_Staff_id" />
+		</joined-subclass>
+
 		<joined-subclass name="InfoMsg" table="INFO_MSG">
 			<key column="id"></key>
 			<!-- properties -->

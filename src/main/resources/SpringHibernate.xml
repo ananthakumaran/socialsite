@@ -132,6 +132,17 @@
 		lazy-init="true">
 		<property name="target" ref="friendRequestMsgDaoTarget" />
 	</bean>
+	
+	<!-- FriendRequestMsgDao -->
+	<bean id="staffRequestMsgDaoTarget" class="com.socialsite.dao.hibernate.StaffRequestMsgDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="staffRequestMsgDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="staffRequestMsgDaoTarget" />
+	</bean>
 
 	<!-- InfoMsgDao -->
 	<bean id="infoMsgDaoTarget" class="com.socialsite.dao.hibernate.InfoMsgDaoImpl"
