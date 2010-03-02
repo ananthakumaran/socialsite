@@ -70,6 +70,9 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 
 	@Resource(name = "friendRequestMsgDao")
 	protected FriendRequestMsgDao friendRequestMsgDao;
+	
+	@Resource(name = "staffRequestMsgDao")
+	protected StaffRequestMsgDao staffRequestMsgDao;
 
 	@Resource(name = "adminDao")
 	protected AdminDao adminDao;

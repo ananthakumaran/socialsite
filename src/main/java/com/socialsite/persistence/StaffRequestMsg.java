@@ -25,6 +25,7 @@ public class StaffRequestMsg extends Message
 	private static final long serialVersionUID = 1L;
 	/** The sender who sends the staff request message */
 	private Staff sender;
+	private University university;
 
 	public StaffRequestMsg()
 	{
@@ -45,5 +46,14 @@ public class StaffRequestMsg extends Message
 		this.sender = sender;
 	}
 
+	public University getUniversity()
+	{
+		return university;
+	}
+
+	public void setUniversity(University university)
+	{
+		this.university = university;
+	}
 
 }

@@ -17,8 +17,14 @@
 
 package com.socialsite.dao.hibernate;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+
 import com.socialsite.dao.StaffRequestMsgDao;
+import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.StaffRequestMsg;
+import com.socialsite.persistence.University;
 
 public class StaffRequestMsgDaoImpl extends MessageDaoImpl<StaffRequestMsg>
 		implements
@@ -28,5 +34,15 @@ public class StaffRequestMsgDaoImpl extends MessageDaoImpl<StaffRequestMsg>
 	public StaffRequestMsgDaoImpl()
 	{
 		super(StaffRequestMsg.class);
+	}
+
+	public boolean hasRequest(Staff staff, University university)
+	{
+		final Criteria criteria = getSession().createCriteria(domainClass);
+		criteria.add(Restrictions.eq("university", university));
+		criteria.add(Restrictions.eq("sender", staff));
+		criteria.setProjection(Projections.rowCount());
+		final int result = (Integer)criteria.uniqueResult();
+		return result == 0 ? false : true;
 	}
 }

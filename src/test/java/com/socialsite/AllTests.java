@@ -35,6 +35,7 @@ import com.socialsite.dao.hibernate.ProfileDaoTest;
 import com.socialsite.dao.hibernate.QuestionDaoTest;
 import com.socialsite.dao.hibernate.ScrapDaoTest;
 import com.socialsite.dao.hibernate.StaffDaoTest;
+import com.socialsite.dao.hibernate.StaffRequestMsgDaoTest;
 import com.socialsite.dao.hibernate.StudentDaoTest;
 import com.socialsite.dao.hibernate.UniversityDaoTest;
 import com.socialsite.dao.hibernate.UserDaoTest;
@@ -51,7 +52,8 @@ import com.socialsite.scripts.SchemaCreator;
 		UserDaoTest.class, ProfileDaoTest.class, FriendRequestMsgDaoTest.class,
 		UniversityDaoTest.class, CourseDaoTest.class, AdminDaoTest.class, AnswerDaoTest.class,
 		CommentDaoTest.class, InfoMsgDaoTest.class, MessageDaoTest.class, QuestionDaoTest.class,
-		StaffDaoTest.class, StudentDaoTest.class, ActivationDaoTest.class })
+		StaffDaoTest.class, StudentDaoTest.class, ActivationDaoTest.class,
+		StaffRequestMsgDaoTest.class })
 public class AllTests
 {
 

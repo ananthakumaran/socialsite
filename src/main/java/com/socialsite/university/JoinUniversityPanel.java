@@ -17,20 +17,19 @@
 
 package com.socialsite.university;
 
+import java.util.Date;
+
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.form.Form;
-import org.apache.wicket.markup.html.form.RequiredTextField;
-import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
-import com.socialsite.SocialSiteSession;
-import com.socialsite.dao.FriendRequestMsgDao;
+import com.socialsite.dao.StaffRequestMsgDao;
 import com.socialsite.dao.UserDao;
 import com.socialsite.persistence.Staff;
+import com.socialsite.persistence.StaffRequestMsg;
 import com.socialsite.persistence.University;
 import com.socialsite.persistence.User;
 
@@ -44,16 +43,19 @@ public class JoinUniversityPanel extends BasePanel
 	 * 
 	 */
 	private static final long serialVersionUID = -7406758884244898081L;
-	/** Spring Dao to access the user object */
-	@SpringBean(name = "userDao")
-	private UserDao<User> userDao;
+
+	@SpringBean(name = "staffRequestMsgDao")
+	private StaffRequestMsgDao staffRequestMsgDao;
+
 	/** specifies the visibility */
 	private Boolean isVisible = null;
 
+	private University university;
 
-	public JoinUniversityPanel(String id, IModel<University> university)
+	public JoinUniversityPanel(String id, IModel<University> model)
 	{
 		super(id);
+		this.university = model.getObject();
 		add(new AjaxSubmitLink("join")
 		{
 
@@ -66,7 +68,15 @@ public class JoinUniversityPanel extends BasePanel
 			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				Staff staff = (Staff)getSessionUser();
-				
+				StaffRequestMsg msg = new StaffRequestMsg(staff);
+				msg.setTime(new Date());
+				msg.addUser(university.getAdmin());
+				msg.setUniversity(university);
+				staffRequestMsgDao.save(msg);
+				isVisible = false;
+				target.addComponent(this);
+				target
+						.appendJavascript("SocialSite.Message.show('Your request has been sent to the admin');");
 			}
 		});
 	}
@@ -77,8 +87,15 @@ public class JoinUniversityPanel extends BasePanel
 		// check the first time only
 		if (isVisible == null)
 		{
-			isVisible = false;
-
+			if (getSessionUser() instanceof Staff)
+			{
+				// TODO check if the staff is already joined in this university
+				isVisible = staffRequestMsgDao.hasRequest((Staff)getSessionUser(), university);
+			}
+			else
+			{
+				isVisible = false;
+			}
 		}
 		return isVisible;
 	}
