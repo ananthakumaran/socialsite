@@ -43,7 +43,7 @@ public class ContactTabPanel extends BasePanel
 	{
 		super(id);
 		add(current);
-		add(new EditLink("edit", infoPanel, formPanel, current, getRoles()));
+		add(new EditLink("edit", infoPanel, formPanel, getRoles()));
 	}
 
 

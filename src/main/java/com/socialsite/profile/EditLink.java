@@ -20,6 +20,8 @@ package com.socialsite.profile;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.authorization.strategies.role.Roles;
+import org.apache.wicket.markup.ComponentTag;
+import org.apache.wicket.markup.MarkupStream;
 import org.apache.wicket.markup.html.panel.Panel;
 
 import com.socialsite.authentication.SocialSiteRoles;
@@ -37,26 +39,34 @@ public class EditLink extends AjaxLink<Void>
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	Panel infoPanel;
-	Panel formPanel;
+	Panel other;
 	Panel current;
 	Roles roles;
+	String state = "edit";
 
-	public EditLink(String id, Panel infoPanel, Panel formPanel, Panel current, Roles roles)
+	public EditLink(String id, Panel current, Panel other, Roles roles)
 	{
 		super(id);
-		this.infoPanel = infoPanel;
-		this.formPanel = formPanel;
 		this.current = current;
+		this.other = other;
 		this.roles = roles;
 	}
 
 	@Override
 	public void onClick(AjaxRequestTarget target)
 	{
-		current.replaceWith(formPanel);
-		current = formPanel;
+		current.replaceWith(other);
+		Panel temp = current;
+		current = other;
+		other = temp;
+		state = state.equals("edit") ? "view" : "edit";
+		target.addComponent(this);
 		target.addComponent(current);
+	}
+
+	protected void onComponentTagBody(MarkupStream markupStream, ComponentTag openTag)
+	{
+		replaceComponentTagBody(markupStream, openTag, state);
 	}
 
 	@Override
