@@ -128,6 +128,8 @@ public abstract class AbstractDaoImpl<T> implements AbstractDao<T>
 		final Order order = sortParam.isAscending() ? Order.asc(sortParam.getProperty()) : Order
 				.desc(sortParam.getProperty());
 		final Criteria criteria = getSession().createCriteria(clazz);
+		criteria.setFirstResult(first);
+		criteria.setMaxResults(count);
 		criteria.add(Restrictions.ilike(field, filter, MatchMode.ANYWHERE));
 		criteria.addOrder(order);
 		return criteria.list();
