@@ -17,6 +17,8 @@
 
 package com.socialsite.dao;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
@@ -176,6 +178,7 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 		System.out.println("saving questions");
 		for (final Question question : questions)
 		{
+			question.setTime(new Date());
 			questionDao.save(question);
 		}
 	}
@@ -190,9 +193,10 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 	public void saveUniversities(final University... uinversities)
 	{
 		System.out.println("saving universities");
-		for (final University uinversity : uinversities)
+		for (final University university : uinversities)
 		{
-			universityDao.save(uinversity);
+			university.setLastModified(new Date());
+			universityDao.save(university);
 		}
 	}
 
@@ -207,6 +211,7 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 		System.out.println("saving users");
 		for (final User user : users)
 		{
+			user.setLastModified(new Date());
 			userDao.save(user);
 		}
 	}
