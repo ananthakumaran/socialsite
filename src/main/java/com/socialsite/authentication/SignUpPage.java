@@ -35,13 +35,11 @@ import org.hibernate.exception.ConstraintViolationException;
 
 import com.socialsite.SocialSiteSession;
 import com.socialsite.activation.UniversityActivator;
-import com.socialsite.dao.MessageDao;
 import com.socialsite.dao.ProfileDao;
 import com.socialsite.dao.UserDao;
 import com.socialsite.home.HomePage;
 import com.socialsite.image.DefaultImage;
 import com.socialsite.persistence.Admin;
-import com.socialsite.persistence.Message;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.Student;
@@ -84,9 +82,6 @@ public class SignUpPage extends WebPage
 	/** Spring Dao to handle user object */
 	@SpringBean(name = "userDao")
 	private UserDao<User> userDao;
-	/** Spring Dao to handle message object */
-	@SpringBean(name = "messageDao")
-	private MessageDao<Message> messageDao;
 
 	public SignUpPage()
 	{

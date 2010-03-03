@@ -37,6 +37,7 @@ import com.socialsite.persistence.University;
 public class ActivationPage extends WebPage
 {
 
+	@SuppressWarnings("unused")
 	private String messageText;
 	@SpringBean(name = "activationDao")
 	private ActivationDao activationDao;

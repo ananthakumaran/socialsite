@@ -59,7 +59,7 @@ public class EditLink extends AjaxLink<Void>
 		Panel temp = current;
 		current = other;
 		other = temp;
-		state = state.equals("edit") ? "view" : "edit";
+		state = state.equals("edit") ? "" : "edit";
 		target.addComponent(this);
 		target.addComponent(current);
 	}
