@@ -56,8 +56,8 @@ public class StaffRequestMsgDaoTest extends AbstractDaoTestHelper
 		msg.addUser(university1.getAdmin());
 		staffRequestMsgDao.save(msg);
 
-		Assert.assertEquals(true, staffRequestMsgDao.hasRequest(staff1, university1));
-		Assert.assertEquals(false, staffRequestMsgDao.hasRequest(staff2, university1));
+		Assert.assertEquals(true, staffRequestMsgDao.hasRequest(staff1));
+		Assert.assertEquals(false, staffRequestMsgDao.hasRequest(staff2));
 
 	}
 

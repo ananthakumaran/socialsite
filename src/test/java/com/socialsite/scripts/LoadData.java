@@ -83,7 +83,7 @@ public class LoadData extends AbstractDaoTestHelper
 		saveUniversities(university1, university2);
 
 		// staffs
-		final Staff staff1 = new Staff("staff1", "password", university1);
+		final Staff staff1 = new Staff("staff1", "password");
 		final Staff staff2 = new Staff("staff2", "password", university2);
 		saveUsers(staff1, staff2);
 		saveUniversities(university1, university2);

@@ -94,7 +94,7 @@ public class JoinUniversityPanel extends BasePanel
 				}
 				else
 				{
-					isVisible = !staffRequestMsgDao.hasRequest(staff, university);
+					isVisible = !staffRequestMsgDao.hasRequest(staff);
 				}
 			}
 			else
