@@ -1,3 +1,20 @@
+--
+--     Copyright SocialSite (C) 2009
+--
+--     This program is free software: you can redistribute it and/or modify
+--     it under the terms of the GNU General Public License as published by
+--     the Free Software Foundation, either version 3 of the License, or
+--     (at your option) any later version.
+--
+--     This program is distributed in the hope that it will be useful,
+--     but WITHOUT ANY WARRANTY; without even the implied warranty of
+--     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+--     GNU General Public License for more details.
+--
+--     You should have received a copy of the GNU General Public License
+--     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--
+
 
     alter table ACTIVATION 
         drop 
@@ -67,6 +84,18 @@
         drop 
         foreign key fk_Staff_university_id_University_id;
 
+    alter table STAFF_REQUEST_MSG 
+        drop 
+        foreign key FK95FF1292E1E64E06;
+
+    alter table STAFF_REQUEST_MSG 
+        drop 
+        foreign key fk_STAFF_REQUEST_MSG_sender_id_Staff_id;
+
+    alter table STAFF_REQUEST_MSG 
+        drop 
+        foreign key fk_STAFF_REQUEST_MSG_university_id_University_id;
+
     alter table STUDENT 
         drop 
         foreign key FKBACA0E1BE8BA0282;
@@ -128,6 +157,8 @@
     drop table if exists QUESTION;
 
     drop table if exists STAFF;
+
+    drop table if exists STAFF_REQUEST_MSG;
 
     drop table if exists STUDENT;
 
@@ -253,6 +284,13 @@
 
     create table STAFF (
         id bigint not null,
+        university_id bigint,
+        primary key (id)
+    );
+
+    create table STAFF_REQUEST_MSG (
+        id bigint not null,
+        sender_id bigint,
         university_id bigint,
         primary key (id)
     );
@@ -406,6 +444,24 @@
     alter table STAFF 
         add index fk_Staff_university_id_University_id (university_id), 
         add constraint fk_Staff_university_id_University_id 
+        foreign key (university_id) 
+        references UNIVERSITY (id);
+
+    alter table STAFF_REQUEST_MSG 
+        add index FK95FF1292E1E64E06 (id), 
+        add constraint FK95FF1292E1E64E06 
+        foreign key (id) 
+        references MESSAGE (id);
+
+    alter table STAFF_REQUEST_MSG 
+        add index fk_STAFF_REQUEST_MSG_sender_id_Staff_id (sender_id), 
+        add constraint fk_STAFF_REQUEST_MSG_sender_id_Staff_id 
+        foreign key (sender_id) 
+        references STAFF (id);
+
+    alter table STAFF_REQUEST_MSG 
+        add index fk_STAFF_REQUEST_MSG_university_id_University_id (university_id), 
+        add constraint fk_STAFF_REQUEST_MSG_university_id_University_id 
         foreign key (university_id) 
         references UNIVERSITY (id);
 
