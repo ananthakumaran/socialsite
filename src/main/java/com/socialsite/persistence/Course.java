@@ -55,6 +55,14 @@ public class Course implements AbstractDomain
 		addUniversity(university);
 		setLastModified(new Date());
 	}
+	
+	public Course(final String name, final Staff staff)
+	{
+		setName(name);
+		setStaff(staff);
+		addUniversity(staff.getUniversity());
+		setLastModified(new Date());
+	}
 
 	public void addQuestions(final Question question)
 	{
