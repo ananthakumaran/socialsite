@@ -77,6 +77,7 @@ public class UniversityInfoPanel extends Panel
 
 		// admin of the university
 		add(new UserLink<User>("admin", new Model<User>(university.getAdmin())));
+		add(new JoinUniversityPanel("join", new Model<University>(university)));
 
 	}
 }

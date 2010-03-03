@@ -20,18 +20,15 @@ package com.socialsite.university;
 import java.util.Date;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
-import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
 import com.socialsite.dao.StaffRequestMsgDao;
-import com.socialsite.dao.UserDao;
 import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.StaffRequestMsg;
 import com.socialsite.persistence.University;
-import com.socialsite.persistence.User;
 
 /**
  * @author Ananth
@@ -55,8 +52,9 @@ public class JoinUniversityPanel extends BasePanel
 	public JoinUniversityPanel(String id, IModel<University> model)
 	{
 		super(id);
+		setOutputMarkupId(true);
 		this.university = model.getObject();
-		add(new AjaxSubmitLink("join")
+		add(new AjaxLink<Void>("join")
 		{
 
 			/**
@@ -65,7 +63,7 @@ public class JoinUniversityPanel extends BasePanel
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
+			public void onClick(final AjaxRequestTarget target)
 			{
 				Staff staff = (Staff)getSessionUser();
 				StaffRequestMsg msg = new StaffRequestMsg(staff);
@@ -74,7 +72,7 @@ public class JoinUniversityPanel extends BasePanel
 				msg.setUniversity(university);
 				staffRequestMsgDao.save(msg);
 				isVisible = false;
-				target.addComponent(this);
+				target.addComponent(JoinUniversityPanel.this);
 				target
 						.appendJavascript("SocialSite.Message.show('Your request has been sent to the admin');");
 			}
@@ -90,7 +88,7 @@ public class JoinUniversityPanel extends BasePanel
 			if (getSessionUser() instanceof Staff)
 			{
 				// TODO check if the staff is already joined in this university
-				isVisible = staffRequestMsgDao.hasRequest((Staff)getSessionUser(), university);
+				isVisible = !staffRequestMsgDao.hasRequest((Staff)getSessionUser(), university);
 			}
 			else
 			{
