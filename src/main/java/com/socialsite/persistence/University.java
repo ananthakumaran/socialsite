@@ -79,6 +79,12 @@ public class University implements AbstractDomain
 		setLastModified(new Date());
 	}
 
+	public void addStaff(Staff staff)
+	{
+		this.staffs.add(staff);
+		staff.setUniversity(this);
+	}
+
 	public Admin getAdmin()
 	{
 		return admin;

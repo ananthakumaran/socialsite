@@ -87,8 +87,15 @@ public class JoinUniversityPanel extends BasePanel
 		{
 			if (getSessionUser() instanceof Staff)
 			{
-				// TODO check if the staff is already joined in this university
-				isVisible = !staffRequestMsgDao.hasRequest((Staff)getSessionUser(), university);
+				Staff staff = (Staff)getSessionUser();
+				if (staff.getUniversity() != null)
+				{
+					isVisible = false;
+				}
+				else
+				{
+					isVisible = !staffRequestMsgDao.hasRequest(staff, university);
+				}
 			}
 			else
 			{

@@ -28,6 +28,7 @@ import com.socialsite.dataprovider.MessageDataProvider;
 import com.socialsite.persistence.FriendRequestMsg;
 import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Message;
+import com.socialsite.persistence.StaffRequestMsg;
 
 /**
  * list all the message for the user
@@ -86,6 +87,11 @@ public class MessagePanel extends Panel
 				{
 					item.add(new InfoMsgPanel("message", new Model<InfoMsg>(((InfoMsg)message)),
 							messageContainer));
+				}
+				else if (message instanceof StaffRequestMsg)
+				{
+					item.add(new StaffRequestMsgPanel("message", new Model<StaffRequestMsg>(
+							(StaffRequestMsg)message), messageContainer));
 				}
 
 			}
