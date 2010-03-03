@@ -29,6 +29,7 @@ import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.User;
 import com.socialsite.user.UserLink;
+import com.socialsite.util.ShowAllLink;
 
 /**
  * @author Ananth
@@ -68,33 +69,7 @@ public class FriendsPanel extends BasePanel
 			}
 
 		};
-
-		add(new Link<Void>("showall")
-		{
-
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void onClick()
-			{
-				setResponsePage(new FriendsPage());
-			}
-
-			@Override
-			public boolean isVisible()
-			{
-				if (friendList.getDataProvider().size() > 9)
-				{
-					return true;
-				}
-				return false;
-			}
-
-		});
-
+		add(new ShowAllLink<User>("showall", friendList.getDataProvider(), FriendsPage.class));
 		add(friendList);
 	}
 }
