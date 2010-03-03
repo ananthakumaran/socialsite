@@ -17,6 +17,10 @@
 
 package com.socialsite.dao.hibernate;
 
+import java.util.List;
+
+import org.hibernate.Query;
+
 import com.socialsite.dao.StaffDao;
 import com.socialsite.persistence.Staff;
 
@@ -31,5 +35,21 @@ public class StaffDaoImpl extends UserDaoImpl<Staff> implements StaffDao
 	{
 		super(Staff.class);
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.StaffDao#getStaffs(long, int, int)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Staff> getStaffs(long universityId, int first, int count)
+	{
+		final Query query = getSession().createQuery(
+				"select u.staffs from University u where u.id = :universityId").setParameter(
+				"universityId", universityId).setFetchSize(count).setFirstResult(first)
+				.setMaxResults(count);
+		return query.list();
+	}
+
 
 }
