@@ -23,10 +23,12 @@ import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 
 import com.socialsite.dataprovider.CoursesDataProvider;
+import com.socialsite.friend.FriendsPage;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Course;
 import com.socialsite.persistence.University;
+import com.socialsite.util.ShowAllLink;
 
 /**
  * 
@@ -54,7 +56,7 @@ public class CoursesPanel extends Panel
 	{
 		super(id);
 		final DataView<Course> courseView = new DataView<Course>("courses",
-				new CoursesDataProvider(university))
+				new CoursesDataProvider(university), 9)
 		{
 
 			/**
@@ -77,7 +79,8 @@ public class CoursesPanel extends Panel
 				courseLink.add(new Label("coursename", course.getName()));
 			}
 		};
-
 		add(courseView);
+		// TODO create a page for courses
+		add(new ShowAllLink<Course>("showall", courseView.getDataProvider(), FriendsPage.class));
 	}
 }
