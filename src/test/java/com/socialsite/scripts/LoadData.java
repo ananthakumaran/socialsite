@@ -60,15 +60,25 @@ public class LoadData extends AbstractDaoTestHelper
 		final User user3 = new Student("user3", "password");
 		final User user4 = new Student("user4", "password");
 		final User user5 = new Student("user5", "password");
-		saveUsers(user1, user2, user3, user4, user5);
+		final User user6 = new Student("user6", "password");
+		final User user7 = new Student("user7", "password");
+		final User user8 = new Student("user8", "password");
+		final User user9 = new Student("user9", "password");
+		final User user10 = new Student("user10", "password");
+		final User user11 = new Student("user11", "password");
+		final User user12 = new Student("user12", "password");
+		final User user13 = new Student("user13", "password");
+		final User user14 = new Student("user14", "password");
+		final User user15 = new Student("user15", "password");
+		saveUsers(user1, user2, user3, user4, user5,user6,user7,user8,user9,user10,user11,user12,user13,user14,user15);
 
 		// create the profiles
-		createProfiles(user1, user2, user3, user4, user5);
+		createProfiles(user1, user2, user3, user4, user5,user6,user7,user8,user9,user10,user11,user12,user13,user14,user15);
 		// add some friends for all users
-		setFriend(user1, user2, user3, user4);
-		setFriend(user2, user3, user4);
+		setFriend(user1, user2, user3, user4,user6,user7,user8,user9,user10,user11,user12);
+		setFriend(user2, user3, user4,user5,user6,user7,user8,user9,user10,user12);
 		setFriend(user3, user5);
-		saveUsers(user1, user2, user3, user4, user5);
+		saveUsers(user1, user2, user3, user4, user5,user6,user7,user8,user9,user10,user11,user12,user13,user14,user15);
 
 		// create admin for university
 		final Admin admin1 = new Admin("admin1", "password");

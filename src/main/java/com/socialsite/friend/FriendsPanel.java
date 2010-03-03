@@ -69,6 +69,32 @@ public class FriendsPanel extends BasePanel
 
 		};
 
+		add(new Link<Void>("showall")
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick()
+			{
+				setResponsePage(new FriendsPage());
+			}
+
+			@Override
+			public boolean isVisible()
+			{
+				if (friendList.getDataProvider().size() > 9)
+				{
+					return true;
+				}
+				return false;
+			}
+
+		});
+
 		add(friendList);
 	}
 }
