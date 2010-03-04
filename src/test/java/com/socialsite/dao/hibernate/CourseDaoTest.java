@@ -30,7 +30,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.socialsite.authentication.SignUpPage;
 import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.Course;
+import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.Student;
+import com.socialsite.persistence.University;
 import com.socialsite.persistence.User;
 import com.socialsite.util.SpringWicketTester;
 
@@ -129,6 +131,64 @@ public class CourseDaoTest extends AbstractDaoTestHelper
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 		assertEquals(1, course1.getStudents().size());
+	}
+
+	@Test
+	@Transactional
+	public void testGetCourses()
+	{
+		final Course course1 = new Course();
+		course1.setName("test1");
+		saveCourses(course1);
+		final User user1 = new Student("user1", "password");
+		saveUsers(user1);
+		course1.addStudents((Student)user1);
+		saveCourses(course1);
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+
+		assertEquals(1, courseDao.getCourses(user1.getId(), 0, 1).size());
+
+		final University u = new University("test");
+		saveUniversities(u);
+		// staffs
+		final Staff staff1 = new Staff("staff1", "password", u);
+		staff1.addCourse(course1);
+		saveUsers(staff1);
+
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+		assertEquals(1, courseDao.getCourses(u.getId(), 0, 1).size());
+
+	}
+	
+	@Test
+	@Transactional
+	public void testGetCoursesCount()
+	{
+		final Course course1 = new Course();
+		course1.setName("test1");
+		saveCourses(course1);
+		final User user1 = new Student("user1", "password");
+		saveUsers(user1);
+		course1.addStudents((Student)user1);
+		saveCourses(course1);
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+
+		assertEquals(1, courseDao.getCoursesCount(user1.getId()));
+
+		final University u = new University("test");
+		saveUniversities(u);
+		// staffs
+		final Staff staff1 = new Staff("staff1", "password", u);
+		staff1.addCourse(course1);
+		saveUsers(staff1);
+
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+		assertEquals(1, courseDao.getCoursesCount(u.getId()));
+
 	}
 
 }

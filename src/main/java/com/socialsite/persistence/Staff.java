@@ -53,6 +53,13 @@ public class Staff extends User
 		university.getStaffs().add(this);
 	}
 
+	public void addCourse(final Course course)
+	{
+		getCourses().add(course);
+		getUniversity().getCourses().add(course);
+		course.setStaff(this);
+	}
+
 	public Set<Course> getCourses()
 	{
 		return courses;

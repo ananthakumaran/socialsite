@@ -61,4 +61,24 @@ public interface CourseDao extends AbstractImageDao<Course>
 	 */
 	public List<University> findAll(String filter, int first, int count, SortParam sortParam);
 
+
+	/**
+	 * get the courses
+	 * 
+	 * @param id
+	 * @param first
+	 * @param count
+	 * @return
+	 */
+	public List<Course> getCourses(long id, int first, int count);
+
+
+	/**
+	 * count of courses
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int getCoursesCount(long id);
+
 }
