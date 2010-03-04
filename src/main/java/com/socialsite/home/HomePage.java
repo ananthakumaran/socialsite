@@ -21,6 +21,8 @@ import org.apache.wicket.markup.html.IHeaderResponse;
 import org.apache.wicket.markup.html.panel.Panel;
 
 import com.socialsite.BasePage;
+import com.socialsite.SocialSiteSession;
+import com.socialsite.course.CoursesPanel;
 import com.socialsite.friend.FriendsPanel;
 import com.socialsite.message.MessagePanel;
 import com.socialsite.message.MessageSenderPanel;
@@ -48,6 +50,7 @@ public class HomePage extends BasePage
 		add(new UserInfoPanel("userinfo"));
 		add(msgPanel);
 		add(new FriendsPanel("friends"));
+		add(new CoursesPanel("courses", SocialSiteSession.get().getSessionUser().getId()));
 		add(new MessageSenderPanel("sender", msgPanel));
 	}
 
