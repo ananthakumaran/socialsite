@@ -67,6 +67,10 @@ public class CourseInfoPanel extends BasePanel
 			}
 
 		});
+		
+		// join this course
+		add(new JoinCoursePanel("join", model));
+		
 		UserLink<User> staffLink;
 		add(staffLink = new UserLink<User>("stafflink", new Model<User>(course.getStaff())));
 		staffLink.add(new Label("name", course.getStaff().getUserName()));

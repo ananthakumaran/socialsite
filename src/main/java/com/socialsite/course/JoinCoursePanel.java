@@ -15,9 +15,10 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.university;
+package com.socialsite.course;
 
 import java.util.Date;
+import java.util.HashSet;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -25,15 +26,18 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
-import com.socialsite.dao.StaffRequestMsgDao;
-import com.socialsite.persistence.Staff;
-import com.socialsite.persistence.StaffRequestMsg;
-import com.socialsite.persistence.University;
+import com.socialsite.dao.CourseDao;
+import com.socialsite.dao.MessageDao;
+import com.socialsite.persistence.Course;
+import com.socialsite.persistence.CourseJoinedMsg;
+import com.socialsite.persistence.Message;
+import com.socialsite.persistence.Student;
+import com.socialsite.persistence.User;
 
 /**
  * @author Ananth
  */
-public class JoinUniversityPanel extends BasePanel
+public class JoinCoursePanel extends BasePanel
 {
 
 	/**
@@ -41,19 +45,22 @@ public class JoinUniversityPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@SpringBean(name = "staffRequestMsgDao")
-	private StaffRequestMsgDao staffRequestMsgDao;
-
 	/** specifies the visibility */
 	private Boolean isVisible = null;
+	private Course course;
 
-	private University university;
+	@SpringBean(name = "messageDao")
+	private MessageDao<Message> messageDao;
 
-	public JoinUniversityPanel(String id, IModel<University> model)
+	/** spring dao to handle message object */
+	@SpringBean(name = "courseDao")
+	private CourseDao courseDao;
+
+	public JoinCoursePanel(String id, IModel<Course> model)
 	{
-		super(id);
+		super(id, model);
+		this.course = model.getObject();
 		setOutputMarkupId(true);
-		this.university = model.getObject();
 		add(new AjaxLink<Void>("join")
 		{
 
@@ -65,16 +72,20 @@ public class JoinUniversityPanel extends BasePanel
 			@Override
 			public void onClick(final AjaxRequestTarget target)
 			{
-				Staff staff = (Staff)getSessionUser();
-				StaffRequestMsg msg = new StaffRequestMsg(staff);
+				// reload
+				course = courseDao.load(course.getId());
+				User user = getSessionUser();
+				CourseJoinedMsg msg = new CourseJoinedMsg();
+				msg.setSender(user);
+				msg.setCourse(course);
 				msg.setTime(new Date());
-				msg.addUser(university.getAdmin());
-				msg.setUniversity(university);
-				staffRequestMsgDao.save(msg);
+				msg.setUsers(new HashSet<User>(user.getFriends()));
+				messageDao.save(msg);
 				isVisible = false;
-				target.addComponent(JoinUniversityPanel.this);
-				target
-						.appendJavascript("SocialSite.Message.show('Your request has been sent to the admin');");
+				course.addStudents((Student)user);
+				courseDao.save(course);
+				target.addComponent(JoinCoursePanel.this);
+				target.appendJavascript("SocialSite.Message.show('You joined the course');");
 			}
 		});
 	}
@@ -85,17 +96,10 @@ public class JoinUniversityPanel extends BasePanel
 		// check the first time only
 		if (isVisible == null)
 		{
-			if (getSessionUser() instanceof Staff)
+			if (getSessionUser() instanceof Student)
 			{
-				Staff staff = (Staff)getSessionUser();
-				if (staff.getUniversity() != null)
-				{
-					isVisible = false;
-				}
-				else
-				{
-					isVisible = !staffRequestMsgDao.hasRequest(staff);
-				}
+				Student student = (Student)getSessionUser();
+				isVisible = !student.getCourses().contains(course);
 			}
 			else
 			{

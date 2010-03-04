@@ -19,9 +19,15 @@
 
 <html xmlns:wicket>
 <wicket:panel>
-  <div wicket:id="image"></div>
-  <a wicket:id="stafflink"><span wicket:id="name">[staff name]</span></a>
-  <span wicket:id="join"></span>
+	<div class="infoMessage"><a class="userImage"
+		wicket:id="imagelink" href="#"><span wicket:id="userthumb"></span></a>
+	<div class="top"><span class="right" wicket:id="date"></span></div>
+	<div class="message"><a wicket:id="home"><span
+		wicket:id="username">[name]</span></a> joined the <a wicket:id="course"><span wicket:id="courseName">[course NameF]</span></a> course</div>
+	<div class="clear"></div>
+	<div class="action"><a wicket:id="delete" class="round" href="#">Delete</a>
+	</div>
+	<div class="clear"></div>
+	</div>
 </wicket:panel>
 </html>
-  

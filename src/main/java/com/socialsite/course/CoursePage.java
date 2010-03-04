@@ -17,11 +17,13 @@
 
 package com.socialsite.course;
 
-import org.apache.wicket.model.Model;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePage;
 import com.socialsite.course.question.AddQuestionPanel;
 import com.socialsite.course.question.QuestionsPanel;
+import com.socialsite.dao.CourseDao;
 import com.socialsite.persistence.Course;
 
 /**
@@ -29,12 +31,18 @@ import com.socialsite.persistence.Course;
  */
 public class CoursePage extends BasePage
 {
-	public CoursePage(final Course course)
+	/** spring dao to handle message object */
+	@SpringBean(name = "courseDao")
+	private CourseDao courseDao;
+
+	public CoursePage(final IModel<Course> model)
 	{
-		final Model<Course> courseModel = new Model<Course>(course);
-		add(new CourseInfoPanel("info", courseModel));
-		final QuestionsPanel questionsPanel = new QuestionsPanel("questions", courseModel);
+		// reload the model
+		model.setObject(courseDao.load(model.getObject().getId()));
+		add(new CourseInfoPanel("info", model));
+
+		final QuestionsPanel questionsPanel = new QuestionsPanel("questions", model);
 		add(questionsPanel);
-		add(new AddQuestionPanel("addquestion", courseModel, questionsPanel.getQuestionsContainer()));
+		add(new AddQuestionPanel("addquestion", model, questionsPanel.getQuestionsContainer()));
 	}
 }

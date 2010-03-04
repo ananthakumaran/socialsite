@@ -22,7 +22,6 @@ import java.util.Date;
 
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.ajax.AjaxRequestTarget;
-import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
@@ -96,36 +95,8 @@ public class InfoMsgPanel extends BasePanel
 		add(new Label("message", infoMsg.getMessage()).setEscapeModelStrings(false));
 
 		// delete link
-		add(new AjaxLink<InfoMsg>("delete", infoMsgModel)
-		{
-
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public void onClick(AjaxRequestTarget target)
-			{
-				messageDao.delete(getModelObject());
-				target.addComponent(dependent);
-				firePostAjaxUpdateEvent(target);
-			}
-
-			@Override
-			public boolean isVisible()
-			{
-				// allow the owner and the sender to delete the msg
-				if (hasRole(SocialSiteRoles.OWNER))
-				{
-					return true;
-				}
-				else
-				{
-					return infoMsg.getSender().getId() == getSessionUserId();
-				}
-			}
-		});
+		add(new DeleteMsgLink<InfoMsg>("delete", infoMsgModel, dependent, this, infoMsg.getSender()
+				.getId()));
 
 		// reply form
 		final Form<InfoMsg> form = new Form<InfoMsg>("form", infoMsgModel);

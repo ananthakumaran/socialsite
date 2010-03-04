@@ -61,8 +61,8 @@
 		<joined-subclass name="Student" table="STUDENT">
 			<key column="id" />
 
-			<set name="courses" table="STUDENT_COURSE">
-				<key column="student_id" foreign-key="fk_STUDENT_COURSE_student_id_Student_id" />
+			<set name="courses" table="STUDENT_COURSE" inverse="true">
+				<key column="student_id" foreign-key="fk_STUDENT_COURSE_student_id_Student_id"  />
 				<many-to-many class="Course" column="course_id" />
 			</set>
 		</joined-subclass>

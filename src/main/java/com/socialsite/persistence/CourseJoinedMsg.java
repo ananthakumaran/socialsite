@@ -15,30 +15,39 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.course;
+package com.socialsite.persistence;
 
-import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.model.IModel;
-
-import com.socialsite.persistence.Course;
-
-public class CourseLink extends Link<Course>
+public class CourseJoinedMsg extends Message
 {
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private User sender;
+	private Course course;
 
-	public CourseLink(final String id, final IModel<Course> model)
+	public CourseJoinedMsg()
 	{
-		super(id, model);
 	}
 
-	@Override
-	public void onClick()
+	public User getSender()
 	{
-		setResponsePage(new CoursePage(getModel()));
+		return sender;
+	}
+
+	public Course getCourse()
+	{
+		return course;
+	}
+
+	public void setSender(User sender)
+	{
+		this.sender = sender;
+	}
+
+	public void setCourse(Course course)
+	{
+		this.course = course;
 	}
 
 }

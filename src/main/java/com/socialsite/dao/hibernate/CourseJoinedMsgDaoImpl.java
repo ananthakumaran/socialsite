@@ -15,30 +15,18 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.course;
+package com.socialsite.dao.hibernate;
 
-import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.model.IModel;
+import com.socialsite.dao.CourseJoinedMsgDao;
+import com.socialsite.persistence.CourseJoinedMsg;
 
-import com.socialsite.persistence.Course;
 
-public class CourseLink extends Link<Course>
+public class CourseJoinedMsgDaoImpl extends MessageDaoImpl<CourseJoinedMsg>
+		implements
+			CourseJoinedMsgDao
 {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	public CourseLink(final String id, final IModel<Course> model)
+	public CourseJoinedMsgDaoImpl()
 	{
-		super(id, model);
+		super(CourseJoinedMsg.class);
 	}
-
-	@Override
-	public void onClick()
-	{
-		setResponsePage(new CoursePage(getModel()));
-	}
-
 }

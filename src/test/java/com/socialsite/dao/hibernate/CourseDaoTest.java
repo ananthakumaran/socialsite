@@ -24,11 +24,14 @@ import java.util.Date;
 
 import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 import org.junit.Test;
+import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.socialsite.authentication.SignUpPage;
 import com.socialsite.dao.AbstractDaoTestHelper;
 import com.socialsite.persistence.Course;
+import com.socialsite.persistence.Student;
+import com.socialsite.persistence.User;
 import com.socialsite.util.SpringWicketTester;
 
 /**
@@ -109,6 +112,23 @@ public class CourseDaoTest extends AbstractDaoTestHelper
 		setDefaultImage(course1);
 		saveCourses(course1);
 		assertNotNull(courseDao.getThumb(course1.getId()));
+	}
+
+	@Test
+	@Transactional
+	public void testAddStudentInCourse()
+	{
+
+		final Course course1 = new Course();
+		course1.setName("test1");
+		saveCourses(course1);
+		final User user1 = new Student("user1", "password");
+		saveUsers(user1);
+		course1.addStudents((Student)user1);
+		saveCourses(course1);
+		// flush the session so we can get the record using JDBC template
+		SessionFactoryUtils.getSession(sessionFactory, false).flush();
+		assertEquals(1, course1.getStudents().size());
 	}
 
 }

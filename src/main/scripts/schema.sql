@@ -48,6 +48,18 @@
         drop 
         foreign key fk_Course_university_id_University_id;
 
+    alter table COURSE_JOINED_MSG 
+        drop 
+        foreign key FK24F63C0FE1E64E06;
+
+    alter table COURSE_JOINED_MSG 
+        drop 
+        foreign key fk_COURSE_JOINED_MSG_sender_id_User_id;
+
+    alter table COURSE_JOINED_MSG 
+        drop 
+        foreign key fk_COURSE_JOINED_MSG_course_id_Course_id;
+
     alter table FRIEND_REQUEST_MSG 
         drop 
         foreign key FKED4A6970E1E64E06;
@@ -146,6 +158,8 @@
 
     drop table if exists COURSE;
 
+    drop table if exists COURSE_JOINED_MSG;
+
     drop table if exists FRIEND_REQUEST_MSG;
 
     drop table if exists INFO_MSG;
@@ -212,6 +226,13 @@
         lastModified datetime,
         university_id bigint,
         staff_id bigint,
+        primary key (id)
+    );
+
+    create table COURSE_JOINED_MSG (
+        id bigint not null,
+        sender_id bigint,
+        course_id bigint,
         primary key (id)
     );
 
@@ -392,6 +413,24 @@
         add constraint fk_Course_university_id_University_id 
         foreign key (university_id) 
         references UNIVERSITY (id);
+
+    alter table COURSE_JOINED_MSG 
+        add index FK24F63C0FE1E64E06 (id), 
+        add constraint FK24F63C0FE1E64E06 
+        foreign key (id) 
+        references MESSAGE (id);
+
+    alter table COURSE_JOINED_MSG 
+        add index fk_COURSE_JOINED_MSG_sender_id_User_id (sender_id), 
+        add constraint fk_COURSE_JOINED_MSG_sender_id_User_id 
+        foreign key (sender_id) 
+        references User (id);
+
+    alter table COURSE_JOINED_MSG 
+        add index fk_COURSE_JOINED_MSG_course_id_Course_id (course_id), 
+        add constraint fk_COURSE_JOINED_MSG_course_id_Course_id 
+        foreign key (course_id) 
+        references COURSE (id);
 
     alter table FRIEND_REQUEST_MSG 
         add index FKED4A6970E1E64E06 (id), 

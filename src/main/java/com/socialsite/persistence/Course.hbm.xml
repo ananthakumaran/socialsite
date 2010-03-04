@@ -37,7 +37,7 @@
 			foreign-key="fk_Course_staff_id_Staff_id" />
 
 		<set name="students" table="STUDENT_COURSE">
-			<key column="course_id" foreign-key="fk_STUDENT_COURSE_course_id_Course_id" />
+			<key column="course_id" foreign-key="fk_STUDENT_COURSE_course_id_Course_id" not-null="true"/>
 			<many-to-many class="Student" column="student_id" />
 		</set>
 

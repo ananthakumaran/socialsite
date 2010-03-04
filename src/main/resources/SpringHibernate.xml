@@ -132,8 +132,8 @@
 		lazy-init="true">
 		<property name="target" ref="friendRequestMsgDaoTarget" />
 	</bean>
-	
-	<!-- FriendRequestMsgDao -->
+
+	<!-- StaffRequestMsgDao -->
 	<bean id="staffRequestMsgDaoTarget" class="com.socialsite.dao.hibernate.StaffRequestMsgDaoImpl"
 		lazy-init="true">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -152,6 +152,17 @@
 
 	<bean id="infoMsgDao" parent="transactionProxyTemplate" lazy-init="true">
 		<property name="target" ref="infoMsgDaoTarget" />
+	</bean>
+
+	<!-- CourseJoinedMsgDao -->
+	<bean id="courseJoinedMsgDaoTarget" class="com.socialsite.dao.hibernate.CourseJoinedMsgDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="CourseJoinedMsgDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="CourseJoinedMsgDaoTarget" />
 	</bean>
 
 	<!-- UniversityDao -->

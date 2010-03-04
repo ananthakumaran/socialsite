@@ -50,8 +50,17 @@
 			<!-- relations -->
 			<many-to-one name="sender" column="sender_id" class="Staff"
 				foreign-key="fk_STAFF_REQUEST_MSG_sender_id_Staff_id" />
-			<many-to-one name="university" column="university_id" class="University"
-				foreign-key="fk_STAFF_REQUEST_MSG_university_id_University_id" />	
+			<many-to-one name="university" column="university_id"
+				class="University" foreign-key="fk_STAFF_REQUEST_MSG_university_id_University_id" />
+		</joined-subclass>
+
+		<joined-subclass name="CourseJoinedMsg" table="COURSE_JOINED_MSG">
+			<key column="id"></key>
+			<!-- relations -->
+			<many-to-one name="sender" column="sender_id" class="User"
+				foreign-key="fk_COURSE_JOINED_MSG_sender_id_User_id" />
+			<many-to-one name="course" column="course_id" class="Course"
+				foreign-key="fk_COURSE_JOINED_MSG_course_id_Course_id" />
 		</joined-subclass>
 
 		<joined-subclass name="InfoMsg" table="INFO_MSG">
