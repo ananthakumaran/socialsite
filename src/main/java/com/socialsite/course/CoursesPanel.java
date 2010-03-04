@@ -27,7 +27,6 @@ import com.socialsite.friend.FriendsPage;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Course;
-import com.socialsite.persistence.University;
 import com.socialsite.util.ShowAllLink;
 
 /**
@@ -52,11 +51,11 @@ public class CoursesPanel extends Panel
 	 * @param university
 	 *            university
 	 */
-	public CoursesPanel(final String id, final University university)
+	public CoursesPanel(final String id, final long modelId)
 	{
 		super(id);
 		final DataView<Course> courseView = new DataView<Course>("courses",
-				new CoursesDataProvider(university), 9)
+				new CoursesDataProvider(modelId), 9)
 		{
 
 			/**

@@ -17,9 +17,7 @@
 
 package com.socialsite.dataprovider;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
 import org.apache.wicket.injection.web.InjectorHolder;
@@ -27,10 +25,8 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.dao.CourseDao;
-import com.socialsite.dao.UniversityDao;
 import com.socialsite.entitymodel.EntityModel;
 import com.socialsite.persistence.Course;
-import com.socialsite.persistence.University;
 
 /**
  * TODO: write separate routines to get the course list and size in the course
@@ -47,28 +43,21 @@ public class CoursesDataProvider extends SortableDataProvider<Course>
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/** used to get the courses */
-	@SpringBean(name = "universityDao")
-	private UniversityDao universityDao;
 
 	@SpringBean(name = "courseDao")
 	private CourseDao courseDao;
-	/** university */
-	private final University university;
+	private final long id;
 
-	public CoursesDataProvider(final University university)
+	public CoursesDataProvider(final long id)
 	{
 		InjectorHolder.getInjector().inject(this);
-		// reloads the university from DB.Avoids LIE
-		this.university = universityDao.load(university.getId());
+		this.id = id;
 	}
 
 
 	public Iterator<? extends Course> iterator(final int first, final int count)
 	{
-
-		final List<Course> courses = new ArrayList<Course>(university.getCourses());
-		return courses.subList(first, first + count).iterator();
+		return courseDao.getCourses(id, first, count).iterator();
 	}
 
 	public IModel<Course> model(final Course course)
@@ -78,7 +67,7 @@ public class CoursesDataProvider extends SortableDataProvider<Course>
 
 	public int size()
 	{
-		return university.getCourses().size();
+		return courseDao.getCoursesCount(id);
 	}
 
 }

@@ -37,7 +37,7 @@ public class UniversityPage extends BasePage
 	public UniversityPage(final University university)
 	{
 		add(new UniversityInfoPanel("info", university));
-		add(new CoursesPanel("courses", university));
+		add(new CoursesPanel("courses", university.getId()));
 		add(new StaffsPanel("staffs", university));
 	}
 
