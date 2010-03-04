@@ -34,6 +34,7 @@ import com.socialsite.persistence.Course;
 import com.socialsite.persistence.Message;
 import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.Question;
+import com.socialsite.persistence.Student;
 import com.socialsite.persistence.University;
 import com.socialsite.persistence.User;
 import com.socialsite.util.SpringWicketTester;
@@ -72,7 +73,7 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 
 	@Resource(name = "friendRequestMsgDao")
 	protected FriendRequestMsgDao friendRequestMsgDao;
-	
+
 	@Resource(name = "staffRequestMsgDao")
 	protected StaffRequestMsgDao staffRequestMsgDao;
 
@@ -264,6 +265,20 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 			user.addFriend(friend);
 		}
 		userDao.save(user);
+	}
+
+	/**
+	 * helper to join the course
+	 * @param user
+	 * @param courses
+	 */
+	public void joinCourse(final User user, final Course... courses)
+	{
+		for (final Course course : courses)
+		{
+			course.addStudents((Student)user);
+			courseDao.save(course);
+		}
 	}
 
 }

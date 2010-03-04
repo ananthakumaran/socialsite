@@ -230,6 +230,19 @@ public class LoadData extends AbstractDaoTestHelper
 				university6, university7, university8, university9, university10, university11,
 				university12, university13, university14, university15);
 
+		
+		joinCourse(user1, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
+		joinCourse(user2, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
+		joinCourse(user3, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
+		joinCourse(user4, course1,course10,course3,course21,course5,course6,course7,course8,course9,course10);
+		joinCourse(user5, course1,course12,course3,course22,course5,course6,course7,course8,course9,course10);
+		joinCourse(user6, course1,course16,course3,course4,course5,course6,course7,course8,course9,course10);
+		joinCourse(user7, course1,course17,course3,course23,course5,course6,course7,course8,course9,course10);
+		joinCourse(user8, course1,course19,course3,course22,course5,course6,course7,course8,course9,course10);
+		joinCourse(user9, course1,course20,course3,course11,course5,course6,course7,course8,course9,course10);
+		joinCourse(user10, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
+		joinCourse(user11, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
+		
 
 		// Questions
 		final Question question1 = new Question("sample Question1", course1, user1);
