@@ -1,50 +1,50 @@
 <!--
-
-        Copyright SocialSite (C) 2009
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
--->
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+Copyright SocialSite (C) 2009
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns:wicket>
-<head>
-<script type="text/javascript">
-	function showProgressWheel() {
-		document.images[0].style.display = 'block';
-		// delay the wheel a bit so it can locally shine
-		setTimeout(function() {
-			document.forms[0].submit()
-		}, 800);
-		return false;
-	}
-</script>
-</head>
-
-<body>
-<form wicket:id="form">
-<table style="width: 500px; margin-top: 0px;">
-	<tr>
-		<td><input style="width: auto;" wicket:id="file" type="file" /></td>
-		<td><a wicket:id="submit">Change Image</a></td>
-	</tr>
-	<tr>
-		<td colspan="2"><img src="img/ajax-loader.gif" style="display: none" /></td>
-	</tr>
-</table>
-</form>
-<div wicket:id="feedback"></div>
-<script wicket:id="onUploaded" type="text/javascript"></script>
-</body>
+    <head>
+        <script type="text/javascript">
+            function showProgressWheel(){
+                document.images[0].style.display = 'block';
+                // delay the wheel a bit so it can locally shine
+                setTimeout(function(){
+                    document.forms[0].submit()
+                }, 800);
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <form wicket:id="form">
+            <table style="width: 500px; margin-top: 0px;">
+                <tr>
+                    <td>
+                        <input style="width: auto;" wicket:id="file" type="file" />
+                    </td>
+                    <td>
+                        <a wicket:id="submit">Change Image</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <img src="img/ajax-loader.gif" style="display: none"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div wicket:id="feedback">
+        </div>
+        <script wicket:id="onUploaded" type="text/javascript">
+        </script>
+    </body>
 </html>
