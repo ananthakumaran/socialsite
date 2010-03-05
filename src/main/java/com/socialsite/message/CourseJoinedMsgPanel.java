@@ -17,8 +17,6 @@
 
 package com.socialsite.message;
 
-import java.text.DateFormat;
-
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
@@ -33,6 +31,7 @@ import com.socialsite.persistence.Course;
 import com.socialsite.persistence.CourseJoinedMsg;
 import com.socialsite.persistence.User;
 import com.socialsite.user.UserLink;
+import com.socialsite.util.DateUtils;
 
 /**
  * @author Ananth
@@ -67,9 +66,8 @@ public class CourseJoinedMsgPanel extends BasePanel
 		add(courseLink = new CourseLink("course", new Model<Course>(course)));
 		courseLink.add(new Label("courseName", course.getName()));
 
-		final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
-				DateFormat.SHORT);
-		add(new Label("date", dateFormat.format(courseJoinedMsg.getTime())));
+		
+		add(new Label("date", DateUtils.relativeTime(courseJoinedMsg.getTime())));
 
 		// delete link
 		add(new DeleteMsgLink<CourseJoinedMsg>("delete", model, dependent, this, sender.getId()));
