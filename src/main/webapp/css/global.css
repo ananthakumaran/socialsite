@@ -14,61 +14,7 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- @CHARSET "ISO-8859-1";
 
-/*------------------------ Typography -----------------------*/
-body {
-	font-size : 14px;
-	font-family: "Helvetica Neue (TT)", "Helvetica Neue", "Helvetica",
-		"Arial", sans-serif;
-	line-height: 1.5;
-	color: #333;
-	min-width: 960px;
-}
-
-/*------------------------Layout ---------------------------*/
-	/*** header ***/
-#header {
-	background: #2358B8;
-	height: 36px;
-}
-
-#header div.navigation {
-	margin: 0 auto;
-	width: 960px;
-}
-
-#header div.navigation a {
-	color: #FFFFFF;
-	margin-right: 8px;
-	font-size: 16px;
-}
-
-#header div.navLeft {
-	float: left;
-}
-
-#header div.navRight {
-	float: right;
-}
-
-#header div li {
-	padding: 9px 0;
-	list-style: none;
-	display: inline;
-	float: left;
-}
-
-#content {
-	padding: 1px 0 0 0;
-}
-
-#rightsidebar {
-	height: 100px;
-	margin: 3px;
-	float: right;
-	width: 320px;
-}
 
 .content {
 	float: left;
