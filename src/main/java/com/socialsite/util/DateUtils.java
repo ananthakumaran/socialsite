@@ -30,10 +30,13 @@ public class DateUtils
 		final int DAY = 24 * HOUR;
 		final int MONTH = 30 * DAY;
 
-		long delta = (new Date().getTime() - date.getTime())/1000;
+		long delta = (new Date().getTime() - date.getTime());
+
 
 		Calendar ts = Calendar.getInstance();
-		ts.setTime(date);
+		ts.setTime(new Date(delta));
+
+		delta = delta / 1000;
 
 		if (delta < 1 * MINUTE)
 		{
