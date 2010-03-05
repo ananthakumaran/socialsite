@@ -17,13 +17,10 @@
 
 package com.socialsite.course.question;
 
-import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import com.socialsite.course.answer.AddAnswerPanel;
-import com.socialsite.course.answer.AnswersPanel;
 import com.socialsite.persistence.Question;
 
 /**
@@ -43,9 +40,6 @@ public class QuestionPanel extends Panel
 		final Question question = model.getObject();
 		add(new Label("heading", question.getHeading()));
 		add(new Label("text", question.getText()).setEscapeModelStrings(false));
-		MarkupContainer answerPanel;
-		add(answerPanel = new AnswersPanel("answers", model));
-		add(new AddAnswerPanel("addanswer", model, answerPanel));
 	}
 
 }
