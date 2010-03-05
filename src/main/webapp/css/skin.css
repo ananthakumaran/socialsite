@@ -23,9 +23,14 @@
  */
 
  
-.header { background-color : #183152 ;}
-.header a { color : #ABC8E2;}
-.header a:hover { color: #E1E6FA ;} 
+.mod.header { 
+    background: #2358B8;
+	height: 36px; 
+	margin : 0;
+} 
+.mod.header a { color : #C4D7ED;}
+.mod.header a:hover { color: #E1E6FA ;} 
+.mod.header ul { padding:0px;}
 
 
 

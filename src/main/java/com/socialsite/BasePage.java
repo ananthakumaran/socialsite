@@ -72,6 +72,7 @@ public class BasePage extends WebPage implements IHeaderContributor
 
 
 		response.renderCSSReference("css/libraries.css");
+		response.renderCSSReference("css/forms.css");
 		response.renderCSSReference("css/template/template.css");
 		response.renderCSSReference("css/grid/grids.css");
 		response.renderCSSReference("css/content.css");

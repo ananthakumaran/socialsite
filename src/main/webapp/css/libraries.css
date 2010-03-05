@@ -37,3 +37,9 @@ body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-s
 .padLeft { padding-left:10px ;}
 .padRight { padding-right:10px;}
 .padTop { padding-top : 10px ;}
+
+.marTop { margin-top : 10px }
+.marBottom { margin-bottom : 10px }
+.marLeft { margin-left : 10px }
+.marRight { margin-right : 10px }
+
