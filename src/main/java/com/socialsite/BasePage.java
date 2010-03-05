@@ -71,14 +71,19 @@ public class BasePage extends WebPage implements IHeaderContributor
 		// single file during deployment
 
 
-		response.renderCSSReference("css/reset.css");
-		response.renderCSSReference("css/global.css");
-		response.renderCSSReference("css/home.css");
-		response.renderCSSReference("css/login.css");
-		response.renderCSSReference("css/scrap.css");
-		response.renderCSSReference("css/profile.css");
-		response.renderCSSReference("css/typography.css");
-		response.renderCSSReference("css/round.css");
+		response.renderCSSReference("css/libraries.css");
+		response.renderCSSReference("css/template/template.css");
+		response.renderCSSReference("css/grid/grids.css");
+		response.renderCSSReference("css/content.css");
+		response.renderCSSReference("css/module/mod.css");
+		response.renderCSSReference("css/module/mod_skin.css");
+//		response.renderCSSReference("css/global.css");
+//		response.renderCSSReference("css/home.css");
+//		response.renderCSSReference("css/login.css");
+//		response.renderCSSReference("css/scrap.css");
+//		response.renderCSSReference("css/profile.css");
+//		response.renderCSSReference("css/typography.css");
+//		response.renderCSSReference("css/round.css");
 		response.renderCSSReference("css/wmd.css");
 
 
