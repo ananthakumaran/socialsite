@@ -21,26 +21,25 @@
 <wicket:head>
 </wicket:head>
 <wicket:panel>
-	<div class="navigation">
-	<div class="navLeft">
-	<ul>
+	<div class="line">
+	<div class="unit size3of5">
+	<ul class="hMenu">
 		<li><a wicket:id="home" href="#">Home |</a></li>
 		<li><a wicket:id="profile" href="#">Profile |</a></li>
 		<li><a wicket:id="friends" href="#">Friends |</a></li>
 		<li><a href="#">Courses |</a></li>
 	</ul>
 	</div>
-	<div class="navRight">
-	<ul>
+	<div class="unit size2of5 lastUnit">
+	<ul class="hMenu right">
 		<li><a wicket:id="logout">Logout</a></li>
 		<li>
-		<form action="#" wicket:id="searchform"><input type="text"
+		<form class="inline" action="#" wicket:id="searchform"><input type="text"
 			wicket:id="searchtextbox" /> <select wicket:id="options"></select>
 		<a wicket:id="search">Search</a></form>
 		</li>
 	</ul>
 	</div>
-	<div class="clear"></div>
 	</div>
 </wicket:panel>
 </html>
