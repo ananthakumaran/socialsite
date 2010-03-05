@@ -17,7 +17,7 @@
 
 @CHARSET "ISO-8859-1";
 
-.round, .round-border , fieldset input,fieldset textarea  , input[type="text"]{
+.round, .roundBorder , fieldset input,fieldset textarea  , input[type="text"]{
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }

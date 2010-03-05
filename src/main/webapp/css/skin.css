@@ -15,6 +15,26 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-.hMenu  li{ display:inline;}
-.hMenu a{ display:inline-block;}
-div.hMenu  { vertical-align : center;}
+/**  very light E1E6FA
+     light C4D7ED
+	 medium ABC8E2
+	 dark  375D81
+	 very dark 183152
+ */
+
+ 
+.header { background-color : #183152 ;}
+.header a { color : #ABC8E2;}
+.header a:hover { color: #E1E6FA ;} 
+
+
+
+
+/*** messages  **/
+
+.lol a , .lol a span { color : #183152 }
+
+
+/***  right side bar boxes ***/
+
+.box { background-color : #E1E6FA}

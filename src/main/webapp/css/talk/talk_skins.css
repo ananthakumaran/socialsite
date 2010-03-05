@@ -28,9 +28,13 @@
 /* yoyo (extends bubbleBottom) */
 .yoyo .inner{background-color:#52a583;}
 .yoyo b b{border-top-color:#52a583;}
-/* header */
-.fire, .fire *{color: #000; font-size:18px; border-bottom: 1px dashed #fff;}
 .attribution{margin-left:27px;}
+
+
 /** edited **/
-.lol .inner{background-color:#CCC; color:#fff; padding:10px; margin-left:6px;}
-.lol b b{border-right-color:#CCC;}
+.lol, .lol *{ color:#000; }
+.lol .inner{background-color:#E1E6FA; color:#fff; padding:10px; margin-left:6px;}
+.lol b b{border-right-color:#E1E6FA;}
+
+/* header */
+.fire {color: #000; font-size:18px; border-bottom: 1px dashed #375D81;}
