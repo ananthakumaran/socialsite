@@ -17,7 +17,7 @@
 
 package com.socialsite.message;
 
-import java.text.DateFormat;
+import static com.socialsite.util.DateUtils.relativeTime;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -121,10 +121,7 @@ public class FriendRequestMsgPanel extends Panel
 			}
 		});
 
-		final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
-				DateFormat.SHORT);
-
-		add(new Label("time", dateFormat.format(friendRequestMsg.getTime())));
+		add(new Label("time", relativeTime(friendRequestMsg.getTime())));
 
 	}
 

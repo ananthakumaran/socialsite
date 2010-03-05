@@ -17,8 +17,6 @@
 
 package com.socialsite.message;
 
-import java.text.DateFormat;
-
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.authorization.Action;
@@ -41,6 +39,7 @@ import com.socialsite.persistence.StaffRequestMsg;
 import com.socialsite.persistence.University;
 import com.socialsite.persistence.User;
 import com.socialsite.user.UserLink;
+import com.socialsite.util.DateUtils;
 
 /**
  * @author Ananth
@@ -118,10 +117,8 @@ public class StaffRequestMsgPanel extends Panel
 			}
 		});
 
-		final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
-				DateFormat.SHORT);
 
-		add(new Label("time", dateFormat.format(staffRequestMsg.getTime())));
+		add(new Label("time", DateUtils.relativeTime(staffRequestMsg.getTime())));
 
 	}
 }

@@ -17,7 +17,6 @@
 
 package com.socialsite.message;
 
-import java.text.DateFormat;
 import java.util.Date;
 
 import org.apache.wicket.MarkupContainer;
@@ -41,6 +40,7 @@ import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Message;
 import com.socialsite.persistence.User;
 import com.socialsite.user.UserLink;
+import com.socialsite.util.DateUtils;
 import com.socialsite.util.wmd.RichEditor;
 
 /**
@@ -87,9 +87,8 @@ public class InfoMsgPanel extends BasePanel
 		add(name = new UserLink<User>("home", senderModel));
 		name.add(new Label("username", sender.getUserName()));
 
-		final DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,
-				DateFormat.SHORT);
-		add(new Label("date", dateFormat.format(infoMsg.getTime())));
+
+		add(new Label("date", DateUtils.relativeTime((infoMsg.getTime()))));
 
 		// message
 		add(new Label("message", infoMsg.getMessage()).setEscapeModelStrings(false));
