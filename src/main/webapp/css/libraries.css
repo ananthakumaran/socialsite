@@ -13,3 +13,7 @@ body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-s
 .right { float:right;}
 .left { float:left; }
 .inline { display:inline ;}
+
+/** padding **/
+
+.padBottom { padding-bottom:10px};

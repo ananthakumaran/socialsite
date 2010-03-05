@@ -5,8 +5,6 @@
 .discuss .inner{background-color:#CCC;}
 .discuss b b{border-top-color:#CCC;}
 /* lol (extends bubbleLeft) */
-.lol .inner{background-color:#845B4E; color:#fff;}
-.lol b b{border-right-color:#845B4E;}
 /* meep (extends bubbleRight) */
 .meep .inner{background-color:#6cc6c6;}
 .meep b b{border-left-color:#6cc6c6;}
@@ -16,3 +14,6 @@
 /* header */
 .fire, .fire *{color: #000; font-size:18px; border-bottom: 1px dashed #fff;}
 .attribution{margin-left:27px;}
+/** edited **/
+.lol .inner{background-color:#CCC; color:#fff; padding:10px; margin-left:6px;}
+.lol b b{border-right-color:#CCC;}
