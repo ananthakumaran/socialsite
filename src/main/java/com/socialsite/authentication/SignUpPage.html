@@ -13,8 +13,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd" xml:lang="en" lang="en">
     <head>
-        <link rel="stylesheet" href="css/grid/grids.css" />
-		<link rel="stylesheet" href="css/template/template.css" />
+        <link rel="stylesheet" href="css/template/template.css" />
+        <link rel="stylesheet" href="css/forms.css" />
         <script type="text/javascript" src="js/jquery/jquery.min.js">
         </script>
         <script type="text/javascript" src="js/socialsite/signup.js">
@@ -25,56 +25,56 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <div class="head">
             </div>
             <div class="body">
-                <div class="rightCol">
-                    <div class="feedback">
-                        <div wicket:id="feedback">
-                        </div>
+                <div class="main">
+                    <div wicket:id="feedback">
                     </div>
-                    <div class="box">
-                        <fieldset class="login round-border">
-                            <form wicket:id="signupform" action="#">
-                                <p>
-                                    <label for="username">
-                                        Username:
-                                    </label>
-                                    <input type="text" wicket:id="username" id="username" />
-                                </p>
-                                <p>
-                                    <label for="email">
-                                        Email:
-                                    </label>
-                                    <input type="text" wicket:id="email" id="email" />
-                                </p>
-                                <p>
-                                    <label for="password">
-                                        Password:
-                                    </label>
-                                    <input type="password" wicket:id="password" id="password" />
-                                </p>
-                                <p>
-                                    <label for="re-password">
-                                        ReEnter Password:
-                                    </label>
-                                    <input type="password" wicket:id="re-password" id="re-password" />
-                                </p>
-                                <p wicket:id="usertype">
-                                    <input type="radio" wicket:id="student" checked="checked" /><span>student</span>
-                                    <input type="radio" wicket:id="staff" /><span>staff</span>
-                                    <input type="radio" wicket:id="admin" class="admin" /><span>admin</span>
-                                </p>
-                                <p class="university">
-                                    <label for="university">
-                                        University
-                                        Name:
-                                    </label>
-                                    <input type="text" wicket:id="university" id="university" value="" />
-                                </p>
-                                <p>
-                                    <a href="#" wicket:id="signup" class="submit round">Submit »</a>
-                                </p>
-                            </form>
-                        </fieldset>
-                    </div>
+                    <fieldset>
+                        <form wicket:id="signupform" action="#">
+                            <p>
+                                <label for="username">
+                                    Username
+                                </label>
+                                <br/>
+                                <input class="text" type="text" wicket:id="username" id="username" />
+                            </p>
+                            <p>
+                                <label for="email">
+                                    Email
+                                </label>
+                                <br/>
+                                <input class="text" type="text" wicket:id="email" id="email" />
+                            </p>
+                            <p>
+                                <label for="password">
+                                    Password
+                                </label>
+                                <br/>
+                                <input class="text" type="password" wicket:id="password" id="password" />
+                            </p>
+                            <p>
+                                <label for="re-password">
+                                    ReEnter Password
+                                </label>
+                                <br/>
+                                <input class="text" type="password" wicket:id="re-password" id="re-password" />
+                            </p>
+                            <p wicket:id="usertype">
+                                <input type="radio" wicket:id="student" checked="checked" /><span>student</span>
+                                <input type="radio" wicket:id="staff" /><span>staff</span>
+                                <input type="radio" wicket:id="admin" class="admin" /><span>admin</span>
+                            </p>
+                            <p class="university">
+                                <label for="university">
+                                    University Name
+                                </label>
+                                <br/>
+                                <input class="text" type="text" wicket:id="university" id="university" value="" />
+                            </p>
+                            <p>
+                                <a href="#" wicket:id="signup" class="submit round">Submit »</a>
+                            </p>
+                        </form>
+                    </fieldset>
                 </div>
             </div>
         </div>
