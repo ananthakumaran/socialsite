@@ -1,37 +1,72 @@
 <!--
-
-        Copyright SocialSite (C) 2009
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+Copyright SocialSite (C) 2009
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <html xmlns:wicket>
-<wicket:panel>
-	<div wicket:id="feedback"></div>
-	<div>
-	<form wicket:id="form">
-	<p><label>FirstName:<input wicket:id="firstName" type="text"/></label></p>
-	<p><label>LastName:<input wicket:id="lastName" type="text"/></label></p>
-	<p><label>Sex:<select wicket:id="sex"></select></label></p>
-	<p><label>CurrentCity:<span wicket:id="currentCity"></span></label></p>
-	<p><label>Home Town<span wicket:id="homeTown"></span></label></p>
-	<p><label>RelationshipStatus:<select wicket:id="relationshipStatus"></select></label></p>
-	<p><label>PoliticalView:<input wicket:id="politicalView" type="text"></input></label></p>
-	<p><label>ReligiousView:<input wicket:id="religiousView" type="text"></input></label></p>
-	<p><a wicket:id="save">Save</a></p>
-	</form>
-	</div>
-</wicket:panel>
+    <wicket:panel>
+        <div wicket:id="feedback">
+        </div>
+        <div>
+            <form wicket:id="form">
+                <p>
+                    <label>
+                        FirstName:<input wicket:id="firstName" type="text"/>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        LastName:<input wicket:id="lastName" type="text"/>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Sex:
+                        <select wicket:id="sex">
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        CurrentCity:<span wicket:id="currentCity"></span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Home Town<span wicket:id="homeTown"></span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        RelationshipStatus:
+                        <select wicket:id="relationshipStatus">
+                        </select>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        PoliticalView:<input wicket:id="politicalView" type="text">
+                        </input>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        ReligiousView:<input wicket:id="religiousView" type="text">
+                        </input>
+                    </label>
+                </p>
+                <p>
+                    <a wicket:id="save">Save</a>
+                </p>
+            </form>
+        </div>
+    </wicket:panel>
 </html>

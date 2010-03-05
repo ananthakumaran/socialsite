@@ -1,33 +1,35 @@
 <!--
-
-        Copyright SocialSite (C) 2009
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+Copyright SocialSite (C) 2009
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <html xmlns:wicket>
-<wicket:panel>
-	<div class="infoMessage"><a class="userImage"
-		wicket:id="imagelink" href="#"><span wicket:id="userthumb"></span></a>
-	<div class="top"><span class="right" wicket:id="date"></span></div>
-	<div class="message"><a wicket:id="home"><span
-		wicket:id="username">[name]</span></a> joined the <a wicket:id="course"><span wicket:id="courseName">[course NameF]</span></a> course</div>
-	<div class="clear"></div>
-	<div class="action"><a wicket:id="delete" class="round" href="#">Delete</a>
-	</div>
-	<div class="clear"></div>
-	</div>
-</wicket:panel>
+    <wicket:panel>
+        <div class="infoMessage">
+            <a class="userImage" wicket:id="imagelink" href="#"><span wicket:id="userthumb"></span></a>
+            <div class="top">
+                <span class="right" wicket:id="date"></span>
+            </div>
+            <div class="message">
+                <a wicket:id="home"><span wicket:id="username">[name]</span></a>
+                joined the <a wicket:id="course"><span wicket:id="courseName">[course NameF]</span></a>
+                course
+            </div>
+            <div class="clear">
+            </div>
+            <div class="action">
+                <a wicket:id="delete" class="round" href="#">Delete</a>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </wicket:panel>
 </html>

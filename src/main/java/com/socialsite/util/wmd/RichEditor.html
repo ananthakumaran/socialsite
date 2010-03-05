@@ -1,29 +1,22 @@
 <!--
-
-        Copyright SocialSite (C) 2009
-
-        This program is free software: you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        This program is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU General Public License for more details.
-
-        You should have received a copy of the GNU General Public License
-        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+Copyright SocialSite (C) 2009
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <html xmlns:wicket>
-<wicket:panel>
-	<!-- hide the textarea to avoid errors in wmd(wmd creates error if the textarea is
-	 visible but any parent is hidden . To avoid  this keep the text area hidden if it is not
-	 visible). keep the width 100% so the textarea resizer won't look crazy  -->
-	<textarea class="richEditor" wicket:id="textarea"
-		style="display: none; width: 100%">
-  </textarea>
-</wicket:panel>
+    <wicket:panel>
+        <!-- hide the textarea to avoid errors in wmd(wmd creates error if the textarea is
+        visible but any parent is hidden . To avoid  this keep the text area hidden if it is not
+        visible). keep the width 100% so the textarea resizer won't look crazy  -->
+        <textarea class="richEditor" wicket:id="textarea" style="display: none; width: 100%">
+        </textarea>
+    </wicket:panel>
 </html>
