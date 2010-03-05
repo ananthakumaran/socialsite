@@ -171,6 +171,15 @@
 	font-weight: bold;
 }
 
+pre { 
+	background-color:#EEEEEE;
+	font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+	margin-bottom:10px;
+	max-height:600px;
+	overflow:auto;
+	padding:5px;
+	width:auto;
+}
 
 /* Pretty printing styles. Used with prettify.js. */
 
@@ -185,9 +194,7 @@
 .atn { color: #606; }
 .atv { color: #080; }
 .dec { color: #606; }
-pre.prettyprint { padding: 2px; border: 1px solid #888; }
 
-.prettyprint { overflow:auto; width:700px}
 
 @media print {
   .str { color: #060; }
