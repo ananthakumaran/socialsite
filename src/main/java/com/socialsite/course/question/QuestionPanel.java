@@ -18,6 +18,7 @@
 package com.socialsite.course.question;
 
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
@@ -38,7 +39,23 @@ public class QuestionPanel extends Panel
 	{
 		super(id, model);
 		final Question question = model.getObject();
-		add(new Label("heading", question.getHeading()));
+		Link<Void> questionLink = new Link<Void>("question")
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick()
+			{
+				setResponsePage(new QuestionPage(model));
+			}
+
+		};
+		add(questionLink);
+		questionLink.add(new Label("heading", question.getHeading()));
 		add(new Label("text", question.getText()).setEscapeModelStrings(false));
 	}
 
