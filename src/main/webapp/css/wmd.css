@@ -187,6 +187,8 @@
 .dec { color: #606; }
 pre.prettyprint { padding: 2px; border: 1px solid #888; }
 
+.prettyprint { overflow:auto; width:700px}
+
 @media print {
   .str { color: #060; }
   .kwd { color: #006; font-weight: bold; }
