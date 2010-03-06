@@ -17,49 +17,80 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         </div>
         <div>
             <form wicket:id="form">
-                <p>
-                    <label>
-                        Email:<input wicket:id="email" type="text"/>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Mobile Phone:<span wicket:id="mobilePhone"></span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Land Phone:<span wicket:id="landPhone"></span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Address:<span wicket:id="address"></span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        City/Town:<input wicket:id="city" type="text"/>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Neighborhood:<input wicket:id="neighborhood" type="text"/>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Zip:<input wicket:id="zip" type="text"/>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Website:<input wicket:id="website" type="text"/>
-                    </label>
-                </p>
-                <p>
-                    <a wicket:id="save">Save</a>
-                </p>
+                <table>
+                    <tr>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="email" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mobile Phone
+                        </td>
+                        <td>
+                            <span wicket:id="mobilePhone"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Land Phone
+                        </td>
+                        <td>
+                            <span wicket:id="landPhone"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Address
+                        </td>
+                        <td>
+                            <span wicket:id="address"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            City/Town
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="city" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Neighborhood
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="neighborhood" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Zip
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="zip" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Website
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="website" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            <a class="minibutton" wicket:id="save"><span>Save</span></a>
+                        </td>
+                    </tr>
+                </table>
             </form>
         </div>
     </wicket:panel>
