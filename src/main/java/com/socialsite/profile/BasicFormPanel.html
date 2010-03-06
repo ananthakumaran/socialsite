@@ -17,55 +17,84 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         </div>
         <div>
             <form wicket:id="form">
-                <p>
-                    <label>
-                        FirstName:<input wicket:id="firstName" type="text"/>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        LastName:<input wicket:id="lastName" type="text"/>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Sex:
-                        <select wicket:id="sex">
-                        </select>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        CurrentCity:<span wicket:id="currentCity"></span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        Home Town<span wicket:id="homeTown"></span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        RelationshipStatus:
-                        <select wicket:id="relationshipStatus">
-                        </select>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        PoliticalView:<input wicket:id="politicalView" type="text">
-                        </input>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                        ReligiousView:<input wicket:id="religiousView" type="text">
-                        </input>
-                    </label>
-                </p>
-                <p>
-                    <a wicket:id="save">Save</a>
-                </p>
+                <table>
+                    <tr>
+                        <td>
+                            FirstName
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="firstName" type="text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            LastName
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="lastName" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Sex
+                        </td>
+                        <td>
+                            <select wicket:id="sex">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            CurrentCity
+                        </td>
+                        <td>
+                            <span wicket:id="currentCity"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Home Town
+                        </td>
+                        <td>
+                            <span wicket:id="homeTown"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            RelationshipStatus
+                        </td>
+                        <td>
+                            <select wicket:id="relationshipStatus">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            PoliticalView
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="politicalView" type="text">
+                            </input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            ReligiousView
+                        </td>
+                        <td>
+                            <input  class="text" wicket:id="religiousView" type="text">
+                            </input>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                    		&nbsp;
+                    	</td>
+                        <td>
+                            <a class="minibutton" wicket:id="save"><span>Save</span></a>
+                        </td>
+                    </tr>
+                </table>
             </form>
         </div>
     </wicket:panel>

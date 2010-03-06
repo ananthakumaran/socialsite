@@ -17,16 +17,11 @@
 
 @CHARSET "ISO-8859-1";
 
-.round, .roundBorder , fieldset input,fieldset textarea  , input[type="text"]{
+.round, .roundBorder   {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }
 
-fieldset input,fieldset textarea , input[type="text"] {
-	border: 1px solid #DDDDDD;
-	margin: 1px 0;
-	padding: 1px;
-}
 
 /**--------------- round cornered links ----------------*/
 .round-back {

@@ -66,12 +66,12 @@ public class EditLink extends AjaxLink<Void>
 
 	protected void onComponentTagBody(MarkupStream markupStream, ComponentTag openTag)
 	{
-		replaceComponentTagBody(markupStream, openTag, state);
+		replaceComponentTagBody(markupStream, openTag, "<span>" + state + "</span>");
 	}
 
 	@Override
 	public boolean isVisible()
 	{
-		return roles.hasRole(SocialSiteRoles.OWNER);
+		return roles.hasRole(SocialSiteRoles.OWNER) && state.equals("edit");
 	}
 }
