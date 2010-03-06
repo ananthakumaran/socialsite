@@ -20,18 +20,40 @@
 	 medium ABC8E2
 	 dark  375D81
 	 very dark 183152
+	 
+	 header #3B5998
  */
 
  
-.mod.header { 
-    background: #2358B8;
-	height: 36px; 
-	margin : 0;
+.header {
+	background: #3B5998;
 } 
-.mod.header a { color : #C4D7ED;}
-.mod.header a:hover { color: #E1E6FA ;} 
+.mod.header { 
+    background: #3B5998;
+	height: 36px; 
+	margin : 0 auto;
+	width : 960px;
+} 
+.mod.header a { 
+	color : #FFF;
+	display : inline-block;
+	display:inline-block;
+	height:22px;
+	padding:10px 10px 4px;
+	text-decoration:none;
+	font-weight : normal;
+}
+.mod.header a:hover { background-color: #6D86b7 ;} 
 .mod.header ul { padding:0px;}
 
+.mod.header .search {
+  margin-top : -14px;
+}
+
+.mod.header .search  a:hover{
+  text-decoration : underline;
+  background : #3B5998;
+}
 
 
 
