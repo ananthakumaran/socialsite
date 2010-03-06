@@ -17,10 +17,11 @@
  @CHARSET "ISO-8859-1";
 
 div.tabpanel div.tab-row {
-	
+	margin-bottom : 15px;
 }
 
 div.tabpanel div.tab-row ul {
+	padding:10px 0 0;
 	border-bottom: 1px solid #DDD;
 }
 
