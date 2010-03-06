@@ -17,14 +17,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         </div>
         <div>
             <form wicket:id="form">
-                <p>
-                    <label>
-                        College/University:<input wicket:id="college" type="text" />
-                    </label>
-                </p>
-                <p>
-                    <a wicket:id="save">Save</a>
-                </p>
+                <table>
+                    <tr>
+                        <td>
+                            College/University
+                        </td>
+                        <td>
+                            <input class="text" wicket:id="college" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td>
+                            <a class="minibutton" wicket:id="save"><span>Save</span></a>
+                        </td>
+                    </tr>
+                </table>
             </form>
         </div>
     </wicket:panel>
