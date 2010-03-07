@@ -115,16 +115,20 @@ public class MessageSenderPanel extends BasePanel
 				}
 				target.addComponent(dependent);
 
+				messageDao.save(infoMsg);
 				// TODO show some meaningful message
 				target
 						.appendJavascript("SocialSite.Message.show('Your message has been sent successfully ');");
 				// fire the update event so the editor can intialize
 				firePostAjaxUpdateEvent(target);
-				messageDao.save(infoMsg);
+				// slideup the reply panel
+				String id = MessageSenderPanel.this.getMarkupId();
+				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 			}
 		});
 		add(feedback = new FeedbackPanel("feedback"));
 		feedback.setOutputMarkupId(true);
+		setOutputMarkupId(true);
 	}
 
 	@Override

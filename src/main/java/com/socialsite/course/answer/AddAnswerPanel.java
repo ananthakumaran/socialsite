@@ -87,14 +87,19 @@ public class AddAnswerPanel extends BasePanel
 				question.addAnswer(answer);
 
 				answerDao.save(answer);
+				target.addComponent(feedback);
 				target.addComponent(dependent);
 				// fire the update event so the editor can intialize
 				firePostAjaxUpdateEvent(target);
+				// slideup the reply panel
+				String id = AddAnswerPanel.this.getMarkupId();
+				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 			}
 		};
 		form.add(addAnswer);
 		form.setDefaultButton(addAnswer);
 		add(feedback = new FeedbackPanel("feedback"));
 		feedback.setOutputMarkupId(true);
+		setOutputMarkupId(true);
 	}
 }

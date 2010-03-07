@@ -94,6 +94,9 @@ public class AddQuestionPanel extends BasePanel
 				target.addComponent(feedback);
 				// fire the update event so the editor can intialize
 				firePostAjaxUpdateEvent(target);
+				// slideup the reply panel
+				String id = AddQuestionPanel.this.getMarkupId();
+				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 			}
 		};
 
@@ -101,5 +104,6 @@ public class AddQuestionPanel extends BasePanel
 		form.setDefaultButton(addQuestionLink);
 		add(feedback = new FeedbackPanel("feedback"));
 		feedback.setOutputMarkupId(true);
+		setOutputMarkupId(true);
 	}
 }
