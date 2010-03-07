@@ -62,10 +62,14 @@ public class AllFriendsPanel extends BasePanel
 				UserLink<User> userImageLink;
 				item.add(userImageLink = new UserLink<User>("imagelink", item.getModel()));
 				userImageLink.add(new ImagePanel("user", user.getId(), ImageType.USER, user
-						.getLastModified()));
+						.getLastModified(), false, false));
 				Link<User> name;
 				item.add(name = new UserLink<User>("home", item.getModel()));
 				name.add(new Label("username", item.getModelObject().getUserName()));
+
+				item.add(new Label("city", user.getProfile().getCurrentCity().getValue()));
+				item.add(new Label("sex", user.getProfile().getSex()));
+
 			}
 
 		};

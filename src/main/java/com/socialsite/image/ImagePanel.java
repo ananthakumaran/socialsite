@@ -41,7 +41,7 @@ public class ImagePanel extends BasePanel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	final private boolean changeLink;
 
 	/**
 	 * sets the thumnail as false
@@ -58,9 +58,15 @@ public class ImagePanel extends BasePanel
 	public ImagePanel(final String component, final long id, final ImageType imageType,
 			final Date lastModified)
 	{
-		this(component, id, imageType, lastModified, false);
+		this(component, id, imageType, lastModified, false, true);
 	}
 
+
+	public ImagePanel(final String component, final long id, final ImageType imageType,
+			final Date lastModified, final boolean thumb)
+	{
+		this(component, id, imageType, lastModified, thumb, false);
+	}
 
 	/**
 	 * 
@@ -76,9 +82,12 @@ public class ImagePanel extends BasePanel
 	 *            lastmodified date of the image
 	 */
 	public ImagePanel(final String component, final long id, final ImageType imageType,
-			final Date lastModified, final boolean thumb)
+			final Date lastModified, final boolean thumb, final boolean changeLink)
 	{
 		super(component);
+
+
+		this.changeLink = changeLink;
 
 		// allow the modal window to update the panel
 		setOutputMarkupId(true);
@@ -195,14 +204,16 @@ public class ImagePanel extends BasePanel
 			@Override
 			public boolean isVisible()
 			{
-				if (thumb)
+				if (changeLink)
 				{
-					return false;
+					// TODO allow admins to change the university image and
+					// allow
+					// staffs to change the course image
+					// it. don't show it for thumb images
+					return hasRole(SocialSiteRoles.OWNER);
 				}
-				// TODO allow admins to change the university image and allow
-				// staffs to change the course image
-				// it. don't show it for thumb images
-				return hasRole(SocialSiteRoles.OWNER);
+				return false;
+
 			}
 
 			@Override
