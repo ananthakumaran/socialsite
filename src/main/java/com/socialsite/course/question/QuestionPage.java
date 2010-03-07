@@ -19,12 +19,19 @@ package com.socialsite.course.question;
 
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 
 import com.socialsite.BasePage;
 import com.socialsite.course.answer.AddAnswerPanel;
 import com.socialsite.course.answer.AnswersPanel;
+import com.socialsite.image.ImagePanel;
+import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Question;
+import com.socialsite.persistence.User;
+import com.socialsite.user.UserLink;
+import com.socialsite.util.DateUtils;
 
 /**
  * @author Ananth
@@ -35,11 +42,29 @@ public class QuestionPage extends BasePage
 	public QuestionPage(final IModel<Question> model)
 	{
 		final Question question = model.getObject();
+		final User user = question.getUser();
 		add(new Label("heading", question.getHeading()));
-		add(new Label("text", question.getText()).setEscapeModelStrings(false));
+		add(new Label("question", question.getText()).setEscapeModelStrings(false));
+		
+		// user image
+		UserLink<User> userImageLink;
+		Model<User> senderModel = new Model<User>(user);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link<User> name;
+		add(name = new UserLink<User>("home", senderModel));
+		name.add(new Label("username", user.getUserName()));
+
+
+		add(new Label("date", DateUtils.relativeTime((question.getTime()))));
+		
 		MarkupContainer answerPanel;
 		add(answerPanel = new AnswersPanel("answers", model));
 		add(new AddAnswerPanel("addanswer", model, answerPanel));
+		
+		
+
 
 	}
 }

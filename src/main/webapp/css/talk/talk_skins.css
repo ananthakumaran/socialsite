@@ -26,14 +26,15 @@
 .meep .inner{background-color:#EFEFEF;}
 .meep b b{border-left-color:#EFEFEF;}
 /* yoyo (extends bubbleBottom) */
-.yoyo .inner{background-color:#52a583;}
-.yoyo b b{border-top-color:#52a583;}
+.yoyo .inner{background-color:#E1E6FA;}
+.yoyo b b{border-top-color:#E1E6FA;}
 .attribution{margin-left:27px;}
 
 
 /** edited **/
 .lol, .lol *{ color:#000; }
-.lol .inner{background-color:#E1E6FA; color:#fff; padding:10px; margin-left:6px;}
+.yoyo, .yoyo *{ color:#000; }
+.lol .inner , .yoyo .inner{background-color:#E1E6FA; color:#fff; padding:10px; margin-left:6px;}
 .lol b b{border-right-color:#E1E6FA;}
 
 /** comments **/

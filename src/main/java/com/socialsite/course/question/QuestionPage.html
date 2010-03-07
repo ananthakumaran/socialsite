@@ -19,15 +19,32 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             </div>
         </div>
         <div class="page">
-        	<div class="clear">
-        		
-        	</div>
+            <div class="clear">
+            </div>
             <div class="body">
                 <div class="main full">
-                    <h2 wicket:id="heading">[Question Heading]</h2>
-                    <div wicket:id="text">
-                        [Question body]
+                    <div class="mod bubble bubbleBottom yoyo bubbleVerticalExt">
+                        <b class="top"><b class="tl"></b><b class="tr"></b></b>
+                        <div class="inner roundBorder">
+                            <div class="hd fire">
+                                <h2 wicket:id="heading" class="inline">[Question Heading]</h2>
+                                <span wicket:id="date" class="right">2 minutes ago</span>
+                            </div>
+                            <div class="bd">
+                                <div wicket:id="question">
+                                    [Question body]
+                                </div>
+                            </div>
+                        </div>
+                        <b class="bottom"><b class="bl"></b><b class="br"></b></b>
                     </div>
+                    <div class="right">
+                        <a wicket:id="imagelink" href="#"><span wicket:id="userthumb"></span></a>
+                        <div>
+                            <a class="img" wicket:id="home"><span wicket:id="username">[name]</span></a>
+                        </div>
+                    </div>
+					<div class="clear"></div>
                     <div wicket:id="addanswer">
                         [ add your answer]
                     </div>
