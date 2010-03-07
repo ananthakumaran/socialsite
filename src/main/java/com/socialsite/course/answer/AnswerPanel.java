@@ -19,12 +19,19 @@ package com.socialsite.course.answer;
 
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.Model;
 
 import com.socialsite.BasePanel;
 import com.socialsite.course.comment.AddCommentPanel;
 import com.socialsite.course.comment.CommentsPanel;
+import com.socialsite.image.ImagePanel;
+import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Answer;
+import com.socialsite.persistence.User;
+import com.socialsite.user.UserLink;
+import com.socialsite.util.DateUtils;
 
 /**
  * @author Ananth
@@ -40,7 +47,21 @@ public class AnswerPanel extends BasePanel
 	{
 		super(id, model);
 		final Answer answer = model.getObject();
-		add(new Label("text", answer.getText()).setEscapeModelStrings(false));
+		final User user = answer.getUser();
+		// user image
+		UserLink<User> userImageLink;
+		Model<User> senderModel = new Model<User>(user);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link<User> name;
+		add(name = new UserLink<User>("home", senderModel));
+		name.add(new Label("username", user.getUserName()));
+
+
+		add(new Label("date", DateUtils.relativeTime((answer.getTime()))));
+
+		add(new Label("answer", answer.getText()).setEscapeModelStrings(false));
 
 		MarkupContainer commentPanel;
 		add(commentPanel = new CommentsPanel("comments", model));

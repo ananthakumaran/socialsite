@@ -13,9 +13,32 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html xmlns:wicket>
     <wicket:panel>
-        <a wicket:id="question"><span wicket:id="heading">[Question Heading]</span></a>
-        <div wicket:id="text">
-            [Question body]
+        <div class="line">
+            <div class="unit  size1of6">
+                <a wicket:id="imagelink" href="#"><span wicket:id="userthumb"></span></a>
+                <div>
+                    <a class="img" wicket:id="home"><span wicket:id="username">[name]</span></a>
+                </div>
+            </div>
+            <div class="unit size5of6 ">
+                <div class="mod bubble bubbleLeft lol">
+                    <b><b class="tl"></b><b class="tr"></b></b>
+                    <div class="inner roundBorder">
+                        <div class="hd fire">
+                        	<a wicket:id="questionlink"><span wicket:id="heading">[Question Heading]</span></a>
+                            <div class="right" wicket:id="date">
+                                lol
+                            </div>
+                        </div>
+                        <div class="bd">
+                            <div wicket:id="question">
+                                [Question body]
+                            </div>
+                        </div>
+                    </div>
+                    <b class="bottom"><b class="bl"></b><b class="br"></b></b>
+                </div>
+            </div>
         </div>
     </wicket:panel>
 </html>

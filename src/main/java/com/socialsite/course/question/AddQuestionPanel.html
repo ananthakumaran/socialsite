@@ -13,15 +13,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html xmlns:wicket>
     <wicket:panel>
-        <a href="#" class="slideText round">AddQuestions</a>
+        <a href="#" class="slideText round  ">Ask a Question</a>
         <div style="display: none" class='addQuestion editor'>
             <div wicket:id="feedback">
             </div>
             <form wicket:id="form">
-                <input wicket:id="heading" type="text" />
+                <input class="title" wicket:id="heading" type="text" value="Enter the title"/>
                 <div wicket:id="richeditor">
                 </div>
-                <a wicket:id="addquestion" class="editor-text" href="#">Add Question</a>
+                <a wicket:id="addquestion" class="editor-text minibutton marTop" href="#"><span>Submit</span></a>
             </form>
         </div>
     </wicket:panel>

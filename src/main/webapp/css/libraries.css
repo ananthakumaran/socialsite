@@ -48,3 +48,5 @@ body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-s
 /** links **/
 
 .img {display :block ; margin : 0 auto; text-align:center; overflow: hidden;}
+
+.invisible { text-indent : -10000px;}

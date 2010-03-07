@@ -34,3 +34,6 @@ body{_text-align:center;}/* IE5.5 */
 .gCal{width:180px;}
 .yahoo{width:240px;}
 .myYahoo{width:300px;}
+
+
+.main.full { max-width:960px;}
