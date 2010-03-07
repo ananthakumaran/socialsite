@@ -88,12 +88,15 @@ public class AddCommentPanel extends BasePanel
 				commentDao.save(comment);
 				// update the dependent
 				target.addComponent(dependent);
+				// slideup the reply panel
+				String id = AddCommentPanel.this.getMarkupId();
+				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 			}
 		};
 		form.add(addComment);
 		form.setDefaultButton(addComment);
 		add(feedback = new FeedbackPanel("feedback"));
 		feedback.setOutputMarkupId(true);
-
+		setOutputMarkupId(true);
 	}
 }
