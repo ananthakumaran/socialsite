@@ -12,12 +12,25 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html xmlns:wicket>
+    <wicket:head>
+        <script>
+            $().ready(function(){
+                $(".imgPanel").hover(function(){
+                    $(this).find("a.profileImg").show();
+                }, function(){
+                    $(this).find("a.profileImg").hide()
+                })
+            });
+        </script>
+    </wicket:head>
     <wicket:panel>
-        <img class="img" wicket:id="userimage">
-        <div wicket:id="modal">
-        </div>
-        <a wicket:id="changeimage" href="#">Change</a>
-        <div class="feedback">
+        <div class="imgPanel">
+            <img wicket:id="userimage" class="img " />
+            <div wicket:id="modal">
+            </div>
+            <a wicket:id="changeimage" href="#" class="profileImg">Change</a>
+            <div class="feedback">
+            </div>
         </div>
     </wicket:panel>
 </html>

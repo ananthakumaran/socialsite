@@ -65,3 +65,12 @@
 /***  right side bar boxes ***/
 
 .box { background-color : #E1E6FA}
+
+/*** profile image ***/
+a.profileImg {
+	background:#3B5998;
+	color:#FFFFFF;
+	float:left;
+	margin-left:-100px;
+	display: none;
+}

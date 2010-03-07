@@ -25,15 +25,16 @@ import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.extensions.ajax.markup.html.modal.ModalWindow;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.markup.html.image.Image;
-import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.util.value.ValueMap;
 
+import com.socialsite.BasePanel;
 import com.socialsite.ajax.fileupload.UploadPanel;
+import com.socialsite.authentication.SocialSiteRoles;
 
 /**
  * @author Ananth
  */
-public class ImagePanel extends Panel
+public class ImagePanel extends BasePanel
 {
 
 	/**
@@ -198,10 +199,10 @@ public class ImagePanel extends Panel
 				{
 					return false;
 				}
-				// TODO show this link only for user who have access to change
+				// TODO allow admins to change the university image and allow
+				// staffs to change the course image
 				// it. don't show it for thumb images
-				
-				return false;
+				return hasRole(SocialSiteRoles.OWNER);
 			}
 
 			@Override
