@@ -50,7 +50,7 @@ public class HomePage extends BasePage
 		add(new UserInfoPanel("userinfo"));
 		add(msgPanel);
 		add(new FriendsPanel("friends"));
-		add(new CoursesPanel("courses", SocialSiteSession.get().getSessionUser().getId()));
+		add(new CoursesPanel("courses", SocialSiteSession.get().getUserId()));
 		add(new MessageSenderPanel("sender", msgPanel));
 	}
 
