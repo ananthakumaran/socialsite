@@ -93,14 +93,14 @@ public class AddAsFriendPanel extends BasePanel
 				friendRequest.setMessage(message);
 				friendRequest.setTime(new Date());
 				friendRequestMsgDao.save(friendRequest);
-				// show feedback
-				info("friend request sent");
-				// TODO add javascript to hide the form after sending the friend
-				// request
-				target.addComponent(feedback);
+				// TODO show some meaningful message
+				target
+						.appendJavascript("SocialSite.Message.show('Your friend request has been sent successfully ');");
+
 
 				// remove the form
 				target.appendJavascript(" SocialSite.Home.AddAsFriend.removeAll();");
+				isVisible = false;
 			}
 		});
 		addAsFriendForm.setDefaultButton(send);

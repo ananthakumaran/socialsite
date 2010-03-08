@@ -16,11 +16,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </wicket:head>
     <wicket:panel>
         <div>
-            <a class="addAsFriend" href="#">Add as Friend</a>
+            <a class="addAsFriend minibutton" href="#"><span>Add as a Friend</span></a>
             <div class="addAsFriendContainer">
                 <form wicket:id="addasfriendform" action="#">
-                    <input wicket:id="message" type="text" /><a wicket:id="send" href="#">send</a>
-                    <a class="cancel" href="#">cancel</a>
+                    <input wicket:id="message" type="text" /><a class="minibutton " wicket:id="send" href="#"><span>send</span></a>
+                    <a class="cancel minibutton danger" href="#"><span>cancel</span></a>
                 </form>
             </div>
             <div wicket:id="feedback">
