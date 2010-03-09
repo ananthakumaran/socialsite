@@ -31,6 +31,7 @@ import com.socialsite.authentication.SessionUser;
 import com.socialsite.dao.UserDao;
 import com.socialsite.home.HomePage;
 import com.socialsite.image.ImageType;
+import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.User;
 
 /**
@@ -72,6 +73,9 @@ public class SearchUserInfoPanel extends BasePanel
 			}
 		};
 		add(home);
+		Profile profile = user.getProfile();
 		home.add(new Label("name", user.getUserName()));
+		add(new Label("city", profile.getCurrentCity().getValue()));
+		add(new Label("sex", profile.getSex()));
 	}
 }

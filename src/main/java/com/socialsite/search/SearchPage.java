@@ -55,7 +55,7 @@ public class SearchPage extends BasePage
 		final SearchDataProvider searchDataProvider = new SearchDataProvider(this.filter,
 				searchOption);
 
-		final DataView searchList = new DataView("searchlist", searchDataProvider, 10)
+		final DataView searchList = new DataView("searchlist", searchDataProvider, 9)
 		{
 
 			/**
@@ -75,8 +75,6 @@ public class SearchPage extends BasePage
 						item.add(new SearchUniversityInfo("details", item.getModel()));
 						break;
 				}
-
-
 			}
 		};
 
