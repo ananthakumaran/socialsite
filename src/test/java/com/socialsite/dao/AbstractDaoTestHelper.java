@@ -37,6 +37,8 @@ import com.socialsite.persistence.Question;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.University;
 import com.socialsite.persistence.User;
+import com.socialsite.profile.Access;
+import com.socialsite.util.PrivacyModel;
 import com.socialsite.util.SpringWicketTester;
 
 /**
@@ -120,6 +122,11 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 			profile.setUser(user);
 			user.setProfile(profile);
 			image.forUser(user.getProfile());
+			profile.setCurrentCity(new PrivacyModel("sample city", Access.EVERYONE));
+			profile.setAboutMe("sample about me");
+			profile.setEmail("sample" + user.getId() + "@gmail.com");
+			profile.setSex("Male");
+			profile.setRelationshipStatus("single");
 			profileDao.save(user.getProfile());
 		}
 	}
@@ -269,6 +276,7 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 
 	/**
 	 * helper to join the course
+	 * 
 	 * @param user
 	 * @param courses
 	 */

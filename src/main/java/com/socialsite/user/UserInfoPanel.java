@@ -28,6 +28,7 @@ import com.socialsite.friend.AddAsFriendPanel;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageService;
 import com.socialsite.image.ImageType;
+import com.socialsite.persistence.Profile;
 import com.socialsite.persistence.User;
 
 /**
@@ -76,10 +77,14 @@ public class UserInfoPanel extends Panel
 				userDao.save(user);
 
 			}
-
 		});
 
+		Profile profile = user.getProfile();
+
 		add(new Label("username", user.getUserName()));
+		add(new Label("city", profile.getCurrentCity().getValue()));
+		add(new Label("status", profile.getRelationshipStatus()));
+		add(new Label("aboutme", profile.getAboutMe()));
 		add(new AddAsFriendPanel("addasfriend"));
 	}
 }

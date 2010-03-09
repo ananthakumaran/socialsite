@@ -19,6 +19,7 @@ package com.socialsite.friend;
 
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.navigation.paging.PagingNavigator;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 
@@ -48,7 +49,7 @@ public class AllFriendsPanel extends BasePanel
 		final FriendsDataProvider friendsDataProvider = new FriendsDataProvider(SocialSiteSession
 				.get().getUserId());
 
-		final DataView<User> friendList = new DataView<User>("friends", friendsDataProvider, 9)
+		final DataView<User> friendList = new DataView<User>("friends", friendsDataProvider, 12)
 		{
 			/**
 			 * 
@@ -74,6 +75,7 @@ public class AllFriendsPanel extends BasePanel
 
 		};
 
+		add(new PagingNavigator("paging", friendList));
 		add(friendList);
 	}
 
