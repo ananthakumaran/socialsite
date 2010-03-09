@@ -13,15 +13,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd" xml:lang="en" lang="en">
     <head>
+        <link rel="stylesheet" href="css/libraries.css" />
         <link rel="stylesheet" href="css/template/template.css" />
         <link rel="stylesheet" href="css/forms.css" />
+        <link rel="stylesheet" href="css/content">
+        <link rel="stylesheet" href="css/skin.css" />
+        <link rel="stylesheet" href="css/button.css" />
     </head>
     <body>
         <div class="page">
             <div class="head">
             </div>
             <div class="body">
-                <div class="rightCol">
+                <div class="rightCol mod login">
                     <div>
                         <form wicket:id="loginform" action="#">
                             <fieldset>
@@ -40,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                     <input class="text" type="password" wicket:id="password" id="password" />
                                 </p>
                                 <p>
-                                    <a href="#" wicket:id="login" class="submit round">Login »</a>
+                                    <a href="#" wicket:id="login" class="submit login-button marTop right"><span>Login »</span></a>
                                 </p>
                             </fieldset>
                         </form>
@@ -49,15 +53,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                     <div>
                         <fieldset>
-                            <p>
-                                if you do not already have an account, please create a new
-                                account.
-                            </p>
-                            <wicket:link>
-                                <p>
-                                    <a href="SignUpPage.html" class="submit round ">signUp »</a>
-                                </p>
-                            </wicket:link>
+                            <div class="login-button right">
+                                <wicket:link>
+                                    New User? <a href="SignUpPage.html" class="submit login-button">signUp »</a>
+                                </wicket:link>
+                            </div>
                         </fieldset>
                     </div>
                 </div>

@@ -57,3 +57,10 @@ button.minibutton::-moz-focus-inner{margin:-1px -3px;}
 .btn-compare:hover .icon{background-position:-100px -25px;}
 .btn-reply .icon{width:16px;background-position:-140px 0;}
 .btn-reply:hover .icon{background-position:-140px -25px;}
+
+
+.login-button {
+   color:#183152;
+	font-size:16px;	
+	text-decoration:none;
+}
