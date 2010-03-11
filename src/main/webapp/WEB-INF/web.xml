@@ -65,10 +65,6 @@
 			<param-name>applicationFactoryClassName</param-name>
 			<param-value>org.apache.wicket.spring.SpringWebApplicationFactory</param-value>
 		</init-param>
-		<init-param>
-			<param-name>applicationBean</param-name>
-			<param-value>wicketApplication</param-value>
-		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>WicketApplication</filter-name>
