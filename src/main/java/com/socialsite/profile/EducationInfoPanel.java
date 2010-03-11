@@ -34,12 +34,12 @@ public class EducationInfoPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Profile profile;
+	private final Profile profile;
 
-	public EducationInfoPanel(String id)
+	public EducationInfoPanel(final String id)
 	{
 		super(id);
-		this.profile = getUser().getProfile();
+		profile = getUser().getProfile();
 		setOutputMarkupId(true);
 		add(new NonEmptyPanel("college", "College/University", profile.getCollege()));
 	}

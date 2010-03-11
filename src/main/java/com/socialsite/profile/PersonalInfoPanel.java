@@ -31,12 +31,12 @@ public class PersonalInfoPanel extends BasePanel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Profile profile;
+	private final Profile profile;
 
-	public PersonalInfoPanel(String id)
+	public PersonalInfoPanel(final String id)
 	{
 		super(id);
-		this.profile = getUser().getProfile();
+		profile = getUser().getProfile();
 		setOutputMarkupId(true);
 		add(new NonEmptyPanel("activity", "Activity", profile.getActivities()));
 		add(new NonEmptyPanel("interests", "Interests", profile.getInterests()));

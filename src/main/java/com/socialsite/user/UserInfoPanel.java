@@ -79,7 +79,7 @@ public class UserInfoPanel extends Panel
 			}
 		});
 
-		Profile profile = user.getProfile();
+		final Profile profile = user.getProfile();
 
 		add(new Label("username", user.getUserName()));
 		add(new Label("city", profile.getCurrentCity().getValue()));

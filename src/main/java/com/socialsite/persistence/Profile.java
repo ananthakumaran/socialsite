@@ -100,14 +100,75 @@ public class Profile implements AbstractDomain
 		getUser().setLastModified(new Date());
 	}
 
+	public String getAboutMe()
+	{
+		return aboutMe;
+	}
+
+	public String getActivities()
+	{
+		return activities;
+	}
+
+	public PrivacyModel getAddress()
+	{
+		return address;
+	}
+
+	public String getCity()
+	{
+		return city;
+	}
+
+	public String getCollege()
+	{
+		return college;
+	}
+
+	public PrivacyModel getCurrentCity()
+	{
+		return currentCity;
+	}
+
 	public String getEmail()
 	{
 		return email;
 	}
 
+	public String getFavouriteBooks()
+	{
+		return favouriteBooks;
+	}
+
+	public String getFavouriteMovies()
+	{
+		return favouriteMovies;
+	}
+
+
+	public String getFavouriteMusic()
+	{
+		return favouriteMusic;
+	}
+
+	public String getFavouriteQuotations()
+	{
+		return favouriteQuotations;
+	}
+
+	public String getFavouriteTvShows()
+	{
+		return favouriteTvShows;
+	}
+
 	public String getFirstName()
 	{
 		return firstName;
+	}
+
+	public PrivacyModel getHomeTown()
+	{
+		return homeTown;
 	}
 
 	/***** accessor methods ****/
@@ -126,72 +187,37 @@ public class Profile implements AbstractDomain
 		return image;
 	}
 
+
+	public String getInterests()
+	{
+		return interests;
+	}
+
+	public PrivacyModel getLandPhone()
+	{
+		return landPhone;
+	}
+
 	public String getLastName()
 	{
 		return lastName;
 	}
 
-	public byte[] getThumb()
+	public PrivacyModel getMobilePhone()
 	{
-		return thumb;
+		return mobilePhone;
 	}
 
-	public User getUser()
+	public String getNeighborhood()
 	{
-		return user;
+		return neighborhood;
 	}
-
-	public void setEmail(final String email)
-	{
-		this.email = email;
-	}
-
-	public void setFirstName(final String firstName)
-	{
-		this.firstName = firstName;
-	}
-
-
-	public void setId(final long id)
-	{
-		this.id = id;
-	}
-
-	public void setImage(final byte[] image)
-	{
-		this.image = image;
-	}
-
-	public void setLastName(final String lastName)
-	{
-		this.lastName = lastName;
-	}
-
-	public void setThumb(final byte[] thumb)
-	{
-		this.thumb = thumb;
-	}
-
-	public void setUser(final User user)
-	{
-		this.user = user;
-	}
-
-	public PrivacyModel getCurrentCity()
-	{
-		return currentCity;
-	}
-
-	public PrivacyModel getHomeTown()
-	{
-		return homeTown;
-	}
-
 
 	public String getPoliticalView()
 	{
 		return politicalView;
 	}
+
 
 	public String getRelationshipStatus()
 	{
@@ -208,140 +234,14 @@ public class Profile implements AbstractDomain
 		return sex;
 	}
 
-	public void setCurrentCity(PrivacyModel currentCity)
+	public byte[] getThumb()
 	{
-		this.currentCity = currentCity;
+		return thumb;
 	}
 
-	public void setHomeTown(PrivacyModel homeTown)
+	public User getUser()
 	{
-		this.homeTown = homeTown;
-	}
-
-
-	public void setPoliticalView(String politicalView)
-	{
-		this.politicalView = politicalView;
-	}
-
-	public void setRelationshipStatus(String relationshipStatus)
-	{
-		this.relationshipStatus = relationshipStatus;
-	}
-
-	public void setReligiousView(String religiousView)
-	{
-		this.religiousView = religiousView;
-	}
-
-	public void setSex(String sex)
-	{
-		this.sex = sex;
-	}
-
-	public String getAboutMe()
-	{
-		return aboutMe;
-	}
-
-	public String getActivities()
-	{
-		return activities;
-	}
-
-	public String getFavouriteBooks()
-	{
-		return favouriteBooks;
-	}
-
-	public String getFavouriteMusic()
-	{
-		return favouriteMusic;
-	}
-
-	public String getFavouriteMovies()
-	{
-		return favouriteMovies;
-	}
-
-	public String getFavouriteQuotations()
-	{
-		return favouriteQuotations;
-	}
-
-	public String getFavouriteTvShows()
-	{
-		return favouriteTvShows;
-	}
-
-	public String getInterests()
-	{
-		return interests;
-	}
-
-	public void setAboutMe(String aboutMe)
-	{
-		this.aboutMe = aboutMe;
-	}
-
-	public void setActivities(String activities)
-	{
-		this.activities = activities;
-	}
-
-	public void setFavouriteBooks(String favouriteBooks)
-	{
-		this.favouriteBooks = favouriteBooks;
-	}
-
-	public void setFavouriteMovies(String favouriteMovies)
-	{
-		this.favouriteMovies = favouriteMovies;
-	}
-
-	public void setFavouriteMusic(String favouriteMusic)
-	{
-		this.favouriteMusic = favouriteMusic;
-	}
-
-	public void setFavouriteQuotations(String favouriteQuotations)
-	{
-		this.favouriteQuotations = favouriteQuotations;
-	}
-
-	public void setFavouriteTvShows(String favouriteTvShows)
-	{
-		this.favouriteTvShows = favouriteTvShows;
-	}
-
-	public void setInterests(String interests)
-	{
-		this.interests = interests;
-	}
-
-	public PrivacyModel getAddress()
-	{
-		return address;
-	}
-
-	public String getCity()
-	{
-		return city;
-	}
-
-	public PrivacyModel getLandPhone()
-	{
-		return landPhone;
-	}
-
-	public PrivacyModel getMobilePhone()
-	{
-		return mobilePhone;
-	}
-
-	public String getNeighborhood()
-	{
-		return neighborhood;
+		return user;
 	}
 
 	public String getWebsite()
@@ -354,50 +254,150 @@ public class Profile implements AbstractDomain
 		return zip;
 	}
 
-	public void setAddress(PrivacyModel address)
+	public void setAboutMe(final String aboutMe)
+	{
+		this.aboutMe = aboutMe;
+	}
+
+	public void setActivities(final String activities)
+	{
+		this.activities = activities;
+	}
+
+	public void setAddress(final PrivacyModel address)
 	{
 		this.address = address;
 	}
 
-	public void setCity(String city)
+	public void setCity(final String city)
 	{
 		this.city = city;
 	}
 
-	public void setLandPhone(PrivacyModel landPhone)
+	public void setCollege(final String college)
+	{
+		this.college = college;
+	}
+
+	public void setCurrentCity(final PrivacyModel currentCity)
+	{
+		this.currentCity = currentCity;
+	}
+
+	public void setEmail(final String email)
+	{
+		this.email = email;
+	}
+
+	public void setFavouriteBooks(final String favouriteBooks)
+	{
+		this.favouriteBooks = favouriteBooks;
+	}
+
+	public void setFavouriteMovies(final String favouriteMovies)
+	{
+		this.favouriteMovies = favouriteMovies;
+	}
+
+	public void setFavouriteMusic(final String favouriteMusic)
+	{
+		this.favouriteMusic = favouriteMusic;
+	}
+
+	public void setFavouriteQuotations(final String favouriteQuotations)
+	{
+		this.favouriteQuotations = favouriteQuotations;
+	}
+
+	public void setFavouriteTvShows(final String favouriteTvShows)
+	{
+		this.favouriteTvShows = favouriteTvShows;
+	}
+
+	public void setFirstName(final String firstName)
+	{
+		this.firstName = firstName;
+	}
+
+	public void setHomeTown(final PrivacyModel homeTown)
+	{
+		this.homeTown = homeTown;
+	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setImage(final byte[] image)
+	{
+		this.image = image;
+	}
+
+	public void setInterests(final String interests)
+	{
+		this.interests = interests;
+	}
+
+	public void setLandPhone(final PrivacyModel landPhone)
 	{
 		this.landPhone = landPhone;
 	}
 
-	public void setMobilePhone(PrivacyModel mobilePhone)
+	public void setLastName(final String lastName)
+	{
+		this.lastName = lastName;
+	}
+
+	public void setMobilePhone(final PrivacyModel mobilePhone)
 	{
 		this.mobilePhone = mobilePhone;
 	}
 
-
-	public void setNeighborhood(String neighborhood)
+	public void setNeighborhood(final String neighborhood)
 	{
 		this.neighborhood = neighborhood;
 	}
 
-	public void setWebsite(String website)
+	public void setPoliticalView(final String politicalView)
+	{
+		this.politicalView = politicalView;
+	}
+
+	public void setRelationshipStatus(final String relationshipStatus)
+	{
+		this.relationshipStatus = relationshipStatus;
+	}
+
+	public void setReligiousView(final String religiousView)
+	{
+		this.religiousView = religiousView;
+	}
+
+
+	public void setSex(final String sex)
+	{
+		this.sex = sex;
+	}
+
+	public void setThumb(final byte[] thumb)
+	{
+		this.thumb = thumb;
+	}
+
+	public void setUser(final User user)
+	{
+		this.user = user;
+	}
+
+	public void setWebsite(final String website)
 	{
 		this.website = website;
 	}
 
-	public void setZip(Integer zip)
+	public void setZip(final Integer zip)
 	{
 		this.zip = zip;
-	}
-
-	public String getCollege()
-	{
-		return college;
-	}
-
-	public void setCollege(String college)
-	{
-		this.college = college;
 	}
 
 }

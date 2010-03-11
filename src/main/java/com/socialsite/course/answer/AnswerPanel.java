@@ -50,7 +50,7 @@ public class AnswerPanel extends BasePanel
 		final User user = answer.getUser();
 		// user image
 		UserLink<User> userImageLink;
-		Model<User> senderModel = new Model<User>(user);
+		final Model<User> senderModel = new Model<User>(user);
 		add(userImageLink = new UserLink<User>("imagelink", senderModel));
 		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
 				.getLastModified(), true));
@@ -59,7 +59,7 @@ public class AnswerPanel extends BasePanel
 		name.add(new Label("username", user.getUserName()));
 
 
-		add(new Label("date", DateUtils.relativeTime((answer.getTime()))));
+		add(new Label("date", DateUtils.relativeTime(answer.getTime())));
 
 		add(new Label("answer", answer.getText()).setEscapeModelStrings(false));
 

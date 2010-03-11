@@ -42,7 +42,7 @@ public class StaffDaoImpl extends UserDaoImpl<Staff> implements StaffDao
 	 * @see com.socialsite.dao.StaffDao#getStaffs(long, int, int)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Staff> getStaffs(long universityId, int first, int count)
+	public List<Staff> getStaffs(final long universityId, final int first, final int count)
 	{
 		final Query query = getSession().createQuery(
 				"select u.staffs from University u where u.id = :universityId").setParameter(

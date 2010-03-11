@@ -44,19 +44,19 @@ public class ActivationPage extends WebPage
 	@SpringBean(name = "universityDao")
 	private UniversityDao universityDao;
 
-	public ActivationPage(PageParameters params)
+	public ActivationPage(final PageParameters params)
 	{
 
-		add(new Label("message", new PropertyModel<String>(this,"messageText")));
-		long id = params.getAsLong("id", 0);
+		add(new Label("message", new PropertyModel<String>(this, "messageText")));
+		final long id = params.getAsLong("id", 0);
 		if (id == 0)
 		{
 			messageText = "Access denied";
 		}
 		else
 		{
-			String action = params.getString("action");
-			Activation activation = activationDao.load(id);
+			final String action = params.getString("action");
+			final Activation activation = activationDao.load(id);
 			if (activation != null)
 			{
 				if (action.equals("activate"))
@@ -72,23 +72,24 @@ public class ActivationPage extends WebPage
 				}
 				activationDao.delete(activation);
 			}
-			else {
+			else
+			{
 				messageText = "activation id not found";
 			}
 		}
 	}
 
-	public void createUniversity(Activation activation)
+	public void createUniversity(final Activation activation)
 	{
-		University university = new University(activation.getUniversityName(), activation
+		final University university = new University(activation.getUniversityName(), activation
 				.getAdmin());
 		university.setLastModified(new Date());
-		DefaultImage defaultImage = new DefaultImage();
+		final DefaultImage defaultImage = new DefaultImage();
 		defaultImage.forUniversity(university);
 		universityDao.save(university);
 	}
 
-	public void sendNotification(Activation activation, boolean accept)
+	public void sendNotification(final Activation activation, final boolean accept)
 	{
 		// TODO send a notification message to the admin
 	}

@@ -64,10 +64,10 @@ public class FriendRequestMsgPanel extends Panel
 		super(id);
 
 		UserLink<User> user;
-		User sender = friendRequestMsg.getSender();
+		final User sender = friendRequestMsg.getSender();
 		// user image
 		UserLink<User> userImageLink;
-		Model<User> senderModel = new Model<User>(sender);
+		final Model<User> senderModel = new Model<User>(sender);
 		add(userImageLink = new UserLink<User>("imagelink", senderModel));
 		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
 				.getLastModified(), true));

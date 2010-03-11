@@ -32,9 +32,9 @@ public class BasicTabPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Panel infoPanel = new BasicInfoPanel("basic");
-	private Panel formPanel = new BasicFormPanel("basic");
-	private Panel current = infoPanel;
+	private final Panel infoPanel = new BasicInfoPanel("basic");
+	private final Panel formPanel = new BasicFormPanel("basic");
+	private final Panel current = infoPanel;
 
 
 	public BasicTabPanel(final String id)

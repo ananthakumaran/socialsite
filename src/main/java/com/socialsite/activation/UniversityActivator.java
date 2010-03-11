@@ -33,43 +33,49 @@ import com.socialsite.persistence.Admin;
  */
 public class UniversityActivator
 {
-	private Admin admin;
-	private String universityName;
+	private final Admin admin;
+	private final String universityName;
 	private long activationId;
 
 	@SpringBean(name = "activationDao")
 	ActivationDao activationDao;
 
-	public UniversityActivator(Admin admin, String universityName)
+	public UniversityActivator(final Admin admin, final String universityName)
 	{
 		this.admin = admin;
 		this.universityName = universityName;
 		InjectorHolder.getInjector().inject(this);
 	}
 
+	public long addActivation()
+	{
+		final Activation activation = new Activation();
+		activation.setAdmin(admin);
+		activation.setUniversityName(universityName);
+		activationDao.save(activation);
+		return activation.getId();
+	}
+
 	public void create()
 	{
-		this.activationId = addActivation();
+		activationId = addActivation();
 		// send email to the admin
 		sendEmail();
 	}
 
-	/**
-	 * sends email to the admin
-	 */
-	public void sendEmail()
+	public String getActivationUrl()
 	{
-		Email email = new Email();
-		// am i sending message to myself :)
-		email.addReceivers("ananthakumaran@gmail.com");
-		email.setSubject("University Activation Request");
-		email.setMessage(getMessage());
-		new EmailSender().send(email);
+		return "http://localhost:8081/activate?id=" + activationId + "&action=activate";
+	}
+
+	public String getDeActivationUrl()
+	{
+		return "http://localhost:8081/activate?id=" + activationId + "&action=deactivate";
 	}
 
 	public String getMessage()
 	{
-		StringBuffer message = new StringBuffer();
+		final StringBuffer message = new StringBuffer();
 		message.append("University Activation Request \n");
 		message.append("UniversityName : ").append(universityName).append("\n");
 		message.append("Admin Name :").append(admin.getUserName()).append("\n");
@@ -81,22 +87,16 @@ public class UniversityActivator
 		return message.toString();
 	}
 
-	public long addActivation()
+	/**
+	 * sends email to the admin
+	 */
+	public void sendEmail()
 	{
-		Activation activation = new Activation();
-		activation.setAdmin(admin);
-		activation.setUniversityName(universityName);
-		activationDao.save(activation);
-		return activation.getId();
-	}
-
-	public String getActivationUrl()
-	{
-		return "http://localhost:8081/activate?id=" + activationId + "&action=activate";
-	}
-
-	public String getDeActivationUrl()
-	{
-		return "http://localhost:8081/activate?id=" + activationId + "&action=deactivate";
+		final Email email = new Email();
+		// am i sending message to myself :)
+		email.addReceivers("ananthakumaran@gmail.com");
+		email.setSubject("University Activation Request");
+		email.setMessage(getMessage());
+		new EmailSender().send(email);
 	}
 }

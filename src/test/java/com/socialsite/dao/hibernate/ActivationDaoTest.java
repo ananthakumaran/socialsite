@@ -38,12 +38,12 @@ public class ActivationDaoTest extends AbstractDaoTestHelper
 	@Transactional
 	public void createActivation()
 	{
-		Admin admin = new Admin();
+		final Admin admin = new Admin();
 		admin.setUserName("admin");
 		admin.setPassword("password");
 		saveUsers(admin);
 
-		Activation activation = new Activation();
+		final Activation activation = new Activation();
 		activation.setAdmin(admin);
 		activation.setUniversityName("testUniversity");
 

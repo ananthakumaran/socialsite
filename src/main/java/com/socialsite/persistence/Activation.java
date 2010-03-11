@@ -39,34 +39,34 @@ public class Activation implements AbstractDomain
 	{
 	}
 
-	public long getId()
-	{
-		return id;
-	}
-
-	public void setId(long id)
-	{
-		this.id = id;
-	}
-
-	public void setAdmin(Admin admin)
-	{
-		this.admin = admin;
-	}
-
-	public void setUniversityName(String universityName)
-	{
-		this.universityName = universityName;
-	}
-
 	public Admin getAdmin()
 	{
 		return admin;
 	}
 
+	public long getId()
+	{
+		return id;
+	}
+
 	public String getUniversityName()
 	{
 		return universityName;
+	}
+
+	public void setAdmin(final Admin admin)
+	{
+		this.admin = admin;
+	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setUniversityName(final String universityName)
+	{
+		this.universityName = universityName;
 	}
 
 }

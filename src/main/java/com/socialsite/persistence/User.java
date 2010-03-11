@@ -57,9 +57,6 @@ public abstract class User implements AbstractDomain
 
 	private Set<User> friends = new HashSet<User>();
 
-	private Set<Scrap> scraps = new HashSet<Scrap>();
-
-	private Set<Scrap> scrapsSend = new HashSet<Scrap>();
 
 	private Set<Message> messages = new HashSet<Message>();
 
@@ -129,15 +126,6 @@ public abstract class User implements AbstractDomain
 		return profile;
 	}
 
-	public Set<Scrap> getScraps()
-	{
-		return scraps;
-	}
-
-	public Set<Scrap> getScrapsSend()
-	{
-		return scrapsSend;
-	}
 
 	public String getUserName()
 	{
@@ -187,15 +175,6 @@ public abstract class User implements AbstractDomain
 		this.profile = profile;
 	}
 
-	public void setScraps(final Set<Scrap> scraps)
-	{
-		this.scraps = scraps;
-	}
-
-	public void setScrapsSend(final Set<Scrap> scrapsSend)
-	{
-		this.scrapsSend = scrapsSend;
-	}
 
 	public void setUserName(final String userName)
 	{

@@ -30,7 +30,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.apache.wicket.validation.validator.EmailAddressValidator;
-import org.apache.wicket.validation.validator.StringValidator.MaximumLengthValidator;
+import org.apache.wicket.validation.validator.StringValidator;
 import org.hibernate.exception.ConstraintViolationException;
 
 import com.socialsite.SocialSiteSession;
@@ -92,7 +92,7 @@ public class SignUpPage extends WebPage
 
 		final TextField<String> username = new RequiredTextField<String>("username",
 				new PropertyModel<String>(this, "userName"));
-		username.add(MaximumLengthValidator.maximumLength(16));
+		username.add(StringValidator.maximumLength(16));
 
 		form.add(username);
 
@@ -105,14 +105,14 @@ public class SignUpPage extends WebPage
 		final PasswordTextField passwordTextField = new PasswordTextField("password",
 				new PropertyModel<String>(this, "password"));
 		passwordTextField.setRequired(true);
-		passwordTextField.add(MaximumLengthValidator.lengthBetween(6, 16));
+		passwordTextField.add(StringValidator.lengthBetween(6, 16));
 
 		form.add(passwordTextField);
 
 		final PasswordTextField rePasswordTextField = new PasswordTextField("re-password",
 				new PropertyModel<String>(this, "rePassword"));
 		rePasswordTextField.setRequired(true);
-		rePasswordTextField.add(MaximumLengthValidator.lengthBetween(6, 16));
+		rePasswordTextField.add(StringValidator.lengthBetween(6, 16));
 
 		form.add(rePasswordTextField);
 
@@ -165,7 +165,7 @@ public class SignUpPage extends WebPage
 							{
 								user = new Admin(userName, password);
 								userDao.save(user);
-								new UniversityActivator((Admin)user , universityName).create();
+								new UniversityActivator((Admin)user, universityName).create();
 								// final InfoMsg message = new InfoMsg();
 								// message.getUsers().add(user);
 								// message.setMessage("Your request for adding new University is being processed");

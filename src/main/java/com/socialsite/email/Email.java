@@ -38,21 +38,10 @@ public class Email
 	{
 	}
 
-	public void addReceivers(String receiver)
+	public void addReceivers(final String receiver)
 	{
 		receivers.add(receiver);
 	}
-
-	public String getSubject()
-	{
-		return subject;
-	}
-
-	public void setSubject(String subject)
-	{
-		this.subject = subject;
-	}
-
 
 	public String getMessage()
 	{
@@ -64,23 +53,34 @@ public class Email
 		return receivers;
 	}
 
+
 	public String getSender()
 	{
 		return sender;
 	}
 
-	public void setMessage(String message)
+	public String getSubject()
+	{
+		return subject;
+	}
+
+	public void setMessage(final String message)
 	{
 		this.message = message;
 	}
 
-	public void setReceivers(List<String> receivers)
+	public void setReceivers(final List<String> receivers)
 	{
 		this.receivers = receivers;
 	}
 
-	public void setSender(String sender)
+	public void setSender(final String sender)
 	{
 		this.sender = sender;
+	}
+
+	public void setSubject(final String subject)
+	{
+		this.subject = subject;
 	}
 }

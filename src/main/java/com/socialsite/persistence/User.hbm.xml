@@ -45,24 +45,13 @@
 			<many-to-many class="Message" column="message_id" />
 		</set>
 
-		<set name="scraps">
-			<key column="receiver_id" />
-			<one-to-many class="com.socialsite.persistence.Scrap" />
-		</set>
-
-		<set name="scrapsSend">
-			<key column="author_id" />
-			<one-to-many class="com.socialsite.persistence.Scrap" />
-		</set>
-
-
 		<!-- Student  -->
 
 		<joined-subclass name="Student" table="STUDENT">
 			<key column="id" />
 
 			<set name="courses" table="STUDENT_COURSE" inverse="true">
-				<key column="student_id" foreign-key="fk_STUDENT_COURSE_student_id_Student_id"  />
+				<key column="student_id" foreign-key="fk_STUDENT_COURSE_student_id_Student_id" />
 				<many-to-many class="Course" column="course_id" />
 			</set>
 		</joined-subclass>

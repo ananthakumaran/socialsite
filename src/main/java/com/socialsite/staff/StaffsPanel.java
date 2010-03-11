@@ -43,7 +43,7 @@ public class StaffsPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public StaffsPanel(String id, University university)
+	public StaffsPanel(final String id, final University university)
 	{
 		super(id);
 		// friends data provider

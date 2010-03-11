@@ -56,10 +56,10 @@ public class JoinCoursePanel extends BasePanel
 	@SpringBean(name = "courseDao")
 	private CourseDao courseDao;
 
-	public JoinCoursePanel(String id, IModel<Course> model)
+	public JoinCoursePanel(final String id, final IModel<Course> model)
 	{
 		super(id, model);
-		this.course = model.getObject();
+		course = model.getObject();
 		setOutputMarkupId(true);
 		add(new AjaxLink<Void>("join")
 		{
@@ -74,8 +74,8 @@ public class JoinCoursePanel extends BasePanel
 			{
 				// reload
 				course = courseDao.load(course.getId());
-				User user = getSessionUser();
-				CourseJoinedMsg msg = new CourseJoinedMsg();
+				final User user = getSessionUser();
+				final CourseJoinedMsg msg = new CourseJoinedMsg();
 				msg.setSender(user);
 				msg.setCourse(course);
 				msg.setTime(new Date());
@@ -98,7 +98,7 @@ public class JoinCoursePanel extends BasePanel
 		{
 			if (getSessionUser() instanceof Student)
 			{
-				Student student = (Student)getSessionUser();
+				final Student student = (Student)getSessionUser();
 				isVisible = !student.getCourses().contains(course);
 			}
 			else

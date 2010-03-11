@@ -128,7 +128,7 @@ public class LoadData extends AbstractDaoTestHelper
 				university12, university13, university14, university15);
 
 		// staffs
-		final Staff staff1 = new Staff("staff1", "password",university1);
+		final Staff staff1 = new Staff("staff1", "password", university1);
 		final Staff staff2 = new Staff("staff2", "password", university2);
 		final Staff staff3 = new Staff("staff3", "password", university2);
 		final Staff staff4 = new Staff("staff4", "password", university2);
@@ -230,19 +230,30 @@ public class LoadData extends AbstractDaoTestHelper
 				university6, university7, university8, university9, university10, university11,
 				university12, university13, university14, university15);
 
-		
-		joinCourse(user1, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
-		joinCourse(user2, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
-		joinCourse(user3, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
-		joinCourse(user4, course1,course10,course3,course21,course5,course6,course7,course8,course9,course10);
-		joinCourse(user5, course1,course12,course3,course22,course5,course6,course7,course8,course9,course10);
-		joinCourse(user6, course1,course16,course3,course4,course5,course6,course7,course8,course9,course10);
-		joinCourse(user7, course1,course17,course3,course23,course5,course6,course7,course8,course9,course10);
-		joinCourse(user8, course1,course19,course3,course22,course5,course6,course7,course8,course9,course10);
-		joinCourse(user9, course1,course20,course3,course11,course5,course6,course7,course8,course9,course10);
-		joinCourse(user10, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
-		joinCourse(user11, course1,course10,course3,course4,course5,course6,course7,course8,course9,course10);
-		
+
+		joinCourse(user1, course1, course10, course3, course4, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user2, course1, course10, course3, course4, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user3, course1, course10, course3, course4, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user4, course1, course10, course3, course21, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user5, course1, course12, course3, course22, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user6, course1, course16, course3, course4, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user7, course1, course17, course3, course23, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user8, course1, course19, course3, course22, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user9, course1, course20, course3, course11, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user10, course1, course10, course3, course4, course5, course6, course7, course8,
+				course9, course10);
+		joinCourse(user11, course1, course10, course3, course4, course5, course6, course7, course8,
+				course9, course10);
+
 
 		// Questions
 		final Question question1 = new Question("sample Question1", course1, user1);
@@ -261,7 +272,7 @@ public class LoadData extends AbstractDaoTestHelper
 
 
 		// messages
-		InfoMsg infoMsg1 = new InfoMsg();
+		final InfoMsg infoMsg1 = new InfoMsg();
 		infoMsg1.setMessage("This is a info message");
 		infoMsg1.setSender(user1);
 		// multicast
@@ -271,7 +282,7 @@ public class LoadData extends AbstractDaoTestHelper
 		infoMsg1.addUser(user5);
 		infoMsg1.setTime(new Date());
 
-		InfoMsg infoMsg2 = new InfoMsg();
+		final InfoMsg infoMsg2 = new InfoMsg();
 		infoMsg2.setMessage("Hi to all friends");
 		infoMsg2.setSender(user1);
 		// if you take the set from the user and assign it to the message
@@ -279,14 +290,14 @@ public class LoadData extends AbstractDaoTestHelper
 		infoMsg2.setUsers(new HashSet<User>(user1.getFriends()));
 		infoMsg2.setTime(new Date());
 
-		InfoMsg infoMsg3 = new InfoMsg();
+		final InfoMsg infoMsg3 = new InfoMsg();
 		infoMsg3.setMessage(" user1");
 		infoMsg3.setSender(user2);
 		infoMsg3.addUser(user1);
 		infoMsg3.setTime(new Date());
 
 		// friend reques message
-		FriendRequestMsg frnRqMsg = new FriendRequestMsg();
+		final FriendRequestMsg frnRqMsg = new FriendRequestMsg();
 		frnRqMsg.setSender(user5);
 		frnRqMsg.addUser(user1);
 		frnRqMsg.setMessage("Hai User1");

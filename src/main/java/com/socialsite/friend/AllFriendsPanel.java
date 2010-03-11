@@ -42,7 +42,7 @@ public class AllFriendsPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public AllFriendsPanel(String id)
+	public AllFriendsPanel(final String id)
 	{
 		super(id);
 		// friends data provider

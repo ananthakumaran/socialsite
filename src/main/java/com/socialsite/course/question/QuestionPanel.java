@@ -50,7 +50,7 @@ public class QuestionPanel extends Panel
 
 		// user image
 		UserLink<User> userImageLink;
-		Model<User> senderModel = new Model<User>(user);
+		final Model<User> senderModel = new Model<User>(user);
 		add(userImageLink = new UserLink<User>("imagelink", senderModel));
 		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
 				.getLastModified(), true));
@@ -59,9 +59,9 @@ public class QuestionPanel extends Panel
 		name.add(new Label("username", user.getUserName()));
 
 
-		add(new Label("date", DateUtils.relativeTime((question.getTime()))));
+		add(new Label("date", DateUtils.relativeTime(question.getTime())));
 
-		Link<Void> questionLink = new Link<Void>("questionlink")
+		final Link<Void> questionLink = new Link<Void>("questionlink")
 		{
 
 			/**

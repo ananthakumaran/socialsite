@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class DateUtils
 {
-	public static String relativeTime(Date date)
+	public static String relativeTime(final Date date)
 	{
 		final int SECOND = 1;
 		final int MINUTE = 60 * SECOND;
@@ -30,10 +30,10 @@ public class DateUtils
 		final int DAY = 24 * HOUR;
 		final int MONTH = 30 * DAY;
 
-		long delta = (new Date().getTime() - date.getTime());
+		long delta = new Date().getTime() - date.getTime();
 
 
-		Calendar ts = Calendar.getInstance();
+		final Calendar ts = Calendar.getInstance();
 		ts.setTime(new Date(delta));
 
 		delta = delta / 1000;
@@ -69,12 +69,12 @@ public class DateUtils
 		}
 		if (delta < 12 * MONTH)
 		{
-			int months = (int)Math.floor((double)ts.get(Calendar.DAY_OF_YEAR) / 30);
+			final int months = (int)Math.floor((double)ts.get(Calendar.DAY_OF_YEAR) / 30);
 			return months <= 1 ? "one month ago" : months + " months ago";
 		}
 		else
 		{
-			int years = (int)Math.floor((double)ts.get(Calendar.DAY_OF_YEAR) / 365);
+			final int years = (int)Math.floor((double)ts.get(Calendar.DAY_OF_YEAR) / 365);
 			return years <= 1 ? "one year ago" : years + " years ago";
 		}
 	}

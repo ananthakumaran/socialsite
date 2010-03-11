@@ -52,19 +52,19 @@ public class StaffDataProvider extends SortableDataProvider<Staff>
 	 * 
 	 * @param university
 	 */
-	public StaffDataProvider(University university)
+	public StaffDataProvider(final University university)
 	{
 		this.university = university;
 		// intializes spring DAO
 		InjectorHolder.getInjector().inject(this);
 	}
 
-	public Iterator<? extends Staff> iterator(int first, int count)
+	public Iterator<? extends Staff> iterator(final int first, final int count)
 	{
 		return staffDao.getStaffs(university.getId(), first, count).iterator();
 	}
 
-	public IModel<Staff> model(Staff staff)
+	public IModel<Staff> model(final Staff staff)
 	{
 		return new EntityModel<Staff>(staff, staffDao);
 	}

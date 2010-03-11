@@ -39,7 +39,6 @@
 		<!-- resource mapping -->
 		<mapping resource="com/socialsite/persistence/User.hbm.xml" />
 		<mapping resource="com/socialsite/persistence/Profile.hbm.xml" />
-		<mapping resource="com/socialsite/persistence/Scrap.hbm.xml" />
 		<mapping resource="com/socialsite/persistence/Message.hbm.xml"/>
 		<mapping resource="com/socialsite/persistence/University.hbm.xml"/>
 		<mapping resource="com/socialsite/persistence/Course.hbm.xml" />

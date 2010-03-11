@@ -45,11 +45,11 @@ public class CommentPanel extends Panel
 		final Comment comment = model.getObject();
 		add(new Label("comment", comment.getText()).setEscapeModelStrings(false));
 		final User user = comment.getUser();
-		Model<User> senderModel = new Model<User>(user);
+		final Model<User> senderModel = new Model<User>(user);
 		Link<User> name;
 		add(name = new UserLink<User>("home", senderModel));
 		name.add(new Label("username", user.getUserName()));
-		add(new Label("date", DateUtils.relativeTime((comment.getTime()))));
+		add(new Label("date", DateUtils.relativeTime(comment.getTime())));
 	}
 
 }

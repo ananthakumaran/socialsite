@@ -46,33 +46,39 @@ public class PrivacyUserType implements CompositeUserType
 
 	}
 
-	public Object assemble(Serializable cached, SessionImplementor session, Object owner)
-			throws HibernateException
+	public Object assemble(final Serializable cached, final SessionImplementor session,
+			final Object owner) throws HibernateException
 	{
 		return deepCopy(cached);
 	}
 
-	public Object deepCopy(Object x) throws HibernateException
+	public Object deepCopy(final Object x) throws HibernateException
 	{
 		if (x == null)
+		{
 			return null;
-		PrivacyModel input = (PrivacyModel)x;
+		}
+		final PrivacyModel input = (PrivacyModel)x;
 		return new PrivacyModel(input.getValue(), input.getPrivacy());
 	}
 
-	public Serializable disassemble(Object value, SessionImplementor session)
+	public Serializable disassemble(final Object value, final SessionImplementor session)
 			throws HibernateException
 	{
 		return (Serializable)deepCopy(value);
 	}
 
-	public boolean equals(Object x, Object y) throws HibernateException
+	public boolean equals(final Object x, final Object y) throws HibernateException
 	{
 		if (x == y)
+		{
 			return true;
+		}
 		if (x == null || y == null)
+		{
 			return false;
-		return ((PrivacyModel)x).equals((PrivacyModel)y);
+		}
+		return ((PrivacyModel)x).equals(y);
 	}
 
 	public String[] getPropertyNames()
@@ -85,9 +91,10 @@ public class PrivacyUserType implements CompositeUserType
 		return new Type[] { Hibernate.STRING, Hibernate.STRING };
 	}
 
-	public Object getPropertyValue(Object component, int property) throws HibernateException
+	public Object getPropertyValue(final Object component, final int property)
+			throws HibernateException
 	{
-		PrivacyModel input = (PrivacyModel)component;
+		final PrivacyModel input = (PrivacyModel)component;
 		if (property == 0)
 		{
 			return input.getValue();
@@ -98,7 +105,7 @@ public class PrivacyUserType implements CompositeUserType
 		}
 	}
 
-	public int hashCode(Object x) throws HibernateException
+	public int hashCode(final Object x) throws HibernateException
 	{
 		return x.hashCode();
 	}
@@ -108,32 +115,33 @@ public class PrivacyUserType implements CompositeUserType
 		return true;
 	}
 
-	public Object nullSafeGet(ResultSet rs, String[] names, SessionImplementor session, Object owner)
-			throws HibernateException, SQLException
+	public Object nullSafeGet(final ResultSet rs, final String[] names,
+			final SessionImplementor session, final Object owner) throws HibernateException,
+			SQLException
 	{
-		String value = (String)Hibernate.STRING.nullSafeGet(rs, names[0]);
-		String privacyStr = (String)Hibernate.STRING.nullSafeGet(rs, names[1]);
+		final String value = (String)Hibernate.STRING.nullSafeGet(rs, names[0]);
+		final String privacyStr = (String)Hibernate.STRING.nullSafeGet(rs, names[1]);
 		Access privacy = null;
 		if (privacyStr != null)
 		{
 			privacy = Enum.valueOf(Access.class, privacyStr);
 		}
-		return (value == null && privacy == null) ? new PrivacyModel() : new PrivacyModel(value,
+		return value == null && privacy == null ? new PrivacyModel() : new PrivacyModel(value,
 				privacy);
 	}
 
-	public void nullSafeSet(PreparedStatement st, Object value, int index,
-			SessionImplementor session) throws HibernateException, SQLException
+	public void nullSafeSet(final PreparedStatement st, final Object value, final int index,
+			final SessionImplementor session) throws HibernateException, SQLException
 	{
-		PrivacyModel privacyField = (value == null) ? new PrivacyModel() : (PrivacyModel)value;
+		final PrivacyModel privacyField = value == null ? new PrivacyModel() : (PrivacyModel)value;
 		Hibernate.STRING.nullSafeSet(st, privacyField.getValue(), index);
-		String privacy = (privacyField.getPrivacy() == null) ? null : privacyField.getPrivacy()
+		final String privacy = privacyField.getPrivacy() == null ? null : privacyField.getPrivacy()
 				.toString();
 		Hibernate.STRING.nullSafeSet(st, privacy, index + 1);
 	}
 
-	public Object replace(Object original, Object target, SessionImplementor session, Object owner)
-			throws HibernateException
+	public Object replace(final Object original, final Object target,
+			final SessionImplementor session, final Object owner) throws HibernateException
 	{
 		return deepCopy(original);
 	}
@@ -143,10 +151,10 @@ public class PrivacyUserType implements CompositeUserType
 		return PrivacyModel.class;
 	}
 
-	public void setPropertyValue(Object component, int property, Object value)
+	public void setPropertyValue(final Object component, final int property, final Object value)
 			throws HibernateException
 	{
-		PrivacyModel input = (PrivacyModel)component;
+		final PrivacyModel input = (PrivacyModel)component;
 		if (property == 0)
 		{
 			input.setValue((String)value);

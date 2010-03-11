@@ -17,7 +17,7 @@
 
 // Main Package of the application
 var SocialSite = SocialSite || {};
-// scrap package
+// Home package
 SocialSite.Home = SocialSite.Home || {};
 
 // shows the message text box when the addasfriend link
@@ -45,7 +45,6 @@ SocialSite.Home.AddAsFriend = {
 		$("div.addAsFriendContainer").remove();
 		$("a.addAsFriend").remove();
 	}
-
 }
 
 $().ready(function() {

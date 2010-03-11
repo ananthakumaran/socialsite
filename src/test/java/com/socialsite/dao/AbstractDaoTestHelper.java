@@ -91,8 +91,6 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 	@Resource(name = "staffDao")
 	protected StaffDao staffDao;
 
-	@Resource(name = "scrapDao")
-	protected ScrapDao scrapDao;
 
 	@Resource(name = "messageDao")
 	protected MessageDao<Message> messageDao;
@@ -128,6 +126,21 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 			profile.setSex("Male");
 			profile.setRelationshipStatus("single");
 			profileDao.save(user.getProfile());
+		}
+	}
+
+	/**
+	 * helper to join the course
+	 * 
+	 * @param user
+	 * @param courses
+	 */
+	public void joinCourse(final User user, final Course... courses)
+	{
+		for (final Course course : courses)
+		{
+			course.addStudents((Student)user);
+			courseDao.save(course);
 		}
 	}
 
@@ -175,6 +188,7 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 		}
 	}
 
+
 	/**
 	 * helper to save multiple questions
 	 * 
@@ -190,7 +204,6 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 			questionDao.save(question);
 		}
 	}
-
 
 	/**
 	 * helper to save multiple universities
@@ -272,21 +285,6 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 			user.addFriend(friend);
 		}
 		userDao.save(user);
-	}
-
-	/**
-	 * helper to join the course
-	 * 
-	 * @param user
-	 * @param courses
-	 */
-	public void joinCourse(final User user, final Course... courses)
-	{
-		for (final Course course : courses)
-		{
-			course.addStudents((Student)user);
-			courseDao.save(course);
-		}
 	}
 
 }

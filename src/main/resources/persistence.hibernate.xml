@@ -37,7 +37,6 @@
 			<list>
 				<value>com/socialsite/persistence/User.hbm.xml</value>
 				<value>com/socialsite/persistence/Profile.hbm.xml</value>
-				<value>com/socialsite/persistence/Scrap.hbm.xml</value>
 				<value>com/socialsite/persistence/University.hbm.xml</value>
 				<value>com/socialsite/persistence/Course.hbm.xml</value>
 				<value>com/socialsite/persistence/Message.hbm.xml</value>

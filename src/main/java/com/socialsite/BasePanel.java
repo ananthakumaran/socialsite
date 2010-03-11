@@ -94,6 +94,16 @@ public class BasePanel extends Panel implements IHeaderContributor
 	}
 
 	/**
+	 * helper to get the roles of the session user
+	 * 
+	 * @return roles of the session user
+	 */
+	public Roles getRoles()
+	{
+		return SocialSiteSession.get().getSessionUser().getRoles();
+	}
+
+	/**
 	 * gets the domain model object of the the user in the session
 	 * 
 	 * @return user
@@ -101,6 +111,16 @@ public class BasePanel extends Panel implements IHeaderContributor
 	public User getSessionUser()
 	{
 		return userDao.load(getSessionUserId());
+	}
+
+	/**
+	 * gets the id of the session user
+	 * 
+	 * @return id of the session user
+	 */
+	public long getSessionUserId()
+	{
+		return SocialSiteSession.get().getSessionUser().getId();
 	}
 
 	/**
@@ -112,14 +132,26 @@ public class BasePanel extends Panel implements IHeaderContributor
 	{
 		return userDao.load(getUserId());
 	}
+
 	/**
-	 * gets the id of the session user
+	 * gets the user id(the visitor id)
 	 * 
-	 * @return id of the session user
+	 * @return visitor id
 	 */
-	public long getSessionUserId()
+	public long getUserId()
 	{
-		return SocialSiteSession.get().getSessionUser().getId();
+		return SocialSiteSession.get().getUserId();
+	}
+
+	/**
+	 * helper to check the role
+	 * 
+	 * @param role
+	 *            role
+	 */
+	public boolean hasRole(final String role)
+	{
+		return SocialSiteSession.get().getSessionUser().hasRole(role);
 	}
 
 	public void renderHead(final IHeaderResponse response)
@@ -141,36 +173,5 @@ public class BasePanel extends Panel implements IHeaderContributor
 		// set the roles
 		session.getSessionUser().setRoles(
 				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
-	}
-
-	/**
-	 * gets the user id(the visitor id)
-	 * 
-	 * @return visitor id
-	 */
-	public long getUserId()
-	{
-		return SocialSiteSession.get().getUserId();
-	}
-
-	/**
-	 * helper to check the role
-	 * 
-	 * @param role
-	 *            role
-	 */
-	public boolean hasRole(String role)
-	{
-		return SocialSiteSession.get().getSessionUser().hasRole(role);
-	}
-
-	/**
-	 * helper to get the roles of the session user
-	 * 
-	 * @return roles of the session user
-	 */
-	public Roles getRoles()
-	{
-		return SocialSiteSession.get().getSessionUser().getRoles();
 	}
 }

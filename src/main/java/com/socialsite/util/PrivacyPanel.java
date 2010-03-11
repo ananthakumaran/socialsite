@@ -37,9 +37,9 @@ public class PrivacyPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private PrivacyModel privacyModel;
+	private final PrivacyModel privacyModel;
 
-	public PrivacyPanel(String id, IModel<PrivacyModel> model, String label)
+	public PrivacyPanel(final String id, final IModel<PrivacyModel> model, final String label)
 	{
 		super(id, model);
 		privacyModel = model.getObject();
@@ -56,9 +56,9 @@ public class PrivacyPanel extends BasePanel
 		{
 			return false;
 		}
-		Access access = privacyModel.getPrivacy();
+		final Access access = privacyModel.getPrivacy();
 		if (access == Access.EVERYONE || hasRole(SocialSiteRoles.OWNER)
-				|| (access == Access.FRIENDS_ONLY && hasRole(SocialSiteRoles.FRIEND)))
+				|| access == Access.FRIENDS_ONLY && hasRole(SocialSiteRoles.FRIEND))
 		{
 			return true;
 		}

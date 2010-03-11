@@ -94,7 +94,7 @@ public class MessageSenderPanel extends BasePanel
 			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 
-				User sender = getSessionUser();
+				final User sender = getSessionUser();
 				final InfoMsg infoMsg = new InfoMsg();
 				infoMsg.setMessage(text);
 				infoMsg.setSender(sender);
@@ -122,7 +122,7 @@ public class MessageSenderPanel extends BasePanel
 				// fire the update event so the editor can intialize
 				firePostAjaxUpdateEvent(target);
 				// slideup the reply panel
-				String id = MessageSenderPanel.this.getMarkupId();
+				final String id = MessageSenderPanel.this.getMarkupId();
 				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 			}
 		});

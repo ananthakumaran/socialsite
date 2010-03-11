@@ -45,10 +45,10 @@ public class QuestionPage extends BasePage
 		final User user = question.getUser();
 		add(new Label("heading", question.getHeading()));
 		add(new Label("question", question.getText()).setEscapeModelStrings(false));
-		
+
 		// user image
 		UserLink<User> userImageLink;
-		Model<User> senderModel = new Model<User>(user);
+		final Model<User> senderModel = new Model<User>(user);
 		add(userImageLink = new UserLink<User>("imagelink", senderModel));
 		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
 				.getLastModified(), true));
@@ -57,13 +57,11 @@ public class QuestionPage extends BasePage
 		name.add(new Label("username", user.getUserName()));
 
 
-		add(new Label("date", DateUtils.relativeTime((question.getTime()))));
-		
+		add(new Label("date", DateUtils.relativeTime(question.getTime())));
+
 		MarkupContainer answerPanel;
 		add(answerPanel = new AnswersPanel("answers", model));
 		add(new AddAnswerPanel("addanswer", model, answerPanel));
-		
-		
 
 
 	}

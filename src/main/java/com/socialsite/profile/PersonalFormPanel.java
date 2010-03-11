@@ -40,7 +40,7 @@ public class PersonalFormPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Profile profile;
+	private final Profile profile;
 
 	@SpringBean(name = "profileDao")
 	private ProfileDao profileDao;
@@ -48,12 +48,13 @@ public class PersonalFormPanel extends BasePanel
 	/** feedback panel */
 	FeedbackPanel feedback;
 
-	public PersonalFormPanel(String id)
+	public PersonalFormPanel(final String id)
 	{
 		super(id);
-		this.profile = getSessionUser().getProfile();
+		profile = getSessionUser().getProfile();
 		setOutputMarkupId(true);
-		Form<Profile> form = new Form<Profile>("form", new CompoundPropertyModel<Profile>(profile));
+		final Form<Profile> form = new Form<Profile>("form", new CompoundPropertyModel<Profile>(
+				profile));
 		add(form);
 		form.add(new TextArea<String>("activities"));
 		form.add(new TextArea<String>("interests"));
@@ -81,7 +82,7 @@ public class PersonalFormPanel extends BasePanel
 			}
 
 			@Override
-			protected void onSubmit(AjaxRequestTarget target, Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				profileDao.save(profile);
 				target.appendJavascript("SocialSite.Message.show('profile updated')");

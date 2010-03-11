@@ -132,7 +132,7 @@ public class ProfileDaoTest extends AbstractDaoTestHelper
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		PrivacyModel test = ananthProfile.getHomeTown();
+		final PrivacyModel test = ananthProfile.getHomeTown();
 		assertEquals("testValue", test.getValue());
 		assertEquals(Access.EVERYONE, test.getPrivacy());
 	}

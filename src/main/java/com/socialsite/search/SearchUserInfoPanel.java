@@ -73,7 +73,7 @@ public class SearchUserInfoPanel extends BasePanel
 			}
 		};
 		add(home);
-		Profile profile = user.getProfile();
+		final Profile profile = user.getProfile();
 		home.add(new Label("name", user.getUserName()));
 		add(new Label("city", profile.getCurrentCity().getValue()));
 		add(new Label("sex", profile.getSex()));

@@ -44,7 +44,7 @@ public class EditLink extends AjaxLink<Void>
 	Roles roles;
 	String state = "edit";
 
-	public EditLink(String id, Panel current, Panel other, Roles roles)
+	public EditLink(final String id, final Panel current, final Panel other, final Roles roles)
 	{
 		super(id);
 		this.current = current;
@@ -53,10 +53,16 @@ public class EditLink extends AjaxLink<Void>
 	}
 
 	@Override
-	public void onClick(AjaxRequestTarget target)
+	public boolean isVisible()
+	{
+		return roles.hasRole(SocialSiteRoles.OWNER) && state.equals("edit");
+	}
+
+	@Override
+	public void onClick(final AjaxRequestTarget target)
 	{
 		current.replaceWith(other);
-		Panel temp = current;
+		final Panel temp = current;
 		current = other;
 		other = temp;
 		state = state.equals("edit") ? "" : "edit";
@@ -64,14 +70,9 @@ public class EditLink extends AjaxLink<Void>
 		target.addComponent(current);
 	}
 
-	protected void onComponentTagBody(MarkupStream markupStream, ComponentTag openTag)
+	@Override
+	protected void onComponentTagBody(final MarkupStream markupStream, final ComponentTag openTag)
 	{
 		replaceComponentTagBody(markupStream, openTag, "<span>" + state + "</span>");
-	}
-
-	@Override
-	public boolean isVisible()
-	{
-		return roles.hasRole(SocialSiteRoles.OWNER) && state.equals("edit");
 	}
 }

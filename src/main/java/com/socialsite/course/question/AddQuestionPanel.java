@@ -95,7 +95,7 @@ public class AddQuestionPanel extends BasePanel
 				// fire the update event so the editor can intialize
 				firePostAjaxUpdateEvent(target);
 				// slideup the reply panel
-				String id = AddQuestionPanel.this.getMarkupId();
+				final String id = AddQuestionPanel.this.getMarkupId();
 				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 			}
 		};

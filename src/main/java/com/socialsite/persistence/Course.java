@@ -48,19 +48,19 @@ public class Course implements AbstractDomain
 	{
 	}
 
-	public Course(final String name, final Staff staff, final University university)
-	{
-		setName(name);
-		setStaff(staff);
-		addUniversity(university);
-		setLastModified(new Date());
-	}
-
 	public Course(final String name, final Staff staff)
 	{
 		setName(name);
 		setStaff(staff);
 		addUniversity(staff.getUniversity());
+		setLastModified(new Date());
+	}
+
+	public Course(final String name, final Staff staff, final University university)
+	{
+		setName(name);
+		setStaff(staff);
+		addUniversity(university);
 		setLastModified(new Date());
 	}
 
@@ -70,16 +70,16 @@ public class Course implements AbstractDomain
 		question.setCourse(this);
 	}
 
-	public void addUniversity(final University university)
-	{
-		setUniversity(university);
-		university.getCourses().add(this);
-	}
-
 	public void addStudents(final Student student)
 	{
 		getStudents().add(student);
 		student.getCourses().add(this);
+	}
+
+	public void addUniversity(final University university)
+	{
+		setUniversity(university);
+		university.getCourses().add(this);
 	}
 
 	/**
@@ -105,6 +105,29 @@ public class Course implements AbstractDomain
 	{
 		this.thumb = thumb;
 		setLastModified(new Date());
+	}
+
+	@Override
+	public boolean equals(final Object obj)
+	{
+		if (this == obj)
+		{
+			return true;
+		}
+		if (obj == null)
+		{
+			return false;
+		}
+		if (getClass() != obj.getClass())
+		{
+			return false;
+		}
+		final Course other = (Course)obj;
+		if (id != other.id)
+		{
+			return false;
+		}
+		return true;
 	}
 
 	public long getId()
@@ -152,6 +175,15 @@ public class Course implements AbstractDomain
 		return university;
 	}
 
+	@Override
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int)(id ^ id >>> 32);
+		return result;
+	}
+
 	public void setId(final long id)
 	{
 		this.id = id;
@@ -195,30 +227,6 @@ public class Course implements AbstractDomain
 	public void setUniversity(final University university)
 	{
 		this.university = university;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int)(id ^ (id >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Course other = (Course)obj;
-		if (id != other.id)
-			return false;
-		return true;
 	}
 
 

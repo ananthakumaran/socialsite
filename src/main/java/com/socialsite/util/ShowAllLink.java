@@ -38,17 +38,12 @@ public class ShowAllLink<T> extends Link<Void>
 	IDataProvider<T> dataProvider;
 	Class<? extends Page> pageClazz;
 
-	public ShowAllLink(String id, IDataProvider<T> dataProvider, Class<? extends Page> pageClazz)
+	public ShowAllLink(final String id, final IDataProvider<T> dataProvider,
+			final Class<? extends Page> pageClazz)
 	{
 		super(id);
 		this.dataProvider = dataProvider;
 		this.pageClazz = pageClazz;
-	}
-
-	@Override
-	public void onClick()
-	{
-		setResponsePage(pageClazz);
 	}
 
 	@Override
@@ -59,5 +54,11 @@ public class ShowAllLink<T> extends Link<Void>
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void onClick()
+	{
+		setResponsePage(pageClazz);
 	}
 }

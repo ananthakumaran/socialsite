@@ -43,7 +43,7 @@ public class PrivacyField extends FormComponentPanel<PrivacyModel>
 	private DropDownChoice<Access> privacy;
 	PrivacyModel model;
 
-	public PrivacyField(String id, IModel<PrivacyModel> model)
+	public PrivacyField(final String id, final IModel<PrivacyModel> model)
 	{
 		super(id, model);
 		this.model = getModelObject();

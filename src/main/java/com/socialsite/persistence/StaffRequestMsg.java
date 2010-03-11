@@ -31,7 +31,7 @@ public class StaffRequestMsg extends Message
 	{
 	}
 
-	public StaffRequestMsg(Staff sender)
+	public StaffRequestMsg(final Staff sender)
 	{
 		this.sender = sender;
 	}
@@ -41,17 +41,17 @@ public class StaffRequestMsg extends Message
 		return sender;
 	}
 
-	public void setSender(Staff sender)
-	{
-		this.sender = sender;
-	}
-
 	public University getUniversity()
 	{
 		return university;
 	}
 
-	public void setUniversity(University university)
+	public void setSender(final Staff sender)
+	{
+		this.sender = sender;
+	}
+
+	public void setUniversity(final University university)
 	{
 		this.university = university;
 	}

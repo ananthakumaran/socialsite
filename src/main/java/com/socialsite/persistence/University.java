@@ -55,6 +55,12 @@ public class University implements AbstractDomain
 		setLastModified(new Date());
 	}
 
+	public void addStaff(final Staff staff)
+	{
+		staffs.add(staff);
+		staff.setUniversity(this);
+	}
+
 	/**
 	 * changes the profile image
 	 * 
@@ -77,12 +83,6 @@ public class University implements AbstractDomain
 	{
 		this.thumb = thumb;
 		setLastModified(new Date());
-	}
-
-	public void addStaff(Staff staff)
-	{
-		this.staffs.add(staff);
-		staff.setUniversity(this);
 	}
 
 	public Admin getAdmin()

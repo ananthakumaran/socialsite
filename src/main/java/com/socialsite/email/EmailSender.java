@@ -38,14 +38,26 @@ public class EmailSender
 {
 	private static final String ACTIVATE_URL = "http://email-relay.appspot.com/email_service?";
 	private final static Logger logger = Logger.getLogger(EmailSender.class.getName());
-	private StringBuffer emailURL = new StringBuffer();
+	private final StringBuffer emailURL = new StringBuffer();
 
 	public EmailSender()
 	{
 		// set up the proxy server
-		Properties props = System.getProperties();
+		final Properties props = System.getProperties();
 		props.put("http.proxyHost", "proxy.karunya.edu");
 		props.put("http.proxyPort", "3128");
+	}
+
+	public void addParam(final String key, final String value)
+	{
+		try
+		{
+			emailURL.append(key).append("=").append(URLEncoder.encode(value, "UTF-8")).append("&");
+		}
+		catch (final UnsupportedEncodingException e)
+		{
+			logger.log(Level.SEVERE, "", e);
+		}
 	}
 
 	/**
@@ -55,7 +67,7 @@ public class EmailSender
 	 * 
 	 * @param email
 	 */
-	public void send(Email email)
+	public void send(final Email email)
 	{
 		// TODO this should run asynchronously
 		// handle multiple receivers
@@ -69,10 +81,11 @@ public class EmailSender
 		try
 		{
 
-			URL url = new URL(ACTIVATE_URL + emailURL.toString());
-			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+			final URL url = new URL(ACTIVATE_URL + emailURL.toString());
+			final BufferedReader reader = new BufferedReader(
+					new InputStreamReader(url.openStream()));
 			String line;
-			StringBuffer reply = new StringBuffer();
+			final StringBuffer reply = new StringBuffer();
 			while ((line = reader.readLine()) != null)
 			{
 				reply.append(line);
@@ -92,23 +105,11 @@ public class EmailSender
 			}
 
 		}
-		catch (MalformedURLException e)
+		catch (final MalformedURLException e)
 		{
 			logger.log(Level.SEVERE, "", e);
 		}
-		catch (IOException e)
-		{
-			logger.log(Level.SEVERE, "", e);
-		}
-	}
-
-	public void addParam(String key, String value)
-	{
-		try
-		{
-			emailURL.append(key).append("=").append(URLEncoder.encode(value, "UTF-8")).append("&");
-		}
-		catch (UnsupportedEncodingException e)
+		catch (final IOException e)
 		{
 			logger.log(Level.SEVERE, "", e);
 		}

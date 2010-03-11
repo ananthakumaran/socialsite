@@ -43,7 +43,7 @@ public class PrivacyModel implements Serializable
 	{
 	}
 
-	public PrivacyModel(String value, Access privacy)
+	public PrivacyModel(final String value, final Access privacy)
 	{
 		this.value = value;
 		this.privacy = privacy;
@@ -59,12 +59,12 @@ public class PrivacyModel implements Serializable
 		return value;
 	}
 
-	public void setPrivacy(Access privacy)
+	public void setPrivacy(final Access privacy)
 	{
 		this.privacy = privacy;
 	}
 
-	public void setValue(String value)
+	public void setValue(final String value)
 	{
 		this.value = value;
 	}

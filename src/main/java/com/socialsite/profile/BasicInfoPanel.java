@@ -36,12 +36,12 @@ public class BasicInfoPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Profile profile;
+	private final Profile profile;
 
-	public BasicInfoPanel(String id)
+	public BasicInfoPanel(final String id)
 	{
 		super(id);
-		this.profile = getUser().getProfile();
+		profile = getUser().getProfile();
 		setOutputMarkupId(true);
 		add(new NonEmptyPanel("firstName", "First Name", profile.getFirstName()));
 		add(new NonEmptyPanel("lastName", "lastName", profile.getLastName()));

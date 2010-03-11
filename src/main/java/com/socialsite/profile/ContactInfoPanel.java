@@ -37,13 +37,13 @@ public class ContactInfoPanel extends BasePanel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Profile profile;
+	private final Profile profile;
 
 
-	public ContactInfoPanel(String id)
+	public ContactInfoPanel(final String id)
 	{
 		super(id);
-		this.profile = getUser().getProfile();
+		profile = getUser().getProfile();
 		setOutputMarkupId(true);
 		// should we show the email
 		add(new NonEmptyPanel("email", "Email", profile.getEmail()));
@@ -51,13 +51,11 @@ public class ContactInfoPanel extends BasePanel
 				"MobilePhone"));
 		add(new PrivacyPanel("landPhone", new Model<PrivacyModel>(profile.getLandPhone()),
 				"LandPhone"));
-		add(new PrivacyPanel("address", new Model<PrivacyModel>(profile.getAddress()),
-				"Address"));
+		add(new PrivacyPanel("address", new Model<PrivacyModel>(profile.getAddress()), "Address"));
 		add(new NonEmptyPanel("city", "City", profile.getCity()));
 		add(new NonEmptyPanel("neighborhood", "Neighborhood", profile.getNeighborhood()));
 
-		add(new NonEmptyPanel("zip", "Zip", (profile.getZip() == null) ? null : profile.getZip()
-				+ ""));
+		add(new NonEmptyPanel("zip", "Zip", profile.getZip() == null ? null : profile.getZip() + ""));
 		add(new NonEmptyPanel("website", "WebSite", profile.getWebsite()));
 
 	}

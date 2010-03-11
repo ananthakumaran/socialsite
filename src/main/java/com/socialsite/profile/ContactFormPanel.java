@@ -40,7 +40,7 @@ import com.socialsite.util.PrivacyModel;
 public class ContactFormPanel extends BasePanel
 {
 
-	private Profile profile;
+	private final Profile profile;
 
 	@SpringBean(name = "profileDao")
 	private ProfileDao profileDao;
@@ -48,12 +48,18 @@ public class ContactFormPanel extends BasePanel
 	/** feedback panel */
 	FeedbackPanel feedback;
 
-	public ContactFormPanel(String id)
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ContactFormPanel(final String id)
 	{
 		super(id);
-		this.profile = getSessionUser().getProfile();
+		profile = getSessionUser().getProfile();
 		setOutputMarkupId(true);
-		Form<Profile> form = new Form<Profile>("form", new CompoundPropertyModel<Profile>(profile));
+		final Form<Profile> form = new Form<Profile>("form", new CompoundPropertyModel<Profile>(
+				profile));
 		add(form);
 		form.add(new RequiredTextField<String>("email").add(EmailAddressValidator.getInstance()));
 		form.add(new PrivacyField("mobilePhone", new PropertyModel<PrivacyModel>(profile,
@@ -84,7 +90,7 @@ public class ContactFormPanel extends BasePanel
 			}
 
 			@Override
-			protected void onSubmit(AjaxRequestTarget target, Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				profileDao.save(profile);
 				target.appendJavascript("SocialSite.Message.show('profile updated')");
@@ -95,10 +101,5 @@ public class ContactFormPanel extends BasePanel
 		add(feedback = new FeedbackPanel("feedback"));
 		feedback.setOutputMarkupId(true);
 	}
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
 }

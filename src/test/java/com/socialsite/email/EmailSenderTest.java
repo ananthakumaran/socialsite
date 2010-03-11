@@ -32,7 +32,7 @@ public class EmailSenderTest
 	@Ignore
 	public void testSend()
 	{
-		Email email = new Email();
+		final Email email = new Email();
 		// am i sending message to myself :)
 		email.addReceivers("ananthakumaran@gmail.com");
 		email.setSubject("Unit Testing");

@@ -103,14 +103,6 @@
         drop 
         foreign key fk_STUDENT_COURSE_course_id_Course_id;
 
-    alter table Scrap 
-        drop 
-        foreign key fk_Scrap_receiver_id_User_id;
-
-    alter table Scrap 
-        drop 
-        foreign key fk_Scrap_author_id_User_id;
-
     alter table UNIVERSITY 
         drop 
         foreign key fk_University_admin_id_Admin_id;
@@ -160,8 +152,6 @@
     drop table if exists STUDENT;
 
     drop table if exists STUDENT_COURSE;
-
-    drop table if exists Scrap;
 
     drop table if exists UNIVERSITY;
 
@@ -308,15 +298,6 @@
         student_id bigint not null,
         course_id bigint not null,
         primary key (course_id, student_id)
-    );
-
-    create table Scrap (
-        id bigint not null auto_increment,
-        message text not null,
-        time datetime not null,
-        author_id bigint not null,
-        receiver_id bigint not null,
-        primary key (id)
     );
 
     create table UNIVERSITY (
@@ -504,18 +485,6 @@
         add constraint fk_STUDENT_COURSE_course_id_Course_id 
         foreign key (course_id) 
         references COURSE (id);
-
-    alter table Scrap 
-        add index fk_Scrap_receiver_id_User_id (receiver_id), 
-        add constraint fk_Scrap_receiver_id_User_id 
-        foreign key (receiver_id) 
-        references User (id);
-
-    alter table Scrap 
-        add index fk_Scrap_author_id_User_id (author_id), 
-        add constraint fk_Scrap_author_id_User_id 
-        foreign key (author_id) 
-        references User (id);
 
     alter table UNIVERSITY 
         add index fk_University_admin_id_Admin_id (admin_id), 

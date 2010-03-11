@@ -72,9 +72,9 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 	 * @see com.socialsite.dao.CourseDao#getCourses(int, int, int)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Course> getCourses(long id, int first, int count)
+	public List<Course> getCourses(final long id, final int first, final int count)
 	{
-		List<Course> course = new ArrayList<Course>();
+		final List<Course> course = new ArrayList<Course>();
 
 		final Query universityQuery = getSession().createQuery(
 				"select u.courses from University  u  where u.id = :id ").setParameter("id", id)
@@ -93,7 +93,7 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 	 * 
 	 * @see com.socialsite.dao.CourseDao#getCoursesCount(long)
 	 */
-	public int getCoursesCount(long id)
+	public int getCoursesCount(final long id)
 	{
 
 		int count = 0;
@@ -102,12 +102,12 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 		final Query universityQuery = getSession().createQuery(
 				"select u.courses from University as u  where u.id = :id ").setParameter("id", id);
 
-		count += (Integer)universityQuery.list().size();
+		count += universityQuery.list().size();
 
 		final Query studentQuery = getSession().createQuery(
 				"select  s.courses from Student as  s  where s.id = :id ").setParameter("id", id);
 
-		count += (Integer)studentQuery.list().size();
+		count += studentQuery.list().size();
 
 		return count;
 	}

@@ -92,7 +92,7 @@ public class AddAnswerPanel extends BasePanel
 				// fire the update event so the editor can intialize
 				firePostAjaxUpdateEvent(target);
 				// slideup the reply panel
-				String id = AddAnswerPanel.this.getMarkupId();
+				final String id = AddAnswerPanel.this.getMarkupId();
 				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 			}
 		};

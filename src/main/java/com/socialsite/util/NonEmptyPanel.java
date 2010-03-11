@@ -35,7 +35,7 @@ public class NonEmptyPanel extends Panel
 
 	String value;
 
-	public NonEmptyPanel(String id, String label, String value)
+	public NonEmptyPanel(final String id, final String label, final String value)
 	{
 		super(id);
 		this.value = value;

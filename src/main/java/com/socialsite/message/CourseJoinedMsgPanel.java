@@ -44,7 +44,7 @@ public class CourseJoinedMsgPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public CourseJoinedMsgPanel(String id, IModel<CourseJoinedMsg> model,
+	public CourseJoinedMsgPanel(final String id, final IModel<CourseJoinedMsg> model,
 			final MarkupContainer dependent)
 	{
 		super(id);
@@ -54,7 +54,7 @@ public class CourseJoinedMsgPanel extends BasePanel
 
 		// user image
 		UserLink<User> userImageLink;
-		Model<User> senderModel = new Model<User>(sender);
+		final Model<User> senderModel = new Model<User>(sender);
 		add(userImageLink = new UserLink<User>("imagelink", senderModel));
 		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
 				.getLastModified(), true));
@@ -66,7 +66,7 @@ public class CourseJoinedMsgPanel extends BasePanel
 		add(courseLink = new CourseLink("course", new Model<Course>(course)));
 		courseLink.add(new Label("courseName", course.getName()));
 
-		
+
 		add(new Label("date", DateUtils.relativeTime(courseJoinedMsg.getTime())));
 
 		// delete link

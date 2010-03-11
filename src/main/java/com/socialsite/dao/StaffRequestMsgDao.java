@@ -23,7 +23,8 @@ import com.socialsite.persistence.StaffRequestMsg;
 public interface StaffRequestMsgDao extends MessageDao<StaffRequestMsg>
 {
 	/**
-	 * checks whether the staff had sent any request to any university 
+	 * checks whether the staff had sent any request to any university
+	 * 
 	 * @param staff
 	 * @param university
 	 * @return

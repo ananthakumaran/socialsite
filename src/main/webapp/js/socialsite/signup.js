@@ -18,7 +18,7 @@
 // Main Package of the application
 var SocialSite = SocialSite || {};
 
-// scrap package
+// Signup package
 SocialSite.SignUp = SocialSite.SignUp || {};
 // shows the option for admin user
 SocialSite.SignUp.Admin = {

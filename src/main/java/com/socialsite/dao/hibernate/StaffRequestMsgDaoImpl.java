@@ -43,7 +43,7 @@ public class StaffRequestMsgDaoImpl extends MessageDaoImpl<StaffRequestMsg>
 	 * com.socialsite.dao.StaffRequestMsgDao#hasRequest(com.socialsite.persistence
 	 * .Staff)
 	 */
-	public boolean hasRequest(Staff staff)
+	public boolean hasRequest(final Staff staff)
 	{
 		final Criteria criteria = getSession().createCriteria(domainClass);
 		criteria.add(Restrictions.eq("sender", staff));

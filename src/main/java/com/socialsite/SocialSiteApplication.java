@@ -96,10 +96,10 @@ public class SocialSiteApplication extends WebApplication
 		// init all the image resources
 		initImageResources();
 
-		
+
 		// mounts the activation page
-		mount(new QueryStringUrlCodingStrategy("activate",ActivationPage.class));
-		
+		mount(new QueryStringUrlCodingStrategy("activate", ActivationPage.class));
+
 		// logs all the request to the server
 		// Application.get().getRequestLoggerSettings().setRequestLoggerEnabled(true);
 	}

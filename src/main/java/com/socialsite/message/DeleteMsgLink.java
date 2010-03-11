@@ -40,27 +40,18 @@ public class DeleteMsgLink<T extends Message> extends AjaxLink<T>
 	BasePanel panel;
 	long senderId;
 
-	public DeleteMsgLink(String id, IModel<T> model, MarkupContainer dependent, BasePanel panel,
-			long senderId)
-	{
-		super(id, model);
-		this.dependent = dependent;
-		this.panel = panel;
-		this.senderId = senderId;
-	}
-
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void onClick(AjaxRequestTarget target)
+	public DeleteMsgLink(final String id, final IModel<T> model, final MarkupContainer dependent,
+			final BasePanel panel, final long senderId)
 	{
-
-		messageDao.delete(getModelObject());
-		target.addComponent(dependent);
-		panel.firePostAjaxUpdateEvent(target);
+		super(id, model);
+		this.dependent = dependent;
+		this.panel = panel;
+		this.senderId = senderId;
 	}
 
 	@Override
@@ -75,5 +66,14 @@ public class DeleteMsgLink<T extends Message> extends AjaxLink<T>
 		{
 			return senderId == panel.getSessionUserId();
 		}
+	}
+
+	@Override
+	public void onClick(final AjaxRequestTarget target)
+	{
+
+		messageDao.delete(getModelObject());
+		target.addComponent(dependent);
+		panel.firePostAjaxUpdateEvent(target);
 	}
 }

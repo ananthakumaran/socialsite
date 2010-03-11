@@ -45,7 +45,7 @@ public class HomePage extends BasePage
 	public HomePage()
 	{
 		// update the message panel after sending the message panel
-		Panel msgPanel = new MessagePanel("message");
+		final Panel msgPanel = new MessagePanel("message");
 		msgPanel.setOutputMarkupId(true);
 		add(new UserInfoPanel("userinfo"));
 		add(msgPanel);

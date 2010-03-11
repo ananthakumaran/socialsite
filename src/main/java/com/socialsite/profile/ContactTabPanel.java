@@ -35,11 +35,11 @@ public class ContactTabPanel extends BasePanel
 	private static final long serialVersionUID = 1L;
 
 
-	private Panel infoPanel = new ContactInfoPanel("contact");
-	private Panel formPanel = new ContactFormPanel("contact");
-	private Panel current = infoPanel;
+	private final Panel infoPanel = new ContactInfoPanel("contact");
+	private final Panel formPanel = new ContactFormPanel("contact");
+	private final Panel current = infoPanel;
 
-	public ContactTabPanel(String id)
+	public ContactTabPanel(final String id)
 	{
 		super(id);
 		add(current);

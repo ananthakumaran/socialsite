@@ -50,7 +50,7 @@ public class StaffRequestMsgDaoTest extends AbstractDaoTestHelper
 		final Staff staff1 = new Staff("staff1", "password");
 		final Staff staff2 = new Staff("staff2", "password");
 		saveUsers(staff1, staff2);
-		StaffRequestMsg msg = new StaffRequestMsg(staff1);
+		final StaffRequestMsg msg = new StaffRequestMsg(staff1);
 		msg.setTime(new Date());
 		msg.setUniversity(university1);
 		msg.addUser(university1.getAdmin());

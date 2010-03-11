@@ -89,7 +89,7 @@ public class AddCommentPanel extends BasePanel
 				// update the dependent
 				target.addComponent(dependent);
 				// slideup the reply panel
-				String id = AddCommentPanel.this.getMarkupId();
+				final String id = AddCommentPanel.this.getMarkupId();
 				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 			}
 		};

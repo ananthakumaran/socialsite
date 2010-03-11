@@ -47,13 +47,13 @@ public class JoinUniversityPanel extends BasePanel
 	/** specifies the visibility */
 	private Boolean isVisible = null;
 
-	private University university;
+	private final University university;
 
-	public JoinUniversityPanel(String id, IModel<University> model)
+	public JoinUniversityPanel(final String id, final IModel<University> model)
 	{
 		super(id);
 		setOutputMarkupId(true);
-		this.university = model.getObject();
+		university = model.getObject();
 		add(new AjaxLink<Void>("join")
 		{
 
@@ -65,8 +65,8 @@ public class JoinUniversityPanel extends BasePanel
 			@Override
 			public void onClick(final AjaxRequestTarget target)
 			{
-				Staff staff = (Staff)getSessionUser();
-				StaffRequestMsg msg = new StaffRequestMsg(staff);
+				final Staff staff = (Staff)getSessionUser();
+				final StaffRequestMsg msg = new StaffRequestMsg(staff);
 				msg.setTime(new Date());
 				msg.addUser(university.getAdmin());
 				msg.setUniversity(university);
@@ -87,7 +87,7 @@ public class JoinUniversityPanel extends BasePanel
 		{
 			if (getSessionUser() instanceof Staff)
 			{
-				Staff staff = (Staff)getSessionUser();
+				final Staff staff = (Staff)getSessionUser();
 				if (staff.getUniversity() != null)
 				{
 					isVisible = false;

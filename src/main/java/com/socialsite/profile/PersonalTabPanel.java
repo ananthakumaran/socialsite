@@ -32,11 +32,11 @@ public class PersonalTabPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Panel infoPanel = new PersonalInfoPanel("personal");
-	private Panel formPanel = new PersonalFormPanel("personal");
-	private Panel current = infoPanel;
+	private final Panel infoPanel = new PersonalInfoPanel("personal");
+	private final Panel formPanel = new PersonalFormPanel("personal");
+	private final Panel current = infoPanel;
 
-	public PersonalTabPanel(String id)
+	public PersonalTabPanel(final String id)
 	{
 		super(id);
 		add(current);

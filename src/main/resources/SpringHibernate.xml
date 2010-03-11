@@ -97,18 +97,6 @@
 		<property name="target" ref="profileDaoTarget" />
 	</bean>
 
-
-	<!-- ScrapDao -->
-	<bean id="scrapDaoTarget" class="com.socialsite.dao.hibernate.ScrapDaoImpl"
-		lazy-init="true">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-
-	<bean id="scrapDao" parent="transactionProxyTemplate" lazy-init="true">
-		<property name="target" ref="scrapDaoTarget" />
-	</bean>
-
-
 	<!-- MessageDao -->
 	<bean id="messageDaoTarget" class="com.socialsite.dao.hibernate.MessageDaoImpl"
 		lazy-init="true">

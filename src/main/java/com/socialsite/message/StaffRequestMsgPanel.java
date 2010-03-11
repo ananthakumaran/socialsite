@@ -57,16 +57,16 @@ public class StaffRequestMsgPanel extends Panel
 	@SpringBean(name = "universityDao")
 	private UniversityDao universityDao;
 
-	public StaffRequestMsgPanel(String id, final IModel<StaffRequestMsg> model,
+	public StaffRequestMsgPanel(final String id, final IModel<StaffRequestMsg> model,
 			final WebMarkupContainer container)
 	{
 		super(id, model);
 		UserLink<User> user;
-		StaffRequestMsg staffRequestMsg = model.getObject();
-		User sender = staffRequestMsg.getSender();
+		final StaffRequestMsg staffRequestMsg = model.getObject();
+		final User sender = staffRequestMsg.getSender();
 		// user image
 		UserLink<User> userImageLink;
-		Model<User> senderModel = new Model<User>(sender);
+		final Model<User> senderModel = new Model<User>(sender);
 		add(userImageLink = new UserLink<User>("imagelink", senderModel));
 		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
 				.getLastModified(), true));

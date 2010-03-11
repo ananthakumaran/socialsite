@@ -79,7 +79,7 @@ public class InfoMsgPanel extends BasePanel
 
 		// user image
 		UserLink<User> userImageLink;
-		Model<User> senderModel = new Model<User>(sender);
+		final Model<User> senderModel = new Model<User>(sender);
 		add(userImageLink = new UserLink<User>("imagelink", senderModel));
 		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
 				.getLastModified(), true));
@@ -88,7 +88,7 @@ public class InfoMsgPanel extends BasePanel
 		name.add(new Label("username", sender.getUserName()));
 
 
-		add(new Label("date", DateUtils.relativeTime((infoMsg.getTime()))));
+		add(new Label("date", DateUtils.relativeTime(infoMsg.getTime())));
 
 		// message
 		add(new Label("message", infoMsg.getMessage()).setEscapeModelStrings(false));
@@ -129,11 +129,11 @@ public class InfoMsgPanel extends BasePanel
 			}
 
 			@Override
-			protected void onSubmit(AjaxRequestTarget target, Form<?> form)
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
 			{
 				try
 				{
-					InfoMsg msg = (InfoMsg)form.getModelObject();
+					final InfoMsg msg = (InfoMsg)form.getModelObject();
 					final InfoMsg replyMsg = new InfoMsg();
 					replyMsg.setMessage(text);
 					replyMsg.setSender(getSessionUser());
@@ -141,7 +141,7 @@ public class InfoMsgPanel extends BasePanel
 					replyMsg.addUser(msg.getSender());
 					messageDao.save(replyMsg);
 				}
-				catch (Exception ex)
+				catch (final Exception ex)
 				{
 					target
 							.appendJavascript("SocialSite.Message.show('sorry we can't send your message. Try again later');");
@@ -152,7 +152,7 @@ public class InfoMsgPanel extends BasePanel
 						.appendJavascript("SocialSite.Message.show('Your reply message has been sent successfully ');");
 
 				// slideup the reply panel
-				String id = InfoMsgPanel.this.getMarkupId();
+				final String id = InfoMsgPanel.this.getMarkupId();
 				target.appendJavascript(" $('#" + id + " .slideText').trigger('click'); ");
 
 

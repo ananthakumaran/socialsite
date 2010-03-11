@@ -32,12 +32,12 @@ public class EducationTabPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Panel infoPanel = new EducationInfoPanel("education");
-	private Panel formPanel = new EducationFormPanel("education");
-	private Panel current = infoPanel;
+	private final Panel infoPanel = new EducationInfoPanel("education");
+	private final Panel formPanel = new EducationFormPanel("education");
+	private final Panel current = infoPanel;
 
 
-	public EducationTabPanel(String id)
+	public EducationTabPanel(final String id)
 	{
 		super(id);
 		add(current);

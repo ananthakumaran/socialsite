@@ -30,24 +30,24 @@ public class CourseJoinedMsg extends Message
 	{
 	}
 
-	public User getSender()
-	{
-		return sender;
-	}
-
 	public Course getCourse()
 	{
 		return course;
 	}
 
-	public void setSender(User sender)
+	public User getSender()
 	{
-		this.sender = sender;
+		return sender;
 	}
 
-	public void setCourse(Course course)
+	public void setCourse(final Course course)
 	{
 		this.course = course;
+	}
+
+	public void setSender(final User sender)
+	{
+		this.sender = sender;
 	}
 
 }
