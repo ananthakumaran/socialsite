@@ -26,6 +26,7 @@
 	</skin>
 	<body>
 		<menu name="Project Hosting Information">
+		    <item name="Github project site" href="http://github.com/ananthakumaran/socialsite" /> 
 			<item name="kenai project site" href="http://kenai.com/projects/socialsite" />
 			<item name="ohloh project site" href="https://www.ohloh.net/p/social-site"></item>
 			<item name="forum" href="http://kenai.com/projects/socialsite/forums" />

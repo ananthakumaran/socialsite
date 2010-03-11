@@ -6,7 +6,7 @@
 	<name>SocialSite</name>
 	<description>A Social Networking site for the Students. The projects is
 		in the early stage of development</description>
-	<url>http://socialsite.kenai.com</url>
+	<url>http://github.com/ananthakumaran/socialsite</url>
 	<licenses>
 		<license>
 			<name>GNU GENERAL PUBLIC LICENSE</name>
@@ -88,11 +88,11 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:svn:https://svn.kenai.com/svn/socialsite~socialsite-maven-repo
+		<connection>scm:git:ssh://github.com:443/ananthakumaran/socialsite.git
 		</connection>
-		<developerConnection>scm:svn:https://svn.kenai.com/svn/socialsite~socialsite-maven-repo
+		<developerConnection>scm:git:ssh://github.com:443/ananthakumaran/socialsite.git
 		</developerConnection>
-		<url>http://kenai.com/projects/socialsite/sources/socialsite-maven-repo/show
+		<url>scm:git:ssh://github.com:443/ananthakumaran/socialsite.git
 		</url>
 	</scm>
 
