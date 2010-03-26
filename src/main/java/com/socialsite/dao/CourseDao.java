@@ -23,6 +23,7 @@ import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 
 import com.socialsite.persistence.Course;
 import com.socialsite.persistence.University;
+import com.socialsite.persistence.User;
 
 /**
  * 
@@ -80,5 +81,23 @@ public interface CourseDao extends AbstractImageDao<Course>
 	 * @return
 	 */
 	public int getCoursesCount(long id);
+
+	/**
+	 * list of students in the course
+	 * 
+	 * @param id
+	 * @param first
+	 * @param count
+	 * @return
+	 */
+	public List<User> getStudents(long id, int first, int count);
+
+	/**
+	 * count of students in the course
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int getStudentsCount(long id);
 
 }

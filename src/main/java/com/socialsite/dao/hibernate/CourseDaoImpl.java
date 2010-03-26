@@ -26,6 +26,7 @@ import org.hibernate.Query;
 import com.socialsite.dao.CourseDao;
 import com.socialsite.persistence.Course;
 import com.socialsite.persistence.University;
+import com.socialsite.persistence.User;
 
 /**
  * 
@@ -81,9 +82,7 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 				.setFirstResult(first).setMaxResults(count);
 		course.addAll(universityQuery.list());
 
-		final Query studentQuery = getSession().createQuery(
-				"select s.courses from Student  s  where s.id = :id ").setParameter("id", id)
-				.setFirstResult(first).setMaxResults(count);
+		final Query studentQuery = getStudentQuery(id).setFirstResult(first).setMaxResults(count);
 		course.addAll(studentQuery.list());
 		return course;
 	}
@@ -104,13 +103,48 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 
 		count += universityQuery.list().size();
 
-		final Query studentQuery = getSession().createQuery(
-				"select  s.courses from Student as  s  where s.id = :id ").setParameter("id", id);
-
-		count += studentQuery.list().size();
+		count += getStudentQuery(id).list().size();
 
 		return count;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.CourseDao#getStudents(long, int, int)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<User> getStudents(long id, int first, int count)
+	{
+		final Query studentQuery = getSession().createQuery(
+				"select c.students from Course c where c.id = :id ").setParameter("id", id)
+				.setFirstResult(first).setMaxResults(count);
+		return studentQuery.list();
+	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.CourseDao#getStudentsCount(long)
+	 */
+	public int getStudentsCount(long id)
+	{
+		final Query studentQuery = getSession().createQuery(
+				"select c.students from Course c where c.id = :id ").setParameter("id", id);
+		return studentQuery.list().size();
+	}
+
+
+	/**
+	 * helper
+	 * 
+	 * @param id
+	 *            student id
+	 * @return
+	 */
+	private Query getStudentQuery(long id)
+	{
+		return getSession().createQuery("select  s.courses from Student as  s  where s.id = :id ")
+				.setParameter("id", id);
+	}
 }

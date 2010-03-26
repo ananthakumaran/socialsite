@@ -24,7 +24,10 @@ import com.socialsite.BasePage;
 import com.socialsite.course.question.AddQuestionPanel;
 import com.socialsite.course.question.QuestionsPanel;
 import com.socialsite.dao.CourseDao;
+import com.socialsite.dataprovider.CourseStudentsDataProvider;
+import com.socialsite.friend.FriendsPage;
 import com.socialsite.persistence.Course;
+import com.socialsite.user.UsersPanel;
 
 /**
  * @author Ananth
@@ -44,5 +47,8 @@ public class CoursePage extends BasePage
 		final QuestionsPanel questionsPanel = new QuestionsPanel("questions", model);
 		add(questionsPanel);
 		add(new AddQuestionPanel("addquestion", model, questionsPanel.getQuestionsContainer()));
+
+		add(new UsersPanel("students", new CourseStudentsDataProvider(model.getObject().getId()),
+				FriendsPage.class));
 	}
 }
