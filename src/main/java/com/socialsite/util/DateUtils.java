@@ -17,7 +17,6 @@
 
 package com.socialsite.util;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtils
@@ -30,18 +29,11 @@ public class DateUtils
 		final int DAY = 24 * HOUR;
 		final int MONTH = 30 * DAY;
 
-		long delta = new Date().getTime() - date.getTime();
-
-
-		final Calendar ts = Calendar.getInstance();
-		ts.setTime(new Date(delta));
-
-		delta = delta / 1000;
+		final long delta = Math.abs(System.currentTimeMillis() - date.getTime()) / 1000;
 
 		if (delta < 1 * MINUTE)
 		{
-			return ts.get(Calendar.SECOND) == 1 ? "one second ago" : ts.get(Calendar.SECOND)
-					+ " seconds ago";
+			return delta == 1 ? "one second ago" : delta + " seconds ago";
 		}
 		if (delta < 2 * MINUTE)
 		{
@@ -49,7 +41,7 @@ public class DateUtils
 		}
 		if (delta < 45 * MINUTE)
 		{
-			return ts.get(Calendar.MINUTE) + " minutes ago";
+			return delta / MINUTE + " minutes ago";
 		}
 		if (delta < 90 * MINUTE)
 		{
@@ -57,7 +49,7 @@ public class DateUtils
 		}
 		if (delta < 24 * HOUR)
 		{
-			return ts.get(Calendar.HOUR) + " hours ago";
+			return delta / HOUR + " hours ago";
 		}
 		if (delta < 48 * HOUR)
 		{
@@ -65,18 +57,17 @@ public class DateUtils
 		}
 		if (delta < 30 * DAY)
 		{
-			return ts.get(Calendar.DAY_OF_MONTH) + " days ago";
+			return delta / DAY + " days ago";
 		}
 		if (delta < 12 * MONTH)
 		{
-			final int months = (int)Math.floor((double)ts.get(Calendar.DAY_OF_YEAR) / 30);
+			final long months = delta / MONTH;
 			return months <= 1 ? "one month ago" : months + " months ago";
 		}
 		else
 		{
-			final int years = (int)Math.floor((double)ts.get(Calendar.DAY_OF_YEAR) / 365);
+			final long years = delta / MONTH * 12;
 			return years <= 1 ? "one year ago" : years + " years ago";
 		}
 	}
-
 }
