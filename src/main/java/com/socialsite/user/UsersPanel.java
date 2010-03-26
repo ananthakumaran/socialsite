@@ -15,40 +15,36 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.friend;
+package com.socialsite.user;
 
+import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
 
 import com.socialsite.BasePanel;
-import com.socialsite.SocialSiteSession;
-import com.socialsite.dataprovider.FriendsDataProvider;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.User;
-import com.socialsite.user.UserLink;
 import com.socialsite.util.ShowAllLink;
 
 /**
  * @author Ananth
  */
-public class FriendsPanel extends BasePanel
+public class UsersPanel extends BasePanel
 {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public FriendsPanel(final String id)
+	public UsersPanel(String id, IDataProvider<User> dataProvider, Class<? extends Page> showAllPage)
 	{
 		super(id);
-		// friends data provider
-		final FriendsDataProvider friendsDataProvider = new FriendsDataProvider(SocialSiteSession
-				.get().getUserId());
 
-		final DataView<User> friendList = new DataView<User>("friends", friendsDataProvider, 9)
+		final DataView<User> userList = new DataView<User>("users", dataProvider, 9)
 		{
 			/**
 			 * 
@@ -69,7 +65,8 @@ public class FriendsPanel extends BasePanel
 			}
 
 		};
-		add(new ShowAllLink<User>("showall", friendList.getDataProvider(), FriendsPage.class));
-		add(friendList);
+		add(new ShowAllLink<User>("showall", userList.getDataProvider(), showAllPage));
+		add(userList);
 	}
+
 }

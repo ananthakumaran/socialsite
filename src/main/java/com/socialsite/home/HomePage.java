@@ -23,10 +23,12 @@ import org.apache.wicket.markup.html.panel.Panel;
 import com.socialsite.BasePage;
 import com.socialsite.SocialSiteSession;
 import com.socialsite.course.CoursesPanel;
-import com.socialsite.friend.FriendsPanel;
+import com.socialsite.dataprovider.FriendsDataProvider;
+import com.socialsite.friend.FriendsPage;
 import com.socialsite.message.MessagePanel;
 import com.socialsite.message.MessageSenderPanel;
 import com.socialsite.user.UserInfoPanel;
+import com.socialsite.user.UsersPanel;
 
 /**
  * user Home page
@@ -44,12 +46,14 @@ public class HomePage extends BasePage
 	 */
 	public HomePage()
 	{
+
+		long userId = SocialSiteSession.get().getUserId();
 		// update the message panel after sending the message panel
 		final Panel msgPanel = new MessagePanel("message");
 		msgPanel.setOutputMarkupId(true);
 		add(new UserInfoPanel("userinfo"));
 		add(msgPanel);
-		add(new FriendsPanel("friends"));
+		add(new UsersPanel("friends", new FriendsDataProvider(userId), FriendsPage.class));
 		add(new CoursesPanel("courses", SocialSiteSession.get().getUserId()));
 		add(new MessageSenderPanel("sender", msgPanel));
 	}
