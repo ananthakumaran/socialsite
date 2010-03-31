@@ -21,8 +21,8 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
+import org.apache.wicket.markup.repeater.data.IDataProvider;
 
-import com.socialsite.dataprovider.CoursesDataProvider;
 import com.socialsite.friend.FriendsPage;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
@@ -44,18 +44,15 @@ public class CoursesPanel extends Panel
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * constructor
 	 * 
 	 * @param id
-	 *            id
-	 * @param university
-	 *            university
+	 * @param modelId
+	 * @param dataProvider
 	 */
-	public CoursesPanel(final String id, final long modelId)
+	public CoursesPanel(final String id, final IDataProvider<Course> dataProvider)
 	{
 		super(id);
-		final DataView<Course> courseView = new DataView<Course>("courses",
-				new CoursesDataProvider(modelId), 9)
+		final DataView<Course> courseView = new DataView<Course>("courses", dataProvider, 9)
 		{
 
 			/**

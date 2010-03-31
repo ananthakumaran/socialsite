@@ -17,7 +17,6 @@
 
 package com.socialsite.dao.hibernate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
@@ -57,7 +56,7 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see com.socialsite.dao.CourseDao#findAll(java.lang.String, int, int,
+	 * @see com.socialsite.dao.CourseDao#findAll(java.lang.String, int, int, p
 	 *      org.apache.wicket.extensions.markup.html.repeater.util.SortParam)
 	 */
 	@SuppressWarnings("unchecked")
@@ -70,42 +69,22 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.socialsite.dao.CourseDao#getCourses(int, int, int)
+	 * @see com.socialsite.dao.CourseDao#getUserCourses(long, int, int)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<Course> getCourses(final long id, final int first, final int count)
+	public List<Course> getUserCourses(final long id, final int first, final int count)
 	{
-		final List<Course> course = new ArrayList<Course>();
-
-		final Query universityQuery = getSession().createQuery(
-				"select u.courses from University  u  where u.id = :id ").setParameter("id", id)
-				.setFirstResult(first).setMaxResults(count);
-		course.addAll(universityQuery.list());
-
-		final Query studentQuery = getStudentQuery(id).setFirstResult(first).setMaxResults(count);
-		course.addAll(studentQuery.list());
-		return course;
+		return getUserQuery(id).setFirstResult(first).setMaxResults(count).list();
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.socialsite.dao.CourseDao#getCoursesCount(long)
+	 * @see com.socialsite.dao.CourseDao#getUserCoursesCount(long)
 	 */
-	public int getCoursesCount(final long id)
+	public int getUserCoursesCount(final long id)
 	{
-
-		int count = 0;
-
-		// TODO don't know why count(u.courses) is not working
-		final Query universityQuery = getSession().createQuery(
-				"select u.courses from University as u  where u.id = :id ").setParameter("id", id);
-
-		count += universityQuery.list().size();
-
-		count += getStudentQuery(id).list().size();
-
-		return count;
+		return getUserQuery(id).list().size();
 	}
 
 	/*
@@ -135,6 +114,28 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 	}
 
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.CourseDao#getUniversityCourses(long, int, int)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Course> getUniversityCourses(long id, int first, int count)
+	{
+		return getUniversityQuery(id).setFirstResult(first).setMaxResults(count).list();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.CourseDao#getUniversityCoursesCount(long)
+	 */
+	public int getUniversityCoursesCount(long id)
+	{
+		return getUniversityQuery(id).list().size();
+
+	}
+
 	/**
 	 * helper
 	 * 
@@ -142,9 +143,22 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 	 *            student id
 	 * @return
 	 */
-	private Query getStudentQuery(long id)
+	private Query getUserQuery(long id)
 	{
 		return getSession().createQuery("select  s.courses from Student as  s  where s.id = :id ")
+				.setParameter("id", id);
+	}
+
+	/**
+	 * helper
+	 * 
+	 * @param id
+	 *            university id
+	 * @return
+	 */
+	private Query getUniversityQuery(long id)
+	{
+		return getSession().createQuery("select u.courses from University as u where u.id = :id ")
 				.setParameter("id", id);
 	}
 }

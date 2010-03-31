@@ -94,7 +94,7 @@ public class CourseDaoTest extends AbstractDaoTestHelper
 
 	@Test
 	@Transactional
-	public void testGetCourses()
+	public void testGetUserCourses()
 	{
 		final Course course1 = new Course();
 		course1.setName("test1");
@@ -106,25 +106,18 @@ public class CourseDaoTest extends AbstractDaoTestHelper
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
 
-		assertEquals(1, courseDao.getCourses(user1.getId(), 0, 1).size());
 
-		final University u = new University("test");
-		saveUniversities(u);
-		// staffs
-		final Staff staff1 = new Staff("staff1", "password", u);
-		staff1.addCourse(course1);
-		saveUsers(staff1);
+		assertEquals(1, courseDao.getUserCourses(user1.getId(), 0, 1).size());
+		assertEquals(1, courseDao.getUserCoursesCount(user1.getId()));
 
-		// flush the session so we can get the record using JDBC template
-		SessionFactoryUtils.getSession(sessionFactory, false).flush();
-		assertEquals(1, courseDao.getCourses(u.getId(), 0, 1).size());
 
 	}
 
 	@Test
 	@Transactional
-	public void testGetCoursesCount()
+	public void testGetUniversityCourses()
 	{
+
 		final Course course1 = new Course();
 		course1.setName("test1");
 		saveCourses(course1);
@@ -134,9 +127,6 @@ public class CourseDaoTest extends AbstractDaoTestHelper
 		saveCourses(course1);
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
-
-		assertEquals(1, courseDao.getCoursesCount(user1.getId()));
-
 		final University u = new University("test");
 		saveUniversities(u);
 		// staffs
@@ -146,7 +136,10 @@ public class CourseDaoTest extends AbstractDaoTestHelper
 
 		// flush the session so we can get the record using JDBC template
 		SessionFactoryUtils.getSession(sessionFactory, false).flush();
-		assertEquals(1, courseDao.getCoursesCount(u.getId()));
+
+
+		assertEquals(1, courseDao.getUniversityCourses(u.getId(), 0, 1).size());
+		assertEquals(1, courseDao.getUniversityCoursesCount(u.getId()));
 
 	}
 

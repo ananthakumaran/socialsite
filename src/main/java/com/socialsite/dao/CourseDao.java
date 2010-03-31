@@ -67,20 +67,43 @@ public interface CourseDao extends AbstractImageDao<Course>
 	 * get the courses
 	 * 
 	 * @param id
+	 *            user id
 	 * @param first
 	 * @param count
 	 * @return
 	 */
-	public List<Course> getCourses(long id, int first, int count);
+	public List<Course> getUserCourses(long id, int first, int count);
+
+	/**
+	 * get the courses
+	 * 
+	 * @param id
+	 *            university id
+	 * @param first
+	 * @param count
+	 * @return
+	 */
+	public List<Course> getUniversityCourses(long id, int first, int count);
 
 
 	/**
 	 * count of courses
 	 * 
 	 * @param id
+	 *            user id
 	 * @return
 	 */
-	public int getCoursesCount(long id);
+	public int getUserCoursesCount(long id);
+
+
+	/**
+	 * count of courses
+	 * 
+	 * @param id
+	 *            university id
+	 * @return
+	 */
+	public int getUniversityCoursesCount(long id);
 
 	/**
 	 * list of students in the course

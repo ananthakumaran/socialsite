@@ -24,6 +24,7 @@ import com.socialsite.BasePage;
 import com.socialsite.SocialSiteSession;
 import com.socialsite.course.CoursesPanel;
 import com.socialsite.dataprovider.FriendsDataProvider;
+import com.socialsite.dataprovider.UserCourseDataProvider;
 import com.socialsite.friend.FriendsPage;
 import com.socialsite.message.MessagePanel;
 import com.socialsite.message.MessageSenderPanel;
@@ -54,7 +55,8 @@ public class HomePage extends BasePage
 		add(new UserInfoPanel("userinfo"));
 		add(msgPanel);
 		add(new UsersPanel("friends", new FriendsDataProvider(userId), FriendsPage.class));
-		add(new CoursesPanel("courses", SocialSiteSession.get().getUserId()));
+		add(new CoursesPanel("courses", new UserCourseDataProvider(SocialSiteSession.get()
+				.getUserId())));
 		add(new MessageSenderPanel("sender", msgPanel));
 	}
 

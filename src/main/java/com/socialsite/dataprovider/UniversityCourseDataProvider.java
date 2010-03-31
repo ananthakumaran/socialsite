@@ -28,16 +28,8 @@ import com.socialsite.dao.CourseDao;
 import com.socialsite.entitymodel.EntityModel;
 import com.socialsite.persistence.Course;
 
-/**
- * TODO: write separate routines to get the course list and size in the course
- * dao
- * 
- * @author Ananth
- * 
- */
-public class CoursesDataProvider extends SortableDataProvider<Course>
+public class UniversityCourseDataProvider extends SortableDataProvider<Course>
 {
-
 	/**
 	 * 
 	 */
@@ -48,7 +40,7 @@ public class CoursesDataProvider extends SortableDataProvider<Course>
 	private CourseDao courseDao;
 	private final long id;
 
-	public CoursesDataProvider(final long id)
+	public UniversityCourseDataProvider(final long id)
 	{
 		InjectorHolder.getInjector().inject(this);
 		this.id = id;
@@ -57,7 +49,7 @@ public class CoursesDataProvider extends SortableDataProvider<Course>
 
 	public Iterator<? extends Course> iterator(final int first, final int count)
 	{
-		return courseDao.getCourses(id, first, count).iterator();
+		return courseDao.getUniversityCourses(id, first, count).iterator();
 	}
 
 	public IModel<Course> model(final Course course)
@@ -67,7 +59,6 @@ public class CoursesDataProvider extends SortableDataProvider<Course>
 
 	public int size()
 	{
-		return courseDao.getCoursesCount(id);
+		return courseDao.getUniversityCoursesCount(id);
 	}
-
 }
