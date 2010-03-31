@@ -80,6 +80,7 @@ public class CoursesPanel extends Panel
 		};
 		add(courseView);
 		// TODO create a page for courses
-		add(new ShowAllLink<Course>("showall", courseView.getDataProvider(), FriendsPage.class));
+		add(new ShowAllLink<Course>("showall", courseView.getDataProvider().size(),
+				FriendsPage.class));
 	}
 }

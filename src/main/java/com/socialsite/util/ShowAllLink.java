@@ -19,7 +19,6 @@ package com.socialsite.util;
 
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.markup.repeater.data.IDataProvider;
 
 /**
  * 
@@ -35,21 +34,20 @@ public class ShowAllLink<T> extends Link<Void>
 	 */
 	private static final long serialVersionUID = 1L;
 
-	IDataProvider<T> dataProvider;
+	final int size;
 	Class<? extends Page> pageClazz;
 
-	public ShowAllLink(final String id, final IDataProvider<T> dataProvider,
-			final Class<? extends Page> pageClazz)
+	public ShowAllLink(final String id, final int size, final Class<? extends Page> pageClazz)
 	{
 		super(id);
-		this.dataProvider = dataProvider;
+		this.size = size;
 		this.pageClazz = pageClazz;
 	}
 
 	@Override
 	public boolean isVisible()
 	{
-		if (dataProvider.size() > 9)
+		if (size > 9)
 		{
 			return true;
 		}

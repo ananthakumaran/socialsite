@@ -70,7 +70,8 @@ public class StaffsPanel extends BasePanel
 			}
 
 		};
-		add(new ShowAllLink<Staff>("showall", friendList.getDataProvider(), FriendsPage.class));
+		add(new ShowAllLink<Staff>("showall", friendList.getDataProvider().size(),
+				FriendsPage.class));
 		add(friendList);
 
 	}
