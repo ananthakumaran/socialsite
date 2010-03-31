@@ -72,10 +72,7 @@ public class UniversityDaoImpl extends AbstractImageDaoImpl<University> implemen
 	@SuppressWarnings("unchecked")
 	public List<Student> getStudents(long id)
 	{
-		Query query = getSession().createQuery(
-				"select distinct s " + " from University u  " + " inner join u.courses as c "
-						+ " inner join c.students as s where u.id = :id").setParameter("id", id);
-		return query.list();
+		return getStudentQuery(id).list();
 	}
 
 	/*
@@ -86,11 +83,7 @@ public class UniversityDaoImpl extends AbstractImageDaoImpl<University> implemen
 	@SuppressWarnings("unchecked")
 	public List<Student> getStudents(long id, int first, int count)
 	{
-		Query query = getSession().createQuery(
-				"select distinct s " + " from University u  " + " inner join u.courses as c "
-						+ " inner join c.students as s where u.id = :id").setParameter("id", id)
-				.setFirstResult(first).setMaxResults(count);
-		return query.list();
+		return getStudentQuery(id).setFirstResult(first).setMaxResults(count).list();
 	}
 
 	/*
@@ -107,4 +100,17 @@ public class UniversityDaoImpl extends AbstractImageDaoImpl<University> implemen
 		return ((Long)query.uniqueResult()).intValue();
 	}
 
+	/**
+	 * helper method
+	 * 
+	 * @param id
+	 *            university id
+	 * @return
+	 */
+	private Query getStudentQuery(long id)
+	{
+		return getSession().createQuery(
+				"select distinct s " + " from University u  " + " inner join u.courses as c "
+						+ " inner join c.students as s where u.id = :id").setParameter("id", id);
+	}
 }
