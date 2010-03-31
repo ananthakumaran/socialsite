@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
 
+import com.socialsite.persistence.Student;
 import com.socialsite.persistence.University;
 
 /**
@@ -59,4 +60,30 @@ public interface UniversityDao extends AbstractImageDao<University>
 	 *         criteria
 	 */
 	public List<University> findAll(String filter, int first, int count, SortParam sortParam);
+
+	/**
+	 * list of all the students in the university
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public List<Student> getStudents(long id);
+
+	/**
+	 * get the student list in the university
+	 * 
+	 * @param id
+	 * @param first
+	 * @param count
+	 * @return
+	 */
+	public List<Student> getStudents(long id, int first, int count);
+
+	/**
+	 * get the students count
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int getStudentsCount(long id);
 }

@@ -20,8 +20,10 @@ package com.socialsite.dao.hibernate;
 import java.util.List;
 
 import org.apache.wicket.extensions.markup.html.repeater.util.SortParam;
+import org.hibernate.Query;
 
 import com.socialsite.dao.UniversityDao;
+import com.socialsite.persistence.Student;
 import com.socialsite.persistence.University;
 
 /**
@@ -60,6 +62,49 @@ public class UniversityDaoImpl extends AbstractImageDaoImpl<University> implemen
 			final SortParam sortParam)
 	{
 		return find(filter, first, count, sortParam, University.class, "name");
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.UniversityDao#getStudents(long)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Student> getStudents(long id)
+	{
+		Query query = getSession().createQuery(
+				"select distinct s " + " from University u  " + " inner join u.courses as c "
+						+ " inner join c.students as s where u.id = :id").setParameter("id", id);
+		return query.list();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.UniversityDao#getStudents(long, int, int)
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Student> getStudents(long id, int first, int count)
+	{
+		Query query = getSession().createQuery(
+				"select distinct s " + " from University u  " + " inner join u.courses as c "
+						+ " inner join c.students as s where u.id = :id").setParameter("id", id)
+				.setFirstResult(first).setMaxResults(count);
+		return query.list();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.socialsite.dao.UniversityDao#getStudentsCount(long)
+	 */
+	public int getStudentsCount(long id)
+	{
+		Query query = getSession().createQuery(
+				"select  count(distinct s) " + " from University u  "
+						+ " inner join u.courses as c "
+						+ " inner join c.students as s where u.id = :id").setParameter("id", id);
+		return ((Long)query.uniqueResult()).intValue();
 	}
 
 }
