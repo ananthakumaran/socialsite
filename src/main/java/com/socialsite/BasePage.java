@@ -115,4 +115,25 @@ public class BasePage extends WebPage implements IHeaderContributor
 				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
 	}
 
+	/**
+	 * helper to check the role
+	 * 
+	 * @param role
+	 *            role
+	 */
+	public boolean hasRole(final String role)
+	{
+		return SocialSiteSession.get().getSessionUser().hasRole(role);
+	}
+
+	/**
+	 * gets the id of the session user
+	 * 
+	 * @return id of the session user
+	 */
+	public long getSessionUserId()
+	{
+		return SocialSiteSession.get().getSessionUser().getId();
+	}
+
 }

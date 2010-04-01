@@ -23,12 +23,17 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePage;
+import com.socialsite.authentication.SocialSiteRoles;
+import com.socialsite.course.CoursePage;
 import com.socialsite.course.answer.AddAnswerPanel;
 import com.socialsite.course.answer.AnswersPanel;
+import com.socialsite.dao.QuestionDao;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
+import com.socialsite.persistence.Course;
 import com.socialsite.persistence.Question;
 import com.socialsite.persistence.User;
 import com.socialsite.user.UserLink;
@@ -40,6 +45,10 @@ import com.socialsite.util.DateUtils;
 @AuthorizeInstantiation( { "USER", "STAFF" })
 public class QuestionPage extends BasePage
 {
+
+
+	@SpringBean(name = "questionDao")
+	QuestionDao questionDao;
 
 	public QuestionPage(final IModel<Question> model)
 	{
@@ -65,6 +74,29 @@ public class QuestionPage extends BasePage
 		add(answerPanel = new AnswersPanel("answers", model));
 		add(new AddAnswerPanel("addanswer", model, answerPanel));
 
+		add(new Link<Question>("delete", model)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick()
+			{
+				Question question = getModelObject();
+				Model<Course> model = new Model<Course>(question.getCourse());
+				questionDao.delete(getModelObject());
+				setResponsePage(new CoursePage(model));
+			}
+
+			@Override
+			public boolean isVisible()
+			{
+				return (hasRole(SocialSiteRoles.STAFF) || getModelObject().getUser().getId() == getSessionUserId());
+			}
+		});
 
 	}
 }
