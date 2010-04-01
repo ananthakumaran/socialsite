@@ -20,6 +20,9 @@ package com.socialsite.course;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 
+import com.socialsite.SocialSiteSession;
+import com.socialsite.authentication.SessionUser;
+import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.persistence.Course;
 
 public class CourseLink extends Link<Course>
@@ -38,6 +41,11 @@ public class CourseLink extends Link<Course>
 	@Override
 	public void onClick()
 	{
+		SessionUser user = SocialSiteSession.get().getSessionUser();
+		if (getModelObject().getStaff().getId() == user.getId())
+		{
+			user.setRoles(SocialSiteRoles.staffRole);
+		}
 		setResponsePage(new CoursePage(getModel()));
 	}
 
