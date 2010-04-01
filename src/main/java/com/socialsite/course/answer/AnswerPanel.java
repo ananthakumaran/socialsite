@@ -18,14 +18,19 @@
 package com.socialsite.course.answer;
 
 import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
+import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.course.comment.AddCommentPanel;
 import com.socialsite.course.comment.CommentsPanel;
+import com.socialsite.dao.AnswerDao;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Answer;
@@ -43,7 +48,11 @@ public class AnswerPanel extends BasePanel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public AnswerPanel(final String id, final IModel<Answer> model)
+
+	@SpringBean(name = "answerDao")
+	AnswerDao anserDao;
+
+	public AnswerPanel(final String id, final IModel<Answer> model, final MarkupContainer dependent)
 	{
 		super(id, model);
 		final Answer answer = model.getObject();
@@ -66,6 +75,28 @@ public class AnswerPanel extends BasePanel
 		MarkupContainer commentPanel;
 		add(commentPanel = new CommentsPanel("comments", model));
 		add(new AddCommentPanel("addcomment", model, commentPanel));
+
+		add(new AjaxLink<Answer>("delete", model)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick(AjaxRequestTarget target)
+			{
+				anserDao.delete(getModelObject());
+				target.addComponent(dependent);
+			}
+
+			@Override
+			public boolean isVisible()
+			{
+				return (hasRole(SocialSiteRoles.STAFF) || getModelObject().getUser().getId() == getSessionUserId());
+			}
+		});
 
 	}
 
