@@ -62,7 +62,7 @@ public class QuestionsPanel extends BasePanel
 			@Override
 			protected void populateItem(final Item<Question> item)
 			{
-				item.add(new QuestionPanel("question", item.getModel()));
+				item.add(new QuestionPanel("question", item.getModel(), questionsContainer));
 			}
 		};
 

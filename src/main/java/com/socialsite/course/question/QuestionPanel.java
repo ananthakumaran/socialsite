@@ -17,15 +17,20 @@
 
 package com.socialsite.course.question;
 
+import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
+import com.socialsite.BasePanel;
 import com.socialsite.SocialSiteSession;
 import com.socialsite.authentication.SessionUser;
 import com.socialsite.authentication.SocialSiteRoles;
+import com.socialsite.dao.QuestionDao;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Question;
@@ -36,7 +41,7 @@ import com.socialsite.util.DateUtils;
 /**
  * @author Ananth
  */
-public class QuestionPanel extends Panel
+public class QuestionPanel extends BasePanel
 {
 
 	/**
@@ -44,7 +49,12 @@ public class QuestionPanel extends Panel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public QuestionPanel(final String id, final IModel<Question> model)
+
+	@SpringBean(name = "questionDao")
+	QuestionDao questionDao;
+
+	public QuestionPanel(final String id, final IModel<Question> model,
+			final MarkupContainer dependent)
 	{
 		super(id, model);
 		final Question question = model.getObject();
@@ -96,6 +106,29 @@ public class QuestionPanel extends Panel
 
 		// TODO show only first two lines of the Question
 		add(new Label("question", question.getText()).setEscapeModelStrings(false));
-	}
 
+
+		add(new AjaxLink<Question>("delete", model)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick(AjaxRequestTarget target)
+			{
+				questionDao.delete(getModelObject());
+				target.addComponent(dependent);
+			}
+
+			@Override
+			public boolean isVisible()
+			{
+				return (hasRole(SocialSiteRoles.STAFF) || getSessionUserId() == getModelObject()
+						.getUser().getId());
+			}
+		});
+	}
 }
