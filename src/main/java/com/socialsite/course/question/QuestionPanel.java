@@ -23,6 +23,9 @@ import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
+import com.socialsite.SocialSiteSession;
+import com.socialsite.authentication.SessionUser;
+import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Question;
@@ -61,7 +64,7 @@ public class QuestionPanel extends Panel
 
 		add(new Label("date", DateUtils.relativeTime(question.getTime())));
 
-		final Link<Void> questionLink = new Link<Void>("questionlink")
+		final Link<Question> questionLink = new Link<Question>("questionlink", model)
 		{
 
 			/**
@@ -72,6 +75,16 @@ public class QuestionPanel extends Panel
 			@Override
 			public void onClick()
 			{
+				SessionUser user = SocialSiteSession.get().getSessionUser();
+				if (getModelObject().getCourse().getStaff().getId() == user.getId())
+				{
+					user.setRoles(SocialSiteRoles.staffRole);
+				}
+				else
+				{
+					user.setRoles(SocialSiteRoles.userRole);
+				}
+
 				setResponsePage(new QuestionPage(model));
 			}
 

@@ -41,10 +41,15 @@ public class CourseLink extends Link<Course>
 	@Override
 	public void onClick()
 	{
+		// TODO maybe we should add student role
 		SessionUser user = SocialSiteSession.get().getSessionUser();
 		if (getModelObject().getStaff().getId() == user.getId())
 		{
 			user.setRoles(SocialSiteRoles.staffRole);
+		}
+		else
+		{
+			user.setRoles(SocialSiteRoles.userRole);
 		}
 		setResponsePage(new CoursePage(getModel()));
 	}

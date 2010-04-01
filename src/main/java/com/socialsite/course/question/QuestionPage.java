@@ -18,6 +18,7 @@
 package com.socialsite.course.question;
 
 import org.apache.wicket.MarkupContainer;
+import org.apache.wicket.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
@@ -36,6 +37,7 @@ import com.socialsite.util.DateUtils;
 /**
  * @author Ananth
  */
+@AuthorizeInstantiation( { "USER", "STAFF" })
 public class QuestionPage extends BasePage
 {
 

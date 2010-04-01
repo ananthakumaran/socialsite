@@ -17,6 +17,7 @@
 
 package com.socialsite.course;
 
+import org.apache.wicket.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
@@ -32,6 +33,7 @@ import com.socialsite.user.UsersPanel;
 /**
  * @author Ananth
  */
+@AuthorizeInstantiation( { "USER", "STAFF" })
 public class CoursePage extends BasePage
 {
 	/** spring dao to handle message object */
