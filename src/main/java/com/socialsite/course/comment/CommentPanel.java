@@ -26,7 +26,6 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
-import com.socialsite.SocialSiteSession;
 import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.dao.CommentDao;
 import com.socialsite.persistence.Comment;
@@ -80,7 +79,6 @@ public class CommentPanel extends BasePanel
 			@Override
 			public boolean isVisible()
 			{
-				System.out.println(SocialSiteSession.get().getSessionUser().getRoles().toString());
 				// let the staff and author to delete the comment
 				return (hasRole(SocialSiteRoles.STAFF) || getModelObject().getUser().getId() == getSessionUserId());
 			}
