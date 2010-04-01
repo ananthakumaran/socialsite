@@ -31,7 +31,7 @@
 
 		<many-to-one name="question" column="question_id" class="Question"
 			foreign-key="fk_Answer_question_id_Question_id" />
-		<set name="comments">
+		<set name="comments" cascade="delete">
 			<key column="answer_id" />
 			<one-to-many class="Comment" />
 		</set>
