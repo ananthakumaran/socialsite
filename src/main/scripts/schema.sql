@@ -211,6 +211,7 @@
     create table COURSE (
         id bigint not null auto_increment,
         name varchar(255),
+        description text,
         image mediumblob,
         thumb mediumblob,
         lastModified datetime,
