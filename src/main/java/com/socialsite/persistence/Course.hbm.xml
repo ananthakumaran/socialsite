@@ -24,6 +24,7 @@
 
 		<!-- properties -->
 		<property name="name" type="string" />
+		<property name="description" type="text" />
 		<property name="image" type="binary" length="10000000" />
 		<property name="thumb" type="binary" length="100000" />
 		<property name="lastModified" type="timestamp" />

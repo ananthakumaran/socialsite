@@ -31,6 +31,7 @@ public class Course implements AbstractDomain
 	private long id;
 
 	private String name;
+	private String description;
 	private byte[] image;
 	private byte[] thumb;
 
@@ -229,5 +230,14 @@ public class Course implements AbstractDomain
 		this.university = university;
 	}
 
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
+	}
 
 }
