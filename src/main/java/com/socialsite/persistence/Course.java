@@ -251,4 +251,6 @@ public class Course implements AbstractDomain
 	{
 		return notes;
 	}
+
+
 }

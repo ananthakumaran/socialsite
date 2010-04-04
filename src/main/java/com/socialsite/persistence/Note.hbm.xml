@@ -25,7 +25,7 @@
 		<!-- properties -->
 		<property name="description" type="text" />
 		<property name="time" type="timestamp" />
-		<property name="data" type="binary" length="100000000" />
+		<property name="data" type="binary" length="10485760" />
 		<!--  relations -->
 		<many-to-one name="course" class="Course" column="course_id"
 			foreign-key="fk_Note_course_id_Course_id" />

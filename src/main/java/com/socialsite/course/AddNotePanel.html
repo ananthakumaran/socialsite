@@ -18,12 +18,27 @@
 -->
 
 <html xmlns:wicket>
+<wicket:head>
+	<script src="js/socialsite/course.js"></script>
+</wicket:head>
 <wicket:panel>
+   <a  class="note minibutton"><span>Add note</span></a>
+   <div class="note">
   <form wicket:id="form">
+  	<p>
   	<input wicket:id="file" type="file" >
-	<input wicket:id="description" type="text">
-	<a wicket:id="submit" class="minibutton"><span>Submit</span></a>
+	</p>
+	<p>
+		Description
+	<br />
+	<input class="text" wicket:id="description" type="text">
+	</p>
+	<p>
+	<a wicket:id="submit" class="minibutton marRight"><span>Submit</span></a>
+	<a class="minibutton danger cancel"><span>Cancel</span></a>
+	</p>
   </form>
+  </div>
   <div wicket:id="feedback"></div>
 </wicket:panel>
 </html>

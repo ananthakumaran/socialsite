@@ -25,19 +25,21 @@ import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.markup.html.form.upload.FileUploadField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
-import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
+import com.socialsite.BasePanel;
 import com.socialsite.dao.NoteDao;
 import com.socialsite.persistence.Course;
 import com.socialsite.persistence.Note;
+import com.socialsite.persistence.Staff;
+import com.socialsite.persistence.User;
 
 /**
  * @author Ananth
  */
-public class AddNotePanel extends Panel
+public class AddNotePanel extends BasePanel
 {
 
 	private FileUploadField fileUploadField;
@@ -46,24 +48,40 @@ public class AddNotePanel extends Panel
 	/** feedback panel */
 	FeedbackPanel feedback;
 
+	private final Course course;
 	@SpringBean(name = "noteDao")
 	NoteDao noteDao;
 
 	public AddNotePanel(String id, final IModel<Course> model)
 	{
 		super(id);
-		Form form = new Form("form");
+		this.course = model.getObject();
+		Form<Void> form = new Form<Void>("form");
 		add(form);
 		form.add(fileUploadField = new FileUploadField("file"));
 		form.add(new RequiredTextField<String>("description", new PropertyModel<String>(this,
 				"description")));
 		form.add(new SubmitLink("submit")
 		{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void onSubmit()
 			{
 				final FileUpload upload = fileUploadField.getFileUpload();
-				if (upload != null && upload.getSize() != 0)
+				if (upload == null || upload.getSize() == 0)
+				{
+					error("upload a file");
+				}
+				else if (upload.getSize() > 1024 * 1024)
+				{
+					// TODO change this to 10MB
+					error("file size too large");
+				}
+				else
 				{
 					Note note = new Note();
 					note.setCourse(model.getObject());
@@ -71,12 +89,9 @@ public class AddNotePanel extends Panel
 					note.setDescription(description);
 					note.setData(upload.getBytes());
 					noteDao.save(note);
-				}
-				else
-				{
-					error("upload a file");
-				}
 
+					// TODO send a message to all the student in the course
+				}
 			}
 		});
 
@@ -87,5 +102,16 @@ public class AddNotePanel extends Panel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	@Override
+	public boolean isVisible()
+	{
+		User user = getSessionUser();
+		if (user instanceof Staff)
+		{
+			return ((Staff)user).getCourses().contains(course);
+		}
+		return false;
+	}
 
 }
