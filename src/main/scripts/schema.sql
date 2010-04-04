@@ -76,6 +76,10 @@
         drop 
         foreign key fk_INFO_MSG_sender_id_User_id;
 
+    alter table NOTE 
+        drop 
+        foreign key fk_Note_course_id_Course_id;
+
     alter table Profile 
         drop 
         foreign key fk_Profile_user_id_User_id;
@@ -157,6 +161,8 @@
     drop table if exists INFO_MSG;
 
     drop table if exists MESSAGE;
+
+    drop table if exists NOTE;
 
     drop table if exists Profile;
 
@@ -244,6 +250,15 @@
     create table MESSAGE (
         id bigint not null auto_increment,
         time datetime,
+        primary key (id)
+    );
+
+    create table NOTE (
+        id bigint not null auto_increment,
+        description text,
+        time datetime,
+        data longblob,
+        course_id bigint,
         primary key (id)
     );
 
@@ -437,6 +452,12 @@
         add constraint fk_INFO_MSG_sender_id_User_id 
         foreign key (sender_id) 
         references User (id);
+
+    alter table NOTE 
+        add index fk_Note_course_id_Course_id (course_id), 
+        add constraint fk_Note_course_id_Course_id 
+        foreign key (course_id) 
+        references COURSE (id);
 
     alter table Profile 
         add index fk_Profile_user_id_User_id (user_id), 

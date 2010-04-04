@@ -46,5 +46,6 @@
 		<mapping resource="com/socialsite/persistence/Question.hbm.xml"/>
 		<mapping resource="com/socialsite/persistence/Comment.hbm.xml"/>
 		<mapping resource="com/socialsite/persistence/Activation.hbm.xml"/>
+		<mapping resource="com/socialsite/persistence/Note.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

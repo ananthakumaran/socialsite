@@ -45,6 +45,8 @@ public class Course implements AbstractDomain
 
 	private Set<Question> questions = new HashSet<Question>();
 
+	private Set<Note> notes = new HashSet<Note>();
+
 	public Course()
 	{
 	}
@@ -240,4 +242,13 @@ public class Course implements AbstractDomain
 		this.description = description;
 	}
 
+	public void setNotes(Set<Note> notes)
+	{
+		this.notes = notes;
+	}
+
+	public Set<Note> getNotes()
+	{
+		return notes;
+	}
 }

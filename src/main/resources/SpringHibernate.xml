@@ -212,4 +212,15 @@
 		lazy-init="true">
 		<property name="target" ref="activationDaoTarget" />
 	</bean>
+	
+	<!-- NoteDao -->
+	<bean id="noteDaoTarget" class="com.socialsite.dao.hibernate.NoteDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="noteDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="noteDaoTarget" />
+	</bean>
 </beans>
