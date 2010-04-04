@@ -123,13 +123,9 @@ public class ImagePanel extends BasePanel
 			public String onFileUploaded(final FileUpload upload)
 			{
 
-				if (upload == null)
+				if (upload == null || upload.getSize() == 0)
 				{
 					// No image was provided
-					error("Please upload an image.");
-				}
-				else if (upload.getSize() == 0)
-				{
 					error("Please upload an image.");
 				}
 				else if (!checkContentType(upload.getContentType()))

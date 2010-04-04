@@ -31,6 +31,7 @@ public class Note implements AbstractDomain
 	private byte[] data;
 	private String description;
 	private Date time;
+	private Course course;
 
 	public long getId()
 	{
@@ -70,5 +71,15 @@ public class Note implements AbstractDomain
 	public Date getTime()
 	{
 		return time;
+	}
+
+	public void setCourse(Course course)
+	{
+		this.course = course;
+	}
+
+	public Course getCourse()
+	{
+		return course;
 	}
 }
