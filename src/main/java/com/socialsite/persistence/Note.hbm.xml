@@ -25,6 +25,8 @@
 		<!-- properties -->
 		<property name="description" type="text" />
 		<property name="time" type="timestamp" />
+		<property name="fileName" type="string" />
+		<property name="contentType" type="string" />
 		<property name="data" type="binary" length="10485760" />
 		<!--  relations -->
 		<many-to-one name="course" class="Course" column="course_id"

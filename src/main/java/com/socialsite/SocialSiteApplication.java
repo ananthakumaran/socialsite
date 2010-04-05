@@ -29,6 +29,7 @@ import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import com.socialsite.activation.ActivationPage;
 import com.socialsite.authentication.LoginPage;
 import com.socialsite.authentication.UserRolesAuthorizer;
+import com.socialsite.course.CourseNoteResource;
 import com.socialsite.image.CourseImageResource;
 import com.socialsite.image.ImageType;
 import com.socialsite.image.UniversityImageResource;
@@ -115,6 +116,9 @@ public class SocialSiteApplication extends WebApplication
 		getSharedResources().add(ImageType.UNIVERSITY.name(), new UniversityImageResource());
 		// course image
 		getSharedResources().add(ImageType.COURSE.name(), new CourseImageResource());
+
+		// notes
+		getSharedResources().add("note", new CourseNoteResource());
 
 	}
 

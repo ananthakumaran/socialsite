@@ -32,6 +32,8 @@ public class Note implements AbstractDomain
 	private String description;
 	private Date time;
 	private Course course;
+	private String fileName;
+	private String contentType;
 
 	public long getId()
 	{
@@ -82,4 +84,25 @@ public class Note implements AbstractDomain
 	{
 		return course;
 	}
+
+	public String getFileName()
+	{
+		return fileName;
+	}
+
+	public void setFileName(String fileName)
+	{
+		this.fileName = fileName;
+	}
+
+	public void setContentType(String contentType)
+	{
+		this.contentType = contentType;
+	}
+
+	public String getContentType()
+	{
+		return contentType;
+	}
+
 }

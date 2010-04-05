@@ -16,7 +16,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <div class="line">
             <div class="unit size1of6">
                 <div class="message">
-                    <a  class="img"  href="#"><span ></span></a>
+                    <a wicket:id="image" href="#"><span wicket:id="coursethumb"></span></a>
+                    <div>
+                        <a wicket:id="course" class="img"><span wicket:id="courseName">[course NameF]</span></a>
+                    </div>
                 </div>
             </div>
             <div class="unit size5of6 lastUnit">
@@ -24,17 +27,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     <b><b class="tl"></b><b class="tr"></b></b>
                     <div class="inner roundBorder">
                         <div class="hd fire">
+                            New note Available
                             <div class="right" wicket:id="date">
                                 ugust 13th, 2009 at 23:05
                             </div>
                         </div>
                         <div class="bd">
                             <div class="intro">
+                                <span wicket:id="description">[Description]</span>
                             </div>
                             <div class="padBottom">
-                                <a ><span >[name]</span></a>
-                                joined the <a wicket:id="course"><span wicket:id="courseName">[course NameF]</span></a>
-                                course
+                                <a wicket:id="download" href="#" class="minibutton marTop nobusy" id="nobusy" ><span class="nobusy" >Download</span></a>
                             </div>
                         </div>
                     </div>
@@ -47,5 +50,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         </div>
     </wicket:panel>
 </html>
-
-  

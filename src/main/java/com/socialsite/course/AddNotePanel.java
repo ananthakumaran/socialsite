@@ -95,7 +95,9 @@ public class AddNotePanel extends BasePanel
 					note.setCourse(course);
 					note.setTime(new Date());
 					note.setDescription(description);
+					note.setFileName(upload.getClientFileName());
 					note.setData(upload.getBytes());
+					note.setContentType(upload.getContentType());
 					noteDao.save(note);
 
 					CourseNoteMsg noteMsg = new CourseNoteMsg();

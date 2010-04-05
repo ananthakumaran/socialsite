@@ -273,6 +273,8 @@
         id bigint not null auto_increment,
         description text,
         time datetime,
+        fileName varchar(255),
+        contentType varchar(255),
         data mediumblob,
         course_id bigint,
         primary key (id)
