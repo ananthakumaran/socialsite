@@ -26,6 +26,7 @@ import org.apache.wicket.model.Model;
 import com.socialsite.SocialSiteSession;
 import com.socialsite.dataprovider.MessageDataProvider;
 import com.socialsite.persistence.CourseJoinedMsg;
+import com.socialsite.persistence.CourseNoteMsg;
 import com.socialsite.persistence.FriendRequestMsg;
 import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Message;
@@ -98,6 +99,11 @@ public class MessagePanel extends Panel
 				{
 					item.add(new StaffRequestMsgPanel("message", new Model<StaffRequestMsg>(
 							(StaffRequestMsg)message), messageContainer));
+				}
+				else if (message instanceof CourseNoteMsg)
+				{
+					item.add(new CourseNoteMsgPanel("message", new Model<CourseNoteMsg>(
+							(CourseNoteMsg)message), messageContainer));
 				}
 
 			}

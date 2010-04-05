@@ -1,4 +1,4 @@
-/*
+/**
  *     Copyright SocialSite (C) 2009
  *
  *     This program is free software: you can redistribute it and/or modify
@@ -15,35 +15,38 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+package com.socialsite.persistence;
+
 /**
+ * 
  * @author Ananth
+ * 
  */
-// Main Package of the application
-var SocialSite = SocialSite || {};
-// Home package
-SocialSite.Course = SocialSite.Course || {};
+public class CourseNoteMsg extends Message
+{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Note note;
 
 
-SocialSite.Course.Note = {
-	// attach all the event handler and hide all the event
-	init : function() {
-		$("div.note").hide();
-		$("a.note").click(this.addNoteLinkHandler);
-		$('div.note a.cancel').click(this.cancelLinkHandler);
-	},
-
-	// show the form when the reply link is clicked
-	addNoteLinkHandler : function() {
-		$(this).siblings('div.note').show();
-		return false;
-	},
-	// hide the form when the cancel link is clicked
-	cancelLinkHandler : function() {
-		$(this).parent().parent().parent().hide();
-		return false;
+	public CourseNoteMsg()
+	{
+		// TODO Auto-generated constructor stub
 	}
-};
 
-$().ready(function(){
-		SocialSite.Course.Note.init();
-});
+
+	public void setNote(Note note)
+	{
+		this.note = note;
+	}
+
+
+	public Note getNote()
+	{
+		return note;
+	}
+
+}

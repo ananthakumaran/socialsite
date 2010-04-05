@@ -153,6 +153,16 @@
 		<property name="target" ref="CourseJoinedMsgDaoTarget" />
 	</bean>
 
+	<!-- CourseNoteMsgDao -->
+	<bean id="courseNoteMsgDaoTarget" class="com.socialsite.dao.hibernate.CourseNoteMsgDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="CourseNoteMsgDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="CourseNoteMsgDaoTarget" />
+	</bean>
 	<!-- UniversityDao -->
 	<bean id="universityDaoTarget" class="com.socialsite.dao.hibernate.UniversityDaoImpl"
 		lazy-init="true">

@@ -18,6 +18,7 @@
 package com.socialsite.course;
 
 import java.util.Date;
+import java.util.HashSet;
 
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.RequiredTextField;
@@ -30,8 +31,11 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
+import com.socialsite.dao.MessageDao;
 import com.socialsite.dao.NoteDao;
 import com.socialsite.persistence.Course;
+import com.socialsite.persistence.CourseNoteMsg;
+import com.socialsite.persistence.Message;
 import com.socialsite.persistence.Note;
 import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.User;
@@ -51,6 +55,9 @@ public class AddNotePanel extends BasePanel
 	private final Course course;
 	@SpringBean(name = "noteDao")
 	NoteDao noteDao;
+
+	@SpringBean(name = "messageDao")
+	MessageDao<Message> messageDao;
 
 	public AddNotePanel(String id, final IModel<Course> model)
 	{
@@ -83,14 +90,21 @@ public class AddNotePanel extends BasePanel
 				}
 				else
 				{
+					final Course course = model.getObject();
 					Note note = new Note();
-					note.setCourse(model.getObject());
+					note.setCourse(course);
 					note.setTime(new Date());
 					note.setDescription(description);
 					note.setData(upload.getBytes());
 					noteDao.save(note);
 
-					// TODO send a message to all the student in the course
+					CourseNoteMsg noteMsg = new CourseNoteMsg();
+					noteMsg.setTime(new Date());
+					noteMsg.setNote(note);
+					noteMsg.setUsers(new HashSet<User>(course.getStudents()));
+
+					messageDao.save(noteMsg);
+
 				}
 			}
 		});
