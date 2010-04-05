@@ -89,6 +89,10 @@ public class NewCoursePanel extends BasePanel
 	@Override
 	public boolean isVisible()
 	{
+		if (!hasRole("OWNER"))
+		{
+			return false;
+		}
 		User user = getSessionUser();
 		if (user instanceof Staff)
 		{
