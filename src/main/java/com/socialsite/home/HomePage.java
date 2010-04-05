@@ -66,4 +66,6 @@ public class HomePage extends BasePage
 		super.renderHead(response);
 		response.renderJavascriptReference("js/socialsite/home.js");
 	}
+
+
 }

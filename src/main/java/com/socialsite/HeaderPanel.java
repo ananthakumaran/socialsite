@@ -29,6 +29,7 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
 import com.socialsite.authentication.LogoutPage;
+import com.socialsite.course.UserCoursesPage;
 import com.socialsite.entitymodel.StringWrapper;
 import com.socialsite.friend.FriendsPage;
 import com.socialsite.home.HomePage;
@@ -111,6 +112,22 @@ public class HeaderPanel extends BasePanel
 
 		});
 
+		add(new Link<Void>("courses")
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick()
+			{
+				setUserId(SocialSiteSession.get().getSessionUser().getId());
+				setResponsePage(new UserCoursesPage());
+			}
+
+		});
 
 		add(new BookmarkablePageLink<Object>("logout", LogoutPage.class));
 

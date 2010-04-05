@@ -136,4 +136,13 @@ public class BasePage extends WebPage implements IHeaderContributor
 		return SocialSiteSession.get().getSessionUser().getId();
 	}
 
+	/**
+	 * gets the user id(the visitor id)
+	 * 
+	 * @return visitor id
+	 */
+	public long getUserId()
+	{
+		return SocialSiteSession.get().getUserId();
+	}
 }
