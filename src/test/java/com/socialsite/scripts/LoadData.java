@@ -33,6 +33,7 @@ import com.socialsite.persistence.Course;
 import com.socialsite.persistence.FriendRequestMsg;
 import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Question;
+import com.socialsite.persistence.QuestionInfoMsg;
 import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.Student;
 import com.socialsite.persistence.University;
@@ -261,6 +262,16 @@ public class LoadData extends AbstractDaoTestHelper
 		final Question question2 = new Question("sample Question2", course1, user1);
 		question2.setText("This is a sample Question2");
 		saveQuestion(question1, question2);
+
+		final QuestionInfoMsg questioninfoMsg1 = new QuestionInfoMsg();
+		questioninfoMsg1.setQuestion(question1);
+		questioninfoMsg1.setUsers(new HashSet<User>(course1.getStudents()));
+		questioninfoMsg1.setTime(new Date());
+		final QuestionInfoMsg questioninfoMsg2 = new QuestionInfoMsg();
+		questioninfoMsg2.setQuestion(question2);
+		questioninfoMsg2.setUsers(new HashSet<User>(course1.getStudents()));
+		questioninfoMsg2.setTime(new Date());
+		saveMessage(questioninfoMsg1, questioninfoMsg2);
 
 
 		// Answers
