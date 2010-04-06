@@ -24,9 +24,12 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
+import com.socialsite.SocialSiteSession;
 import com.socialsite.authentication.SocialSiteRoles;
 import com.socialsite.dao.MessageDao;
+import com.socialsite.dao.UserDao;
 import com.socialsite.persistence.Message;
+import com.socialsite.persistence.User;
 
 
 public class DeleteMsgLink<T extends Message> extends AjaxLink<T>
@@ -35,6 +38,9 @@ public class DeleteMsgLink<T extends Message> extends AjaxLink<T>
 	/** spring dao to handle message object */
 	@SpringBean(name = "messageDao")
 	private MessageDao<Message> messageDao;
+
+	@SpringBean(name = "userDao")
+	private UserDao<User> userDao;
 
 	MarkupContainer dependent;
 	BasePanel panel;
@@ -72,7 +78,10 @@ public class DeleteMsgLink<T extends Message> extends AjaxLink<T>
 	public void onClick(final AjaxRequestTarget target)
 	{
 
-		messageDao.delete(getModelObject());
+		Message msg = messageDao.load(getModelObject().getId());
+		User user = userDao.load((SocialSiteSession.get().getSessionUser().getId()));
+		msg.removeUser(user);
+		messageDao.save(msg);
 		target.addComponent(dependent);
 		panel.firePostAjaxUpdateEvent(target);
 	}

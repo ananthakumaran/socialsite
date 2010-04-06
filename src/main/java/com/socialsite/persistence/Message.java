@@ -49,6 +49,11 @@ public abstract class Message implements AbstractDomain
 		getUsers().add(user);
 	}
 
+	public void removeUser(final User user)
+	{
+		getUsers().remove(user);
+	}
+
 	public long getId()
 	{
 		return id;
