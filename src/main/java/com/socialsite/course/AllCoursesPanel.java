@@ -67,7 +67,7 @@ public class AllCoursesPanel extends BasePanel
 			dataProvider = new UniversityCourseDataProvider(((Admin)user).getUniversity().getId());
 		}
 
-		final DataView<Course> friendList = new DataView<Course>("courses", dataProvider, 12)
+		final DataView<Course> courseList = new DataView<Course>("courses", dataProvider, 12)
 		{
 			/**
 			 * 
@@ -91,7 +91,7 @@ public class AllCoursesPanel extends BasePanel
 
 		};
 
-		add(new PagingNavigator("paging", friendList));
-		add(friendList);
+		add(new PagingNavigator("paging", courseList));
+		add(courseList);
 	}
 }

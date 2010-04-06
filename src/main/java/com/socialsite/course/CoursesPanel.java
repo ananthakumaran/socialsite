@@ -23,7 +23,6 @@ import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 
-import com.socialsite.friend.FriendsPage;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
 import com.socialsite.persistence.Course;
@@ -76,8 +75,7 @@ public class CoursesPanel extends Panel
 			}
 		};
 		add(courseView);
-		// TODO create a page for courses
 		add(new ShowAllLink<Course>("showall", courseView.getDataProvider().size(),
-				FriendsPage.class));
+				UserCoursesPage.class));
 	}
 }
