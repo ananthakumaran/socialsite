@@ -79,7 +79,7 @@ public class DeleteMsgLink<T extends Message> extends AjaxLink<T>
 	{
 
 		Message msg = messageDao.load(getModelObject().getId());
-		User user = userDao.load((SocialSiteSession.get().getSessionUser().getId()));
+		User user = userDao.load((SocialSiteSession.get().getUserId()));
 		msg.removeUser(user);
 		messageDao.save(msg);
 		target.addComponent(dependent);
