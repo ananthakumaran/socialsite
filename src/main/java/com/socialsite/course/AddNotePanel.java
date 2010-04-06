@@ -31,6 +31,7 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
+import com.socialsite.dao.CourseDao;
 import com.socialsite.dao.MessageDao;
 import com.socialsite.dao.NoteDao;
 import com.socialsite.persistence.Course;
@@ -58,6 +59,9 @@ public class AddNotePanel extends BasePanel
 
 	@SpringBean(name = "messageDao")
 	MessageDao<Message> messageDao;
+
+	@SpringBean(name = "courseDao")
+	CourseDao courseDao;
 
 	public AddNotePanel(String id, final IModel<Course> model)
 	{
@@ -90,7 +94,7 @@ public class AddNotePanel extends BasePanel
 				}
 				else
 				{
-					final Course course = model.getObject();
+					final Course course = courseDao.load(model.getObject().getId());
 					Note note = new Note();
 					note.setCourse(course);
 					note.setTime(new Date());
