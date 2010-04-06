@@ -32,7 +32,7 @@
 		<property name="text" type="text" />
 
 		<!-- relations -->
-
+	
 		<many-to-one name="course" column="course_id" class="Course"
 			foreign-key="fk_Question_course_id_Course_id" />
 		<many-to-one name="user" column="user_id" class="User"

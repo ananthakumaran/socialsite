@@ -17,6 +17,9 @@
 
 package com.socialsite.course.question;
 
+import java.util.Date;
+import java.util.HashSet;
+
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
@@ -28,9 +31,13 @@ import org.apache.wicket.model.PropertyModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.BasePanel;
+import com.socialsite.dao.MessageDao;
 import com.socialsite.dao.QuestionDao;
 import com.socialsite.persistence.Course;
+import com.socialsite.persistence.Message;
 import com.socialsite.persistence.Question;
+import com.socialsite.persistence.QuestionInfoMsg;
+import com.socialsite.persistence.User;
 import com.socialsite.util.wmd.RichEditor;
 
 /**
@@ -47,6 +54,9 @@ public class AddQuestionPanel extends BasePanel
 
 	@SpringBean(name = "questionDao")
 	private QuestionDao questionDao;
+
+	@SpringBean(name = "messageDao")
+	private MessageDao<Message> messageDao;
 
 	/** feedback panel */
 	FeedbackPanel feedback;
@@ -89,6 +99,14 @@ public class AddQuestionPanel extends BasePanel
 				question.setCourse(course);
 				question.setUser(getSessionUser());
 				questionDao.save(question);
+
+				QuestionInfoMsg infoMsg = new QuestionInfoMsg();
+				infoMsg.setQuestion(question);
+				infoMsg.setTime(new Date());
+				infoMsg.setUsers(new HashSet<User>(course.getStudents()));
+				messageDao.save(infoMsg);
+
+
 				// update the related contents
 				target.addComponent(dependent);
 				target.addComponent(feedback);

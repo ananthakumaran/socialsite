@@ -44,6 +44,7 @@ public class Question implements AbstractDomain
 	private Set<Answer> answers = new HashSet<Answer>();
 	private Date time;
 
+
 	public Question()
 	{
 	}
@@ -138,4 +139,5 @@ public class Question implements AbstractDomain
 	{
 		this.user = user;
 	}
+
 }

@@ -26,7 +26,7 @@
 		<property name="time" type="timestamp" />
 
 		<!-- relations -->
-		<set name="users" table="message_user">
+		<set name="users" table="message_user" cascade="delete">
 			<key column="message_id" foreign-key="message_user_message_id_Message_id"
 				not-null="true" />
 			<many-to-many class="User" column="user_id"
@@ -72,11 +72,11 @@
 				foreign-key="fk_INFO_MSG_sender_id_User_id" />
 		</joined-subclass>
 
-		<joined-subclass name="CourseNoteMsg" table="COURSE_NOTE_MSG">
-			<key column="id" />
+		<joined-subclass name="QuestionInfoMsg" table="QUESTION_INFO_MSG" >
+			<key column="id" >				
+			</key>
 			<!-- relations -->
-			<many-to-one name="note" column="note_id" class="Note"
-				foreign-key="fk_COURSE_NOTE_MSG_note_id_Note_id" />
+			<many-to-one name="question" column="question_id" class="Question"  foreign-key="fk_Question_QuestionInfoMsg_id_question_id" />
 		</joined-subclass>
 
 	</class>

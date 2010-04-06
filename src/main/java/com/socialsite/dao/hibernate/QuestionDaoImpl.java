@@ -17,15 +17,19 @@
 
 package com.socialsite.dao.hibernate;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import com.socialsite.dao.QuestionDao;
 import com.socialsite.persistence.Question;
+import com.socialsite.persistence.QuestionInfoMsg;
+import com.socialsite.persistence.User;
 
 /**
  * 
@@ -73,5 +77,18 @@ public class QuestionDaoImpl extends AbstractDaoImpl<Question> implements Questi
 		criteria.setProjection(Projections.rowCount());
 		return (Integer)criteria.uniqueResult();
 	}
+
+	@Override
+	public void delete(Question object)
+	{
+		Query query = getSession().createQuery("from QuestionInfoMsg m where m.question.id = :id")
+				.setParameter("id", object.getId());
+		QuestionInfoMsg msg = (QuestionInfoMsg)query.uniqueResult();
+		msg.setUsers(new HashSet<User>());
+		getSession().saveOrUpdate(msg);
+		getSession().delete(msg);
+		super.delete(object);
+	}
+
 
 }

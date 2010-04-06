@@ -60,14 +60,6 @@
         drop 
         foreign key fk_COURSE_JOINED_MSG_course_id_Course_id;
 
-    alter table COURSE_NOTE_MSG 
-        drop 
-        foreign key FK90948538E1E64E06;
-
-    alter table COURSE_NOTE_MSG 
-        drop 
-        foreign key fk_COURSE_NOTE_MSG_note_id_Note_id;
-
     alter table FRIEND_REQUEST_MSG 
         drop 
         foreign key FKED4A6970E1E64E06;
@@ -99,6 +91,14 @@
     alter table QUESTION 
         drop 
         foreign key fk_Question_course_id_Course_id;
+
+    alter table QUESTION_INFO_MSG 
+        drop 
+        foreign key FKF28DB889E1E64E06;
+
+    alter table QUESTION_INFO_MSG 
+        drop 
+        foreign key fk_Question_QuestionInfoMsg_id_question_id;
 
     alter table STAFF 
         drop 
@@ -164,8 +164,6 @@
 
     drop table if exists COURSE_JOINED_MSG;
 
-    drop table if exists COURSE_NOTE_MSG;
-
     drop table if exists FRIEND_REQUEST_MSG;
 
     drop table if exists INFO_MSG;
@@ -177,6 +175,8 @@
     drop table if exists Profile;
 
     drop table if exists QUESTION;
+
+    drop table if exists QUESTION_INFO_MSG;
 
     drop table if exists STAFF;
 
@@ -240,12 +240,6 @@
         id bigint not null,
         sender_id bigint,
         course_id bigint,
-        primary key (id)
-    );
-
-    create table COURSE_NOTE_MSG (
-        id bigint not null,
-        note_id bigint,
         primary key (id)
     );
 
@@ -324,6 +318,12 @@
         text text,
         course_id bigint,
         user_id bigint,
+        primary key (id)
+    );
+
+    create table QUESTION_INFO_MSG (
+        id bigint not null,
+        question_id bigint,
         primary key (id)
     );
 
@@ -447,18 +447,6 @@
         foreign key (course_id) 
         references COURSE (id);
 
-    alter table COURSE_NOTE_MSG 
-        add index FK90948538E1E64E06 (id), 
-        add constraint FK90948538E1E64E06 
-        foreign key (id) 
-        references MESSAGE (id);
-
-    alter table COURSE_NOTE_MSG 
-        add index fk_COURSE_NOTE_MSG_note_id_Note_id (note_id), 
-        add constraint fk_COURSE_NOTE_MSG_note_id_Note_id 
-        foreign key (note_id) 
-        references NOTE (id);
-
     alter table FRIEND_REQUEST_MSG 
         add index FKED4A6970E1E64E06 (id), 
         add constraint FKED4A6970E1E64E06 
@@ -506,6 +494,18 @@
         add constraint fk_Question_course_id_Course_id 
         foreign key (course_id) 
         references COURSE (id);
+
+    alter table QUESTION_INFO_MSG 
+        add index FKF28DB889E1E64E06 (id), 
+        add constraint FKF28DB889E1E64E06 
+        foreign key (id) 
+        references MESSAGE (id);
+
+    alter table QUESTION_INFO_MSG 
+        add index fk_Question_QuestionInfoMsg_id_question_id (question_id), 
+        add constraint fk_Question_QuestionInfoMsg_id_question_id 
+        foreign key (question_id) 
+        references QUESTION (id);
 
     alter table STAFF 
         add index FK4B8CAC0E8BA0282 (id), 

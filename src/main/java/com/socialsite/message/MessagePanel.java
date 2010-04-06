@@ -17,6 +17,9 @@
 
 package com.socialsite.message;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.markup.repeater.Item;
@@ -30,6 +33,7 @@ import com.socialsite.persistence.CourseNoteMsg;
 import com.socialsite.persistence.FriendRequestMsg;
 import com.socialsite.persistence.InfoMsg;
 import com.socialsite.persistence.Message;
+import com.socialsite.persistence.QuestionInfoMsg;
 import com.socialsite.persistence.StaffRequestMsg;
 
 /**
@@ -105,7 +109,16 @@ public class MessagePanel extends Panel
 					item.add(new CourseNoteMsgPanel("message", new Model<CourseNoteMsg>(
 							(CourseNoteMsg)message), messageContainer));
 				}
-
+				else if (message instanceof QuestionInfoMsg)
+				{
+					item.add(new QuestionInfoMsgPanel("message", new Model<QuestionInfoMsg>(
+							(QuestionInfoMsg)message), messageContainer));
+				}
+				else
+				{
+					Logger.getLogger(getClass().getName()).log(Level.SEVERE,
+							message.getClass().getName());
+				}
 			}
 		};
 

@@ -148,9 +148,9 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="CourseJoinedMsgDao" parent="transactionProxyTemplate"
+	<bean id="courseJoinedMsgDao" parent="transactionProxyTemplate"
 		lazy-init="true">
-		<property name="target" ref="CourseJoinedMsgDaoTarget" />
+		<property name="target" ref="courseJoinedMsgDaoTarget" />
 	</bean>
 
 	<!-- CourseNoteMsgDao -->
@@ -159,9 +159,20 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="CourseNoteMsgDao" parent="transactionProxyTemplate"
+	<bean id="courseNoteMsgDao" parent="transactionProxyTemplate"
 		lazy-init="true">
-		<property name="target" ref="CourseNoteMsgDaoTarget" />
+		<property name="target" ref="courseNoteMsgDaoTarget" />
+	</bean>
+	
+	<!-- QuestionInfoMsgDao -->
+	<bean id="questionInfoMsgDaoTarget" class="com.socialsite.dao.hibernate.QuestionInfoMsgDaoImpl"
+		lazy-init="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="questionInfoMsgDao" parent="transactionProxyTemplate"
+		lazy-init="true">
+		<property name="target" ref="questionInfoMsgDaoTarget" />
 	</bean>
 	<!-- UniversityDao -->
 	<bean id="universityDaoTarget" class="com.socialsite.dao.hibernate.UniversityDaoImpl"
