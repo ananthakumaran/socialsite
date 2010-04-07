@@ -1,0 +1,807 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>socialsite - CPD Results</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            SocialSite
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2010-04-07
+                      </div>
+            <div class="xright">      
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Project Hosting Information</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://github.com/ananthakumaran/socialsite" class="externalLink">Github project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://kenai.com/projects/socialsite" class="externalLink">kenai project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="https://www.ohloh.net/p/social-site" class="externalLink">ohloh project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://kenai.com/projects/socialsite/forums" class="externalLink">forum</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="cobertura/index.html">Cobertura Test Coverage</a>
+          </li>
+                  
+    <li class="none">
+              <strong>CPD Report</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="findbugs.html">FindBugs Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="jxr.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="testapidocs/index.html">Test JavaDocs</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>CPD Results</h2>
+<p>The following document contains the results of PMD's  <a href="http://pmd.sourceforge.net/cpd.html" class="externalLink">CPD</a> 4.2.2.</p>
+</div>
+<div class="section"><h2>Duplications</h2>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/question/QuestionPanel.java</td>
+<td><a href="./xref/com/socialsite/course/question/QuestionPanel.html#60">60</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/message/QuestionInfoMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/QuestionInfoMsgPanel.html#49">49</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final Question question = infoMsg.getQuestion();
+
+		final User user = question.getUser();
+
+		// user image
+		UserLink&lt;User&gt; userImageLink;
+		final Model&lt;User&gt; senderModel = new Model&lt;User&gt;(user);
+		add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, senderModel));
+		userImageLink.add(new ImagePanel(&quot;userthumb&quot;, user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link&lt;User&gt; name;
+		add(name = new UserLink&lt;User&gt;(&quot;home&quot;, senderModel));
+		name.add(new Label(&quot;username&quot;, user.getUserName()));
+
+
+		add(new Label(&quot;date&quot;, DateUtils.relativeTime(question.getTime())));
+
+		final Model&lt;Question&gt; questionModel = new Model&lt;Question&gt;(question);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/question/QuestionPage.java</td>
+<td><a href="./xref/com/socialsite/course/question/QuestionPage.html#58">58</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/message/QuestionInfoMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/QuestionInfoMsgPanel.html#51">51</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final User user = question.getUser();
+
+		// user image
+		UserLink&lt;User&gt; userImageLink;
+		final Model&lt;User&gt; senderModel = new Model&lt;User&gt;(user);
+		add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, senderModel));
+		userImageLink.add(new ImagePanel(&quot;userthumb&quot;, user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link&lt;User&gt; name;
+		add(name = new UserLink&lt;User&gt;(&quot;home&quot;, senderModel));
+		name.add(new Label(&quot;username&quot;, user.getUserName()));
+
+
+		add(new Label(&quot;date&quot;, DateUtils.relativeTime(question.getTime())));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/answer/AnswerPanel.java</td>
+<td><a href="./xref/com/socialsite/course/answer/AnswerPanel.html#59">59</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/course/question/QuestionPanel.java</td>
+<td><a href="./xref/com/socialsite/course/question/QuestionPanel.html#62">62</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final User user = question.getUser();
+
+		// user image
+		UserLink&lt;User&gt; userImageLink;
+		final Model&lt;User&gt; senderModel = new Model&lt;User&gt;(user);
+		add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, senderModel));
+		userImageLink.add(new ImagePanel(&quot;userthumb&quot;, user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link&lt;User&gt; name;
+		add(name = new UserLink&lt;User&gt;(&quot;home&quot;, senderModel));
+		name.add(new Label(&quot;username&quot;, user.getUserName()));
+
+
+		add(new Label(&quot;date&quot;, DateUtils.relativeTime(question.getTime())));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/answer/AnswerPanel.java</td>
+<td><a href="./xref/com/socialsite/course/answer/AnswerPanel.html#59">59</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/course/question/QuestionPage.java</td>
+<td><a href="./xref/com/socialsite/course/question/QuestionPage.html#58">58</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		add(new Label(&quot;question&quot;, question.getText()).setEscapeModelStrings(false));
+
+		// user image
+		UserLink&lt;User&gt; userImageLink;
+		final Model&lt;User&gt; senderModel = new Model&lt;User&gt;(user);
+		add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, senderModel));
+		userImageLink.add(new ImagePanel(&quot;userthumb&quot;, user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link&lt;User&gt; name;
+		add(name = new UserLink&lt;User&gt;(&quot;home&quot;, senderModel));
+		name.add(new Label(&quot;username&quot;, user.getUserName()));
+
+
+		add(new Label(&quot;date&quot;, DateUtils.relativeTime(question.getTime())));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/profile/BasicFormPanel.java</td>
+<td><a href="./xref/com/socialsite/profile/BasicFormPanel.html#77">77</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/profile/PersonalFormPanel.java</td>
+<td><a href="./xref/com/socialsite/profile/PersonalFormPanel.html#66">66</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		form.add(new TextArea&lt;String&gt;(&quot;aboutMe&quot;));
+		form.add(new AjaxSubmitLink(&quot;save&quot;)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+
+			@Override
+			protected void onError(final AjaxRequestTarget target, final Form&lt;?&gt; form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form&lt;?&gt; form)
+			{
+				profileDao.save(profile);
+				target.appendJavascript(&quot;SocialSite.Message.show('profile updated')&quot;);
+				// remove old feedback message
+				target.addComponent(feedback);
+			}
+		});
+		add(feedback = new FeedbackPanel(&quot;feedback&quot;));
+		feedback.setOutputMarkupId(true);
+	}
+
+}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/message/CourseJoinedMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/CourseJoinedMsgPanel.html#53">53</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/message/InfoMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/InfoMsgPanel.html#78">78</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final User sender = infoMsg.getSender();
+
+		// user image
+		UserLink&lt;User&gt; userImageLink;
+		final Model&lt;User&gt; senderModel = new Model&lt;User&gt;(sender);
+		add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, senderModel));
+		userImageLink.add(new ImagePanel(&quot;userthumb&quot;, sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));
+		Link&lt;User&gt; name;
+		add(name = new UserLink&lt;User&gt;(&quot;home&quot;, senderModel));
+		name.add(new Label(&quot;username&quot;, sender.getUserName()));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/message/FriendRequestMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/FriendRequestMsgPanel.html#67">67</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/message/StaffRequestMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/StaffRequestMsgPanel.html#66">66</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final User sender = staffRequestMsg.getSender();
+		// user image
+		UserLink&lt;User&gt; userImageLink;
+		final Model&lt;User&gt; senderModel = new Model&lt;User&gt;(sender);
+		add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, senderModel));
+		userImageLink.add(new ImagePanel(&quot;userthumb&quot;, sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));
+		add(user = new UserLink&lt;User&gt;(&quot;user&quot;, new Model&lt;User&gt;(staffRequestMsg.getSender())));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/question/QuestionPanel.java</td>
+<td><a href="./xref/com/socialsite/course/question/QuestionPanel.html#77">77</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/message/QuestionInfoMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/QuestionInfoMsgPanel.html#68">68</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final Link&lt;Question&gt; questionLink = new Link&lt;Question&gt;(&quot;questionlink&quot;, questionModel)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick()
+			{
+				SessionUser user = SocialSiteSession.get().getSessionUser();
+				if (getModelObject().getCourse().getStaff().getId() == user.getId())
+				{
+					user.setRoles(SocialSiteRoles.staffRole);
+				}
+				else
+				{
+					user.setRoles(SocialSiteRoles.userRole);
+				}
+
+				setResponsePage(new QuestionPage(questionModel));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/message/FriendRequestMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/FriendRequestMsgPanel.html#67">67</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/message/InfoMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/InfoMsgPanel.html#78">78</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final User sender = infoMsg.getSender();
+
+		// user image
+		UserLink&lt;User&gt; userImageLink;
+		final Model&lt;User&gt; senderModel = new Model&lt;User&gt;(sender);
+		add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, senderModel));
+		userImageLink.add(new ImagePanel(&quot;userthumb&quot;, sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/persistence/Course.java</td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#188">188</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/persistence/University.java</td>
+<td><a href="./xref/com/socialsite/persistence/University.html#136">136</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setImage(final byte[] image)
+	{
+		this.image = image;
+	}
+
+	public void setLastModified(final Date lastModified)
+	{
+		this.lastModified = lastModified;
+	}
+
+	public void setName(final String name)
+	{
+		this.name = name;
+	}
+
+	public void setStaffs(final Set&lt;Staff&gt; staffs)</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/message/CourseJoinedMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/CourseJoinedMsgPanel.html#53">53</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/message/StaffRequestMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/StaffRequestMsgPanel.html#66">66</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final User sender = friendRequestMsg.getSender();
+		// user image
+		UserLink&lt;User&gt; userImageLink;
+		final Model&lt;User&gt; senderModel = new Model&lt;User&gt;(sender);
+		add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, senderModel));
+		userImageLink.add(new ImagePanel(&quot;userthumb&quot;, sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/friend/AllFriendsPanel.java</td>
+<td><a href="./xref/com/socialsite/friend/AllFriendsPanel.html#52">52</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/user/UsersPanel.java</td>
+<td><a href="./xref/com/socialsite/user/UsersPanel.html#47">47</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		final DataView&lt;User&gt; userList = new DataView&lt;User&gt;(&quot;users&quot;, dataProvider, 9)
+		{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected void populateItem(final Item&lt;User&gt; item)
+			{
+				final User user = item.getModelObject();
+				UserLink&lt;User&gt; userImageLink;
+				item.add(userImageLink = new UserLink&lt;User&gt;(&quot;imagelink&quot;, item.getModel()));
+				userImageLink.add(new ImagePanel(&quot;userthumb&quot;, user.getId(), ImageType.USER, user</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/persistence/Comment.java</td>
+<td><a href="./xref/com/socialsite/persistence/Comment.html#75">75</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/persistence/Question.java</td>
+<td><a href="./xref/com/socialsite/persistence/Question.html#121">121</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setText(final String text)
+	{
+		this.text = text;
+	}
+
+	public void setTime(final Date time)
+	{
+		this.time = time;
+	}
+
+	public void setUser(final User user)
+	{
+		this.user = user;
+	}
+
+}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/profile/BasicFormPanel.java</td>
+<td><a href="./xref/com/socialsite/profile/BasicFormPanel.html#57">57</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/profile/EducationFormPanel.java</td>
+<td><a href="./xref/com/socialsite/profile/EducationFormPanel.html#52">52</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	public EducationFormPanel(final String id)
+	{
+		super(id);
+		profile = getSessionUser().getProfile();
+		setOutputMarkupId(true);
+		final Form&lt;Profile&gt; form = new Form&lt;Profile&gt;(&quot;form&quot;, new CompoundPropertyModel&lt;Profile&gt;(
+				profile));
+		add(form);
+		form.add(new TextField&lt;String&gt;(&quot;college&quot;));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/answer/AddAnswerPanel.java</td>
+<td><a href="./xref/com/socialsite/course/answer/AddAnswerPanel.html#62">62</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/course/question/AddQuestionPanel.java</td>
+<td><a href="./xref/com/socialsite/course/question/AddQuestionPanel.html#77">77</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		form.add(new AjaxSubmitLink(&quot;send&quot;)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected void onError(final AjaxRequestTarget target, final Form&lt;?&gt; form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form&lt;?&gt; form)
+			{
+
+				final User sender = getSessionUser();</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/answer/AddAnswerPanel.java</td>
+<td><a href="./xref/com/socialsite/course/answer/AddAnswerPanel.html#62">62</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/profile/ContactFormPanel.java</td>
+<td><a href="./xref/com/socialsite/profile/ContactFormPanel.html#75">75</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		form.add(new AjaxSubmitLink(&quot;save&quot;)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+
+			@Override
+			protected void onError(final AjaxRequestTarget target, final Form&lt;?&gt; form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form&lt;?&gt; form)
+			{</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/profile/BasicFormPanel.java</td>
+<td><a href="./xref/com/socialsite/profile/BasicFormPanel.html#57">57</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/profile/PersonalFormPanel.java</td>
+<td><a href="./xref/com/socialsite/profile/PersonalFormPanel.html#51">51</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	public PersonalFormPanel(final String id)
+	{
+		super(id);
+		profile = getSessionUser().getProfile();
+		setOutputMarkupId(true);
+		final Form&lt;Profile&gt; form = new Form&lt;Profile&gt;(&quot;form&quot;, new CompoundPropertyModel&lt;Profile&gt;(
+				profile));
+		add(form);
+		form.add(new TextArea&lt;String&gt;(&quot;activities&quot;));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/answer/AddAnswerPanel.java</td>
+<td><a href="./xref/com/socialsite/course/answer/AddAnswerPanel.html#55">55</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/course/comment/AddCommentPanel.java</td>
+<td><a href="./xref/com/socialsite/course/comment/AddCommentPanel.html#55">55</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	public AddCommentPanel(final String id, final IModel&lt;Answer&gt; model,
+			final MarkupContainer dependent)
+	{
+		super(id, model);
+		final Form&lt;Void&gt; form = new Form&lt;Void&gt;(&quot;form&quot;);
+		add(form);
+		form.add(new RichEditor(&quot;richeditor&quot;, new PropertyModel&lt;String&gt;(this, &quot;text&quot;)));
+		final AjaxSubmitLink addComment = new AjaxSubmitLink(&quot;addcomment&quot;)</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/persistence/Course.java</td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#85">85</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/persistence/University.java</td>
+<td><a href="./xref/com/socialsite/persistence/University.html#61">61</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		staff.setUniversity(this);
+	}
+
+	/**
+	 * changes the profile image
+	 * 
+	 * @param image
+	 *            image data in byte[]
+	 */
+	public void changeImage(final byte[] image)
+	{
+		this.image = image;
+		setLastModified(new Date());
+	}
+
+	/**
+	 * changes the thumb
+	 * 
+	 * @param thumb
+	 *            thumb data in byte[]
+	 */
+	public void changeThumb(final byte[] thumb)
+	{
+		this.thumb = thumb;
+		setLastModified(new Date());
+	}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/course/answer/AddAnswerPanel.java</td>
+<td><a href="./xref/com/socialsite/course/answer/AddAnswerPanel.html#70">70</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/message/InfoMsgPanel.java</td>
+<td><a href="./xref/com/socialsite/message/InfoMsgPanel.html#123">123</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>			@Override
+			protected void onError(final AjaxRequestTarget target, final Form&lt;?&gt; form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form&lt;?&gt; form)
+			{</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>com/socialsite/BasePage.java</td>
+<td><a href="./xref/com/socialsite/BasePage.html#100">100</a></td>
+</tr>
+<tr class="a"><td>com/socialsite/BasePanel.java</td>
+<td><a href="./xref/com/socialsite/BasePanel.html#160">160</a></td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	}
+
+	/**
+	 * set the user id in the session and also sets the roles in the session
+	 * 
+	 * @param userId
+	 *            user id
+	 */
+	public void setUserId(final long userId)
+	{
+		final SocialSiteSession session = SocialSiteSession.get();
+		// set the user id
+		session.setUserId(userId);
+		// set the roles
+		session.getSessionUser().setRoles(
+				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
+	}</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2009-2010
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

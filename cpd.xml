@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+<duplication lines="18" tokens="130">
+<file line="60" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/question/QuestionPanel.java"/>
+<file line="49" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/QuestionInfoMsgPanel.java"/>
+<codefragment>
+<![CDATA[
+		final Question question = infoMsg.getQuestion();
+
+		final User user = question.getUser();
+
+		// user image
+		UserLink<User> userImageLink;
+		final Model<User> senderModel = new Model<User>(user);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link<User> name;
+		add(name = new UserLink<User>("home", senderModel));
+		name.add(new Label("username", user.getUserName()));
+
+
+		add(new Label("date", DateUtils.relativeTime(question.getTime())));
+
+		final Model<Question> questionModel = new Model<Question>(question);
+]]>
+</codefragment>
+</duplication>
+<duplication lines="14" tokens="119">
+<file line="58" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/question/QuestionPage.java"/>
+<file line="62" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/question/QuestionPanel.java"/>
+<codefragment>
+<![CDATA[
+		final User user = question.getUser();
+
+		// user image
+		UserLink<User> userImageLink;
+		final Model<User> senderModel = new Model<User>(user);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link<User> name;
+		add(name = new UserLink<User>("home", senderModel));
+		name.add(new Label("username", user.getUserName()));
+
+
+		add(new Label("date", DateUtils.relativeTime(question.getTime())));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="14" tokens="114">
+<file line="59" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/answer/AnswerPanel.java"/>
+<file line="62" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/question/QuestionPanel.java"/>
+<codefragment>
+<![CDATA[
+		final User user = question.getUser();
+
+		// user image
+		UserLink<User> userImageLink;
+		final Model<User> senderModel = new Model<User>(user);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link<User> name;
+		add(name = new UserLink<User>("home", senderModel));
+		name.add(new Label("username", user.getUserName()));
+
+
+		add(new Label("date", DateUtils.relativeTime(question.getTime())));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="14" tokens="111">
+<file line="59" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/answer/AnswerPanel.java"/>
+<file line="58" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/question/QuestionPage.java"/>
+<codefragment>
+<![CDATA[
+		add(new Label("question", question.getText()).setEscapeModelStrings(false));
+
+		// user image
+		UserLink<User> userImageLink;
+		final Model<User> senderModel = new Model<User>(user);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
+				.getLastModified(), true));
+		Link<User> name;
+		add(name = new UserLink<User>("home", senderModel));
+		name.add(new Label("username", user.getUserName()));
+
+
+		add(new Label("date", DateUtils.relativeTime(question.getTime())));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="32" tokens="109">
+<file line="77" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/BasicFormPanel.java"/>
+<file line="73" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/ContactFormPanel.java"/>
+<file line="60" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/EducationFormPanel.java"/>
+<file line="66" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/PersonalFormPanel.java"/>
+<codefragment>
+<![CDATA[
+		form.add(new TextArea<String>("aboutMe"));
+		form.add(new AjaxSubmitLink("save")
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+
+			@Override
+			protected void onError(final AjaxRequestTarget target, final Form<?> form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
+			{
+				profileDao.save(profile);
+				target.appendJavascript("SocialSite.Message.show('profile updated')");
+				// remove old feedback message
+				target.addComponent(feedback);
+			}
+		});
+		add(feedback = new FeedbackPanel("feedback"));
+		feedback.setOutputMarkupId(true);
+	}
+
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="11" tokens="101">
+<file line="53" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/CourseJoinedMsgPanel.java"/>
+<file line="78" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/InfoMsgPanel.java"/>
+<codefragment>
+<![CDATA[
+		final User sender = infoMsg.getSender();
+
+		// user image
+		UserLink<User> userImageLink;
+		final Model<User> senderModel = new Model<User>(sender);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));
+		Link<User> name;
+		add(name = new UserLink<User>("home", senderModel));
+		name.add(new Label("username", sender.getUserName()));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="8" tokens="85">
+<file line="67" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/FriendRequestMsgPanel.java"/>
+<file line="66" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/StaffRequestMsgPanel.java"/>
+<codefragment>
+<![CDATA[
+		final User sender = staffRequestMsg.getSender();
+		// user image
+		UserLink<User> userImageLink;
+		final Model<User> senderModel = new Model<User>(sender);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));
+		add(user = new UserLink<User>("user", new Model<User>(staffRequestMsg.getSender())));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="22" tokens="79">
+<file line="77" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/question/QuestionPanel.java"/>
+<file line="68" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/QuestionInfoMsgPanel.java"/>
+<codefragment>
+<![CDATA[
+		final Link<Question> questionLink = new Link<Question>("questionlink", questionModel)
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			public void onClick()
+			{
+				SessionUser user = SocialSiteSession.get().getSessionUser();
+				if (getModelObject().getCourse().getStaff().getId() == user.getId())
+				{
+					user.setRoles(SocialSiteRoles.staffRole);
+				}
+				else
+				{
+					user.setRoles(SocialSiteRoles.userRole);
+				}
+
+				setResponsePage(new QuestionPage(questionModel));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="8" tokens="67">
+<file line="67" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/FriendRequestMsgPanel.java"/>
+<file line="78" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/InfoMsgPanel.java"/>
+<codefragment>
+<![CDATA[
+		final User sender = infoMsg.getSender();
+
+		// user image
+		UserLink<User> userImageLink;
+		final Model<User> senderModel = new Model<User>(sender);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="23" tokens="65">
+<file line="188" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/persistence/Course.java"/>
+<file line="136" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/persistence/University.java"/>
+<codefragment>
+<![CDATA[
+	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setImage(final byte[] image)
+	{
+		this.image = image;
+	}
+
+	public void setLastModified(final Date lastModified)
+	{
+		this.lastModified = lastModified;
+	}
+
+	public void setName(final String name)
+	{
+		this.name = name;
+	}
+
+	public void setStaffs(final Set<Staff> staffs)
+]]>
+</codefragment>
+</duplication>
+<duplication lines="7" tokens="65">
+<file line="53" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/CourseJoinedMsgPanel.java"/>
+<file line="67" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/FriendRequestMsgPanel.java"/>
+<codefragment>
+<![CDATA[
+		final User sender = friendRequestMsg.getSender();
+		// user image
+		UserLink<User> userImageLink;
+		final Model<User> senderModel = new Model<User>(sender);
+		add(userImageLink = new UserLink<User>("imagelink", senderModel));
+		userImageLink.add(new ImagePanel("userthumb", sender.getId(), ImageType.USER, sender
+				.getLastModified(), true));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="14" tokens="65">
+<file line="52" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/friend/AllFriendsPanel.java"/>
+<file line="47" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/user/UsersPanel.java"/>
+<codefragment>
+<![CDATA[
+		final DataView<User> userList = new DataView<User>("users", dataProvider, 9)
+		{
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected void populateItem(final Item<User> item)
+			{
+				final User user = item.getModelObject();
+				UserLink<User> userImageLink;
+				item.add(userImageLink = new UserLink<User>("imagelink", item.getModel()));
+				userImageLink.add(new ImagePanel("userthumb", user.getId(), ImageType.USER, user
+]]>
+</codefragment>
+</duplication>
+<duplication lines="23" tokens="62">
+<file line="75" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/persistence/Comment.java"/>
+<file line="121" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/persistence/Question.java"/>
+<codefragment>
+<![CDATA[
+	}
+
+	public void setId(final long id)
+	{
+		this.id = id;
+	}
+
+	public void setText(final String text)
+	{
+		this.text = text;
+	}
+
+	public void setTime(final Date time)
+	{
+		this.time = time;
+	}
+
+	public void setUser(final User user)
+	{
+		this.user = user;
+	}
+
+}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="9" tokens="61">
+<file line="57" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/BasicFormPanel.java"/>
+<file line="52" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/EducationFormPanel.java"/>
+<codefragment>
+<![CDATA[
+	public EducationFormPanel(final String id)
+	{
+		super(id);
+		profile = getSessionUser().getProfile();
+		setOutputMarkupId(true);
+		final Form<Profile> form = new Form<Profile>("form", new CompoundPropertyModel<Profile>(
+				profile));
+		add(form);
+		form.add(new TextField<String>("college"));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="21" tokens="61">
+<file line="62" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/answer/AddAnswerPanel.java"/>
+<file line="62" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/comment/AddCommentPanel.java"/>
+<file line="77" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/question/AddQuestionPanel.java"/>
+<file line="77" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/MessageSenderPanel.java"/>
+<codefragment>
+<![CDATA[
+		form.add(new AjaxSubmitLink("send")
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected void onError(final AjaxRequestTarget target, final Form<?> form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
+			{
+
+				final User sender = getSessionUser();
+]]>
+</codefragment>
+</duplication>
+<duplication lines="20" tokens="60">
+<file line="62" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/answer/AddAnswerPanel.java"/>
+<file line="78" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/BasicFormPanel.java"/>
+<codefragment>
+<![CDATA[
+		form.add(new AjaxSubmitLink("save")
+		{
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+
+			@Override
+			protected void onError(final AjaxRequestTarget target, final Form<?> form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
+			{
+]]>
+</codefragment>
+</duplication>
+<duplication lines="9" tokens="56">
+<file line="57" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/BasicFormPanel.java"/>
+<file line="56" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/ContactFormPanel.java"/>
+<file line="51" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/profile/PersonalFormPanel.java"/>
+<codefragment>
+<![CDATA[
+	public PersonalFormPanel(final String id)
+	{
+		super(id);
+		profile = getSessionUser().getProfile();
+		setOutputMarkupId(true);
+		final Form<Profile> form = new Form<Profile>("form", new CompoundPropertyModel<Profile>(
+				profile));
+		add(form);
+		form.add(new TextArea<String>("activities"));
+]]>
+</codefragment>
+</duplication>
+<duplication lines="8" tokens="56">
+<file line="55" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/answer/AddAnswerPanel.java"/>
+<file line="55" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/comment/AddCommentPanel.java"/>
+<codefragment>
+<![CDATA[
+	public AddCommentPanel(final String id, final IModel<Answer> model,
+			final MarkupContainer dependent)
+	{
+		super(id, model);
+		final Form<Void> form = new Form<Void>("form");
+		add(form);
+		form.add(new RichEditor("richeditor", new PropertyModel<String>(this, "text")));
+		final AjaxSubmitLink addComment = new AjaxSubmitLink("addcomment")
+]]>
+</codefragment>
+</duplication>
+<duplication lines="26" tokens="52">
+<file line="85" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/persistence/Course.java"/>
+<file line="61" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/persistence/University.java"/>
+<codefragment>
+<![CDATA[
+		staff.setUniversity(this);
+	}
+
+	/**
+	 * changes the profile image
+	 * 
+	 * @param image
+	 *            image data in byte[]
+	 */
+	public void changeImage(final byte[] image)
+	{
+		this.image = image;
+		setLastModified(new Date());
+	}
+
+	/**
+	 * changes the thumb
+	 * 
+	 * @param thumb
+	 *            thumb data in byte[]
+	 */
+	public void changeThumb(final byte[] thumb)
+	{
+		this.thumb = thumb;
+		setLastModified(new Date());
+	}
+]]>
+</codefragment>
+</duplication>
+<duplication lines="11" tokens="51">
+<file line="70" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/course/answer/AddAnswerPanel.java"/>
+<file line="123" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/message/InfoMsgPanel.java"/>
+<codefragment>
+<![CDATA[
+			@Override
+			protected void onError(final AjaxRequestTarget target, final Form<?> form)
+			{
+				super.onError(target, form);
+				// show feedback messages
+				target.addComponent(feedback);
+			}
+
+			@Override
+			protected void onSubmit(final AjaxRequestTarget target, final Form<?> form)
+			{
+]]>
+</codefragment>
+</duplication>
+<duplication lines="17" tokens="51">
+<file line="100" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/BasePage.java"/>
+<file line="160" path="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/BasePanel.java"/>
+<codefragment>
+<![CDATA[
+	}
+
+	/**
+	 * set the user id in the session and also sets the roles in the session
+	 * 
+	 * @param userId
+	 *            user id
+	 */
+	public void setUserId(final long userId)
+	{
+		final SocialSiteSession session = SocialSiteSession.get();
+		// set the user id
+		session.setUserId(userId);
+		// set the roles
+		session.getSessionUser().setRoles(
+				userDao.getUsersRelation(userId, session.getSessionUser().getId()));
+	}
+]]>
+</codefragment>
+</duplication>
+</pmd-cpd>

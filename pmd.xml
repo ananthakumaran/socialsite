@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.2.2" timestamp="2010-04-07T15:11:59.217">
+<file name="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/image/AbstractImageResource.java">
+<violation beginline="96" endline="101" begincolumn="41" endcolumn="41" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="com.socialsite.image" class="AbstractImageResource" method="getResourceState" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/image/ImagePanel.java">
+<violation beginline="44" endline="44" begincolumn="31" endcolumn="40" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="com.socialsite.image" class="ImagePanel" variable="changeLink" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
+Avoid unused private fields such as 'changeLink'.
+</violation>
+</file>
+<suppressedviolation filename="/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/main/java/com/socialsite/activation/ActivationPage.java" suppressiontype="annotation" msg="Avoid unused private fields such as 'messageText'." usermsg=""/>
+</pmd>

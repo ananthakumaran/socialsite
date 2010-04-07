@@ -1,0 +1,1440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>socialsite - FindBugs Bug Detector Report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            SocialSite
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2010-04-07
+                      </div>
+            <div class="xright">      
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Project Hosting Information</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://github.com/ananthakumaran/socialsite" class="externalLink">Github project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://kenai.com/projects/socialsite" class="externalLink">kenai project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="https://www.ohloh.net/p/social-site" class="externalLink">ohloh project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://kenai.com/projects/socialsite/forums" class="externalLink">forum</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="cobertura/index.html">Cobertura Test Coverage</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+              <strong>FindBugs Report</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="jxr.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="testapidocs/index.html">Test JavaDocs</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>FindBugs Bug Detector Report</h2>
+<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a></p>
+<p>FindBugs Version is <i>1.3.9</i></p>
+<p>Threshold is <i>medium</i></p>
+<p>Effort is <i>min</i></p>
+</div>
+<div class="section"><h2>Summary</h2>
+<table class="bodyTable"><tr class="a"><th>Classes</th>
+<th>Bugs</th>
+<th>Errors</th>
+<th>Missing Classes</th>
+</tr>
+<tr class="b"><td>243</td>
+<td>99</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h2>Files</h2>
+<table class="bodyTable"><tr class="a"><th>Class</th>
+<th>Bugs</th>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.BasePage">com.socialsite.BasePage</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.BasePanel">com.socialsite.BasePanel</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.course.AddNotePanel">com.socialsite.course.AddNotePanel</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.course.CourseInfoPanel">com.socialsite.course.CourseInfoPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.course.CourseNoteResource">com.socialsite.course.CourseNoteResource</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.course.JoinCoursePanel">com.socialsite.course.JoinCoursePanel</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.course.NewCourseModal">com.socialsite.course.NewCourseModal</a></td>
+<td>4</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.course.answer.AddAnswerPanel">com.socialsite.course.answer.AddAnswerPanel</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.course.answer.AnswerPanel">com.socialsite.course.answer.AnswerPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.course.comment.AddCommentPanel">com.socialsite.course.comment.AddCommentPanel</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.course.comment.CommentPanel">com.socialsite.course.comment.CommentPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.course.question.AddQuestionPanel">com.socialsite.course.question.AddQuestionPanel</a></td>
+<td>4</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.course.question.QuestionPanel">com.socialsite.course.question.QuestionPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dataprovider.AnswerDataProvider">com.socialsite.dataprovider.AnswerDataProvider</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dataprovider.CommentDataProvider">com.socialsite.dataprovider.CommentDataProvider</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dataprovider.CourseStudentsDataProvider">com.socialsite.dataprovider.CourseStudentsDataProvider</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dataprovider.FriendsDataProvider">com.socialsite.dataprovider.FriendsDataProvider</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dataprovider.MessageDataProvider">com.socialsite.dataprovider.MessageDataProvider</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dataprovider.QuestionDataProvider">com.socialsite.dataprovider.QuestionDataProvider</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dataprovider.SearchDataProvider">com.socialsite.dataprovider.SearchDataProvider</a></td>
+<td>3</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dataprovider.StaffCourseDataProvider">com.socialsite.dataprovider.StaffCourseDataProvider</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dataprovider.StaffDataProvider">com.socialsite.dataprovider.StaffDataProvider</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dataprovider.UniversityCourseDataProvider">com.socialsite.dataprovider.UniversityCourseDataProvider</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dataprovider.UserCourseDataProvider">com.socialsite.dataprovider.UserCourseDataProvider</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.entitymodel.EntityModel">com.socialsite.entitymodel.EntityModel</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.friend.AddAsFriendPanel">com.socialsite.friend.AddAsFriendPanel</a></td>
+<td>3</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.image.CourseImageResource">com.socialsite.image.CourseImageResource</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.image.UniversityImageResource">com.socialsite.image.UniversityImageResource</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.message.FriendRequestMsgPanel">com.socialsite.message.FriendRequestMsgPanel</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.message.InfoMsgPanel">com.socialsite.message.InfoMsgPanel</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.message.MessageSenderPanel">com.socialsite.message.MessageSenderPanel</a></td>
+<td>3</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.message.StaffRequestMsgPanel">com.socialsite.message.StaffRequestMsgPanel</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.persistence.Answer">com.socialsite.persistence.Answer</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.persistence.Comment">com.socialsite.persistence.Comment</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.persistence.Course">com.socialsite.persistence.Course</a></td>
+<td>8</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.persistence.Message">com.socialsite.persistence.Message</a></td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.persistence.Note">com.socialsite.persistence.Note</a></td>
+<td>4</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.persistence.Profile">com.socialsite.persistence.Profile</a></td>
+<td>6</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.persistence.Question">com.socialsite.persistence.Question</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.persistence.University">com.socialsite.persistence.University</a></td>
+<td>8</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.persistence.User">com.socialsite.persistence.User</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.profile.BasicFormPanel">com.socialsite.profile.BasicFormPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.profile.EducationFormPanel">com.socialsite.profile.EducationFormPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.profile.PersonalFormPanel">com.socialsite.profile.PersonalFormPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.search.SearchUniversityInfo">com.socialsite.search.SearchUniversityInfo</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.search.SearchUserInfoPanel">com.socialsite.search.SearchUserInfoPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.university.JoinUniversityPanel">com.socialsite.university.JoinUniversityPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.university.UniversityInfoPanel">com.socialsite.university.UniversityInfoPanel</a></td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.user.UserInfoPanel">com.socialsite.user.UserInfoPanel</a></td>
+<td>2</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.user.UserLink">com.socialsite.user.UserLink</a></td>
+<td>1</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.BasePage"></a><div class="section"><h3>com.socialsite.BasePage</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.BasePage defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/BasePage.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.BasePanel"></a><div class="section"><h3>com.socialsite.BasePanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.BasePanel defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/BasePanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.AddNotePanel"></a><div class="section"><h3>com.socialsite.course.AddNotePanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Unwritten field: com.socialsite.course.AddNotePanel.description</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/AddNotePanel.html#51">51</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.CourseInfoPanel"></a><div class="section"><h3>com.socialsite.course.CourseInfoPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.course.CourseInfoPanel defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/CourseInfoPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.CourseNoteResource"></a><div class="section"><h3>com.socialsite.course.CourseNoteResource</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.course.CourseNoteResource defines non-transient non-serializable instance field noteDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/CourseNoteResource.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.JoinCoursePanel"></a><div class="section"><h3>com.socialsite.course.JoinCoursePanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.course.JoinCoursePanel defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/JoinCoursePanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.course.JoinCoursePanel defines non-transient non-serializable instance field messageDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/JoinCoursePanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.NewCourseModal"></a><div class="section"><h3>com.socialsite.course.NewCourseModal</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.course.NewCourseModal defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/NewCourseModal.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Class com.socialsite.course.NewCourseModal defines non-transient non-serializable instance field staffDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/NewCourseModal.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Unwritten field: com.socialsite.course.NewCourseModal.description</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/NewCourseModal.html#51">51</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Unwritten field: com.socialsite.course.NewCourseModal.name</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/NewCourseModal.html#50">50</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.answer.AddAnswerPanel"></a><div class="section"><h3>com.socialsite.course.answer.AddAnswerPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.course.answer.AddAnswerPanel defines non-transient non-serializable instance field answerDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/answer/AddAnswerPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Unwritten field: com.socialsite.course.answer.AddAnswerPanel.text</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/answer/AddAnswerPanel.html#50">50</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.answer.AnswerPanel"></a><div class="section"><h3>com.socialsite.course.answer.AnswerPanel</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.course.answer.AnswerPanel defines non-transient non-serializable instance field anserDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/answer/AnswerPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.comment.AddCommentPanel"></a><div class="section"><h3>com.socialsite.course.comment.AddCommentPanel</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.course.comment.AddCommentPanel defines non-transient non-serializable instance field commentDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/comment/AddCommentPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Unwritten field: com.socialsite.course.comment.AddCommentPanel.text</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/comment/AddCommentPanel.html#50">50</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.comment.CommentPanel"></a><div class="section"><h3>com.socialsite.course.comment.CommentPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.course.comment.CommentPanel defines non-transient non-serializable instance field commentDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/comment/CommentPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.question.AddQuestionPanel"></a><div class="section"><h3>com.socialsite.course.question.AddQuestionPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.course.question.AddQuestionPanel defines non-transient non-serializable instance field messageDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/question/AddQuestionPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.course.question.AddQuestionPanel defines non-transient non-serializable instance field questionDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/question/AddQuestionPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Unwritten field: com.socialsite.course.question.AddQuestionPanel.heading</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/question/AddQuestionPanel.html#64">64</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Unwritten field: com.socialsite.course.question.AddQuestionPanel.text</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/question/AddQuestionPanel.html#66">66</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.course.question.QuestionPanel"></a><div class="section"><h3>com.socialsite.course.question.QuestionPanel</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.course.question.QuestionPanel defines non-transient non-serializable instance field questionDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/course/question/QuestionPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.AnswerDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.AnswerDataProvider</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.dataprovider.AnswerDataProvider defines non-transient non-serializable instance field answerDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/AnswerDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.CommentDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.CommentDataProvider</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.dataprovider.CommentDataProvider defines non-transient non-serializable instance field commentDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/CommentDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.CourseStudentsDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.CourseStudentsDataProvider</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.dataprovider.CourseStudentsDataProvider defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/CourseStudentsDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Class com.socialsite.dataprovider.CourseStudentsDataProvider defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/CourseStudentsDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.FriendsDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.FriendsDataProvider</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.dataprovider.FriendsDataProvider defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/FriendsDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.MessageDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.MessageDataProvider</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.dataprovider.MessageDataProvider defines non-transient non-serializable instance field messageDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/MessageDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.dataprovider.MessageDataProvider defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/MessageDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.QuestionDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.QuestionDataProvider</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.dataprovider.QuestionDataProvider defines non-transient non-serializable instance field questionDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/QuestionDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.SearchDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.SearchDataProvider</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.dataprovider.SearchDataProvider defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/SearchDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Class com.socialsite.dataprovider.SearchDataProvider defines non-transient non-serializable instance field universityDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/SearchDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.dataprovider.SearchDataProvider defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/SearchDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.StaffCourseDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.StaffCourseDataProvider</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.dataprovider.StaffCourseDataProvider defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/StaffCourseDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Class com.socialsite.dataprovider.StaffCourseDataProvider defines non-transient non-serializable instance field staffDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/StaffCourseDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.StaffDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.StaffDataProvider</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.dataprovider.StaffDataProvider defines non-transient non-serializable instance field staffDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/StaffDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.UniversityCourseDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.UniversityCourseDataProvider</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.dataprovider.UniversityCourseDataProvider defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/UniversityCourseDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.dataprovider.UserCourseDataProvider"></a><div class="section"><h3>com.socialsite.dataprovider.UserCourseDataProvider</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.dataprovider.UserCourseDataProvider defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/dataprovider/UserCourseDataProvider.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.entitymodel.EntityModel"></a><div class="section"><h3>com.socialsite.entitymodel.EntityModel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.entitymodel.EntityModel defines non-transient non-serializable instance field dao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/entitymodel/EntityModel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.friend.AddAsFriendPanel"></a><div class="section"><h3>com.socialsite.friend.AddAsFriendPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.friend.AddAsFriendPanel defines non-transient non-serializable instance field friendRequestMsgDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/friend/AddAsFriendPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.friend.AddAsFriendPanel defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/friend/AddAsFriendPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Unwritten field: com.socialsite.friend.AddAsFriendPanel.message</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/friend/AddAsFriendPanel.html#50">50</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.image.CourseImageResource"></a><div class="section"><h3>com.socialsite.image.CourseImageResource</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.image.CourseImageResource defines non-transient non-serializable instance field courseDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/image/CourseImageResource.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.image.UniversityImageResource"></a><div class="section"><h3>com.socialsite.image.UniversityImageResource</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.image.UniversityImageResource defines non-transient non-serializable instance field universityDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/image/UniversityImageResource.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.message.FriendRequestMsgPanel"></a><div class="section"><h3>com.socialsite.message.FriendRequestMsgPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.message.FriendRequestMsgPanel defines non-transient non-serializable instance field messageDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/FriendRequestMsgPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.message.FriendRequestMsgPanel defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/FriendRequestMsgPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.message.InfoMsgPanel"></a><div class="section"><h3>com.socialsite.message.InfoMsgPanel</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.message.InfoMsgPanel defines non-transient non-serializable instance field messageDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/InfoMsgPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Unwritten field: com.socialsite.message.InfoMsgPanel.text</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/InfoMsgPanel.html#57">57</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.message.MessageSenderPanel"></a><div class="section"><h3>com.socialsite.message.MessageSenderPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.message.MessageSenderPanel defines non-transient non-serializable instance field messageDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/MessageSenderPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.message.MessageSenderPanel defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/MessageSenderPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>Unwritten field: com.socialsite.message.MessageSenderPanel.text</td>
+<td>CORRECTNESS</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UWF_UNWRITTEN_FIELD" class="externalLink">UWF_UNWRITTEN_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/MessageSenderPanel.html#54">54</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.message.StaffRequestMsgPanel"></a><div class="section"><h3>com.socialsite.message.StaffRequestMsgPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.message.StaffRequestMsgPanel defines non-transient non-serializable instance field messageDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/StaffRequestMsgPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.message.StaffRequestMsgPanel defines non-transient non-serializable instance field universityDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/message/StaffRequestMsgPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.Answer"></a><div class="section"><h3>com.socialsite.persistence.Answer</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Answer.getTime() may expose internal representation by returning Answer.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Answer.html#84">84</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Answer.setTime(Date) may expose internal representation by storing an externally mutable object into Answer.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Answer.html#119">119</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.Comment"></a><div class="section"><h3>com.socialsite.persistence.Comment</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Comment.getTime() may expose internal representation by returning Comment.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Comment.html#64">64</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Comment.setTime(Date) may expose internal representation by storing an externally mutable object into Comment.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Comment.html#89">89</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.Course"></a><div class="section"><h3>com.socialsite.persistence.Course</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Course.getImage() may expose internal representation by returning Course.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#143">143</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Course.getLastModified() may expose internal representation by returning Course.lastModified</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#148">148</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Course.getThumb() may expose internal representation by returning Course.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#173">173</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Course.changeImage(byte[]) may expose internal representation by storing an externally mutable object into Course.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#96">96</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Course.changeThumb(byte[]) may expose internal representation by storing an externally mutable object into Course.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#109">109</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Course.setImage(byte[]) may expose internal representation by storing an externally mutable object into Course.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#197">197</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Course.setLastModified(Date) may expose internal representation by storing an externally mutable object into Course.lastModified</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#202">202</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Course.setThumb(byte[]) may expose internal representation by storing an externally mutable object into Course.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Course.html#227">227</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.Message"></a><div class="section"><h3>com.socialsite.persistence.Message</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Message.getTime() may expose internal representation by returning Message.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Message.html#64">64</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Message.setTime(Date) may expose internal representation by storing an externally mutable object into Message.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Message.html#79">79</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.Note"></a><div class="section"><h3>com.socialsite.persistence.Note</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Note.getData() may expose internal representation by returning Note.data</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Note.html#65">65</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Note.getTime() may expose internal representation by returning Note.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Note.html#75">75</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Note.setData(byte[]) may expose internal representation by storing an externally mutable object into Note.data</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Note.html#50">50</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Note.setTime(Date) may expose internal representation by storing an externally mutable object into Note.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Note.html#60">60</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.Profile"></a><div class="section"><h3>com.socialsite.persistence.Profile</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Profile.getImage() may expose internal representation by returning Profile.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Profile.html#187">187</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Profile.getThumb() may expose internal representation by returning Profile.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Profile.html#239">239</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Profile.changeImage(byte[]) may expose internal representation by storing an externally mutable object into Profile.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Profile.html#87">87</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Profile.changeThumb(byte[]) may expose internal representation by storing an externally mutable object into Profile.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Profile.html#99">99</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Profile.setImage(byte[]) may expose internal representation by storing an externally mutable object into Profile.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Profile.html#334">334</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Profile.setThumb(byte[]) may expose internal representation by storing an externally mutable object into Profile.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Profile.html#385">385</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.Question"></a><div class="section"><h3>com.socialsite.persistence.Question</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.Question.getTime() may expose internal representation by returning Question.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/Question.html#100">100</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.Question.setTime(Date) may expose internal representation by storing an externally mutable object into Question.time</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/Question.html#135">135</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.University"></a><div class="section"><h3>com.socialsite.persistence.University</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.University.getImage() may expose internal representation by returning University.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/University.html#105">105</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.University.getLastModified() may expose internal representation by returning University.lastModified</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/University.html#110">110</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.University.getThumb() may expose internal representation by returning University.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/University.html#125">125</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.University.changeImage(byte[]) may expose internal representation by storing an externally mutable object into University.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/University.html#72">72</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.University.changeThumb(byte[]) may expose internal representation by storing an externally mutable object into University.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/University.html#84">84</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.University.setImage(byte[]) may expose internal representation by storing an externally mutable object into University.image</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/University.html#145">145</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.University.setLastModified(Date) may expose internal representation by storing an externally mutable object into University.lastModified</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/University.html#150">150</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.University.setThumb(byte[]) may expose internal representation by storing an externally mutable object into University.thumb</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/University.html#165">165</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.persistence.User"></a><div class="section"><h3>com.socialsite.persistence.User</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>com.socialsite.persistence.User.getLastModified() may expose internal representation by returning User.lastModified</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP" class="externalLink">EI_EXPOSE_REP</a></td>
+<td><a href="./xref/com/socialsite/persistence/User.html#111">111</a></td>
+<td>Medium</td>
+</tr>
+<tr class="a"><td>com.socialsite.persistence.User.setLastModified(Date) may expose internal representation by storing an externally mutable object into User.lastModified</td>
+<td>MALICIOUS_CODE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#EI_EXPOSE_REP2" class="externalLink">EI_EXPOSE_REP2</a></td>
+<td><a href="./xref/com/socialsite/persistence/User.html#160">160</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.profile.BasicFormPanel"></a><div class="section"><h3>com.socialsite.profile.BasicFormPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.profile.BasicFormPanel defines non-transient non-serializable instance field profileDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/profile/BasicFormPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.profile.EducationFormPanel"></a><div class="section"><h3>com.socialsite.profile.EducationFormPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.profile.EducationFormPanel defines non-transient non-serializable instance field profileDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/profile/EducationFormPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.profile.PersonalFormPanel"></a><div class="section"><h3>com.socialsite.profile.PersonalFormPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.profile.PersonalFormPanel defines non-transient non-serializable instance field profileDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/profile/PersonalFormPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.search.SearchUniversityInfo"></a><div class="section"><h3>com.socialsite.search.SearchUniversityInfo</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.search.SearchUniversityInfo defines non-transient non-serializable instance field universityDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/search/SearchUniversityInfo.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.search.SearchUserInfoPanel"></a><div class="section"><h3>com.socialsite.search.SearchUserInfoPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.search.SearchUserInfoPanel defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/search/SearchUserInfoPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.university.JoinUniversityPanel"></a><div class="section"><h3>com.socialsite.university.JoinUniversityPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.university.JoinUniversityPanel defines non-transient non-serializable instance field staffRequestMsgDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/university/JoinUniversityPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.university.UniversityInfoPanel"></a><div class="section"><h3>com.socialsite.university.UniversityInfoPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.university.UniversityInfoPanel defines non-transient non-serializable instance field universityDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/university/UniversityInfoPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.user.UserInfoPanel"></a><div class="section"><h3>com.socialsite.user.UserInfoPanel</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="a"><td>Class com.socialsite.user.UserInfoPanel defines non-transient non-serializable instance field profileDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/user/UserInfoPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+<tr class="b"><td>Class com.socialsite.user.UserInfoPanel defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/user/UserInfoPanel.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+<a name="com.socialsite.user.UserLink"></a><div class="section"><h3>com.socialsite.user.UserLink</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+<th>Priority</th>
+</tr>
+<tr class="b"><td>Class com.socialsite.user.UserLink defines non-transient non-serializable instance field userDao</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#SE_BAD_FIELD" class="externalLink">SE_BAD_FIELD</a></td>
+<td><a href="./xref/com/socialsite/user/UserLink.html#">Not available</a></td>
+<td>Medium</td>
+</tr>
+</table>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2009-2010
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+com.socialsite
+com.socialsite.authentication
+com.socialsite.dao
+com.socialsite.dao.hibernate
+com.socialsite.email
+com.socialsite.scripts
+com.socialsite.util

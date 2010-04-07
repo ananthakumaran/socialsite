@@ -1,0 +1,2395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>socialsite - Surefire Report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          </head>
+  <body class="composite">
+    <div id="banner">
+                    <span id="bannerLeft">
+    
+            SocialSite
+    
+            </span>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2010-04-07
+                      </div>
+            <div class="xright">      
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Project Hosting Information</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://github.com/ananthakumaran/socialsite" class="externalLink">Github project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://kenai.com/projects/socialsite" class="externalLink">kenai project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="https://www.ohloh.net/p/social-site" class="externalLink">ohloh project site</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://kenai.com/projects/socialsite/forums" class="externalLink">forum</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+            
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="cobertura/index.html">Cobertura Test Coverage</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="findbugs.html">FindBugs Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="jxr.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+              <strong>Surefire Report</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="testapidocs/index.html">Test JavaDocs</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <script type="text/javascript">
+function toggleDisplay(elementId) {
+ var elm = document.getElementById(elementId + 'error');
+ if (elm && typeof elm.style != "undefined") {
+ if (elm.style.display == "none") {
+ elm.style.display = "";
+ document.getElementById(elementId + 'off').style.display = "none";
+ document.getElementById(elementId + 'on').style.display = "inline";
+ } else if (elm.style.display == "") { elm.style.display = "none";
+ document.getElementById(elementId + 'off').style.display = "inline";
+ document.getElementById(elementId + 'on').style.display = "none";
+ } 
+ } 
+ }
+</script><div class="section"><h2>Surefire Report</h2>
+</div>
+<div class="section"><h2>Summary</h2>
+<a name="Summary"></a><p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p>
+<br />
+<table class="bodyTable"><tr class="a"><th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td>53</td>
+<td>29</td>
+<td>3</td>
+<td>2</td>
+<td>35.849%</td>
+<td>26.008</td>
+</tr>
+</table>
+<br />
+<p>Note: failures are anticipated and checked for with assertions while errors are unanticipated.</p>
+<br />
+</div>
+<div class="section"><h2>Package List</h2>
+<a name="Package_List"></a><p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p>
+<br />
+<table class="bodyTable"><tr class="a"><th>Package</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate">com.socialsite.dao.hibernate</a></td>
+<td>48</td>
+<td>29</td>
+<td>3</td>
+<td>0</td>
+<td>33.333%</td>
+<td>19.553</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.authentication">com.socialsite.authentication</a></td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>60%</td>
+<td>6.455</td>
+</tr>
+</table>
+<br />
+<p>Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p>
+<div class="section"><h3>com.socialsite.dao.hibernate</h3>
+<a name="com.socialsite.dao.hibernate"></a><table class="bodyTable"><tr class="b"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateAnswerDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateAnswerDaoTest">AnswerDaoTest</a></td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>0.354</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateActivationDaoTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateActivationDaoTest">ActivationDaoTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.02</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateStaffRequestMsgDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateStaffRequestMsgDaoTest">StaffRequestMsgDaoTest</a></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>0.188</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateStudentDaoTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateStudentDaoTest">StudentDaoTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateCommentDaoTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateCommentDaoTest">CommentDaoTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateFriendRequestMsgDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateFriendRequestMsgDaoTest">FriendRequestMsgDaoTest</a></td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>1.13</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateStaffDaoTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateStaffDaoTest">StaffDaoTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateQuestionDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateQuestionDaoTest">QuestionDaoTest</a></td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>0.317</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateProfileDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateProfileDaoTest">ProfileDaoTest</a></td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>0.8</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateInfoMsgDaoTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateInfoMsgDaoTest">InfoMsgDaoTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.002</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateCourseDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateCourseDaoTest">CourseDaoTest</a></td>
+<td>8</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>37.5%</td>
+<td>2.051</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateAdminDaoTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateAdminDaoTest">AdminDaoTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.003</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateUserDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateUserDaoTest">UserDaoTest</a></td>
+<td>8</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>12.5%</td>
+<td>3.024</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateUniversityDaoTest"><img src="images/icon_warning_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateUniversityDaoTest">UniversityDaoTest</a></td>
+<td>6</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>83.333%</td>
+<td>2.711</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateMessageDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateMessageDaoTest">MessageDaoTest</a></td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>0.624</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateActivationDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateActivationDaoTest">ActivationDaoTest</a></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>0.053</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateAnswerDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateAnswerDaoTest">AnswerDaoTest</a></td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>8.021</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernateNoteDaoTest"><img src="images/icon_success_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateNoteDaoTest">NoteDaoTest</a></td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.017</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernateStaffRequestMsgDaoTest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernateStaffRequestMsgDaoTest">StaffRequestMsgDaoTest</a></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0%</td>
+<td>0.232</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>com.socialsite.authentication</h3>
+<a name="com.socialsite.authentication"></a><table class="bodyTable"><tr class="b"><th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.authenticationLoginPageTest"><img src="images/icon_warning_sml.gif" /></a></td>
+<td><a href="#com.socialsite.authenticationLoginPageTest">LoginPageTest</a></td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>66.667%</td>
+<td>3.845</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.authenticationSignUpPageTest"><img src="images/icon_warning_sml.gif" /></a></td>
+<td><a href="#com.socialsite.authenticationSignUpPageTest">SignUpPageTest</a></td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>50%</td>
+<td>2.61</td>
+</tr>
+</table>
+</div>
+<br />
+</div>
+<div class="section"><h2>Test Cases</h2>
+<a name="Test_Cases"></a><p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p>
+<div class="section"><h3>AnswerDaoTest</h3>
+<a name="com.socialsite.dao.hibernateAnswerDaoTest"></a><table class="bodyTable"><tr class="a"><td><a href="#com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswers"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswers">testGetAnswers</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetAnswers');"><span style="display: inline;" id="testGetAnswersoff">+</span><span id="testGetAnswerson" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.196</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testGetAnswerserror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswers(AnswerDaoTest.java:47)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswersCount"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswersCount">testGetAnswersCount</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetAnswersCount');"><span style="display: inline;" id="testGetAnswersCountoff">+</span><span id="testGetAnswersCounton" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.158</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testGetAnswersCounterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswersCount(AnswerDaoTest.java:83)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>ActivationDaoTest</h3>
+<a name="com.socialsite.dao.hibernateActivationDaoTest"></a><table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>createActivation</td>
+<td>0.02</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>StaffRequestMsgDaoTest</h3>
+<a name="com.socialsite.dao.hibernateStaffRequestMsgDaoTest"></a><table class="bodyTable"><tr class="b"><td><a href="#com.socialsite.dao.hibernate.StaffRequestMsgDaoTest.testHasRequest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.StaffRequestMsgDaoTest.testHasRequest">testHasRequest</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testHasRequest');"><span style="display: inline;" id="testHasRequestoff">+</span><span id="testHasRequeston" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.188</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Admin]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testHasRequesterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Admin]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.StaffRequestMsgDaoTest.testHasRequest(StaffRequestMsgDaoTest.java:45)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>LoginPageTest</h3>
+<a name="com.socialsite.authenticationLoginPageTest"></a><table class="bodyTable"><tr class="a"><td><a href="#com.socialsite.authentication.LoginPageTest.testLoginForm"><img src="images/icon_warning_sml.gif" /></a></td>
+<td><a href="#com.socialsite.authentication.LoginPageTest.testLoginForm">testLoginForm</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testLoginForm');"><span style="display: inline;" id="testLoginFormoff">+</span><span id="testLoginFormon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0</td>
+</tr>
+<tr class="b"><td></td>
+<td>skipped</td>
+<td></td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testLoginFormWrongAuthentication</td>
+<td>3.096</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testLoginRender</td>
+<td>0.749</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>StudentDaoTest</h3>
+<a name="com.socialsite.dao.hibernateStudentDaoTest"></a><table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>test</td>
+<td>0.002</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>SignUpPageTest</h3>
+<a name="com.socialsite.authenticationSignUpPageTest"></a><table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>different_Password_Test</td>
+<td>1.305</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.authentication.SignUpPageTest.signUpTest"><img src="images/icon_warning_sml.gif" /></a></td>
+<td><a href="#com.socialsite.authentication.SignUpPageTest.signUpTest">signUpTest</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('signUpTest');"><span style="display: inline;" id="signUpTestoff">+</span><span id="signUpTeston" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>1.305</td>
+</tr>
+<tr class="b"><td></td>
+<td>skipped</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>CommentDaoTest</h3>
+<a name="com.socialsite.dao.hibernateCommentDaoTest"></a><table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>test</td>
+<td>0.002</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>FriendRequestMsgDaoTest</h3>
+<a name="com.socialsite.dao.hibernateFriendRequestMsgDaoTest"></a><table class="bodyTable"><tr class="b"><td><a href="#com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testDeleteFriendRequest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testDeleteFriendRequest">testDeleteFriendRequest</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testDeleteFriendRequest');"><span style="display: inline;" id="testDeleteFriendRequestoff">+</span><span id="testDeleteFriendRequeston" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.35</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testDeleteFriendRequesterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testDeleteFriendRequest(FriendRequestMsgDaoTest.java:50)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testFriendRequestMessage"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testFriendRequestMessage">testFriendRequestMessage</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testFriendRequestMessage');"><span style="display: inline;" id="testFriendRequestMessageoff">+</span><span id="testFriendRequestMessageon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.311</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testFriendRequestMessageerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testFriendRequestMessage(FriendRequestMsgDaoTest.java:76)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testHasFriendRequest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testHasFriendRequest">testHasFriendRequest</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testHasFriendRequest');"><span style="display: inline;" id="testHasFriendRequestoff">+</span><span id="testHasFriendRequeston" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.469</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testHasFriendRequesterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testHasFriendRequest(FriendRequestMsgDaoTest.java:99)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>StaffDaoTest</h3>
+<a name="com.socialsite.dao.hibernateStaffDaoTest"></a><table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>test</td>
+<td>0.002</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>QuestionDaoTest</h3>
+<a name="com.socialsite.dao.hibernateQuestionDaoTest"></a><table class="bodyTable"><tr class="b"><td><a href="#com.socialsite.dao.hibernate.QuestionDaoTest.testGetQuestions"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.QuestionDaoTest.testGetQuestions">testGetQuestions</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetQuestions');"><span style="display: inline;" id="testGetQuestionsoff">+</span><span id="testGetQuestionson" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.16</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testGetQuestionserror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.QuestionDaoTest.testGetQuestions(QuestionDaoTest.java:45)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.QuestionDaoTest.testGetQuestionsCount"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.QuestionDaoTest.testGetQuestionsCount">testGetQuestionsCount</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetQuestionsCount');"><span style="display: inline;" id="testGetQuestionsCountoff">+</span><span id="testGetQuestionsCounton" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.157</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testGetQuestionsCounterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.QuestionDaoTest.testGetQuestionsCount(QuestionDaoTest.java:69)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>ProfileDaoTest</h3>
+<a name="com.socialsite.dao.hibernateProfileDaoTest"></a><table class="bodyTable"><tr class="b"><td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testCreate"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testCreate">testCreate</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testCreate');"><span style="display: inline;" id="testCreateoff">+</span><span id="testCreateon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.159</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testCreateerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:33)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:27)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:535)<br />
+at org.hibernate.impl.SessionImpl.save(SessionImpl.java:523)<br />
+at org.hibernate.id.ForeignGenerator.generate(ForeignGenerator.java:63)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:99)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy20.save(Unknown Source)<br />
+at com.socialsite.dao.hibernate.ProfileDaoTest.testCreate(ProfileDaoTest.java:54)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testGetLastModifiedTime"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testGetLastModifiedTime">testGetLastModifiedTime</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetLastModifiedTime');"><span style="display: inline;" id="testGetLastModifiedTimeoff">+</span><span id="testGetLastModifiedTimeon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.161</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testGetLastModifiedTimeerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:33)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:27)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:535)<br />
+at org.hibernate.impl.SessionImpl.save(SessionImpl.java:523)<br />
+at org.hibernate.id.ForeignGenerator.generate(ForeignGenerator.java:63)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:99)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy20.save(Unknown Source)<br />
+at com.socialsite.dao.hibernate.ProfileDaoTest.testGetLastModifiedTime(ProfileDaoTest.java:83)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testGetUserImage"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testGetUserImage">testGetUserImage</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetUserImage');"><span style="display: inline;" id="testGetUserImageoff">+</span><span id="testGetUserImageon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.159</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testGetUserImageerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:33)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:27)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:535)<br />
+at org.hibernate.impl.SessionImpl.save(SessionImpl.java:523)<br />
+at org.hibernate.id.ForeignGenerator.generate(ForeignGenerator.java:63)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:99)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy20.save(Unknown Source)<br />
+at com.socialsite.dao.hibernate.ProfileDaoTest.testGetUserImage(ProfileDaoTest.java:97)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testGetUserThumb"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testGetUserThumb">testGetUserThumb</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetUserThumb');"><span style="display: inline;" id="testGetUserThumboff">+</span><span id="testGetUserThumbon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.159</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testGetUserThumberror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:33)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:27)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:535)<br />
+at org.hibernate.impl.SessionImpl.save(SessionImpl.java:523)<br />
+at org.hibernate.id.ForeignGenerator.generate(ForeignGenerator.java:63)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:99)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy20.save(Unknown Source)<br />
+at com.socialsite.dao.hibernate.ProfileDaoTest.testGetUserThumb(ProfileDaoTest.java:114)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testPrivacyField"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.ProfileDaoTest.testPrivacyField">testPrivacyField</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testPrivacyField');"><span style="display: inline;" id="testPrivacyFieldoff">+</span><span id="testPrivacyFieldon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.162</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testPrivacyFielderror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:33)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:27)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:535)<br />
+at org.hibernate.impl.SessionImpl.save(SessionImpl.java:523)<br />
+at org.hibernate.id.ForeignGenerator.generate(ForeignGenerator.java:63)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:99)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy20.save(Unknown Source)<br />
+at com.socialsite.dao.hibernate.ProfileDaoTest.testPrivacyField(ProfileDaoTest.java:131)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>InfoMsgDaoTest</h3>
+<a name="com.socialsite.dao.hibernateInfoMsgDaoTest"></a><table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>test</td>
+<td>0.002</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>CourseDaoTest</h3>
+<a name="com.socialsite.dao.hibernateCourseDaoTest"></a><table class="bodyTable"><tr class="b"><td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testCountAll"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testCountAll">testCountAll</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testCountAll');"><span style="display: inline;" id="testCountAlloff">+</span><span id="testCountAllon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.015</td>
+</tr>
+<tr class="a"><td></td>
+<td>expected:&lt;2&gt; but was:&lt;5&gt;</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testCountAllerror" style="display:none;"><div class="source"><pre>java.lang.AssertionError: expected:&lt;2&gt; but was:&lt;5&gt;<br />
+at org.junit.Assert.fail(Assert.java:74)<br />
+at org.junit.Assert.failNotEquals(Assert.java:448)<br />
+at org.junit.Assert.assertEquals(Assert.java:102)<br />
+at org.junit.Assert.assertEquals(Assert.java:323)<br />
+at org.junit.Assert.assertEquals(Assert.java:319)<br />
+at com.socialsite.dao.hibernate.CourseDaoTest.testCountAll(CourseDaoTest.java:77)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testFindAll"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testFindAll">testFindAll</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testFindAll');"><span style="display: inline;" id="testFindAlloff">+</span><span id="testFindAllon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.023</td>
+</tr>
+<tr class="b"><td></td>
+<td>expected:&lt;2&gt; but was:&lt;7&gt;</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testFindAllerror" style="display:none;"><div class="source"><pre>java.lang.AssertionError: expected:&lt;2&gt; but was:&lt;7&gt;<br />
+at org.junit.Assert.fail(Assert.java:74)<br />
+at org.junit.Assert.failNotEquals(Assert.java:448)<br />
+at org.junit.Assert.assertEquals(Assert.java:102)<br />
+at org.junit.Assert.assertEquals(Assert.java:323)<br />
+at org.junit.Assert.assertEquals(Assert.java:319)<br />
+at com.socialsite.dao.hibernate.CourseDaoTest.testFindAll(CourseDaoTest.java:92)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetLastModifiedTime</td>
+<td>0.008</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetImage</td>
+<td>0.797</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetThumb</td>
+<td>0.708</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testAddStudentInCourse"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testAddStudentInCourse">testAddStudentInCourse</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testAddStudentInCourse');"><span style="display: inline;" id="testAddStudentInCourseoff">+</span><span id="testAddStudentInCourseon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.175</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testAddStudentInCourseerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.CourseDaoTest.testAddStudentInCourse(CourseDaoTest.java:55)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testGetUserCourses"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testGetUserCourses">testGetUserCourses</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetUserCourses');"><span style="display: inline;" id="testGetUserCoursesoff">+</span><span id="testGetUserCourseson" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.166</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testGetUserCourseserror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.CourseDaoTest.testGetUserCourses(CourseDaoTest.java:103)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testGetUniversityCourses"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.CourseDaoTest.testGetUniversityCourses">testGetUniversityCourses</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetUniversityCourses');"><span style="display: inline;" id="testGetUniversityCoursesoff">+</span><span id="testGetUniversityCourseson" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.159</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testGetUniversityCourseserror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.CourseDaoTest.testGetUniversityCourses(CourseDaoTest.java:125)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>AdminDaoTest</h3>
+<a name="com.socialsite.dao.hibernateAdminDaoTest"></a><table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>test</td>
+<td>0.003</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>UserDaoTest</h3>
+<a name="com.socialsite.dao.hibernateUserDaoTest"></a><table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testCheckUserStatus</td>
+<td>0.812</td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testCountAll"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testCountAll">testCountAll</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testCountAll');"><span style="display: inline;" id="testCountAlloff">+</span><span id="testCountAllon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.395</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testCountAllerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.UserDaoTest.testCountAll(UserDaoTest.java:60)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testCreate"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testCreate">testCreate</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testCreate');"><span style="display: inline;" id="testCreateoff">+</span><span id="testCreateon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.161</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testCreateerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.hibernate.UserDaoTest.testCreate(UserDaoTest.java:73)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testFindAll"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testFindAll">testFindAll</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testFindAll');"><span style="display: inline;" id="testFindAlloff">+</span><span id="testFindAllon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.316</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testFindAllerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.UserDaoTest.testFindAll(UserDaoTest.java:90)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testFriendRelation"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testFriendRelation">testFriendRelation</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testFriendRelation');"><span style="display: inline;" id="testFriendRelationoff">+</span><span id="testFriendRelationon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.318</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testFriendRelationerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.UserDaoTest.testFriendRelation(UserDaoTest.java:101)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testGetFriends"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testGetFriends">testGetFriends</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetFriends');"><span style="display: inline;" id="testGetFriendsoff">+</span><span id="testGetFriendson" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.345</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testGetFriendserror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.UserDaoTest.testGetFriends(UserDaoTest.java:129)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testGetFriendsCount"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testGetFriendsCount">testGetFriendsCount</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetFriendsCount');"><span style="display: inline;" id="testGetFriendsCountoff">+</span><span id="testGetFriendsCounton" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.338</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testGetFriendsCounterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.UserDaoTest.testGetFriendsCount(UserDaoTest.java:149)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testGetUsersRelation"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.UserDaoTest.testGetUsersRelation">testGetUsersRelation</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetUsersRelation');"><span style="display: inline;" id="testGetUsersRelationoff">+</span><span id="testGetUsersRelationon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.339</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testGetUsersRelationerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.UserDaoTest.testGetUsersRelation(UserDaoTest.java:165)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>UniversityDaoTest</h3>
+<a name="com.socialsite.dao.hibernateUniversityDaoTest"></a><table class="bodyTable"><tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testCountAll</td>
+<td>0.022</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetLastModifiedTime</td>
+<td>0.01</td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.UniversityDaoTest.testFinlAll"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.UniversityDaoTest.testFinlAll">testFinlAll</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testFinlAll');"><span style="display: inline;" id="testFinlAlloff">+</span><span id="testFinlAllon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.015</td>
+</tr>
+<tr class="b"><td></td>
+<td>expected:&lt;1&gt; but was:&lt;3&gt;</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testFinlAllerror" style="display:none;"><div class="source"><pre>java.lang.AssertionError: expected:&lt;1&gt; but was:&lt;3&gt;<br />
+at org.junit.Assert.fail(Assert.java:74)<br />
+at org.junit.Assert.failNotEquals(Assert.java:448)<br />
+at org.junit.Assert.assertEquals(Assert.java:102)<br />
+at org.junit.Assert.assertEquals(Assert.java:323)<br />
+at org.junit.Assert.assertEquals(Assert.java:319)<br />
+at com.socialsite.dao.hibernate.UniversityDaoTest.testFinlAll(UniversityDaoTest.java:65)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetImage</td>
+<td>0.504</td>
+</tr>
+<tr class="a"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetThumb</td>
+<td>0.747</td>
+</tr>
+<tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>testGetStudents</td>
+<td>1.413</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>MessageDaoTest</h3>
+<a name="com.socialsite.dao.hibernateMessageDaoTest"></a><table class="bodyTable"><tr class="a"><td><a href="#com.socialsite.dao.hibernate.MessageDaoTest.testGetMessage"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.MessageDaoTest.testGetMessage">testGetMessage</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetMessage');"><span style="display: inline;" id="testGetMessageoff">+</span><span id="testGetMessageon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.312</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testGetMessageerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.MessageDaoTest.testGetMessage(MessageDaoTest.java:45)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#com.socialsite.dao.hibernate.MessageDaoTest.testGetMessageCount"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.MessageDaoTest.testGetMessageCount">testGetMessageCount</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetMessageCount');"><span style="display: inline;" id="testGetMessageCountoff">+</span><span id="testGetMessageCounton" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.312</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testGetMessageCounterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy18.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.MessageDaoTest.testGetMessageCount(MessageDaoTest.java:64)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>ActivationDaoTest</h3>
+<a name="com.socialsite.dao.hibernateActivationDaoTest"></a><table class="bodyTable"><tr class="a"><td><a href="#com.socialsite.dao.hibernate.ActivationDaoTest.createActivation"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.ActivationDaoTest.createActivation">createActivation</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('createActivation');"><span style="display: inline;" id="createActivationoff">+</span><span id="createActivationon" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.003</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Admin]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="createActivationerror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Admin]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy15.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.ActivationDaoTest.createActivation(ActivationDaoTest.java:44)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>AnswerDaoTest</h3>
+<a name="com.socialsite.dao.hibernateAnswerDaoTest"></a><table class="bodyTable"><tr class="b"><td><a href="#com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswers"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswers">testGetAnswers</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetAnswers');"><span style="display: inline;" id="testGetAnswersoff">+</span><span id="testGetAnswerson" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.683</td>
+</tr>
+<tr class="a"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="b"><td></td>
+<td>  <div id="testGetAnswerserror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy15.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswers(AnswerDaoTest.java:47)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswersCount"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswersCount">testGetAnswersCount</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testGetAnswersCount');"><span style="display: inline;" id="testGetAnswersCountoff">+</span><span id="testGetAnswersCounton" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.187</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Student]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testGetAnswersCounterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy15.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswersCount(AnswerDaoTest.java:83)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>NoteDaoTest</h3>
+<a name="com.socialsite.dao.hibernateNoteDaoTest"></a><table class="bodyTable"><tr class="b"><td><img src="images/icon_success_sml.gif" /></td>
+<td>test</td>
+<td>0.002</td>
+</tr>
+</table>
+</div>
+<div class="section"><h3>StaffRequestMsgDaoTest</h3>
+<a name="com.socialsite.dao.hibernateStaffRequestMsgDaoTest"></a><table class="bodyTable"><tr class="a"><td><a href="#com.socialsite.dao.hibernate.StaffRequestMsgDaoTest.testHasRequest"><img src="images/icon_error_sml.gif" /></a></td>
+<td><a href="#com.socialsite.dao.hibernate.StaffRequestMsgDaoTest.testHasRequest">testHasRequest</a>  <div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay('testHasRequest');"><span style="display: inline;" id="testHasRequestoff">+</span><span id="testHasRequeston" style="display: none;">-</span> [ Detail ]</a></div></td>
+<td>0.19</td>
+</tr>
+<tr class="b"><td></td>
+<td>could not insert: [com.socialsite.persistence.Admin]</td>
+<td></td>
+</tr>
+<tr class="a"><td></td>
+<td>  <div id="testHasRequesterror" style="display:none;"><div class="source"><pre>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Admin]<br />
+at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:71)<br />
+at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:43)<br />
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:40)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2163)<br />
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2643)<br />
+at org.hibernate.action.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:51)<br />
+at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:279)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:298)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:181)<br />
+at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:107)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:187)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:172)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.performSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:94)<br />
+at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:70)<br />
+at org.hibernate.impl.SessionImpl.fireSaveOrUpdate(SessionImpl.java:507)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:499)<br />
+at org.hibernate.impl.SessionImpl.saveOrUpdate(SessionImpl.java:495)<br />
+at com.socialsite.dao.hibernate.AbstractDaoImpl.save(AbstractDaoImpl.java:205)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+at java.lang.reflect.Method.invoke(Method.java:597)<br />
+at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:307)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:182)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)<br />
+at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:106)<br />
+at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)<br />
+at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:204)<br />
+at $Proxy15.save(Unknown Source)<br />
+at com.socialsite.dao.AbstractDaoTestHelper.saveUsers(AbstractDaoTestHelper.java:236)<br />
+at com.socialsite.dao.hibernate.StaffRequestMsgDaoTest.testHasRequest(StaffRequestMsgDaoTest.java:45)<br />
+</pre>
+</div>
+</div></td>
+<td></td>
+</tr>
+</table>
+</div>
+<br />
+</div>
+<div class="section"><h2>Failure Details</h2>
+<a name="Failure_Details"></a><p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p>
+<br />
+<table class="bodyTable"><tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswers"></a>testGetAnswers</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="b"><td></td>
+<td>  <div id="testGetAnswerserror" ><a href="./xref-test/com/socialsite/dao/hibernate/AnswerDaoTest.html#47">com.socialsite.dao.hibernate.AnswerDaoTest:47</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswersCount"></a>testGetAnswersCount</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="a"><td></td>
+<td>  <div id="testGetAnswersCounterror" ><a href="./xref-test/com/socialsite/dao/hibernate/AnswerDaoTest.html#83">com.socialsite.dao.hibernate.AnswerDaoTest:83</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.StaffRequestMsgDaoTest.testHasRequest"></a>testHasRequest</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Admin]</td>
+</tr>
+                                                                                                                        <tr class="b"><td></td>
+<td>  <div id="testHasRequesterror" ><a href="./xref-test/com/socialsite/dao/hibernate/StaffRequestMsgDaoTest.html#45">com.socialsite.dao.hibernate.StaffRequestMsgDaoTest:45</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_warning_sml.gif" /></td>
+<td><a name="com.socialsite.authentication.LoginPageTest.testLoginForm"></a>testLoginForm</td>
+</tr>
+<tr class="b"><td></td>
+<td>skipped: skipped</td>
+</tr>
+<tr class="a"><td><img src="images/icon_warning_sml.gif" /></td>
+<td><a name="com.socialsite.authentication.SignUpPageTest.signUpTest"></a>signUpTest</td>
+</tr>
+<tr class="b"><td></td>
+<td>skipped: skipped</td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testDeleteFriendRequest"></a>testDeleteFriendRequest</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="a"><td></td>
+<td>  <div id="testDeleteFriendRequesterror" ><a href="./xref-test/com/socialsite/dao/hibernate/FriendRequestMsgDaoTest.html#50">com.socialsite.dao.hibernate.FriendRequestMsgDaoTest:50</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testFriendRequestMessage"></a>testFriendRequestMessage</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testFriendRequestMessageerror" ><a href="./xref-test/com/socialsite/dao/hibernate/FriendRequestMsgDaoTest.html#76">com.socialsite.dao.hibernate.FriendRequestMsgDaoTest:76</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.FriendRequestMsgDaoTest.testHasFriendRequest"></a>testHasFriendRequest</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="a"><td></td>
+<td>  <div id="testHasFriendRequesterror" ><a href="./xref-test/com/socialsite/dao/hibernate/FriendRequestMsgDaoTest.html#99">com.socialsite.dao.hibernate.FriendRequestMsgDaoTest:99</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.QuestionDaoTest.testGetQuestions"></a>testGetQuestions</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="b"><td></td>
+<td>  <div id="testGetQuestionserror" ><a href="./xref-test/com/socialsite/dao/hibernate/QuestionDaoTest.html#45">com.socialsite.dao.hibernate.QuestionDaoTest:45</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.QuestionDaoTest.testGetQuestionsCount"></a>testGetQuestionsCount</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="a"><td></td>
+<td>  <div id="testGetQuestionsCounterror" ><a href="./xref-test/com/socialsite/dao/hibernate/QuestionDaoTest.html#69">com.socialsite.dao.hibernate.QuestionDaoTest:69</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.ProfileDaoTest.testCreate"></a>testCreate</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testCreateerror" ><a href="./xref-test/com/socialsite/dao/hibernate/ProfileDaoTest.html#54">com.socialsite.dao.hibernate.ProfileDaoTest:54</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.ProfileDaoTest.testGetLastModifiedTime"></a>testGetLastModifiedTime</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                                                            <tr class="a"><td></td>
+<td>  <div id="testGetLastModifiedTimeerror" ><a href="./xref-test/com/socialsite/dao/hibernate/ProfileDaoTest.html#83">com.socialsite.dao.hibernate.ProfileDaoTest:83</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.ProfileDaoTest.testGetUserImage"></a>testGetUserImage</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testGetUserImageerror" ><a href="./xref-test/com/socialsite/dao/hibernate/ProfileDaoTest.html#97">com.socialsite.dao.hibernate.ProfileDaoTest:97</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.ProfileDaoTest.testGetUserThumb"></a>testGetUserThumb</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                                                            <tr class="a"><td></td>
+<td>  <div id="testGetUserThumberror" ><a href="./xref-test/com/socialsite/dao/hibernate/ProfileDaoTest.html#114">com.socialsite.dao.hibernate.ProfileDaoTest:114</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.ProfileDaoTest.testPrivacyField"></a>testPrivacyField</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testPrivacyFielderror" ><a href="./xref-test/com/socialsite/dao/hibernate/ProfileDaoTest.html#131">com.socialsite.dao.hibernate.ProfileDaoTest:131</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.CourseDaoTest.testCountAll"></a>testCountAll</td>
+</tr>
+<tr class="b"><td></td>
+<td>java.lang.AssertionError: expected:&lt;2&gt; but was:&lt;5&gt;</td>
+</tr>
+                        <tr class="a"><td></td>
+<td>  <div id="testCountAllerror" ><a href="./xref-test/com/socialsite/dao/hibernate/CourseDaoTest.html#77">com.socialsite.dao.hibernate.CourseDaoTest:77</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.CourseDaoTest.testFindAll"></a>testFindAll</td>
+</tr>
+<tr class="a"><td></td>
+<td>java.lang.AssertionError: expected:&lt;2&gt; but was:&lt;7&gt;</td>
+</tr>
+                        <tr class="b"><td></td>
+<td>  <div id="testFindAllerror" ><a href="./xref-test/com/socialsite/dao/hibernate/CourseDaoTest.html#92">com.socialsite.dao.hibernate.CourseDaoTest:92</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.CourseDaoTest.testAddStudentInCourse"></a>testAddStudentInCourse</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="a"><td></td>
+<td>  <div id="testAddStudentInCourseerror" ><a href="./xref-test/com/socialsite/dao/hibernate/CourseDaoTest.html#55">com.socialsite.dao.hibernate.CourseDaoTest:55</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.CourseDaoTest.testGetUserCourses"></a>testGetUserCourses</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="b"><td></td>
+<td>  <div id="testGetUserCourseserror" ><a href="./xref-test/com/socialsite/dao/hibernate/CourseDaoTest.html#103">com.socialsite.dao.hibernate.CourseDaoTest:103</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.CourseDaoTest.testGetUniversityCourses"></a>testGetUniversityCourses</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="a"><td></td>
+<td>  <div id="testGetUniversityCourseserror" ><a href="./xref-test/com/socialsite/dao/hibernate/CourseDaoTest.html#125">com.socialsite.dao.hibernate.CourseDaoTest:125</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.UserDaoTest.testCountAll"></a>testCountAll</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testCountAllerror" ><a href="./xref-test/com/socialsite/dao/hibernate/UserDaoTest.html#60">com.socialsite.dao.hibernate.UserDaoTest:60</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.UserDaoTest.testCreate"></a>testCreate</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="a"><td></td>
+<td>  <div id="testCreateerror" ><a href="./xref-test/com/socialsite/dao/hibernate/UserDaoTest.html#73">com.socialsite.dao.hibernate.UserDaoTest:73</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.UserDaoTest.testFindAll"></a>testFindAll</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testFindAllerror" ><a href="./xref-test/com/socialsite/dao/hibernate/UserDaoTest.html#90">com.socialsite.dao.hibernate.UserDaoTest:90</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.UserDaoTest.testFriendRelation"></a>testFriendRelation</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="a"><td></td>
+<td>  <div id="testFriendRelationerror" ><a href="./xref-test/com/socialsite/dao/hibernate/UserDaoTest.html#101">com.socialsite.dao.hibernate.UserDaoTest:101</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.UserDaoTest.testGetFriends"></a>testGetFriends</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testGetFriendserror" ><a href="./xref-test/com/socialsite/dao/hibernate/UserDaoTest.html#129">com.socialsite.dao.hibernate.UserDaoTest:129</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.UserDaoTest.testGetFriendsCount"></a>testGetFriendsCount</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="a"><td></td>
+<td>  <div id="testGetFriendsCounterror" ><a href="./xref-test/com/socialsite/dao/hibernate/UserDaoTest.html#149">com.socialsite.dao.hibernate.UserDaoTest:149</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.UserDaoTest.testGetUsersRelation"></a>testGetUsersRelation</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testGetUsersRelationerror" ><a href="./xref-test/com/socialsite/dao/hibernate/UserDaoTest.html#165">com.socialsite.dao.hibernate.UserDaoTest:165</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.UniversityDaoTest.testFinlAll"></a>testFinlAll</td>
+</tr>
+<tr class="b"><td></td>
+<td>java.lang.AssertionError: expected:&lt;1&gt; but was:&lt;3&gt;</td>
+</tr>
+                        <tr class="a"><td></td>
+<td>  <div id="testFinlAllerror" ><a href="./xref-test/com/socialsite/dao/hibernate/UniversityDaoTest.html#65">com.socialsite.dao.hibernate.UniversityDaoTest:65</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.MessageDaoTest.testGetMessage"></a>testGetMessage</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="b"><td></td>
+<td>  <div id="testGetMessageerror" ><a href="./xref-test/com/socialsite/dao/hibernate/MessageDaoTest.html#45">com.socialsite.dao.hibernate.MessageDaoTest:45</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.MessageDaoTest.testGetMessageCount"></a>testGetMessageCount</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                        <tr class="a"><td></td>
+<td>  <div id="testGetMessageCounterror" ><a href="./xref-test/com/socialsite/dao/hibernate/MessageDaoTest.html#64">com.socialsite.dao.hibernate.MessageDaoTest:64</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.ActivationDaoTest.createActivation"></a>createActivation</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Admin]</td>
+</tr>
+                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="createActivationerror" ><a href="./xref-test/com/socialsite/dao/hibernate/ActivationDaoTest.html#44">com.socialsite.dao.hibernate.ActivationDaoTest:44</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswers"></a>testGetAnswers</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="a"><td></td>
+<td>  <div id="testGetAnswerserror" ><a href="./xref-test/com/socialsite/dao/hibernate/AnswerDaoTest.html#47">com.socialsite.dao.hibernate.AnswerDaoTest:47</a></div></td>
+</tr>
+<tr class="b"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.AnswerDaoTest.testGetAnswersCount"></a>testGetAnswersCount</td>
+</tr>
+<tr class="a"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Student]</td>
+</tr>
+                                                                                                                            <tr class="b"><td></td>
+<td>  <div id="testGetAnswersCounterror" ><a href="./xref-test/com/socialsite/dao/hibernate/AnswerDaoTest.html#83">com.socialsite.dao.hibernate.AnswerDaoTest:83</a></div></td>
+</tr>
+<tr class="a"><td><img src="images/icon_error_sml.gif" /></td>
+<td><a name="com.socialsite.dao.hibernate.StaffRequestMsgDaoTest.testHasRequest"></a>testHasRequest</td>
+</tr>
+<tr class="b"><td></td>
+<td>org.hibernate.exception.ConstraintViolationException: could not insert: [com.socialsite.persistence.Admin]</td>
+</tr>
+                                                                                                                            <tr class="a"><td></td>
+<td>  <div id="testHasRequesterror" ><a href="./xref-test/com/socialsite/dao/hibernate/StaffRequestMsgDaoTest.html#45">com.socialsite.dao.hibernate.StaffRequestMsgDaoTest:45</a></div></td>
+</tr>
+</table>
+<br />
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2009-2010
+    
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

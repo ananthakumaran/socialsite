@@ -1,0 +1,26 @@
+-classpath
+'/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/target/classes:/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/target/test-classes:/home/ananth/.m2/repository/log4j/log4j/1.2.14/log4j-1.2.14.jar:/home/ananth/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar:/home/ananth/.m2/repository/hibernate-entitymanager/hibernate-entitymanager/3.3.2.GA/hibernate-entitymanager-3.3.2.GA.jar:/home/ananth/.m2/repository/org/apache/wicket/wicket-ioc/1.4.6/wicket-ioc-1.4.6.jar:/home/ananth/.m2/repository/jboss/jboss-common-logging-spi/2.0.4.GA/jboss-common-logging-spi-2.0.4.GA.jar:/home/ananth/.m2/repository/org/apache/wicket/wicket-auth-roles/1.4.6/wicket-auth-roles-1.4.6.jar:/home/ananth/.m2/repository/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar:/home/ananth/.m2/repository/junit/junit/4.4/junit-4.4.jar:/home/ananth/.m2/repository/javassist/javassist/3.6.0.GA/javassist-3.6.0.GA.jar:/home/ananth/.m2/repository/org/springframework/spring-test/2.5.6/spring-test-2.5.6.jar:/home/ananth/.m2/repository/mysql/mysql-connector-java/5.0.5/mysql-connector-java-5.0.5.jar:/home/ananth/.m2/repository/org/springframework/spring/2.5.6/spring-2.5.6.jar:/home/ananth/.m2/repository/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.jar:/home/ananth/.m2/repository/commons-logging/commons-logging/1.1.0.jboss/commons-logging-1.1.0.jboss.jar:/home/ananth/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/home/ananth/.m2/repository/batik/batik-util/1.6-1/batik-util-1.6-1.jar:/home/ananth/.m2/repository/xml-apis/xmlParserAPIs/2.0.2/xmlParserAPIs-2.0.2.jar:/home/ananth/.m2/repository/commons-pool/commons-pool/1.3/commons-pool-1.3.jar:/home/ananth/.m2/repository/apache-slide/webdavlib/2.0/webdavlib-2.0.jar:/home/ananth/.m2/repository/cglib/cglib/2.1_3/cglib-2.1_3.jar:/home/ananth/.m2/repository/org/apache/wicket/wicket-spring/1.4.6/wicket-spring-1.4.6.jar:/home/ananth/.m2/repository/org/mortbay/jetty/jetty-util/6.1.6/jetty-util-6.1.6.jar:/home/ananth/.m2/repository/org/slf4j/slf4j-api/1.5.8/slf4j-api-1.5.8.jar:/home/ananth/.m2/repository/org/mortbay/jetty/jetty-management/6.1.6/jetty-management-6.1.6.jar:/home/ananth/.m2/repository/joda-time/joda-time/1.6/joda-time-1.6.jar:/home/ananth/.m2/repository/asm/asm-attrs/1.5.3/asm-attrs-1.5.3.jar:/home/ananth/.m2/repository/apache-xerces/xml-apis/2.7.1/xml-apis-2.7.1.jar:/home/ananth/.m2/repository/org/apache/wicket/wicket/1.4.6/wicket-1.4.6.jar:/home/ananth/.m2/repository/org/slf4j/slf4j-log4j12/1.4.2/slf4j-log4j12-1.4.2.jar:/home/ananth/.m2/repository/org/apache/servicemix/bundles/org.apache.servicemix.bundles.commons-dbcp/1.2.2_3/org.apache.servicemix.bundles.commons-dbcp-1.2.2_3.jar:/home/ananth/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/ananth/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar:/home/ananth/.m2/repository/org/jasypt/jasypt/1.5/jasypt-1.5.jar:/home/ananth/.m2/repository/jboss/jboss-common-core/2.2.0.GA/jboss-common-core-2.2.0.GA.jar:/home/ananth/.m2/repository/commons-collections/commons-collections/3.2/commons-collections-3.2.jar:/home/ananth/.m2/repository/apache-httpclient/commons-httpclient/2.0.2/commons-httpclient-2.0.2.jar:/home/ananth/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/home/ananth/.m2/repository/org/hibernate/hibernate/3.2.6.ga/hibernate-3.2.6.ga.jar:/home/ananth/.m2/repository/org/apache/wicket/wicket-extensions/1.4.6/wicket-extensions-1.4.6.jar:/home/ananth/.m2/repository/batik/batik-css/1.6-1/batik-css-1.6-1.jar:/home/ananth/.m2/repository/org/mortbay/jetty/servlet-api-2.5/6.1.6/servlet-api-2.5-6.1.6.jar:/home/ananth/.m2/repository/batik/batik-ext/1.6-1/batik-ext-1.6-1.jar:/home/ananth/.m2/repository/batik/batik-gui-util/1.6-1/batik-gui-util-1.6-1.jar:/home/ananth/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.7/nekohtml-1.9.7.jar:/home/ananth/.m2/repository/net/sf/ehcache/ehcache/1.2.3/ehcache-1.2.3.jar:/home/ananth/.m2/repository/org/owasp/antisamy/1.3-SNAPSHOT/antisamy-1.3-SNAPSHOT.jar:/home/ananth/.m2/repository/org/mortbay/jetty/jetty/6.1.6/jetty-6.1.6.jar:/home/ananth/.m2/repository/oswego-concurrent/concurrent/1.3.4/concurrent-1.3.4.jar:/home/ananth/.m2/repository/asm/asm/1.5.3/asm-1.5.3.jar:/home/ananth/.m2/repository/org/apache/wicket/wicket-datetime/1.4.6/wicket-datetime-1.4.6.jar:/home/ananth/.m2/repository/javax/transaction/jta/1.1/jta-1.1.jar:/home/ananth/.m2/repository/commons-codec/commons-codec/1.1/commons-codec-1.1.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2009-2010. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/media/Studies/Eclipse/Kenai/SocialSite/trunk/socialsite/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'SocialSite 1.0-SNAPSHOT Test API'
+-link
+'../apidocs'
+-link
+'http://java.sun.com/j2se/1.5.0/docs/api'
+-use
+-version
+-windowtitle
+'SocialSite 1.0-SNAPSHOT Test API'
