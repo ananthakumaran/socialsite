@@ -160,7 +160,6 @@ public class SignUpPage extends WebPage
 							user = new Staff(userName, password);
 							break;
 						case ADMIN :
-							// TODO send a comfirmation mail
 							if (universityName != null && !universityName.equals(""))
 							{
 								user = new Admin(userName, password);
@@ -179,7 +178,7 @@ public class SignUpPage extends WebPage
 
 							break;
 						default :
-							error("Unknown error occured Possibly a bug");
+							error("Unknown error occured ");
 							return;
 					}
 
@@ -187,7 +186,7 @@ public class SignUpPage extends WebPage
 
 					final Profile p = new Profile();
 					p.setUser(user);
-
+					user.setProfile(p);
 					p.setEmail(email);
 					// set the default image for the profile
 					new DefaultImage().forUser(p);

@@ -83,7 +83,12 @@ public class UserInfoPanel extends Panel
 		final Profile profile = user.getProfile();
 
 		add(new Label("username", user.getUserName()));
-		add(new Label("city", profile.getCurrentCity().getValue()));
+		String city = "";
+		if (profile.getCurrentCity() != null)
+		{
+			city = profile.getCurrentCity().getValue();
+		}
+		add(new Label("city", city));
 		add(new Label("status", profile.getRelationshipStatus()));
 		add(new Label("aboutme", profile.getAboutMe()));
 		add(new AddAsFriendPanel("addasfriend"));
