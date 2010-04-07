@@ -26,7 +26,7 @@
 		<property name="time" type="timestamp" />
 
 		<!-- relations -->
-		<set name="users" table="message_user" cascade="delete">
+		<set name="users" table="message_user" >
 			<key column="message_id" foreign-key="message_user_message_id_Message_id"
 				not-null="true" />
 			<many-to-many class="User" column="user_id"
