@@ -142,7 +142,7 @@ public class HeaderPanel extends BasePanel
 
 		// search options
 		final DropDownChoice<SearchOption> searchOptions = new DropDownChoice<SearchOption>(
-				"options", Arrays.asList(SearchOption.USER, SearchOption.UNIVERSITY));
+				"options", Arrays.asList(SearchOption.values()));
 		searchOptions.setDefaultModel(new Model<SearchOption>(SearchOption.USER));
 		searchForm.add(searchOptions);
 

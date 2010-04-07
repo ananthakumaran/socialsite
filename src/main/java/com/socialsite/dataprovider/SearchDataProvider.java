@@ -24,6 +24,7 @@ import org.apache.wicket.injection.web.InjectorHolder;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
+import com.socialsite.dao.CourseDao;
 import com.socialsite.dao.UniversityDao;
 import com.socialsite.dao.UserDao;
 import com.socialsite.entitymodel.EntityModel;
@@ -54,6 +55,9 @@ public class SearchDataProvider extends SortableDataProvider
 	/** Dao to access the university details */
 	@SpringBean(name = "universityDao")
 	private UniversityDao universityDao;
+	@SpringBean(name = "courseDao")
+	private CourseDao courseDao;
+
 	/** contains the search options of the user */
 	private final SearchOption searchOption;
 
@@ -73,6 +77,9 @@ public class SearchDataProvider extends SortableDataProvider
 			case UNIVERSITY :
 				setSort("name", true);
 				break;
+			case COURSE :
+				setSort("name", true);
+				break;
 		}
 	}
 
@@ -83,9 +90,10 @@ public class SearchDataProvider extends SortableDataProvider
 		{
 			case USER :
 				return userDao.findAll(filter.toString(), first, count, getSort()).iterator();
-
 			case UNIVERSITY :
 				return universityDao.findAll(filter.toString(), first, count, getSort()).iterator();
+			case COURSE :
+				return courseDao.findAll(filter.toString(), first, count, getSort()).iterator();
 		}
 		return null;
 	}
@@ -102,6 +110,9 @@ public class SearchDataProvider extends SortableDataProvider
 			case UNIVERSITY :
 				model = new EntityModel(absDomain, universityDao);
 				break;
+			case COURSE :
+				model = new EntityModel(absDomain, courseDao);
+				break;
 		}
 
 		return model;
@@ -113,9 +124,10 @@ public class SearchDataProvider extends SortableDataProvider
 		{
 			case USER :
 				return userDao.countAll(filter.toString());
-
 			case UNIVERSITY :
 				return universityDao.countAll(filter.toString());
+			case COURSE :
+				return courseDao.countAll(filter.toString());
 		}
 		return 0;
 	}

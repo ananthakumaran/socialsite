@@ -74,6 +74,8 @@ public class SearchPage extends BasePage
 					case UNIVERSITY :
 						item.add(new SearchUniversityInfo("details", item.getModel()));
 						break;
+					case COURSE :
+						item.add(new SearchCourseInfoPanel("details", item.getModel()));
 				}
 			}
 		};

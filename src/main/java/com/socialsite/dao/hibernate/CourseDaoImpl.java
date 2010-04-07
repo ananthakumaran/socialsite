@@ -24,7 +24,6 @@ import org.hibernate.Query;
 
 import com.socialsite.dao.CourseDao;
 import com.socialsite.persistence.Course;
-import com.socialsite.persistence.University;
 import com.socialsite.persistence.User;
 
 /**
@@ -60,7 +59,7 @@ public class CourseDaoImpl extends AbstractImageDaoImpl<Course> implements Cours
 	 *      org.apache.wicket.extensions.markup.html.repeater.util.SortParam)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<University> findAll(final String filter, final int first, final int count,
+	public List<Course> findAll(final String filter, final int first, final int count,
 			final SortParam sortParam)
 	{
 		return find(filter, first, count, sortParam, Course.class, "name");

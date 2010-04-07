@@ -60,7 +60,7 @@ public interface CourseDao extends AbstractImageDao<Course>
 	 * @return List containing the {@link University} matched the search
 	 *         criteria
 	 */
-	public List<University> findAll(String filter, int first, int count, SortParam sortParam);
+	public List<Course> findAll(String filter, int first, int count, SortParam sortParam);
 
 
 	/**
