@@ -76,6 +76,8 @@ public class CourseInfoPanel extends BasePanel
 		staffLink.add(new Label("name", course.getStaff().getUserName()));
 
 		add(new AddNotePanel("addnote", model));
+		add(new Label("students", course.getStudents().size() + ""));
+		add(new Label("questions", course.getQuestions().size() + ""));
 	}
 
 }
