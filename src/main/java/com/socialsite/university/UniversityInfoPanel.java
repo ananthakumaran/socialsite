@@ -17,6 +17,7 @@
 
 package com.socialsite.university;
 
+import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -78,6 +79,8 @@ public class UniversityInfoPanel extends Panel
 		// admin of the university
 		add(new UserLink<User>("admin", new Model<User>(university.getAdmin())));
 		add(new JoinUniversityPanel("join", new Model<University>(university)));
+		add(new Label("courses", university.getCourses().size() + ""));
+		add(new Label("staffs", university.getStaffs().size() + ""));
 
 	}
 }
