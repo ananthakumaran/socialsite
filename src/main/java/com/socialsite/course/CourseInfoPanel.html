@@ -13,10 +13,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <html xmlns:wicket>
     <wicket:panel>
-        <div wicket:id="image">
+    	<div class="line">
+            <div class="unit size1of5">
+                <div wicket:id="image">
+                </div>
+            </div>
+            <div class="unit size4of5 lastUnit">
+                <ul>
+                    <li>
+                        <a wicket:id="stafflink" href="#"><span wicket:id="name"></span></a>
+                    </li>
+					<li>
+                        <span wicket:id="join" ></span>
+                    </li>
+					<li>
+						<div wicket:id="addnote"></div>
+					</li>
+                </ul>
+            </div>
         </div>
-        <a wicket:id="stafflink"><span wicket:id="name">[staff name]</span></a>
-        <span wicket:id="join"></span>
-		<span wicket:id="addnote"></span>
     </wicket:panel>
 </html>

@@ -206,7 +206,7 @@ public class ImagePanel extends BasePanel
 					// allow
 					// staffs to change the course image
 					// it. don't show it for thumb images
-					return hasRole(SocialSiteRoles.OWNER);
+					return hasRole(SocialSiteRoles.OWNER) || hasRole(SocialSiteRoles.STAFF);
 				}
 				return false;
 
