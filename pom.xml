@@ -6,7 +6,7 @@
 	<name>SocialSite</name>
 	<description>A Social Networking site for the Students. The projects is
 		in the early stage of development</description>
-	<url>http://github.com/ananthakumaran/socialsite</url>
+	<url>http://ananthakumaran.github.com/socialsite</url>
 	<licenses>
 		<license>
 			<name>GNU GENERAL PUBLIC LICENSE</name>
@@ -88,13 +88,23 @@
 	</issueManagement>
 
 	<scm>
-		<connection>scm:git:ssh://github.com:443/ananthakumaran/socialsite.git
-		</connection>
-		<developerConnection>scm:git:ssh://github.com:443/ananthakumaran/socialsite.git
-		</developerConnection>
-		<url>scm:git:ssh://github.com:443/ananthakumaran/socialsite.git
-		</url>
-	</scm>
+    <connection>
+      scm:git:http://github.com/ananthakumaran/socialsite.git
+    </connection>
+    <developerConnection>
+      scm:git:http://github.com/ananthakumaran/socialsite.git
+    </developerConnection>
+    <url>
+      http://github.com/ananthakumaran/socialsite
+    </url>
+  </scm>
+	
+	<distributionManagement>
+    <site>
+      <id>maven-demo</id>
+      <url>file:///${basedir}/../temp</url>
+    </site>
+	</distributionManagement>
 
 	<!-- POM Relationships -->
 	<groupId>com.socialsite</groupId>
@@ -394,6 +404,7 @@
 				</configuration>
 			</plugin>
 			<!-- source code change tracker -->
+			<!--
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>changelog-maven-plugin</artifactId>
@@ -401,7 +412,7 @@
 					<type>range</type>
 					<range>30</range>
 				</configuration>
-			</plugin>
+			</plugin> -->
 			<!-- TODO list -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
