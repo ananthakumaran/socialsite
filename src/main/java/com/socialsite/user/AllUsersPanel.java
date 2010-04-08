@@ -15,26 +15,24 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.socialsite.course;
+package com.socialsite.user;
 
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.navigation.paging.PagingNavigator;
 import org.apache.wicket.markup.repeater.Item;
 import org.apache.wicket.markup.repeater.data.DataView;
 import org.apache.wicket.markup.repeater.data.IDataProvider;
 
+import com.socialsite.BasePanel;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
-import com.socialsite.persistence.Course;
-import com.socialsite.util.ShowAllLink;
+import com.socialsite.persistence.User;
 
 /**
- * 
- * shows the list of courses in the university
- * 
  * @author Ananth
  */
-public class CoursesPanel extends Panel
+public class AllUsersPanel extends BasePanel
 {
 
 	/**
@@ -42,39 +40,37 @@ public class CoursesPanel extends Panel
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * 
-	 * @param id
-	 * @param modelId
-	 * @param dataProvider
-	 */
-	public CoursesPanel(final String id, final IDataProvider<Course> dataProvider)
+	public AllUsersPanel(String id, IDataProvider<User> dataProvider)
 	{
 		super(id);
-		final DataView<Course> courseView = new DataView<Course>("courses", dataProvider, 9)
+		final DataView<User> userList = new DataView<User>("friends", dataProvider, 12)
 		{
-
 			/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void populateItem(final Item<Course> item)
+			protected void populateItem(final Item<User> item)
 			{
-				final Course course = item.getModelObject();
-				CourseLink courseImageLink;
-				item.add(courseImageLink = new CourseLink("imagelink", item.getModel()));
-				courseImageLink.add(new ImagePanel("coursethumb", course.getId(), ImageType.COURSE,
-						course.getLastModified(), true));
+				final User user = item.getModelObject();
+				UserLink<User> userImageLink;
+				item.add(userImageLink = new UserLink<User>("imagelink", item.getModel()));
+				userImageLink.add(new ImagePanel("user", user.getId(), ImageType.USER, user
+						.getLastModified(), false, false));
+				Link<User> name;
+				item.add(name = new UserLink<User>("home", item.getModel()));
+				name.add(new Label("username", item.getModelObject().getUserName()));
 
-				// course link
-				CourseLink courseLink;
-				item.add(courseLink = new CourseLink("name", item.getModel()));
-				courseLink.add(new Label("coursename", course.getName()));
+				item.add(new Label("city", user.getProfile().getCurrentCity().getValue()));
+				item.add(new Label("sex", user.getProfile().getSex()));
+
 			}
+
 		};
-		add(courseView);
-		add(new ShowAllLink("showall", courseView.getDataProvider().size(), UserCoursesPage.class));
+
+		add(new PagingNavigator("paging", userList));
+		add(userList);
 	}
+
 }

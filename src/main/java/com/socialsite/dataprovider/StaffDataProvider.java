@@ -17,6 +17,7 @@
 
 package com.socialsite.dataprovider;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
@@ -25,16 +26,17 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
 import com.socialsite.dao.StaffDao;
+import com.socialsite.dao.UserDao;
 import com.socialsite.entitymodel.EntityModel;
-import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.University;
+import com.socialsite.persistence.User;
 
 /**
  * 
  * @author Ananth
  * 
  */
-public class StaffDataProvider extends SortableDataProvider<Staff>
+public class StaffDataProvider extends SortableDataProvider<User>
 {
 
 	/**
@@ -45,6 +47,10 @@ public class StaffDataProvider extends SortableDataProvider<Staff>
 	/** spring dao to handle user object */
 	@SpringBean(name = "staffDao")
 	private StaffDao staffDao;
+
+	@SpringBean(name = "userDao")
+	private UserDao<User> userDao;
+
 	/** university */
 	private final University university;
 
@@ -59,14 +65,14 @@ public class StaffDataProvider extends SortableDataProvider<Staff>
 		InjectorHolder.getInjector().inject(this);
 	}
 
-	public Iterator<? extends Staff> iterator(final int first, final int count)
+	public Iterator<User> iterator(final int first, final int count)
 	{
-		return staffDao.getStaffs(university.getId(), first, count).iterator();
+		return new ArrayList<User>(staffDao.getStaffs(university.getId(), first, count)).iterator();
 	}
 
-	public IModel<Staff> model(final Staff staff)
+	public IModel<User> model(final User staff)
 	{
-		return new EntityModel<Staff>(staff, staffDao);
+		return new EntityModel<User>(staff, userDao);
 	}
 
 	public int size()

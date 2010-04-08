@@ -65,7 +65,7 @@ public class UsersPanel extends BasePanel
 			}
 
 		};
-		add(new ShowAllLink<User>("showall", userList.getDataProvider().size(), showAllPage));
+		add(new ShowAllLink("showall", userList.getDataProvider()));
 		add(userList);
 	}
 

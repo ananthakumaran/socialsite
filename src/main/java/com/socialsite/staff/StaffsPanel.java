@@ -24,11 +24,10 @@ import org.apache.wicket.markup.repeater.data.DataView;
 
 import com.socialsite.BasePanel;
 import com.socialsite.dataprovider.StaffDataProvider;
-import com.socialsite.friend.FriendsPage;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageType;
-import com.socialsite.persistence.Staff;
 import com.socialsite.persistence.University;
+import com.socialsite.persistence.User;
 import com.socialsite.user.UserLink;
 import com.socialsite.util.ShowAllLink;
 
@@ -49,7 +48,7 @@ public class StaffsPanel extends BasePanel
 		// friends data provider
 		final StaffDataProvider staffDataProvider = new StaffDataProvider(university);
 
-		final DataView<Staff> friendList = new DataView<Staff>("staffs", staffDataProvider, 9)
+		final DataView<User> staffList = new DataView<User>("staffs", staffDataProvider, 9)
 		{
 			/**
 			 * 
@@ -57,22 +56,21 @@ public class StaffsPanel extends BasePanel
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void populateItem(final Item<Staff> item)
+			protected void populateItem(final Item<User> item)
 			{
-				final Staff staff = item.getModelObject();
-				UserLink<Staff> userImageLink;
-				item.add(userImageLink = new UserLink<Staff>("imagelink", item.getModel()));
+				final User staff = item.getModelObject();
+				UserLink<User> userImageLink;
+				item.add(userImageLink = new UserLink<User>("imagelink", item.getModel()));
 				userImageLink.add(new ImagePanel("userthumb", staff.getId(), ImageType.USER, staff
 						.getLastModified(), true));
-				Link<Staff> name;
-				item.add(name = new UserLink<Staff>("home", item.getModel()));
+				Link<User> name;
+				item.add(name = new UserLink<User>("home", item.getModel()));
 				name.add(new Label("username", item.getModelObject().getUserName()));
 			}
 
 		};
-		add(new ShowAllLink<Staff>("showall", friendList.getDataProvider().size(),
-				FriendsPage.class));
-		add(friendList);
+		add(new ShowAllLink("showall", staffList.getDataProvider()));
+		add(staffList);
 
 	}
 }

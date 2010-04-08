@@ -11,16 +11,24 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<html xmlns:wicket>
-    <wicket:panel>
-        <div class="line">
-            <div wicket:id="staffs">
-                <div class="unit size1of3 ">
-                    <a wicket:id="imagelink" href="#"><span wicket:id="userthumb"></span></a>
-                    <a class="img" wicket:id="home"><span wicket:id="username">[name]</span></a>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.3-strict.dtd" xml:lang="en" lang="en">
+    <body>
+        <div class="header">
+            <div wicket:id="header">
+                [header panel]
+            </div>
+        </div>
+        <div class="page">
+        	<div class="clear"></div>
+            <div class="body">
+                <div class="main full">
+                    <div wicket:id="users">
+                        [ Message Sender ]
+                    </div>
                 </div>
             </div>
-            <a wicket:id="showall" >View Staffs</a>
         </div>
-    </wicket:panel>
+    </body>
 </html>
+
