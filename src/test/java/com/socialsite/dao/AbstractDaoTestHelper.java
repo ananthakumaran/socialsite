@@ -250,6 +250,7 @@ abstract public class AbstractDaoTestHelper extends AbstractTransactionalJUnit4S
 		for (final Course course : courses)
 		{
 			image.forCourse(course);
+			course.setDescription("sample Description");
 		}
 
 	}

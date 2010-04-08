@@ -68,6 +68,9 @@ public class CourseInfoPanel extends BasePanel
 
 		});
 
+		add(new Label("coursename", course.getName()));
+		add(new Label("description", course.getDescription()));
+
 		// join this course
 		add(new JoinCoursePanel("join", model));
 

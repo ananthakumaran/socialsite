@@ -87,6 +87,10 @@ public class AllCoursesPanel extends BasePanel
 						course)));
 				courseImageLink.add(new ImagePanel("image", course.getId(), ImageType.COURSE,
 						course.getLastModified(), false, false));
+
+				item.add(new Label("students", course.getStudents().size() + ""));
+				item.add(new Label("questions", course.getQuestions().size() + ""));
+
 			}
 
 		};
