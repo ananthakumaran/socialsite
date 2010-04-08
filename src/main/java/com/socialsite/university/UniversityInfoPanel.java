@@ -18,10 +18,10 @@
 package com.socialsite.university;
 
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 
+import com.socialsite.BasePanel;
 import com.socialsite.dao.UniversityDao;
 import com.socialsite.image.ImagePanel;
 import com.socialsite.image.ImageService;
@@ -33,7 +33,7 @@ import com.socialsite.user.UserLink;
 /**
  * @author Ananth
  */
-public class UniversityInfoPanel extends Panel
+public class UniversityInfoPanel extends BasePanel
 {
 	/**
 	 * 
