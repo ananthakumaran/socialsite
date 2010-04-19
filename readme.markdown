@@ -12,5 +12,5 @@ Installation
    will create all the necessary table in the database and load some sample data in the database.
 *  Now run the following command ` mvn jetty:run ` and point your browser to http://localhost:8080/socialsite/
 
-usernames : user1 , user2 .. , admin1 , admin2 .. , staff1 , staff2 ..
+usernames : user1 , user2 .. , admin1 , admin2 .. , staff1 , staff2 ..    
 password  : password
