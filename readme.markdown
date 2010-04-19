@@ -1,6 +1,6 @@
 Requirements
 ------------
-*	[Java] (http://java.com/en/download/index.jsp)
+*	[Java](http://java.com/en/download/index.jsp)
 *	[Mysql](http://www.mysql.com/downloads/mysql/)
 *	[Maven](http://maven.apache.org/download.html)
 
